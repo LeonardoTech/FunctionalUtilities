@@ -22,7 +22,7 @@
     <ProjectGuid>{1DAFEFCE-441B-4554-93C6-5535507DE97E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SelectModelLine</RootNamespace>
-    <ProjectName>SelectModel</ProjectName>
+    <ProjectName>SelectPrimitives</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -158,6 +158,9 @@
     <ClCompile Include="SelectModelFace.cpp" />
     <ClCompile Include="SelectModelLine.cpp" />
     <ClCompile Include="SelectModelPoint.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\UnitTest1\UnitTest1.vcxproj.filters" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
