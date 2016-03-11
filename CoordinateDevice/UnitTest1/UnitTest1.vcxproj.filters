@@ -15,27 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CoordinateUpdater.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ICoordinateAxis.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="CoordinateAxis.h">
+    <ClInclude Include="ModelController.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CoordinateDevice.cpp">
+    <ClCompile Include="unittest1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CoordinateAxis.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="CoordinateUpdate.cpp">
+    <ClCompile Include="ModelController.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

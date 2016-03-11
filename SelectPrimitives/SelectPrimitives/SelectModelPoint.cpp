@@ -53,6 +53,8 @@ void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Interse
 	if (!vertices || !selVertices) return;
 
 	osg::Vec3 point = result.getWorldIntersectPoint();
+	cout << "pint in screen: " << point[0] << " " << point[1] << "" << point[2] << endl;
+
 	osg::Matrix matrix = osg::computeLocalToWorld(result.nodePath);
 
 	osg::Matrix vpMatrix;
