@@ -29,9 +29,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CoordinateDevice.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="CoordinateAxis.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

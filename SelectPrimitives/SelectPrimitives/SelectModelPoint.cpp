@@ -1,5 +1,6 @@
 #include "SelectModelPoint.h"
 
+///这里是画出点，但是没有指出点的位置
 osg::Geode* SelectModelPoint::createSelector()
 {
 	osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array(1);
@@ -24,6 +25,7 @@ osg::Geode* SelectModelPoint::createSelector()
 }
 
 
+///根据屏幕上的平面二维坐标来画点
 bool SelectModelPoint::drawbyCoordinate(float x, float y, osg::Camera* camera)
 {
 	if (camera)
@@ -42,7 +44,7 @@ bool SelectModelPoint::drawbyCoordinate(float x, float y, osg::Camera* camera)
 	return true;
 }
 
-
+///通过相交算法运算后返回的结果，来确定点的位置，并通过矩阵把二维的坐标转换为三维的，为要画的图形确定顶点坐标
 void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result)
 {
 	osg::Geometry* geom = dynamic_cast<osg::Geometry*>(result.drawable.get());
@@ -63,7 +65,8 @@ void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Interse
 	}
 
 	const std::vector<unsigned int>& selIndices = result.indexList;
-
+	
+	//根据相交定理返回来应该是三个点的
 	if (selIndices.size() >= 3)
 	{
 		auto inverseMat = osg::Matrix::inverse(vpMatrix)*osg::Matrix::inverse(matrix);
@@ -74,9 +77,8 @@ void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Interse
 	_selector->dirtyBound();
 }
 
+///获取所画图形顶点的三维坐标
 osg::Vec3 SelectModelPoint::getPosition()
 {
 	return _position;
 }
-
-
