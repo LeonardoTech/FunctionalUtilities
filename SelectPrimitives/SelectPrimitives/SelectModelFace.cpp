@@ -26,7 +26,6 @@ osg::Geode* SelectModelFace::createSelector()
 	return geode.release();
 }
 
-
 bool SelectModelFace::drawbyCoordinate(float x, float y, osg::Camera* camera)
 {
 	if (camera)

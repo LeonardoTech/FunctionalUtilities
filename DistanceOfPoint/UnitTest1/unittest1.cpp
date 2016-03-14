@@ -36,6 +36,5 @@ namespace UnitTest1
 			viewer.getCamera()->setCullingMode(mode & (~osg::CullSettings::SMALL_FEATURE_CULLING));
 			viewer.run();
 		}
-
 	};
 }
