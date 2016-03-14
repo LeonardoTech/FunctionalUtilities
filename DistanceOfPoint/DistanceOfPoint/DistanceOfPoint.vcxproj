@@ -141,7 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SelectPrimitives\SelectPrimitives\SelectPrimitives.vcxproj">
-      <Project>{19ea880c-e9b4-4e96-8d13-a443c6ad32d5}</Project>
+      <Project>{1dafefce-441b-4554-93c6-5535507de97e}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
