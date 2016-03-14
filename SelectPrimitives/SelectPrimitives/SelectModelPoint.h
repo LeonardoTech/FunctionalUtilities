@@ -19,7 +19,9 @@ public:
 	osg::Geode* createSelector();
 	bool drawbyCoordinate(float x, float y, osg::Camera* camera);
 	virtual void doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result);
+	osg::Vec3 getPosition();
 protected:
 	osg::ref_ptr<osg::Geometry> _selector;
 	osg::observer_ptr<osg::Camera> _camera;
+	osg::Vec3 _position;
 };

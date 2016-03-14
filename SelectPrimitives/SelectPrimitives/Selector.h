@@ -8,5 +8,6 @@ public:
 	virtual osg::Geode* createSelector() = 0;
 
 	virtual bool drawbyCoordinate(float x, float y, osg::Camera* camera) = 0;
+	virtual osg::Vec3 getPosition() = 0;
 
 };

@@ -74,8 +74,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\SDK\OpenSceneGraph-3.4.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDK\OpenSceneGraph-3.4.0\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(OSG_3_4)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OSG_3_4)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

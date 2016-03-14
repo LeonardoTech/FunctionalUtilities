@@ -7,7 +7,7 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest1
-{		
+{
 	TEST_CLASS(UnitTest1)
 	{
 	public:
@@ -19,12 +19,12 @@ namespace UnitTest1
 			geode->getOrCreateStateSet()->setAttributeAndModes(new osg::PolygonOffset(1.0f, 1.0f));
 			osg::ref_ptr<osg::MatrixTransform> trans = new osg::MatrixTransform;
 			auto file = osgDB::readNodeFile("cessna.osg");
-			trans->addChild(file);
+			trans->addChild(geode);
 			trans->setMatrix(osg::Matrix::translate(0.0f, 0.0f, 1.0f));
 
 			osgViewer::Viewer viewer;
 			osg::ref_ptr<osg::Camera> camera = viewer.getCamera();
-			osg::ref_ptr<PickHandler> picker = new PickHandler(new SelectModelPoint(camera), new SelectModelPoint(camera), camera);
+			osg::ref_ptr<PickHandler> picker = new PickHandler(new SelectModelPoint(camera), new SelectModelPoint(camera));
 
 			osg::ref_ptr<osg::Group> root = new osg::Group;
 			root->addChild(trans.get());

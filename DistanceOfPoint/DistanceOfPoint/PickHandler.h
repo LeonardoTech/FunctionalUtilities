@@ -16,13 +16,12 @@
 #include "osg/Group"
 
 class PickHandler : public osgGA::GUIEventHandler
-{ 
+{
 public:
-	PickHandler(Selector* selector,Selector *selector1, osg::Camera *camera);
+	PickHandler(Selector* selector, Selector *selector1);
 	virtual bool handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa);
 	void setRoot(osg::Group* node);
 	osg::Geode* createLine();
-	osg::Vec3 get3DAxis(float x, float y);
 	osgText::Text* createText();
 protected:
 	Selector* _select2;
@@ -30,7 +29,6 @@ protected:
 	osg::Group* _root;
 	osg::Vec3 _axis1;
 	osg::Vec3 _axis2;
-	osg::Camera* _camera;
 	bool _isSelect1Down;
 	bool _isSelect2Down;
 	osg::Geometry* _geometry;

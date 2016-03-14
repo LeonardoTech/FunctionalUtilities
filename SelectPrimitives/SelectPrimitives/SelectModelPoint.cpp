@@ -53,10 +53,7 @@ void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Interse
 	if (!vertices || !selVertices) return;
 
 	osg::Vec3 point = result.getWorldIntersectPoint();
-	cout << "pint in screen: " << point[0] << " " << point[1] << "" << point[2] << endl;
-
 	osg::Matrix matrix = osg::computeLocalToWorld(result.nodePath);
-
 	osg::Matrix vpMatrix;
 	if (_camera.valid())
 	{
@@ -70,12 +67,16 @@ void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Interse
 	if (selIndices.size() >= 3)
 	{
 		auto inverseMat = osg::Matrix::inverse(vpMatrix)*osg::Matrix::inverse(matrix);
-		(*selVertices)[0] = point*inverseMat * matrix;
-	}
-	else
-	{
-		//assert(false);
+		_position = point*inverseMat * matrix;
+		(*selVertices)[0] = _position;
 	}
 	selVertices->dirty();
 	_selector->dirtyBound();
 }
+
+osg::Vec3 SelectModelPoint::getPosition()
+{
+	return _position;
+}
+
+

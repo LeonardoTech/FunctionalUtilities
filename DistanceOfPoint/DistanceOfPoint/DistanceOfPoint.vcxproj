@@ -67,7 +67,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\WorkSpace\SelectModel\SelectModelLine;$(OSG_3_4)/include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\WorkSpace\FunctionalUtilities\SelectPrimitives\SelectPrimitives;$(OSG_3_4)/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(OSG_3_4)/lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -140,7 +140,7 @@
     <ClCompile Include="PickHandle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SelectModel\SelectModelLine\SelectModelLine.vcxproj">
+    <ProjectReference Include="..\..\SelectPrimitives\SelectPrimitives\SelectPrimitives.vcxproj">
       <Project>{1dafefce-441b-4554-93c6-5535507de97e}</Project>
     </ProjectReference>
   </ItemGroup>
