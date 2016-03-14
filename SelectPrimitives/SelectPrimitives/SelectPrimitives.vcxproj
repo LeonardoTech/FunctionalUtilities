@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1DAFEFCE-441B-4554-93C6-5535507DE97E}</ProjectGuid>
+    <ProjectGuid>{19EA880C-E9B4-4E96-8D13-A443C6AD32D5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SelectModelLine</RootNamespace>
     <ProjectName>SelectPrimitives</ProjectName>
@@ -74,8 +74,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\SDK\OpenSceneGraph-3.4.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\SDK\OpenSceneGraph-3.4.0\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(OSG_3_4)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OSG_3_4)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
