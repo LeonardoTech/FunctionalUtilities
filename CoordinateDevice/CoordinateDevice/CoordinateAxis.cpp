@@ -175,10 +175,11 @@ void gles2FontShader(osg::StateSet* stateSet)
 /// @param	name		坐标轴三维向量.
 /// @param	position	生成文字的位置.
 /// @param	color   		文字的颜色.
+/// @param size			文字的大小.
 ///
 /// @return	null if it fails, else the new text.
 
-osgText::Text* createText(const string name, const osg::Vec3 &position, const osg::Vec4 &color){
+osgText::Text* createText(const string name, const osg::Vec3 &position, const osg::Vec4 &color, float size){
 	osg::ref_ptr<osgText::Text> Label = new osgText::Text();
 	auto font = osgText::readFontFile("fonts/arial.ttf");//fonts/arial.ttf//SketchFlow Print.ttf
 	Label->setFont(font);
