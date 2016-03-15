@@ -58,8 +58,8 @@ void SelectModelLine::doUserOperations(osgUtil::LineSegmentIntersector::Intersec
 
 	osg::Vec3 point = result.getWorldIntersectPoint();
 	osg::Matrix matrix = osg::computeLocalToWorld(result.nodePath);
-
 	osg::Matrix vpMatrix;
+
 	if (_camera.valid())
 	{
 		vpMatrix = _camera->getViewMatrix() * _camera->getProjectionMatrix();

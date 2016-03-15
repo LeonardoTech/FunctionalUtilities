@@ -3,10 +3,6 @@
 
 
 // brief	 <构造私有成员进行初始化，利用传进来的manip来表示当前的环境>
-//
-//author	Admin
-// date	2016/3/14
-//
 // param [in]	manip	If non-null, the manip.
 CoordinateUpdater::CoordinateUpdater(osgGA::MultiTouchTrackballManipulator* manip)
 {

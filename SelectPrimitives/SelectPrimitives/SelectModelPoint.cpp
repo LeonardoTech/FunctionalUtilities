@@ -31,10 +31,9 @@ bool SelectModelPoint::drawbyCoordinate(float x, float y, osg::Camera* camera)
 	if (camera)
 	{
 		osg::ref_ptr<osgUtil::LineSegmentIntersector> intersector =
-			new osgUtil::LineSegmentIntersector(osgUtil::Intersector::WINDOW, x, y);
+			new osgUtil::LineSegmentIntersector(osgUtil::Intersector::WINDOW, x, y); 
 		osgUtil::IntersectionVisitor iv(intersector.get());
 		camera->accept(iv);
-
 		if (intersector->containsIntersections())
 		{
 			osgUtil::LineSegmentIntersector::Intersection result = *(intersector->getIntersections().begin());
@@ -60,7 +59,6 @@ void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Interse
 	if (_camera.valid())
 	{
 		vpMatrix = _camera->getViewMatrix() * _camera->getProjectionMatrix();
-		/*cout << "pint in screen: " << point[0] << " " << point[1] << "" << point[2] << endl;*/
 		point = point * vpMatrix;
 	}
 
@@ -71,7 +69,7 @@ void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Interse
 	{
 		auto inverseMat = osg::Matrix::inverse(vpMatrix)*osg::Matrix::inverse(matrix);
 		_position = point*inverseMat * matrix;
-		(*selVertices)[0] = _position;
+		(*selVertices)[0] = _position; // <获取当前的三维坐标>
 	}
 	selVertices->dirty();
 	_selector->dirtyBound();
