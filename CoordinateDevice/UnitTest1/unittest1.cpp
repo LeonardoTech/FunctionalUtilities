@@ -90,6 +90,7 @@ namespace UnitTest1
 			stateSet->addUniform(new osg::Uniform("gDiffuseMap", 0));
 			stateSet->addUniform(new osg::Uniform("colorMode", 5));
 		}
+	
 		TEST_METHOD(TestMethod1)
 		{
 			// TODO:  在此输入测试代码
@@ -102,8 +103,7 @@ namespace UnitTest1
 			osg::ref_ptr<osg::Camera> camera = createHUDCamera(0, 800, 0, 600);
 			CoordinateAxis *axis = new CoordinateAxis(manip);
 			osg::ref_ptr<osg::MatrixTransform>tran = axis->setAxis(180.0f, 180.0f, 40.0f, camera);
-			/*axis->getAxisDirection(Y_Axis, x, y, z);
-			cout << x << " " << y << " " << z << endl;*/
+
 			osg::ref_ptr<osgText::Text>text = new osgText::Text;
 			osg::ref_ptr<osgText::Font> g_font = osgText::readFontFile("fonts/arial.ttf");
 			text->setFont(g_font.get());
@@ -117,8 +117,9 @@ namespace UnitTest1
 			camera->addChild(textGeode);
 			view.addEventHandler(ctrler.get());
 			root->addChild(camera);
+
 #ifdef OSG_GL3_AVAILABLE
-			gl3DefaultShader(root->getOrCreateStateSet());
+	gl3DefaultShader(root->getOrCreateStateSet());
 #endif
 			view.setSceneData(root.get());
 			view.run();
