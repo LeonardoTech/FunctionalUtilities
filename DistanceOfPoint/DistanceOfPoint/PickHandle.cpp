@@ -1,15 +1,10 @@
-#include "PickHandler.h"
+ï»¿#include "PickHandler.h"
 #include <osgViewer/Viewer>
 
-/// @fn	PickHandler::PickHandler(Selector* selector, Selector *selector1)
-///
-/// @brief <	¶Ô¹¹Ôìº¯Êı½øĞĞ³õÊ¼»¯.>
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param [in]	selector 	<´´½¨Ò»¸öSelectÀà¶ÔÏó.>
-/// @param [in]	selector1	<´´½¨Ò»¸öSelectÀà¶ÔÏó.>
+
+//brief <å¯¹æ„é€ å‡½æ•°è¿›è¡Œåˆå§‹åŒ–.>
+//param [in]	selector 	<åˆ›å»ºä¸€ä¸ªSelectç±»å¯¹è±¡.>
+//param [in]	selector1	<åˆ›å»ºä¸€ä¸ªSelectç±»å¯¹è±¡.>
 PickHandler::PickHandler(Selector* selector, Selector *selector1)
 {
 	_axis1 = { 0, 0, 0 };
@@ -20,42 +15,27 @@ PickHandler::PickHandler(Selector* selector, Selector *selector1)
 	_isSelect2Down = false;
 }
 
-/// @fn	osgText::Text * PickHandler::createText()
-///
-/// @brief	<´´½¨ÎÄ±¾£¬Ã»ÓĞÖÆ¶¨Î»ÖÃºÍÄÚÈİ.>
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @return	null if it fails, else the new text.
+
+//brief	<åˆ›å»ºæ–‡æœ¬ï¼Œæ²¡æœ‰åˆ¶å®šä½ç½®å’Œå†…å®¹.>
 osgText::Text * PickHandler::createText()
 {
 	osg::ref_ptr<osgText::Font> g_font = osgText::readFontFile("fonts/arial.ttf");
 	_text = new osgText::Text;
 	_text->setFont(g_font.get());
 	_text->setCharacterSize(40);
-	_text->setCharacterSizeMode(osgText::Text::SCREEN_COORDS);//ÈÃÎÄ×ÖµÄ´óĞ¡²»Ëæ×ÅÍ¼ĞÎ µÄ·Å´óËõĞ¡¶ø¸Ä±ä£¬ËùÒÔ¾Í°ÑÎÄ×ÖÏÔÊ¾³ÉÆÁÄ»ÏñÊıµÄ¸ñÊ½
-	_text->setAxisAlignment(osgText::Text::SCREEN); //ÎÄ×ÖÊ¼ÖÕ±£³Ö´¹Ö±ÓÚÆÁÄ»£¬²»»áËæ×ÅÍ¼ĞÎµÄĞı×ª¶øĞı×ª
-	_text->setDataVariance(osg::Object::DYNAMIC);  //ÒòÎªÊı×ÖÔÚ±ä¶¯£¬ËùÒÔÕâÀï×îºÃÊÇÉèÖÃ³É¶¯Ì¬µÄ
+	_text->setCharacterSizeMode(osgText::Text::SCREEN_COORDS);// <è®©æ–‡å­—çš„å¤§å°ä¸éšç€å›¾å½¢ çš„æ”¾å¤§ç¼©å°è€Œæ”¹å˜ï¼Œæ‰€ä»¥å°±æŠŠæ–‡å­—æ˜¾ç¤ºæˆå±å¹•åƒæ•°çš„æ ¼å¼>
+	_text->setAxisAlignment(osgText::Text::SCREEN); // <æ–‡å­—å§‹ç»ˆä¿æŒå‚ç›´äºå±å¹•ï¼Œä¸ä¼šéšç€å›¾å½¢çš„æ—‹è½¬è€Œæ—‹è½¬>
+	_text->setDataVariance(osg::Object::DYNAMIC);  // <å› ä¸ºæ•°å­—åœ¨å˜åŠ¨ï¼Œæ‰€ä»¥è¿™é‡Œæœ€å¥½æ˜¯è®¾ç½®æˆåŠ¨æ€çš„>
 
 	return _text;
 }
 
-/// @fn	bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa)
-///
-/// @brief	Í¨¹ı¼Ì³Ğ osgGA::GUIEventHandlerµÄÀàÀ´¶ÔhandleµÄ²¿·Ö¹¦ÄÜ½øĞĞÖØĞ´£¬ÒÔÊµÏÖÏëÒªµÄÊó±êÊÂ¼ş.
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param	ea	 Êó±êÊÂ¼ş.
-/// @param	aa	The aa.
-///
-/// @return	true if it succeeds, false if it fails.
+//brief	<é€šè¿‡ç»§æ‰¿ osgGA::GUIEventHandlerçš„ç±»æ¥å¯¹handleçš„éƒ¨åˆ†åŠŸèƒ½è¿›è¡Œé‡å†™ï¼Œä»¥å®ç°æƒ³è¦çš„é¼ æ ‡äº‹ä»¶.>
+//param	ea	 <é¼ æ ‡äº‹ä»¶.>
 bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa)
 {
-	///É¸Ñ¡³öµ±Êó±êÔÚÒÆ¶¯Ê±·¢ÉúµÄÊÂ¼ş
-	///Êó±êÔÚÒÆ¶¯Ê±£¬²»»á·¢ÉúµãµÄÂäÏÂ£¬µãÒ²»áËæ×ÅÊó±êÒÆ¶¯£¬¿ÉÒÔÍ¨¹ı»ñÈ¡µ±Ç°Êó±êµÄÎ»ÖÃ£¬»­³öµã£¬ÕâÑù¾Í»á³öÏÖµã¸úËæÊó±ê
+	// <ç­›é€‰å‡ºå½“é¼ æ ‡åœ¨ç§»åŠ¨æ—¶å‘ç”Ÿçš„äº‹ä»¶>
+	// <é¼ æ ‡åœ¨ç§»åŠ¨æ—¶ï¼Œä¸ä¼šå‘ç”Ÿç‚¹çš„è½ä¸‹ï¼Œç‚¹ä¹Ÿä¼šéšç€é¼ æ ‡ç§»åŠ¨ï¼Œå¯ä»¥é€šè¿‡è·å–å½“å‰é¼ æ ‡çš„ä½ç½®ï¼Œç”»å‡ºç‚¹ï¼Œè¿™æ ·å°±ä¼šå‡ºç°ç‚¹è·Ÿéšé¼ æ ‡>
 	if (ea.getEventType() == osgGA::GUIEventAdapter::MOVE)
 	{
 		osgViewer::View* viewer = dynamic_cast<osgViewer::View*>(&aa);
@@ -68,7 +48,7 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 			_select2->drawbyCoordinate(ea.getX(), ea.getY(), viewer->getCamera());
 		}
 
-		///ÀûÓÃvec3Array´æ·ÅÏß¶¥µãµÄ×ø±êĞÅÏ¢
+		// <åˆ©ç”¨vec3Arrayå­˜æ”¾çº¿é¡¶ç‚¹çš„åæ ‡ä¿¡æ¯>
 		osg::Vec3Array* selPosition = dynamic_cast<osg::Vec3Array*>(_geometry->getVertexArray());
 		(*selPosition)[0] = _select1->getPosition();
 		(*selPosition)[1] = _select2->getPosition();
@@ -79,14 +59,14 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 		stringstream ss;
 		ss << length;
 			
-		_text->setText(ss.str()); ///ÉèÖÃÎÄ×ÖµÄÄÚÈİ
-		_text->setPosition(middle);///ÉèÖÃÎÄ×ÖµÄ×ø±ê
+		_text->setText(ss.str()); // <è®¾ç½®æ–‡å­—çš„å†…å®¹>
+		_text->setPosition(middle);// <è®¾ç½®æ–‡å­—çš„åæ ‡>
 		_text->dirtyBound();
 		selPosition->dirty();
 		_geometry->dirtyBound();
 	}
 
-	///µ±Êó±ê×ó¼üµ¥»÷Ê±´¥·¢µÄÊÂ¼ş£¬µ±Êó±ê×ó¼üµ¥»÷Ê±£¬»áÓĞµãµÄÂäÏÂ£¬µ«ÊÇ²»»á³öÏÖ»­Ïß
+	// <å½“é¼ æ ‡å·¦é”®å•å‡»æ—¶è§¦å‘çš„äº‹ä»¶ï¼Œå½“é¼ æ ‡å·¦é”®å•å‡»æ—¶ï¼Œä¼šæœ‰ç‚¹çš„è½ä¸‹ï¼Œä½†æ˜¯ä¸ä¼šå‡ºç°ç”»çº¿>
 	if (ea.getEventType() == osgGA::GUIEventAdapter::PUSH && ea.getEventType() == osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON)
 	{
 
@@ -111,14 +91,9 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 }
 
 
-/// @fn	void PickHandler::setRoot(osg::Group* node)
-///
-/// @brief	 ½«ËùÓĞµÄÍ¼ĞÎ¶¼·Å½øroot×éÀï
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param [in] 
+// fn	void PickHandler::setRoot(osg::Group* node)
+// 
+// brief	 <å°†æ‰€æœ‰çš„å›¾å½¢éƒ½æ”¾è¿›rootç»„é‡Œ>
 void PickHandler::setRoot(osg::Group* node)
 {
 	_root = node;
@@ -128,14 +103,7 @@ void PickHandler::setRoot(osg::Group* node)
 	_root->addChild(createText());
 }
 
-/// @fn	osg::Geode* PickHandler::createLine()
-///
-/// @brief	´´½¨Ïß£¬Ã»ÓĞÉèÖÃ¶¥µãµÄ×ø±ê
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @return	null if it fails, else the new line.
+// brief	<åˆ›å»ºçº¿ï¼Œæ²¡æœ‰è®¾ç½®é¡¶ç‚¹çš„åæ ‡>
 osg::Geode* PickHandler::createLine()
 {
 	osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array(1);
@@ -145,10 +113,10 @@ osg::Geode* PickHandler::createLine()
 	_geometry->setDataVariance(osg::Object::DYNAMIC);
 	_geometry->setUseDisplayList(false);
 	_geometry->setUseVertexBufferObjects(true);
-	_geometry->setVertexArray(new osg::Vec3Array(2)); ///ÉèÖÃµãµÄ×ø±ê£¬Èç¹ûÊÇÏßµÄ»°²ÎÊı¾Í±ØĞëÊÇ2£¨2¸ö¶¥µã£©
+	_geometry->setVertexArray(new osg::Vec3Array(2)); // <è®¾ç½®ç‚¹çš„åæ ‡ï¼Œå¦‚æœæ˜¯çº¿çš„è¯å‚æ•°å°±å¿…é¡»æ˜¯2ï¼ˆ2ä¸ªé¡¶ç‚¹ï¼‰>
 	_geometry->setColorArray(colors.get());
 	_geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
-	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_LINES, 0, 2)); ///×¢Òâ£¬²»ÒªÊ¹ÓÃGL_LINEÌæ»»GL_LINES×÷Îª²ÎÊı
+	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_LINES, 0, 2)); // <æ³¨æ„ï¼Œä¸è¦ä½¿ç”¨GL_LINEæ›¿æ¢GL_LINESä½œä¸ºå‚æ•°>
 
 	osg::ref_ptr<osg::Geode> geode = new osg::Geode;
 	geode->addDrawable(_geometry);

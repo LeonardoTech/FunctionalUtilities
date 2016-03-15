@@ -15,11 +15,11 @@
 class ModelController : public osgGA::GUIEventHandler
 {
 public:
-	ModelController(osg::MatrixTransform* node, CoordinateAxis *axis,osgText::Text* text) : _model(node){
+	ModelController(osg::MatrixTransform* node, CoordinateAxis *axis, osgText::Text* text) : _model(node){
 		_text = text;
 		_axis = axis;
-	}    
-	virtual bool handle(const osgGA::GUIEventAdapter& ea,osgGA::GUIActionAdapter& aa);
+	}
+	virtual bool handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa);
 
 protected:
 	osg::ref_ptr<osg::MatrixTransform> _model;

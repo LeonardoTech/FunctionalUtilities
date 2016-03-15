@@ -1,8 +1,9 @@
-// SelectModelLine.cpp : �������̨Ӧ�ó������ڵ㡣
+﻿// SelectModelLine.cpp : 定义控制台应用程序的入口点。
 //
 
 #include "SelectModelLine.h"
 
+// <创建线>
 osg::Geode* SelectModelLine::createSelector()
 {
 	osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array(1);
@@ -26,7 +27,7 @@ osg::Geode* SelectModelLine::createSelector()
 	return geode.release();
 }
 
-
+// <根据给定的二维坐标来画线>
 bool SelectModelLine::drawbyCoordinate(float x, float y, osg::Camera* camera)
 {
 	if (camera)
@@ -45,7 +46,7 @@ bool SelectModelLine::drawbyCoordinate(float x, float y, osg::Camera* camera)
 	return true;
 }
 
-
+// <通过相交算法运算后返回的结果，来确定点的位置，并通过矩阵把二维的坐标转换为三维的，为要画的图形确定顶点坐标>
 void SelectModelLine::doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result)
 {
 	osg::Geometry* geom = dynamic_cast<osg::Geometry*>(result.drawable.get());

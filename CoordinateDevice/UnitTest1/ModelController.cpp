@@ -21,7 +21,7 @@ string a;
 
 bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa)
 {
-	
+
 	if (!_model) return false;
 	osg::Matrix matrix = _model->getMatrix();
 	//char xchar[20];

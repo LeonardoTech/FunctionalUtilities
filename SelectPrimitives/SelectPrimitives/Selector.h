@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <osg/Camera>
 const osg::Vec4 normalColor(1.0f, 1.0f, 1.0f, 1.0f);
 const osg::Vec4 selectedColor(1.0f, 0.0f, 0.0f, 1.0f);
@@ -6,38 +6,16 @@ class Selector
 {
 public:
 
-	/// @fn	virtual osg::Geode* Selector::createSelector() = 0;
-	///
-	/// @brief	<´´½¨Í¼ÐÎ.>
-	///
-	/// @author	Admin
-	/// @date	2016/3/14
-	///
-	/// @return	null if it fails, else the new selector.
+	//	<åˆ›å»ºå›¾å½¢.>
 	virtual osg::Geode* createSelector() = 0;
 
-	/// @fn	virtual bool Selector::drawbyCoordinate(float x, float y, osg::Camera* camera) = 0;
-	///
-	/// @brief 	<¸ù¾ÝÊó±êÔÚÆÁÄ»µãµÄ¶þÎ¬×ø±êÀ´È·¶¨Í¼ÐÎµÄÎ»ÖÃ.>
-	///
-	/// @author	Admin
-	/// @date	2016/3/14
-	///
-	/// @param	x			  	<ÆÁÄ»µÄºá×ø±ê>.
-	/// @param	y			  	<ÆÁÄ»×Ý×ø±ê>.
-	/// @param [in,out]	camera	If non-null, the camera.
-	///
-	/// @return	true if it succeeds, false if it fails.
+	//brief 	<æ ¹æ®é¼ æ ‡åœ¨å±å¹•ç‚¹çš„äºŒç»´åæ ‡æ¥ç¡®å®šå›¾å½¢çš„ä½ç½®.>
+	//param	x			  	<å±å¹•çš„æ¨ªåæ ‡>.
+	//param	y			  	<å±å¹•çºµåæ ‡>.
 	virtual bool drawbyCoordinate(float x, float y, osg::Camera* camera) = 0;
 
-	/// @fn	virtual osg::Vec3 Selector::getPosition() = 0;
-	///
-	/// @brief 	<È¡Ëù»­Í¼ÐÎ¶¥µãµÄÈýÎ¬×ø±ê.>
-	///
-	/// @author	Admin
-	/// @date	2016/3/14
-	///
-	/// @return	The position.
+
+	// 	<å–æ‰€ç”»å›¾å½¢é¡¶ç‚¹çš„ä¸‰ç»´åæ ‡.>
 	virtual osg::Vec3 getPosition() = 0;
 
 };

@@ -1,55 +1,56 @@
-#ifndef MY_HH
+ï»¿#ifndef MY_HH
 #define MY_HH
 
 /// @enum	Axis
 ///
-/// @brief<	Ò»¸öÃ¶¾ÙÀàÐÍ ³ÉÔ±·Ö±ð´ú±í×ÅX,Y,ZµÄÖáÏò.>
+/// @brief<	ä¸€ä¸ªæžšä¸¾ç±»åž‹ æˆå‘˜åˆ†åˆ«ä»£è¡¨ç€X,Y,Zçš„è½´å‘.>
 enum Axis
 {
-	///< ´ú±í×ÅXÖá>
+	///< ä»£è¡¨ç€Xè½´>
 	X_Axis,
-	///< ´ú±í×ÅYÖá>
+	///< ä»£è¡¨ç€Yè½´>
 	Y_Axis,
-	///< ´ú±í×ÅZÖá>
+	///< ä»£è¡¨ç€Zè½´>
 	Z_Axis
 };
 
 
 /// @class	ICoordinateAxis
 ///
-/// @brief	 <Ò»¸ö½ÐICoordinateAxisµÄ½Ó¿ÚÀà ³ÉÔ±º¯Êý·Ö±ðÊÇ¸ù¾ÝÊôÐÔÖÆ×÷Ò»¸ö×ø±êÏµºÍ»ñÈ¡X,Y»òZÖáµÄ·½Ïò.>
+/// @brief	 <ä¸€ä¸ªå«ICoordinateAxisçš„æŽ¥å£ç±» æˆå‘˜å‡½æ•°åˆ†åˆ«æ˜¯æ ¹æ®å±žæ€§åˆ¶ä½œä¸€ä¸ªåæ ‡ç³»å’ŒèŽ·å–X,Yæˆ–Zè½´çš„æ–¹å‘.>
 ///
 /// @author	Admin
 /// @date	2016/3/14
 class ICoordinateAxis
 {
 public:
+
 	/// @fn	virtual void ICoordinateAxis::getAxisDirection( Axis ax, float &x, float &y, float &z) = 0;
 	///
-	/// @brief 	<»ñÈ¡Ä³Ò»¸öÖáµÄÖ¸Ïò.>
-	/// @brief	  <ÆäÖÐ²ÎÊýAxis´ú±í×ÅX,Y,ZÕâÈý¸öÖá.>
-	/// @brief	  <ÓÃÁËÈý¸öÒýÓÃ&amp;X,&amp;Y,&amp;Z£¬´ú±íÖ¸ÏòµÄÏòÁ¿.>
+	/// @brief 	<èŽ·å–æŸä¸€ä¸ªè½´çš„æŒ‡å‘.>
+	/// @brief	  <å…¶ä¸­å‚æ•°Axisä»£è¡¨ç€X,Y,Zè¿™ä¸‰ä¸ªè½´.>
+	/// @brief	  <ç”¨äº†ä¸‰ä¸ªå¼•ç”¨&amp;X,&amp;Y,&amp;Zï¼Œä»£è¡¨æŒ‡å‘çš„å‘é‡.>
 	///
 	/// @author	Admin
 	/// @date	2016/3/14
 	///
 	/// @param	ax		 	The ax. 
-	/// @param [out]	x	<Ö¸ÏòµÄXÏòÁ¿>
-	/// @param [out]	y	<Ö¸ÏòµÄYÏòÁ¿>
-	/// @param [out]	z	<Ö¸ÏòµÄZÏòÁ¿>
+	/// @param [out]	x	<æŒ‡å‘çš„Xå‘é‡>
+	/// @param [out]	y	<æŒ‡å‘çš„Yå‘é‡>
+	/// @param [out]	z	<æŒ‡å‘çš„Zå‘é‡>
 	virtual void getAxisDirection(Axis ax, float &x, float &y, float &z) = 0;
 
 	/// @fn	virtual osg::MatrixTransform* ICoordinateAxis::setAxis(float x, float y, float radius, osg::Camera *camera) = 0;
 	///
-	/// @brief	 <Í¨¹ýÖ¸¶¨µÄ¶þÎ¬ÆÁÄ»×ø±ê»­³ö×ø±êÏµ£¬¿ÉÒÔÖ¸¶¨×ø±êÏµµÄ°ë¾¶³¤¶È£¬ÐèÒª°ÑÆÁÄ»Ïà»ú×÷Îª²ÎÊý´«½øÈ¥>
+	/// @brief	 <é€šè¿‡æŒ‡å®šçš„äºŒç»´å±å¹•åæ ‡ç”»å‡ºåæ ‡ç³»ï¼Œå¯ä»¥æŒ‡å®šåæ ‡ç³»çš„åŠå¾„é•¿åº¦ï¼Œéœ€è¦æŠŠå±å¹•ç›¸æœºä½œä¸ºå‚æ•°ä¼ è¿›åŽ»>
 	///
 	/// @author	Admin
 	/// @date	2016/3/14
 	///
-	/// @param	x			  	<¶þÎ¬ºá×ø±ê>
-	/// @param	y			  	<¶þÎ¬×Ý×ø±ê>
-	/// @param	radius		<×ø±êÖá±ß°ë¾¶>
-	/// @param [in]			<°ÑÆÁÄ»Ïà»ú×÷Îª²ÎÊý´«½øÀ´>
+	/// @param	x			  	<äºŒç»´æ¨ªåæ ‡>
+	/// @param	y			  	<äºŒç»´çºµåæ ‡>
+	/// @param	radius		<åæ ‡è½´è¾¹åŠå¾„>
+	/// @param [in] camera <æŠŠå±å¹•ç›¸æœºä½œä¸ºå‚æ•°ä¼ è¿›æ¥>
 	///
 	/// @return	null if it fails, else a pointer to an osg::MatrixTransform.
 	virtual osg::MatrixTransform* setAxis(float x, float y, float radius, osg::Camera *camera) = 0;

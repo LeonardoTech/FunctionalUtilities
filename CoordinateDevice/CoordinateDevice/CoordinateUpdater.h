@@ -1,4 +1,4 @@
-#ifndef MY_H
+ï»¿#ifndef MY_H
 #define MY_H
 
 #include <osg/NodeCallback>
@@ -9,20 +9,20 @@
 #include <osgText/Font>
 #include <osgText/Text>
 
-/// @class	CoordinateUpdater
-///
-/// @brief	 Ò»¸ö¼Ì³ĞÓÚosg::NodeCallbackµÄÀà,ÄÜ¹»Ê¹´¦ÓÚHUDÏà»úÏÂµÄ×ø±êÏµÄÜ¹»ÓÃÊó±ê¿ØÖÆĞı×ª£¬²¢ÇÒÄÜ¹»¼ÆÊıË¢ĞÂ
-/// 		 
-/// @author	Admin
-/// @date	2016/3/14
+// class	CoordinateUpdater
+//
+// brief	 <ä¸€ä¸ªç»§æ‰¿äºosg::NodeCallbackçš„ç±»,èƒ½å¤Ÿä½¿å¤„äºHUDç›¸æœºä¸‹çš„åæ ‡ç³»èƒ½å¤Ÿç”¨é¼ æ ‡æ§åˆ¶æ—‹è½¬ï¼Œå¹¶ä¸”èƒ½å¤Ÿè®¡æ•°åˆ·æ–°>
+// 		 
+// author	Admin
+// date	2016/3/14
 class CoordinateUpdater:public osg::NodeCallback
 {
 public:
-	/// @brief	 ¹¹ÔìË½ÓĞ³ÉÔ±½øĞĞ³õÊ¼»¯£¬ÀûÓÃ´«½øÀ´µÄmanipÀ´±íÊ¾µ±Ç°µÄ»·¾³
+	// brief	 <æ„é€ ç§æœ‰æˆå‘˜è¿›è¡Œåˆå§‹åŒ–ï¼Œåˆ©ç”¨ä¼ è¿›æ¥çš„manipæ¥è¡¨ç¤ºå½“å‰çš„ç¯å¢ƒ>
 	CoordinateUpdater(osgGA::MultiTouchTrackballManipulator* manip);
-	/// ¶Ô´«½øÀ´µÄmanip½øĞĞ²Ù×÷.
+	// <å¯¹ä¼ è¿›æ¥çš„manipè¿›è¡Œæ“ä½œ.>
 	virtual void operator()(osg::Node* node, osg::NodeVisitor* nv) override;
-	/// 	 ¸ù¾İ´«½øÀ´AxisµÄÃ¶¾ÙÖµ£¬À´È·¶¨»ñÈ¡ÄÄ¸öÖáµÄ½á¹û.
+	// < æ ¹æ®ä¼ è¿›æ¥Axisçš„æšä¸¾å€¼ï¼Œæ¥ç¡®å®šè·å–å“ªä¸ªè½´çš„ç»“æœ.>
 	osg::Vec3 getResult(Axis ax);
 
 private:

@@ -1,6 +1,6 @@
-#include "SelectModelPoint.h"
+ï»¿#include "SelectModelPoint.h"
 
-///ÕâÀïÊÇ»­³öµã£¬µ«ÊÇÃ»ÓĞÖ¸³öµãµÄÎ»ÖÃ
+// <è¿™é‡Œæ˜¯ç”»å‡ºç‚¹ï¼Œä½†æ˜¯æ²¡æœ‰æŒ‡å‡ºç‚¹çš„ä½ç½®>
 osg::Geode* SelectModelPoint::createSelector()
 {
 	osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array(1);
@@ -25,7 +25,7 @@ osg::Geode* SelectModelPoint::createSelector()
 }
 
 
-///¸ù¾İÆÁÄ»ÉÏµÄÆ½Ãæ¶şÎ¬×ø±êÀ´»­µã
+// <æ ¹æ®å±å¹•ä¸Šçš„å¹³é¢äºŒç»´åæ ‡æ¥ç”»ç‚¹>
 bool SelectModelPoint::drawbyCoordinate(float x, float y, osg::Camera* camera)
 {
 	if (camera)
@@ -44,7 +44,7 @@ bool SelectModelPoint::drawbyCoordinate(float x, float y, osg::Camera* camera)
 	return true;
 }
 
-///Í¨¹ıÏà½»Ëã·¨ÔËËãºó·µ»ØµÄ½á¹û£¬À´È·¶¨µãµÄÎ»ÖÃ£¬²¢Í¨¹ı¾ØÕó°Ñ¶şÎ¬µÄ×ø±ê×ª»»ÎªÈıÎ¬µÄ£¬ÎªÒª»­µÄÍ¼ĞÎÈ·¶¨¶¥µã×ø±ê
+// <é€šè¿‡ç›¸äº¤ç®—æ³•è¿ç®—åè¿”å›çš„ç»“æœï¼Œæ¥ç¡®å®šç‚¹çš„ä½ç½®ï¼Œå¹¶é€šè¿‡çŸ©é˜µæŠŠäºŒç»´çš„åæ ‡è½¬æ¢ä¸ºä¸‰ç»´çš„ï¼Œä¸ºè¦ç”»çš„å›¾å½¢ç¡®å®šé¡¶ç‚¹åæ ‡>
 void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result)
 {
 	osg::Geometry* geom = dynamic_cast<osg::Geometry*>(result.drawable.get());
@@ -66,7 +66,7 @@ void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Interse
 
 	const std::vector<unsigned int>& selIndices = result.indexList;
 	
-	//¸ù¾İÏà½»¶¨Àí·µ»ØÀ´Ó¦¸ÃÊÇÈı¸öµãµÄ
+	// <æ ¹æ®ç›¸äº¤å®šç†è¿”å›æ¥åº”è¯¥æ˜¯ä¸‰ä¸ªç‚¹çš„>
 	if (selIndices.size() >= 3)
 	{
 		auto inverseMat = osg::Matrix::inverse(vpMatrix)*osg::Matrix::inverse(matrix);
@@ -77,7 +77,7 @@ void SelectModelPoint::doUserOperations(osgUtil::LineSegmentIntersector::Interse
 	_selector->dirtyBound();
 }
 
-///»ñÈ¡Ëù»­Í¼ĞÎ¶¥µãµÄÈıÎ¬×ø±ê
+// <è·å–æ‰€ç”»å›¾å½¢é¡¶ç‚¹çš„ä¸‰ç»´åæ ‡>
 osg::Vec3 SelectModelPoint::getPosition()
 {
 	return _position;

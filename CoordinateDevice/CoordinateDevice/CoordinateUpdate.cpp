@@ -1,68 +1,46 @@
-
+ï»¿
 #include "CoordinateUpdater.h"
 
-/// @fn	CoordinateUpdater::CoordinateUpdater(osgGA::MultiTouchTrackballManipulator* manip);
-///
-/// @brief	 ¹¹ÔìË½ÓĞ³ÉÔ±½øĞĞ³õÊ¼»¯£¬ÀûÓÃ´«½øÀ´µÄmanipÀ´±íÊ¾µ±Ç°µÄ»·¾³
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param [in]	manip	If non-null, the manip.
+
+// brief	 <æ„é€ ç§æœ‰æˆå‘˜è¿›è¡Œåˆå§‹åŒ–ï¼Œåˆ©ç”¨ä¼ è¿›æ¥çš„manipæ¥è¡¨ç¤ºå½“å‰çš„ç¯å¢ƒ>
+//
+//author	Admin
+// date	2016/3/14
+//
+// param [in]	manip	If non-null, the manip.
 CoordinateUpdater::CoordinateUpdater(osgGA::MultiTouchTrackballManipulator* manip)
 {
 	m_manip = manip;
 }
-/// @fn	void CoordinateUpdater::operator()(osg::Node* node, osg::NodeVisitor* nv)
-///
-/// @brief 	¶Ô´«½øÀ´µÄmanip½øĞĞ²Ù×÷.ÈÃ´¦ÓÚHUDÏà»úµÄ×ø±êÏµÄÜ¹»½øĞĞ²Ù×÷
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param [in]	»ùÀàº¯Êı¶¨Òå²»ĞèÒª¹Ü
-/// @param [in]	»ùÀàº¯Êı¶¨Òå²»ĞèÒª¹Ü.
 
+// 	<å¯¹ä¼ è¿›æ¥çš„manipè¿›è¡Œæ“ä½œ.è®©å¤„äºHUDç›¸æœºçš„åæ ‡ç³»èƒ½å¤Ÿè¿›è¡Œæ“ä½œ>
 void CoordinateUpdater::operator()(osg::Node* node, osg::NodeVisitor* nv)
 {
-	
+
 	auto trans = dynamic_cast<osg::MatrixTransform*>(node);
 	rot = m_manip->getRotation();
-	/*osg::Vec3 xAxis(1, 0, 0);
-	result = rot*xAxis;*/
 	trans->setMatrix(osg::Matrix::rotate(rot));
 	traverse(node, nv);
 }
 
 
-/// @fn	osg::Vec3 CoordinateUpdater::getResult(Axis ax)
-///
-/// @brief	 ¸ù¾İ´«½øÀ´AxisµÄÃ¶¾ÙÖµ£¬À´È·¶¨»ñÈ¡ÄÄ¸öÖáµÄ½á¹û.
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param	ax AxisÀàĞÍµÄÃ¶¾ÙÖµ£¬´ú±í×ÅX,Y,ZÖá
-///
-/// @return	The result.
-
-
+//  <æ ¹æ®ä¼ è¿›æ¥Axisçš„æšä¸¾å€¼ï¼Œæ¥ç¡®å®šè·å–å“ªä¸ªè½´çš„ç»“æœ.>
 osg::Vec3 CoordinateUpdater::getResult(Axis ax)
 {
 
 	if (ax == X_Axis)
 	{
-		osg::Vec3 xAxis(1, 0, 0);
+		osg::Vec3 xAxis(1, 0, 0);// <xAxis(1,0,0)ä»£è¡¨ç€Xè½´>
 		result = rot *xAxis;
 	}
 	else if (ax == Y_Axis)
 	{
-		osg::Vec3 yAxis(0, 1, 0);
+		osg::Vec3 yAxis(0, 1, 0);// <yAxis(0,1,0)ä»£è¡¨ç€Yè½´>
 		result = rot*yAxis;
 	}
 	else if (ax == Z_Axis)
 	{
-		osg::Vec3 zAxis(0, 0, 1);
+		osg::Vec3 zAxis(0, 0, 1);// <zAxis(0,0,1)ä»£è¡¨ç€Zè½´>
 		result = rot*zAxis;
 	}
 	else

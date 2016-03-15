@@ -1,18 +1,10 @@
-
+ï»¿
 #include "CoordinateAxis.h"
 #include <osg/MatrixTransform>
 #include "CoordinateUpdater.h"
 
-/// @fn	osg::Geometry* createSimpleGeometry(float radius)
-///
-/// @brief ¸ù¾İ²ÎÊıËùÖ¸¶¨µÄ°ë¾¶»­³öÒ»¸ö×ø±êÏµ£¬·µ»ØÒ»¸öosg::Geometry*ÀàĞÍµÄ±äÁ¿
-/// 	   
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param	radius	×ø±êÏµµÄ±ß³¤.
-///
-/// @return	null if it fails, else the new simple geometry.
+
+//  <æ ¹æ®å‚æ•°æ‰€æŒ‡å®šçš„åŠå¾„ç”»å‡ºä¸€ä¸ªåæ ‡ç³»ï¼Œè¿”å›ä¸€ä¸ªosg::Geometry*ç±»å‹çš„å˜é‡>
 osg::Geometry* createSimpleGeometry(float radius)
 {
 	osg::ref_ptr<osg::Vec3Array> vertices = new osg::Vec3Array(8);
@@ -27,13 +19,14 @@ osg::Geometry* createSimpleGeometry(float radius)
 	(*indices)[0] = 0; (*indices)[1] = 1; (*indices)[2] = 2; (*indices)[3] = 3;
 	(*indices)[4] = 4; (*indices)[5] = 5;
 
-	osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array;///Ö¸¶¨ÑÕÉ«£¬Á¬³ÉÒ»ÌõÏßµÄÁ½¸öµãĞèÒªÓÃÏàÍ¬µÄÑÕÉ«
+	osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array;		// <æŒ‡å®šé¢œè‰²ï¼Œè¿æˆä¸€æ¡çº¿çš„ä¸¤ä¸ªç‚¹éœ€è¦ç”¨ç›¸åŒçš„é¢œè‰²>
 	colors->push_back(osg::Vec4(0.0f, 0.0f, 1.0f, 0.5f));
 	colors->push_back(osg::Vec4(0.0f, 0.0f, 1.0f, 0.5f));
 	colors->push_back(osg::Vec4(0.0f, 1.0f, 0.0f, 0.5f));
 	colors->push_back(osg::Vec4(0.0f, 1.0f, 0.0f, 0.5f));
 	colors->push_back(osg::Vec4(1.0f, 0.0f, 0.0f, 0.5f));
 	colors->push_back(osg::Vec4(1.0f, 0.0f, 0.0f, 0.5f));
+
 	osg::ref_ptr<osg::Geometry> geom = new osg::Geometry;
 	geom->setDataVariance(osg::Object::DYNAMIC);
 	geom->setUseDisplayList(false);
@@ -41,11 +34,11 @@ osg::Geometry* createSimpleGeometry(float radius)
 	geom->setColorArray(colors.get());
 	geom->setVertexArray(vertices.get());
 	geom->setColorArray(colors.get());
-	geom->setColorBinding(osg::Geometry::BIND_PER_VERTEX);//ĞèÒª½«ÑÕÉ«°ó¶¨ÉèÖÃ³ÉÃ¿¸ö¶¥µã°ó¶¨
+	geom->setColorBinding(osg::Geometry::BIND_PER_VERTEX);// <éœ€è¦å°†é¢œè‰²ç»‘å®šè®¾ç½®æˆæ¯ä¸ªé¡¶ç‚¹ç»‘å®š>
 	geom->addPrimitiveSet(indices.get());
 
 	osg::ref_ptr <osg::LineWidth> LineSize = new osg::LineWidth;
-	LineSize->setWidth(0.03f*radius);
+	LineSize->setWidth(3.0f);
 	geom->getOrCreateStateSet()->setAttributeAndModes(LineSize.get(), osg::StateAttribute::ON);
 	auto stateSet = geom->getOrCreateStateSet();
 	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
@@ -54,156 +47,22 @@ osg::Geometry* createSimpleGeometry(float radius)
 	return geom.release();
 }
 
-void gl3FontShader(osg::StateSet* stateSet)
-{
-	const std::string vertexSource =
-		"#version 330 \n"
-		"uniform int colorMode;      \n"// 1:color, 2:mat color
-		" \n"
-		"uniform mat4 osg_ModelViewProjectionMatrix; \n"
-		"uniform mat3 osg_NormalMatrix; \n"
-		"uniform vec3 ecLightDir; \n"
-		"uniform vec4 mat_diffuse; \n"
-		" \n"
-		"layout (location = 0) in vec4 Position; \n"
-		"layout (location = 1) in vec3 osg_Normal; \n"
-		"layout (location = 2) in vec4 osg_Color; \n"
-		"layout (location = 3) in vec2 osg_Texcoord; \n"
-		"out vec4 color; \n"
-		"out vec2 Texcoord; \n"
-		" \n"
-		"void main() \n"
-		"{ \n"
-		"    vec3 ecNormal = normalize( osg_NormalMatrix * osg_Normal ); \n"
-		"    float diffuse = max( dot( ecLightDir, ecNormal ), 0. ); \n"
-		"    if(colorMode == 1) \n"
-		"		color = osg_Color; \n"//
-		"    else if(colorMode == 2) \n"
-		"		color = mat_diffuse; \n"//
-		"    Texcoord = osg_Texcoord;\n"
-
-		"    gl_Position = osg_ModelViewProjectionMatrix * Position; \n"
-		"} \n";
-	osg::Shader* vShader = new osg::Shader(osg::Shader::VERTEX, vertexSource);
-
-	const std::string fragmentSource =
-		"#version 330 \n"
-		"uniform sampler2D gDiffuseMap;\n"
-		"in vec4 color; \n"
-		"in vec2 Texcoord; \n"
-		"out vec4 fragData; \n"
-		" \n"
-		"void main() \n"
-		"{ \n"
-		"    fragData = color * texture(gDiffuseMap, Texcoord).r; \n"
-		"} \n";
-	osg::Shader* fShader = new osg::Shader(osg::Shader::FRAGMENT, fragmentSource);
-
-	osg::Program* program = new osg::Program;
-	program->addShader(vShader);
-	program->addShader(fShader);
-	stateSet->setAttribute(program);
-
-	osg::Vec3f lightDir(0., 0.5, 1.);
-	lightDir.normalize();
-	stateSet->addUniform(new osg::Uniform("ecLightDir", lightDir));
-	stateSet->addUniform(new osg::Uniform("gDiffuseMap", 0));
-	stateSet->addUniform(new osg::Uniform("colorMode", 1));
-}
-
-void gles2FontShader(osg::StateSet* stateSet)
-{
-	const std::string vertexSource =
-		"uniform int colorMode;      \n"// 1:color, 2:mat color
-		" \n"
-		//"uniform mat4 osg_ModelViewProjectionMatrix; \n"
-		//"uniform mat3 osg_NormalMatrix; \n"
-		"uniform vec3 ecLightDir; \n"
-		"uniform vec4 mat_diffuse; \n"
-		" \n"
-		"attribute vec4 osg_Position; \n"
-		"attribute vec3 osg_Normal; \n"
-		"attribute vec4 osg_Color; \n"
-		//"attribute vec2 osg_Texcoord; \n"
-		"varying vec4 color; \n"
-		"varying vec2 Texcoord; \n"
-		" \n"
-		"void main() \n"
-		"{ \n"
-		"    vec3 ecNormal = normalize( gl_NormalMatrix * osg_Normal ); \n"
-		"    float diffuse = max( dot( ecLightDir, ecNormal ), 0. ); \n"
-		"    if(colorMode == 1) \n"
-		"		color = osg_Color; \n"//
-		"    else if(colorMode == 2) \n"
-		"		color = mat_diffuse; \n"//
-		"    Texcoord = gl_MultiTexCoord0;\n"//osg_Texcoord
-
-		"    gl_Position = gl_ModelViewProjectionMatrix * osg_Position; \n"
-		"} \n";
-	osg::Shader* vShader = new osg::Shader(osg::Shader::VERTEX, vertexSource);
-
-	const std::string fragmentSource =
-		//"precision mediump float;                   \n"
-		"uniform sampler2D gDiffuseMap;\n"
-		"varying vec4 color; \n"//mediump
-		"varying vec2 Texcoord; \n" //mediump
-		" \n"
-		"void main() \n"
-		"{ \n"
-		"    gl_FragColor = color * texture(gDiffuseMap, Texcoord).r; \n"//
-		"} \n";
-	osg::Shader* fShader = new osg::Shader(osg::Shader::FRAGMENT, fragmentSource);
-
-	osg::Program* program = new osg::Program;
-	program->addShader(vShader);
-	program->addShader(fShader);
-	stateSet->setAttribute(program);
-
-	osg::Vec3f lightDir(0., 0.5, 1.);
-	lightDir.normalize();
-	stateSet->addUniform(new osg::Uniform("ecLightDir", lightDir));
-	stateSet->addUniform(new osg::Uniform("gDiffuseMap", 0));
-	stateSet->addUniform(new osg::Uniform("colorMode", 1));
-}
-/// @fn	osgText::Text* createText(const string name, const osg::Vec3 &position, const osg::Vec4 &color)
-///
-/// @brief	 ÔÚÆÁÄ»Éú³ÉÎÄ×Ö£¬ÒÔÏÔÊ¾×ø±êÖáÖ¸ÏòµÄÈıÎ¬ÏòÁ¿
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param	name		×ø±êÖáÈıÎ¬ÏòÁ¿.
-/// @param	position	Éú³ÉÎÄ×ÖµÄÎ»ÖÃ.
-/// @param	color   		ÎÄ×ÖµÄÑÕÉ«.
-/// @param size			ÎÄ×ÖµÄ´óĞ¡.
-///
-/// @return	null if it fails, else the new text.
-
-osgText::Text* createText(const string name, const osg::Vec3 &position, const osg::Vec4 &color, float size){
+//  <åœ¨å±å¹•ç”Ÿæˆæ–‡å­—ï¼Œä»¥æ˜¾ç¤ºåæ ‡è½´æŒ‡å‘çš„ä¸‰ç»´å‘é‡>
+osgText::Text* createText(const string name, const osg::Vec3 &position, const osg::Vec4 &color){
 	osg::ref_ptr<osgText::Text> Label = new osgText::Text();
-	auto font = osgText::readFontFile("fonts/arial.ttf");//fonts/arial.ttf//SketchFlow Print.ttf
-	Label->setFont(font);
-	Label->setCharacterSize(size);//15.0f
+	Label->setCharacterSize(15.0f);
+	Label->setFont(osgText::readFontFile("fonts/arial.ttf"));
 	Label->setText(name);
 	Label->setAxisAlignment(osgText::Text::SCREEN);
 	Label->setDrawMode(osgText::Text::TEXT);
-	//Label->setFontResolution(size, size);
 
 	Label->setAlignment(osgText::Text::CENTER_CENTER);
 	Label->setPosition(position);
 	Label->setColor(color);
-	gles2FontShader(Label->getOrCreateStateSet());
 	return Label.release();
 }
-/// @fn	CoordinateAxis::CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip)
-///
-/// @brief	 ¹¹Ôìº¯Êı£¬¶ÔË½ÓĞ±äÁ¿µÄ³õÊ¼»¯
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param [in,out]	manip	If non-null, the manip.
 
+//	 <æ„é€ å‡½æ•°ï¼Œå¯¹ç§æœ‰å˜é‡çš„åˆå§‹åŒ–>
 CoordinateAxis::CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip)
 {
 	m_manip = manip;
@@ -214,17 +73,7 @@ CoordinateAxis::~CoordinateAxis()
 {
 }
 
-/// @fn	void CoordinateAxis::getAxisDirection(Axis ax, float &x, float &y, float &z)
-///
-/// @brief	 Í¨¹ı²ÎÊıÖ¸¶¨µÄÖáÏòÀ´»ñÈ¡ÏòÁ¿
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param	ax		 	The ax.
-/// @param [in,out]	x	Ö¸ÏòµÄxÏòÁ¿.
-/// @param [in,out]	y	Ö¸ÏòµÄyÏòÁ¿.
-/// @param [in,out]	z	Ö¸ÏòµÄzÏòÁ¿.
+//  <é€šè¿‡å‚æ•°æŒ‡å®šçš„è½´å‘æ¥è·å–å‘é‡>
 void CoordinateAxis::getAxisDirection(Axis ax, float &x, float &y, float &z) {
 	osg::Vec3  result = update->getResult(ax);
 	x = result._v[0];
@@ -232,29 +81,17 @@ void CoordinateAxis::getAxisDirection(Axis ax, float &x, float &y, float &z) {
 	z = result._v[2];
 }
 
-/// @fn	osg::MatrixTransform* CoordinateAxis::setAxis(float x, float y, float radius, osg::Camera *camera)
-///
-/// @brief	Í¨¹ıÖ¸¶¨µÄ¶şÎ¬ÆÁÄ»×ø±ê»­³ö×ø±êÏµ£¬¿ÉÒÔÖ¸¶¨×ø±êÏµµÄ°ë¾¶³¤¶È£¬ĞèÒª°ÑÆÁÄ»Ïà»ú×÷Îª²ÎÊı´«½øÈ¥
-///
-/// @author	Admin
-/// @date	2016/3/14
-///
-/// @param	x			  	ÆÁÄ»µÄ¶şÎ¬ºá×ø±ê.
-/// @param	y			  	ÆÁÄ»µÄ¶şÎ¬×İ×ø±ê.
-/// @param	radius		 ×ø±êÏµ µÄ±ß³¤.
-/// @param [in]	camera	If non-null, the camera.
-///
-/// @return	null if it fails, else a pointer to an osg::MatrixTransform.
+// 	<é€šè¿‡æŒ‡å®šçš„äºŒç»´å±å¹•åæ ‡ç”»å‡ºåæ ‡ç³»ï¼Œå¯ä»¥æŒ‡å®šåæ ‡ç³»çš„åŠå¾„é•¿åº¦ï¼Œéœ€è¦æŠŠå±å¹•ç›¸æœºä½œä¸ºå‚æ•°ä¼ è¿›å»
 osg::MatrixTransform* CoordinateAxis::setAxis(float x, float y, float radius, osg::Camera *camera) {
 	osg::ref_ptr<osg::Geode> geode = new osg::Geode;
 	geode->addDrawable(createSimpleGeometry(radius));
-	auto fontSize = radius * 0.5;
-	auto  _xText = createText("x", osg::Vec3(radius + fontSize*0.6, 0.0f, 0.0f), osg::Vec4(0.0f, 0.0f, 1.0f, 1.0f), fontSize);
-	auto  _yText = createText("y", osg::Vec3(0.0f, radius + fontSize*0.6, 0.0f), osg::Vec4(0.0f, 1.0f, 0.0f, 1.0f), fontSize);
-	auto  _zText = createText("z", osg::Vec3(0.0f, 0.0f, radius + fontSize*0.6), osg::Vec4(1.0f, 0.0f, 0.0f, 1.0f), fontSize);
-	
+
+	auto  _xText = createText("x", osg::Vec3(radius + 5.0f, 0.0f, 0.0f), osg::Vec4(0.0f, 0.0f, 1.0f, 0.5f));
+	auto  _yText = createText("y", osg::Vec3(0.0f, radius + 5.0f, 0.0f), osg::Vec4(0.0f, 1.0f, 0.0f, 0.5f));
+	auto  _zText = createText("z", osg::Vec3(0.0f, 0.0f, radius + 5.0f), osg::Vec4(1.0f, 0.0f, 0.0f, 1.0f));
+
 	osg::ref_ptr<osg::MatrixTransform> textGeode = new osg::MatrixTransform;
-	
+
 	auto transNode = new osg::MatrixTransform();
 
 	transNode->setMatrix(osg::Matrix::translate(osg::Vec3(x, y, -100)));

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "osgViewer/Viewer"
 #include "osgDB/readFile"
 #include "osg/Geometry"
@@ -19,22 +19,22 @@
 #include <osg/NodeCallback>
 #include "CoordinateUpdater.h"
 
-/// @class	CoordinateAxis
-///
-/// @brief	 <¼Ì³ÐÓÚIcoordinateAxis½Ó¿ÚÀà£¬²¢¶Ôº¯Êý½øÐÐ¶¨Òå>
-///
-/// @author	Admin
-/// @date	2016/3/14
+//class	CoordinateAxis
+//
+// brief	 <ç»§æ‰¿äºŽIcoordinateAxisæŽ¥å£ç±»ï¼Œå¹¶å¯¹å‡½æ•°è¿›è¡Œå®šä¹‰>
+//
+// author	Admin
+// date	2016/3/14
 class CoordinateAxis :
 	public ICoordinateAxis
 {
 public:
-	///<¹¹Ôìº¯Êý£¬¶ÔË½ÓÐ±äÁ¿½øÐÐ³õÊ¼»¯>
+	//<æž„é€ å‡½æ•°ï¼Œå¯¹ç§æœ‰å˜é‡è¿›è¡Œåˆå§‹åŒ–>
 	CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip);
 	~CoordinateAxis();
-	///<»ñÈ¡×ø±êÖá·½Ïò>
+	//<èŽ·å–åæ ‡è½´æ–¹å‘>
 	virtual void getAxisDirection(Axis ax, float &x, float &y, float &z);
-	///Í¨¹ýÖ¸¶¨µÄ¶þÎ¬ÆÁÄ»×ø±ê»­³ö×ø±êÏµ£¬¿ÉÒÔÖ¸¶¨×ø±êÏµµÄ°ë¾¶³¤¶È£¬ÐèÒª°ÑÆÁÄ»Ïà»ú×÷Îª²ÎÊý´«½øÈ¥
+	//<é€šè¿‡æŒ‡å®šçš„äºŒç»´å±å¹•åæ ‡ç”»å‡ºåæ ‡ç³»ï¼Œå¯ä»¥æŒ‡å®šåæ ‡ç³»çš„åŠå¾„é•¿åº¦ï¼Œéœ€è¦æŠŠå±å¹•ç›¸æœºä½œä¸ºå‚æ•°ä¼ è¿›åŽ»>
 	virtual osg::MatrixTransform* setAxis( float x, float y, float radius, osg::Camera *camera);
 private:
 	osgGA::MultiTouchTrackballManipulator* m_manip;
