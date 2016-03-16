@@ -1,4 +1,4 @@
-
+ï»¿
 #include "../DistanceOfPoint/PickHandler.h"
 #include <osg/Geometry>
 #include <osg/Geode>
@@ -18,19 +18,19 @@
 
 
 // class	PickHandler
-// brief	 <¼Ì³ÐÓÚosgGA::GUIEventHandler£¬¶ÔÊý±íÊÂ¼þµÄ¶¨Òå£¬ÒÔ¼°»ñÈ¡Êó±êµÄÎ»ÖÃ£¬>
+// brief	 <ç»§æ‰¿äºŽosgGA::GUIEventHandlerï¼Œå¯¹æ•°è¡¨äº‹ä»¶çš„å®šä¹‰ï¼Œä»¥åŠèŽ·å–é¼ æ ‡çš„ä½ç½®ï¼Œ>
 // date	2016/3/14
 class PickHandler : public osgGA::GUIEventHandler
 {
 public:
-	// <¹¹Ôìº¯Êý£¬¶ÔË½ÓÐ±äÁ¿½øÐÐ³õÊ¼»¯£¨¶¨ÒåÁ½¸öÍ¼ÐÎ£©>
+	// <æž„é€ å‡½æ•°ï¼Œå¯¹ç§æœ‰å˜é‡è¿›è¡Œåˆå§‹åŒ–ï¼ˆå®šä¹‰ä¸¤ä¸ªå›¾å½¢ï¼‰>
 	PickHandler(Distance* selector);
 
-	// <¶ÔÊó±êÊÂ¼þµÄ¸ü¸Ä£¬ÒÔÍê³É¹¦ÄÜÉÏµÄÒªÇó>
+	// <å¯¹é¼ æ ‡äº‹ä»¶çš„æ›´æ”¹ï¼Œä»¥å®ŒæˆåŠŸèƒ½ä¸Šçš„è¦æ±‚>
 	virtual bool handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa);
-	// <°Ñµã£¬Ïß£¬ÎÄ×ÖµÈ¶¼¼Óµ½Ò»¸ö×éÀï>
+	// <æŠŠç‚¹ï¼Œçº¿ï¼Œæ–‡å­—ç­‰éƒ½åŠ åˆ°ä¸€ä¸ªç»„é‡Œ>
 	void setRoot(osg::Group* node);
-	// <´´½¨Ò»ÌõÏß>
+	// <åˆ›å»ºä¸€æ¡çº¿>
 	osg::Geode* createLine();
 
 protected:

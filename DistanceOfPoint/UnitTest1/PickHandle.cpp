@@ -1,12 +1,12 @@
-
+ï»¿
 
 #include "PickHandle.h"
 #include <osgViewer/Viewer>
 
 
-//brief <¶Ô¹¹Ôìº¯Êý½øÐÐ³õÊ¼»¯.>
-//param [in]	selector 	<´´½¨Ò»¸öSelectÀà¶ÔÏó.>
-//param [in]	selector1	<´´½¨Ò»¸öSelectÀà¶ÔÏó.>
+//brief <å¯¹æž„é€ å‡½æ•°è¿›è¡Œåˆå§‹åŒ–.>
+//param [in]	selector 	<åˆ›å»ºä¸€ä¸ªSelectç±»å¯¹è±¡.>
+//param [in]	selector1	<åˆ›å»ºä¸€ä¸ªSelectç±»å¯¹è±¡.>
 PickHandler::PickHandler(Distance* selector)
 {
 	_select = selector;
@@ -16,12 +16,12 @@ PickHandler::PickHandler(Distance* selector)
 
 
 
-//brief	<Í¨¹ý¼Ì³Ð osgGA::GUIEventHandlerµÄÀàÀ´¶ÔhandleµÄ²¿·Ö¹¦ÄÜ½øÐÐÖØÐ´£¬ÒÔÊµÏÖÏëÒªµÄÊó±êÊÂ¼þ.>
-//param	ea	 <Êó±êÊÂ¼þ.>
+//brief	<é€šè¿‡ç»§æ‰¿ osgGA::GUIEventHandlerçš„ç±»æ¥å¯¹handleçš„éƒ¨åˆ†åŠŸèƒ½è¿›è¡Œé‡å†™ï¼Œä»¥å®žçŽ°æƒ³è¦çš„é¼ æ ‡äº‹ä»¶.>
+//param	ea	 <é¼ æ ‡äº‹ä»¶.>
 bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa)
 {
-	// <É¸Ñ¡³öµ±Êó±êÔÚÒÆ¶¯Ê±·¢ÉúµÄÊÂ¼þ>
-	// <Êó±êÔÚÒÆ¶¯Ê±£¬²»»á·¢ÉúµãµÄÂäÏÂ£¬µãÒ²»áËæ×ÅÊó±êÒÆ¶¯£¬¿ÉÒÔÍ¨¹ý»ñÈ¡µ±Ç°Êó±êµÄÎ»ÖÃ£¬»­³öµã£¬ÕâÑù¾Í»á³öÏÖµã¸úËæÊó±ê>
+	// <ç­›é€‰å‡ºå½“é¼ æ ‡åœ¨ç§»åŠ¨æ—¶å‘ç”Ÿçš„äº‹ä»¶>
+	// <é¼ æ ‡åœ¨ç§»åŠ¨æ—¶ï¼Œä¸ä¼šå‘ç”Ÿç‚¹çš„è½ä¸‹ï¼Œç‚¹ä¹Ÿä¼šéšç€é¼ æ ‡ç§»åŠ¨ï¼Œå¯ä»¥é€šè¿‡èŽ·å–å½“å‰é¼ æ ‡çš„ä½ç½®ï¼Œç”»å‡ºç‚¹ï¼Œè¿™æ ·å°±ä¼šå‡ºçŽ°ç‚¹è·Ÿéšé¼ æ ‡>
 	if (ea.getEventType() == osgGA::GUIEventAdapter::MOVE)
 	{
 		osgViewer::View* viewer = dynamic_cast<osgViewer::View*>(&aa);
@@ -37,7 +37,7 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 
 	}
 
-	// <µ±Êó±ê×ó¼üµ¥»÷Ê±´¥·¢µÄÊÂ¼þ£¬µ±Êó±ê×ó¼üµ¥»÷Ê±£¬»áÓÐµãµÄÂäÏÂ£¬µ«ÊÇ²»»á³öÏÖ»­Ïß>
+	// <å½“é¼ æ ‡å·¦é”®å•å‡»æ—¶è§¦å‘çš„äº‹ä»¶ï¼Œå½“é¼ æ ‡å·¦é”®å•å‡»æ—¶ï¼Œä¼šæœ‰ç‚¹çš„è½ä¸‹ï¼Œä½†æ˜¯ä¸ä¼šå‡ºçŽ°ç”»çº¿>
 	if (ea.getEventType() == osgGA::GUIEventAdapter::PUSH && ea.getEventType() == osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON)
 	{
 

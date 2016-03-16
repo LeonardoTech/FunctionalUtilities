@@ -17,18 +17,23 @@
 #include "osg/Group"
 #include "IDistance.h"
 
-
-
+//class	<一个测量距离的类，继承于IDistance接口类>
 class Distance :  public IDistance
 {
 public:
+	// <构造函数，为私有成员初始化>
 	Distance(Selector *select1, Selector *select2);
+
+	// <对接口函数的重写，画出一个点，枚举值Num是确定第一个点还是第二个点>
 	bool setPoint(float x, float y,Num num);
 	
+	// <创建HUD文字，来表示两个点之间的长度>
 	osgText::Text *createText();
 	
+	// <创建一条动态的线，连接着两个动态的点>
 	osg::Geode* createLine();
 
+	// <将点、线、文字都作为节点加入到组里去，能够让他们在屏幕上显示>
 	void setRoot(osg::Group* node);
 	
 private:

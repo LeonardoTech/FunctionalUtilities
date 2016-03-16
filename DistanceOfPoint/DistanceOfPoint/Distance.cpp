@@ -3,7 +3,7 @@
 Distance::Distance(Selector *select1,Selector *select2)
 {
 	_select1 = select1;
-	_select2 = select2;
+	_select2 = select2;						// <因为是需要两个点，所以需要定义两个Selector的对象>
 	_camera = _select1->getCamera();
 	_isSelect1Down = false;
 	_isSelect2Down = false;
@@ -29,8 +29,8 @@ bool Distance::setPoint(float x, float y, Num num)
 	stringstream ss;
 	ss << length;
 
-	_text->setText(ss.str()); // <设置文字的内容>
-	_text->setPosition(middle);// <设置文字的坐标>
+	_text->setText(ss.str());				// <设置文字的内容>
+	_text->setPosition(middle);		// <设置文字的坐标>
 	_text->dirtyBound();
 	selPosition->dirty();
 	_geometry->dirtyBound();
@@ -47,9 +47,9 @@ osgText::Text * Distance::createText()
 	_text = new osgText::Text;
 	_text->setFont(g_font.get());
 	_text->setCharacterSize(40);
-	_text->setCharacterSizeMode(osgText::Text::SCREEN_COORDS);// <让文字的大小不随着图形 的放大缩小而改变，所以就把文字显示成屏幕像数的格式>
-	_text->setAxisAlignment(osgText::Text::SCREEN); // <文字始终保持垂直于屏幕，不会随着图形的旋转而旋转>
-	_text->setDataVariance(osg::Object::DYNAMIC);  // <因为数字在变动，所以这里最好是设置成动态的>
+	_text->setCharacterSizeMode(osgText::Text::SCREEN_COORDS);	// <让文字的大小不随着图形 的放大缩小而改变，所以就把文字显示成屏幕像数的格式>
+	_text->setAxisAlignment(osgText::Text::SCREEN);							// <文字始终保持垂直于屏幕，不会随着图形的旋转而旋转>
+	_text->setDataVariance(osg::Object::DYNAMIC);							// <因为数字在变动，所以这里最好是设置成动态的>
 	return _text;
 }
 
@@ -64,10 +64,10 @@ osg::Geode* Distance::createLine()
 	_geometry->setDataVariance(osg::Object::DYNAMIC);
 	_geometry->setUseDisplayList(false);
 	_geometry->setUseVertexBufferObjects(true);
-	_geometry->setVertexArray(new osg::Vec3Array(2)); // <设置点的坐标，如果是线的话参数就必须是2（2个顶点）>
+	_geometry->setVertexArray(new osg::Vec3Array(2));							// <设置点的坐标，如果是线的话参数就必须是2（2个顶点）>
 	_geometry->setColorArray(colors.get());
 	_geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
-	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_LINES, 0, 2)); // <注意，不要使用GL_LINE替换GL_LINES作为参数>
+	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_LINES, 0, 2));		// <注意，不要使用GL_LINE替换GL_LINES作为参数>
 
 	osg::ref_ptr<osg::Geode> geode = new osg::Geode;
 	geode->addDrawable(_geometry);
@@ -81,14 +81,13 @@ osg::Geode* Distance::createLine()
 
 
 // fn	void PickHandler::setRoot(osg::Group* node)
-// 
 // brief	 <将所有的图形都放进root组里>
 void Distance::setRoot(osg::Group* node)
 {
 	_root = node;
-	_root->addChild(_select2->createSelector());
-	_root->addChild(_select1->createSelector());
-	_root->addChild(createLine());
-	_root->addChild(createText());
+	_root->addChild(_select2->createSelector());		// <第一个点>
+	_root->addChild(_select1->createSelector());		// <第二个点>
+	_root->addChild(createLine());								// <线段>
+	_root->addChild(createText());								// <文字，显示长度>
 }
 
