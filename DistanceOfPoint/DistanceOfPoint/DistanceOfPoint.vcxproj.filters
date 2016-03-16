@@ -18,12 +18,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PickHandler.h">
+    <ClInclude Include="IDistance.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Distance.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PickHandle.cpp">
+    <ClCompile Include="Distance.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

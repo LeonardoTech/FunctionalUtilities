@@ -18,4 +18,6 @@ public:
 	// 	<取所画图形顶点的三维坐标.>
 	virtual osg::Vec3 getPosition() = 0;
 
+	virtual osg::Camera* getCamera() = 0;
+
 };

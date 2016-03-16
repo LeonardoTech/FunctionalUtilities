@@ -134,10 +134,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PickHandler.h" />
+    <ClInclude Include="Distance.h" />
+    <ClInclude Include="IDistance.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PickHandle.cpp" />
+    <ClCompile Include="Distance.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SelectPrimitives\SelectPrimitives\SelectPrimitives.vcxproj">

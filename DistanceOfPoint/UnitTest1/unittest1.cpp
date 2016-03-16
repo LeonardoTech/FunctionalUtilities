@@ -1,7 +1,7 @@
 #include "CppUnitTest.h"
 #include "../DistanceOfPoint/PickHandler.h"
 #include "SelectModelPoint.h"
-#include "test.h"
+#include "PickHandle.h"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -24,12 +24,13 @@ namespace UnitTest1
 
 			osgViewer::Viewer viewer;
 			osg::ref_ptr<osg::Camera> camera = viewer.getCamera();
-			osg::ref_ptr<PickHandler> picker = new PickHandler(new SelectModelPoint(camera), new SelectModelPoint(camera));
+			Distance* dis = new Distance(new SelectModelPoint(camera), new SelectModelPoint(camera));
 
 			osg::ref_ptr<osg::Group> root = new osg::Group;
 			root->addChild(trans.get());
-			picker->setRoot(root);
+			dis->setRoot(root);
 			viewer.setSceneData(root.get());
+			osg::ref_ptr<PickHandler>picker = new PickHandler(dis);
 			viewer.addEventHandler(picker.get());
 
 			osg::CullSettings::CullingMode mode = viewer.getCamera()->getCullingMode();

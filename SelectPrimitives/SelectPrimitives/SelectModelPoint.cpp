@@ -80,3 +80,8 @@ osg::Vec3 SelectModelPoint::getPosition()
 {
 	return _position;
 }
+
+osg::Camera* SelectModelPoint::getCamera()
+{
+	return _camera;
+}

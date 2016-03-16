@@ -14,7 +14,6 @@ enum Axis
 	Z_Axis
 };
 
-
 /// @class	ICoordinateAxis
 ///
 /// @brief	 <一个叫ICoordinateAxis的接口类 成员函数分别是根据属性制作一个坐标系和获取X,Y或Z轴的方向.>
