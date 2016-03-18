@@ -18,6 +18,8 @@
 #include "ICoordinateAxis.h"
 #include <osg/NodeCallback>
 #include "CoordinateUpdater.h"
+#include "LinePrimitives.h"
+#include "TextPrimitives.h"
 
 //class	CoordinateAxis
 //

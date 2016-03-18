@@ -12,7 +12,6 @@ CoordinateUpdater::CoordinateUpdater(osgGA::MultiTouchTrackballManipulator* mani
 // 	<对传进来的manip进行操作.让处于HUD相机的坐标系能够进行操作>
 void CoordinateUpdater::operator()(osg::Node* node, osg::NodeVisitor* nv)
 {
-
 	auto trans = dynamic_cast<osg::MatrixTransform*>(node);
 	rot = m_manip->getRotation();
 	trans->setMatrix(osg::Matrix::rotate(rot));

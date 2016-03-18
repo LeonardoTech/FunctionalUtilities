@@ -42,7 +42,7 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 			info = ss.str();
 			mutex.lock();
 			_text->setText(info);
-			_text->setPosition(osg::Vec3(750.0f, 700.0f, 0.0f));
+			_text->setPosition(osg::Vec3(250.0f, 500.0f, 0.0f));
 			mutex.unlock();
 			break;
 		case 'y': case 'Y':
@@ -54,7 +54,7 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 			info = ss.str();
 			mutex.lock();
 			_text->setText(info);
-			_text->setPosition(osg::Vec3(750.0f, 600.0f, 0.0f));
+			_text->setPosition(osg::Vec3(250.0f, 500.0f, 0.0f));
 			mutex.unlock();
 			break;
 		case 'z': case 'Z':
@@ -66,7 +66,7 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 			info = ss.str();
 			mutex.lock();
 			_text->setText(info);
-			_text->setPosition(osg::Vec3(750.0f, 500.0f, 0.0f));
+			_text->setPosition(osg::Vec3(250.0f, 500.0f, 0.0f));
 			mutex.unlock();
 			break;
 		default:

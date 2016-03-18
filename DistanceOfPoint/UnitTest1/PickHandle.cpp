@@ -27,20 +27,17 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 		osgViewer::View* viewer = dynamic_cast<osgViewer::View*>(&aa);
 		if (!_isSelect1Down)
 		{
-			_select->setPoint(ea.getX(), ea.getY(),SelectOne);
+			_select->drawLine(ea.getX(), ea.getY(), Start);
 		}
 		if (!_isSelect2Down)
 		{
-			_select->setPoint(ea.getX(), ea.getY(),SelectTwo);
+			_select->drawLine(ea.getX(), ea.getY(), End);
 		}
-
-
 	}
 
 	// <当鼠标左键单击时触发的事件，当鼠标左键单击时，会有点的落下，但是不会出现画线>
 	if (ea.getEventType() == osgGA::GUIEventAdapter::PUSH && ea.getEventType() == osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON)
 	{
-
 		osgViewer::View* viewer = dynamic_cast<osgViewer::View*>(&aa);
 		bool isExeced = false;
 		if (!_isSelect1Down&& !isExeced)
@@ -48,14 +45,14 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 			_isSelect1Down = true;
 			_isSelect2Down = false;
 			isExeced = true;
-			_select->setPoint(ea.getX(), ea.getY(),SelectOne);
+			_select->drawLine(ea.getX(), ea.getY(), Start);
 		}
 		if (!_isSelect2Down&&!isExeced)
 		{
 			isExeced = true;
 			_isSelect2Down = true;
 			_isSelect1Down = false;
-			_select->setPoint(ea.getX(), ea.getY(),SelectTwo);
+			_select->drawLine(ea.getX(), ea.getY(), End);
 		}
 	}
 	return false;

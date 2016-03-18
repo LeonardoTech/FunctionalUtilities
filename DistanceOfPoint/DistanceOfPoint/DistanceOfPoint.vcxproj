@@ -139,10 +139,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Distance.h" />
+    <ClInclude Include="Geometry.h" />
     <ClInclude Include="IDistance.h" />
+    <ClInclude Include="IGeometry.h" />
+    <ClInclude Include="ILinePrimitives.h" />
+    <ClInclude Include="IPointPrimitives.h" />
+    <ClInclude Include="ITextPrimitives.h" />
+    <ClInclude Include="LinePrimitives.h" />
+    <ClInclude Include="PointPrimitives.h" />
+    <ClInclude Include="TextPrimitives.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Distance.cpp" />
+    <ClCompile Include="Geometry.cpp" />
+    <ClCompile Include="LinePrimitives.cpp" />
+    <ClCompile Include="PointPrimitives.cpp" />
+    <ClCompile Include="TextPrimitives.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SelectPrimitives\SelectPrimitives\SelectPrimitives.vcxproj">

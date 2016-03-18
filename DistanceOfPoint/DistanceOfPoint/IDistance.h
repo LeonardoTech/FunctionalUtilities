@@ -1,9 +1,9 @@
 ﻿#pragma once
 
-enum Num
+enum SegmentEndpointType
 {
-	SelectOne,
-	SelectTwo
+	Start,
+	End
 };
 
 /// @class	IDistance
@@ -28,5 +28,9 @@ public:
 	/// @param	num <一个枚举值，确定画的是第一个点还是第二个点>.
 	///
 	/// @return	true if it succeeds, false if it fails.
-	virtual bool  setPoint(float x, float y,Num num) = 0;
+	virtual bool  drawLine(float x, float y, SegmentEndpointType type) = 0;
+	virtual void setPoint(float size,float red,float green,float blue) = 0;
+	virtual void setText(float size,float x,float y,float z, float red, float green, float blue) = 0;
+	virtual void setLine(float size, float red, float green, float blue) = 0;
+
 };

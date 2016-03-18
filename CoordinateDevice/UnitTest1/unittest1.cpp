@@ -100,9 +100,9 @@ namespace UnitTest1
 			auto manip = new osgGA::MultiTouchTrackballManipulator();
 			view.setCameraManipulator(manip);
 			osg::ref_ptr<osg::Geode> textGeode = new osg::Geode;
-			osg::ref_ptr<osg::Camera> camera = createHUDCamera(0, 800, 0, 600);
+			osg::ref_ptr<osg::Camera> camera = createHUDCamera(0, 1920	, 0, 1080);
 			CoordinateAxis *axis = new CoordinateAxis(manip);
-			osg::ref_ptr<osg::MatrixTransform>tran = axis->setAxis(180.0f, 180.0f, 40.0f, camera);
+			osg::ref_ptr<osg::MatrixTransform>tran = axis->setAxis(200.0f, 300.0f, 100.0f, camera);
 
 			osg::ref_ptr<osgText::Text>text = new osgText::Text;
 			osg::ref_ptr<osgText::Font> g_font = osgText::readFontFile("fonts/arial.ttf");
@@ -110,8 +110,7 @@ namespace UnitTest1
 			text->setCharacterSize(20.0f);
 			text->setAxisAlignment(osgText::TextBase::XY_PLANE);
 			text->setDataVariance(osg::Object::DYNAMIC);
-			text->setPosition(osg::Vec3(750.0f, 700.0f, 0.0f));
-			//camera->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
+			camera->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
 			osg::ref_ptr<ModelController> ctrler = new ModelController(tran.get(), axis, text);
 			textGeode->addDrawable(text);
 			camera->addChild(textGeode);

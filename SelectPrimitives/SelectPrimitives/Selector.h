@@ -20,4 +20,8 @@ public:
 
 	virtual osg::Camera* getCamera() = 0;
 
+
+	
+
+
 };

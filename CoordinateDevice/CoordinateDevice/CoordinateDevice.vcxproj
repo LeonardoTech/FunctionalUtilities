@@ -148,13 +148,28 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Axes.h" />
     <ClInclude Include="CoordinateAxis.h" />
     <ClInclude Include="CoordinateUpdater.h" />
+    <ClInclude Include="Geometry.h" />
+    <ClInclude Include="IAxes.h" />
     <ClInclude Include="ICoordinateAxis.h" />
+    <ClInclude Include="IGeometry.h" />
+    <ClInclude Include="ILinePrimitives.h" />
+    <ClInclude Include="IPointPrimitives.h" />
+    <ClInclude Include="ITextPrimitives.h" />
+    <ClInclude Include="LinePrimitives.h" />
+    <ClInclude Include="PointPrimitives.h" />
+    <ClInclude Include="TextPrimitives.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CoordinateAxis.cpp" />
     <ClCompile Include="CoordinateUpdate.cpp" />
+    <ClCompile Include="Geometry.cpp" />
+    <ClCompile Include="LinePrimitives.cpp" />
+    <ClCompile Include="PointPrimitives.cpp" />
+    <ClCompile Include="TextPrimitives.cpp" />
+    <ClCompile Include="Axes.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

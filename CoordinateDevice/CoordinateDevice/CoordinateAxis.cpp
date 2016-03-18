@@ -5,47 +5,82 @@
 
 
 //  <根据参数所指定的半径画出一个坐标系，返回一个osg::Geometry*类型的变量>
-osg::Geometry* createSimpleGeometry(float radius)
+osg::Geometry* createSimpleGeometryX(float radius)
 {
-	osg::ref_ptr<osg::Vec3Array> vertices = new osg::Vec3Array(8);
-	(*vertices)[0].set(0.0f, 0.0f, 0.0f);
-	(*vertices)[1].set(radius, 0.0f, 0.0f);
-	(*vertices)[2].set(0.0f, 0.0f, 0.0f);
-	(*vertices)[3].set(0.0f, radius, 0.0f);
-	(*vertices)[4].set(0.0f, 0.0f, 0.0f);
-	(*vertices)[5].set(0.0f, 0.0f, radius);
-
-	osg::ref_ptr<osg::DrawElementsUInt> indices = new osg::DrawElementsUInt(GL_LINES, 6);
-	(*indices)[0] = 0; (*indices)[1] = 1; (*indices)[2] = 2; (*indices)[3] = 3;
-	(*indices)[4] = 4; (*indices)[5] = 5;
-
-	osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array;		// <指定颜色，连成一条线的两个点需要用相同的颜色>
-	colors->push_back(osg::Vec4(0.0f, 0.0f, 1.0f, 0.5f));
-	colors->push_back(osg::Vec4(0.0f, 0.0f, 1.0f, 0.5f));
-	colors->push_back(osg::Vec4(0.0f, 1.0f, 0.0f, 0.5f));
-	colors->push_back(osg::Vec4(0.0f, 1.0f, 0.0f, 0.5f));
-	colors->push_back(osg::Vec4(1.0f, 0.0f, 0.0f, 0.5f));
-	colors->push_back(osg::Vec4(1.0f, 0.0f, 0.0f, 0.5f));
-
-	osg::ref_ptr<osg::Geometry> geom = new osg::Geometry;
-	geom->setDataVariance(osg::Object::DYNAMIC);
-	geom->setUseDisplayList(false);
-	geom->setUseVertexBufferObjects(true);
-	geom->setColorArray(colors.get());
-	geom->setVertexArray(vertices.get());
-	geom->setColorArray(colors.get());
-	geom->setColorBinding(osg::Geometry::BIND_PER_VERTEX);// <需要将颜色绑定设置成每个顶点绑定>
-	geom->addPrimitiveSet(indices.get());
-
-	osg::ref_ptr <osg::LineWidth> LineSize = new osg::LineWidth;
-	LineSize->setWidth(0.03f*radius);
-	geom->getOrCreateStateSet()->setAttributeAndModes(LineSize.get(), osg::StateAttribute::ON);
-	auto stateSet = geom->getOrCreateStateSet();
-	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-
+	LinePrimitives* linex = new LinePrimitives;
+	linex->drawGeometry();
+	linex->setStartPosition(0.0f, 0.0f, 0.0f);
+	linex->setEndPosition(radius, 0.0f, 0.0f);
+	linex->setColor(1.0f, 0.0f, 0.0f);
+	linex->setLineWidth(0.03f*radius);
+	/*linex->drawGeometry();*/
+	//(*vertices)[2].set(0.0f, 0.0f, 0.0f);
+	//(*vertices)[3].set(0.0f, radius, 0.0f);
+	//(*vertices)[4].set(0.0f, 0.0f, 0.0f);
+	//(*vertices)[5].set(0.0f, 0.0f, radius);
+	//osg::ref_ptr<osg::DrawElementsUInt> indices = new osg::DrawElementsUInt(GL_LINES, 6);
+	//(*indices)[0] = 0; (*indices)[1] = 1; (*indices)[2] = 2; (*indices)[3] = 3;
+	//(*indices)[4] = 4; (*indices)[5] = 5;
+	//osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array;		// <指定颜色，连成一条线的两个点需要用相同的颜色>
+	//colors->push_back(osg::Vec4(0.0f, 0.0f, 1.0f, 0.5f));
+	//colors->push_back(osg::Vec4(0.0f, 0.0f, 1.0f, 0.5f));
+	//colors->push_back(osg::Vec4(0.0f, 1.0f, 0.0f, 0.5f));
+	//colors->push_back(osg::Vec4(0.0f, 1.0f, 0.0f, 0.5f));
+	//colors->push_back(osg::Vec4(1.0f, 0.0f, 0.0f, 0.5f));
+	//colors->push_back(osg::Vec4(1.0f, 0.0f, 0.0f, 0.5f));
+	//osg::ref_ptr<osg::Geometry> geom = new osg::Geometry;
+	//geom->setDataVariance(osg::Object::DYNAMIC);
+	//geom->setUseDisplayList(false);
+	//geom->setUseVertexBufferObjects(true);
+	//geom->setColorArray(colors.get());
+	//geom->setVertexArray(vertices.get());
+	//geom->setColorArray(colors.get());
+	//geom->setColorBinding(osg::Geometry::BIND_PER_VERTEX);// <需要将颜色绑定设置成每个顶点绑定>
+	//geom->addPrimitiveSet(indices.get());
+	//osg::ref_ptr <osg::LineWidth> LineSize = new osg::LineWidth;
+	//LineSize->setWidth(0.03f*radius);
+	//geom->getOrCreateStateSet()->setAttributeAndModes(LineSize.get(), osg::StateAttribute::ON);
+	//auto stateSet = geom->getOrCreateStateSet();
+	//stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
+	osg::ref_ptr<osg::Geometry> geom = linex->getGeometry();
 	osgUtil::SmoothingVisitor::smooth(*geom);
 	return geom.release();
 }
+
+
+
+//  <根据参数所指定的半径画出一个坐标系，返回一个osg::Geometry*类型的变量>
+osg::Geometry* createSimpleGeometryY(float radius)
+{
+	LinePrimitives* liney = new LinePrimitives;
+	liney->drawGeometry();
+	liney->setStartPosition(0.0f, 0.0f, 0.0f);
+	liney->setEndPosition(0.0f, radius, 0.0f);
+	liney->setColor(0.0f, 1.0f, 0.0f);
+	liney->setLineWidth(0.03f*radius);
+
+	osg::ref_ptr<osg::Geometry> geom = liney->getGeometry();
+	osgUtil::SmoothingVisitor::smooth(*geom);
+	return geom.release();
+}
+
+//  <根据参数所指定的半径画出一个坐标系，返回一个osg::Geometry*类型的变量>
+osg::Geometry* createSimpleGeometryZ(float radius)
+{
+	LinePrimitives* linez = new LinePrimitives;
+	linez->drawGeometry();
+	linez->setStartPosition(0.0f, 0.0f, 0.0f);
+	linez->setEndPosition(0.0f, 0.0f, radius);
+	linez->setColor(0.0f, 0.0f, 1.0f);
+	linez->setLineWidth(0.03f*radius);
+
+	osg::ref_ptr<osg::Geometry> geom = linez->getGeometry();
+	osgUtil::SmoothingVisitor::smooth(*geom);
+	return geom.release();
+}
+
+
+
 
 void gl3FontShader(osg::StateSet* stateSet)
 {
@@ -161,23 +196,21 @@ void gles2FontShader(osg::StateSet* stateSet)
  
 // <在屏幕生成文字，以显示坐标轴指向的三维向量>  
 osgText::Text* createText(const string name, const osg::Vec3 &position, const osg::Vec4 &color, float size){
-	osg::ref_ptr<osgText::Text> Label = new osgText::Text();
-	auto font = osgText::readFontFile("fonts/arial.ttf");//fonts/arial.ttf//SketchFlow Print.ttf	
-	Label->setFont(font);
-	Label->setCharacterSize(size);//15.0f
-	Label->setText(name);
-	Label->setAxisAlignment(osgText::Text::SCREEN);
-	Label->setDrawMode(osgText::Text::TEXT);
+	
+	TextPrimitives* text = new TextPrimitives();
+	text->drawGeometry();
+	text->setText(name);
+	text->setPosition(position._v[0], position._v[1], position._v[2]);
+	text->setColor(color._v[0], color._v[1], color._v[2]);
+	text->setSize(size);
 
-
-	Label->setAlignment(osgText::Text::CENTER_CENTER);
-	Label->setPosition(position);
-	Label->setColor(color);
+	osgText::Text* Label =  text->getOsgText();
+	
 #ifdef OSG_GL3_AVAILABLE
 	gles2FontShader(Label->getOrCreateStateSet());
 #endif // OSG_GL2_A
 
-	return Label.release();
+	return Label;
 }
 
 //	 <构造函数，对私有变量的初始化>
@@ -202,7 +235,9 @@ void CoordinateAxis::getAxisDirection(Axis ax, float &x, float &y, float &z) {
 // 	<通过指定的二维屏幕坐标画出坐标系，可以指定坐标系的半径长度，需要把屏幕相机作为参数传进去
 osg::MatrixTransform* CoordinateAxis::setAxis(float x, float y, float radius, osg::Camera *camera) {
 	osg::ref_ptr<osg::Geode> geode = new osg::Geode;
-	geode->addDrawable(createSimpleGeometry(radius));
+	geode->addDrawable(createSimpleGeometryX(radius));
+	geode->addDrawable(createSimpleGeometryY(radius));
+	geode->addDrawable(createSimpleGeometryZ(radius));
 	auto fontSize = radius * 0.5;
 	auto  _xText = createText("x", osg::Vec3(radius + fontSize*0.6, 0.0f, 0.0f), osg::Vec4(0.0f, 0.0f, 1.0f, 0.5f), fontSize);
 	auto  _yText = createText("y", osg::Vec3(0.0f, radius + fontSize*0.6, 0.0f), osg::Vec4(0.0f, 1.0f, 0.0f, 0.5f), fontSize);
