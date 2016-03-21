@@ -74,7 +74,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(OSG_3_4)\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)../../CoordinateDevice/CoordinateDevice/;$(OSG_3_4)\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(OSG_3_4)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

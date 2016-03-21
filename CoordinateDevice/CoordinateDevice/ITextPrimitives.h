@@ -2,6 +2,8 @@
 #define __ITEXTPRIMITIVES_H__
 #include "IGeometry.h"
 
+
+
 class ITextPrimitives:public IGeometry
 {
 public:

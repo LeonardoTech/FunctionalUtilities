@@ -3,6 +3,15 @@
 // <这里是画出点，但是没有指出点的位置>
 osg::Geode* SelectModelPoint::createSelector()
 {
+
+
+	//PointPrimitives* point = new PointPrimitives;
+	//point->drawGeometry();
+	//point->setColor(0.0f,0.0f,1.0f);
+
+
+
+
 	osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array(1);
 	(*colors)[0] = selectedColor;
 

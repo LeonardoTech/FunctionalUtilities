@@ -6,7 +6,7 @@
 class IPointPrimitives :IGeometry
 {
 public:
-	virtual void setPoint(float size, float red, float green, float blue) = 0;
+	virtual void setPosition(float x, float y, float z) = 0;
 	virtual void setSize(float size) = 0;
 };
 

@@ -34,7 +34,7 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 		switch (ea.getKey())
 		{
 		case 'x': case 'X':
-			_axis->getAxisDirection(X_Axis, x, y, z);
+			_axis->getAxisDirection(X_Coordinate, x, y, z);
 			info.empty();
 			info.clear();
 			ss.str("");
@@ -46,7 +46,7 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 			mutex.unlock();
 			break;
 		case 'y': case 'Y':
-			_axis->getAxisDirection(Y_Axis, x, y, z);
+			_axis->getAxisDirection(Y_Coordinate, x, y, z);
 			info.empty();
 			info.clear();
 			ss.str("");
@@ -58,7 +58,7 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 			mutex.unlock();
 			break;
 		case 'z': case 'Z':
-			_axis->getAxisDirection(Z_Axis, x, y, z);
+			_axis->getAxisDirection(Z_Coordinate, x, y, z);
 			info.clear();
 			info.empty();
 			ss.str("");
@@ -79,8 +79,6 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 	}
 	return false;
 }
-
-
 
 
 osg::Camera* createHUDCamera(double left, double right, double bottom, double top)

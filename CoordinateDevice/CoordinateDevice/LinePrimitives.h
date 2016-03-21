@@ -19,15 +19,14 @@ public:
 
 	virtual void setColor(float red, float green, float blue) override;
 
-	virtual void setVertex();
-
 	virtual void setStartPosition(float x, float y, float z)override;
 
 	virtual void setEndPosition(float x, float y, float z) override;
 
-
 	osg::Geometry*	getGeometry();
-private:
+
+protected:
+	virtual void setVertex();
 	osg::Vec3 _startPosition;
 	osg::Vec3 _endPosition;
 	osg::ref_ptr<osg::Geometry> _geometry;

@@ -8,7 +8,12 @@
 #include <osgViewer/Viewer>
 #include <osgDB/readFile>
 #include <iostream>
+
 #include "Selector.h"
+
+#include "PointPrimitives.h"
+#include "IPointPrimitives.h"
+
 using namespace std;
 
 class SelectModelPoint :public Selector

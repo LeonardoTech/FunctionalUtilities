@@ -37,7 +37,7 @@ public:
 	/// @param [out]	x	<指向的X向量>
 	/// @param [out]	y	<指向的Y向量>
 	/// @param [out]	z	<指向的Z向量>
-	virtual void getAxisDirection(Axis ax, float &x, float &y, float &z) = 0;
+	//virtual void getAxisDirection(Axis ax, float &x, float &y, float &z) = 0;
 
 	/// @fn	virtual osg::MatrixTransform* ICoordinateAxis::setAxis(float x, float y, float radius, osg::Camera *camera) = 0;
 	///

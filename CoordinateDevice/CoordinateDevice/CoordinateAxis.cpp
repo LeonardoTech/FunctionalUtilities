@@ -80,8 +80,6 @@ osg::Geometry* createSimpleGeometryZ(float radius)
 }
 
 
-
-
 void gl3FontShader(osg::StateSet* stateSet)
 {
 	const std::string vertexSource =
@@ -218,6 +216,7 @@ CoordinateAxis::CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip)
 {
 	m_manip = manip;
 	update = new CoordinateUpdater(m_manip);
+	_axes = new Axes;
 }
 
 CoordinateAxis::~CoordinateAxis()
@@ -225,16 +224,19 @@ CoordinateAxis::~CoordinateAxis()
 }
 
 //  <通过参数指定的轴向来获取向量>
-void CoordinateAxis::getAxisDirection(Axis ax, float &x, float &y, float &z) {
-	osg::Vec3  result = update->getResult(ax);
-	x = result._v[0];
-	y = result._v[1];
-	z = result._v[2];
+void CoordinateAxis::getAxisDirection(Coordinate ax, float &x, float &y, float &z) {
+	//osg::Vec3  result = update->getResult(ax);
+	_axes->getDirection(ax,x,y,z);
+	
+	//x = result._v[0];
+	//y = result._v[1];
+	//z = result._v[2];
 }
 
 // 	<通过指定的二维屏幕坐标画出坐标系，可以指定坐标系的半径长度，需要把屏幕相机作为参数传进去
 osg::MatrixTransform* CoordinateAxis::setAxis(float x, float y, float radius, osg::Camera *camera) {
-	osg::ref_ptr<osg::Geode> geode = new osg::Geode;
+	
+	/*osg::ref_ptr<osg::Geode> geode = new osg::Geode;
 	geode->addDrawable(createSimpleGeometryX(radius));
 	geode->addDrawable(createSimpleGeometryY(radius));
 	geode->addDrawable(createSimpleGeometryZ(radius));
@@ -242,20 +244,29 @@ osg::MatrixTransform* CoordinateAxis::setAxis(float x, float y, float radius, os
 	auto  _xText = createText("x", osg::Vec3(radius + fontSize*0.6, 0.0f, 0.0f), osg::Vec4(0.0f, 0.0f, 1.0f, 0.5f), fontSize);
 	auto  _yText = createText("y", osg::Vec3(0.0f, radius + fontSize*0.6, 0.0f), osg::Vec4(0.0f, 1.0f, 0.0f, 0.5f), fontSize);
 	auto  _zText = createText("z", osg::Vec3(0.0f, 0.0f, radius + fontSize*0.6), osg::Vec4(1.0f, 0.0f, 0.0f, 1.0f), fontSize);
+*/
+	
 
-	osg::ref_ptr<osg::MatrixTransform> textGeode = new osg::MatrixTransform;
+	
+	_axes->drawGeomtry(radius);
+	
+	osg::ref_ptr<osg::MatrixTransform> textGeode = _axes->getMatrix();
+	_axes->setMaip(m_manip);
+	_axes->setCamera(camera);
+	_axes->setCenter(x, y);
 
-	auto transNode = new osg::MatrixTransform();
+	//auto transNode = new osg::MatrixTransform();
+	//transNode->setMatrix(osg::Matrix::translate(osg::Vec3(x, y, -100)));
+	//camera->addChild(transNode);
+	//transNode->addChild(textGeode.get());
+	//textGeode->addChild(geode.get());
+	//textGeode->addChild(_xText);
+	//textGeode->addChild(_yText);
+	//textGeode->addChild(_zText);
 
-	transNode->setMatrix(osg::Matrix::translate(osg::Vec3(x, y, -100)));
-	camera->addChild(transNode);
-	transNode->addChild(textGeode.get());
-	textGeode->addChild(geode.get());
-	textGeode->addChild(_xText);
-	textGeode->addChild(_yText);
-	textGeode->addChild(_zText);
 
-	textGeode->setUpdateCallback(update);
+	//textGeode->setUpdateCallback(update);
+
 	return textGeode.release();
 
 }

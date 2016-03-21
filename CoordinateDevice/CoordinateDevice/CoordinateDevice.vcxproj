@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Axes.h" />
+    <ClInclude Include="AxesUpdate.h" />
     <ClInclude Include="CoordinateAxis.h" />
     <ClInclude Include="CoordinateUpdater.h" />
     <ClInclude Include="Geometry.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="TextPrimitives.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AxesUpdate.cpp" />
     <ClCompile Include="CoordinateAxis.cpp" />
     <ClCompile Include="CoordinateUpdate.cpp" />
     <ClCompile Include="Geometry.cpp" />

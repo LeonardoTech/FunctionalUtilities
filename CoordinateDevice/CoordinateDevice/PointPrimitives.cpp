@@ -1,49 +1,55 @@
 #include "PointPrimitives.h"
 
-PointPrimitives::PointPrimitives(osg::Geode *geode)
+PointPrimitives::PointPrimitives()
 {
-	_geometry = new Geometry();
-	_geometry->drawGeometry();
-	_geo->setVertexArray(new osg::Vec3Array(1));
-	_geo->addPrimitiveSet(new osg::DrawArrays(GL_POINTS, 0, 1));
-	_geode = geode;
+	_geometry = new osg::Geometry;
+	_color = new osg::Vec4Array(1);
+	_vertex = { 0.0f, 0.0f, 0.0f };
 }
 
-void drawGeometry()
+void PointPrimitives::drawGeometry()
 {
-
+	_geometry->setDataVariance(osg::Object::DYNAMIC);
+	_geometry->setUseDisplayList(false);
+	_geometry->setUseVertexBufferObjects(true);
+	_geometry->setVertexArray(new osg::Vec3Array(1));
+	_geometry->setColorArray(_color);
+	_geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
+	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_POINTS, 0, 1));
+	auto stateSet = _geometry->getOrCreateStateSet();
+	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
 }
 
 
 void PointPrimitives::setSize(float size)
 {
-	_geode = new osg::Geode;
-	_geode->addDrawable(_geo.get());
-	_geode->getOrCreateStateSet()->setAttributeAndModes(new osg::Point(size));
+	auto stateSet = _geometry->getOrCreateStateSet();
+	stateSet->setAttributeAndModes(new osg::Point(size));
 	setGeode();
+	_geometry->dirtyBound();
 }
 void PointPrimitives::setColor(float red, float green, float blue)
 {
-	_geometry->setColor(red, green, blue);
-	osg::ref_ptr<osg::Geode> _geode = new osg::Geode;
-	_geode->addDrawable(_geo.get());
-	setGeode();
+
+	osg::Vec4 color = { red, green, blue, 1.0f };
+	(*_color)[0] = color;
+	_color->dirty();
+	_geometry->setColorArray(_color);
+	_geometry->dirtyBound();
 }
 
 
-void PointPrimitives::setPoint(float size, float red, float green, float blue)
+void PointPrimitives::setPosition(float x, float y, float z)
 {
-	_geometry->setColor(red, green, blue);
-	_geode = new osg::Geode;
-	_geode->addDrawable(_geo.get());
-	_geode->getOrCreateStateSet()->setAttributeAndModes(new osg::Point(size));
-	setGeode();
+	_vertex = { x, y, z };
+	osg::ref_ptr<osg::Vec3Array>verties = new osg::Vec3Array(1);
+	(*verties)[0] = _vertex;
+	_geometry->dirtyBound();
 }
 
 
-void PointPrimitives::setGeode()
+osg::Geometry *PointPrimitives::getGeometry()
 {
-	_geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-	_geode->getOrCreateStateSet()->setMode(GL_BLEND, osg::StateAttribute::ON);
-	_geode->getOrCreateStateSet()->setRenderingHint(osg::StateSet::TRANSPARENT_BIN);
+	return _geometry;
 }
+

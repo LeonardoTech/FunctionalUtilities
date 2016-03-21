@@ -57,6 +57,9 @@
     <ClInclude Include="IAxes.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="AxesUpdate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CoordinateAxis.cpp">
@@ -78,6 +81,9 @@
       <Filter>头文件</Filter>
     </ClCompile>
     <ClCompile Include="Axes.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AxesUpdate.cpp">
       <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>

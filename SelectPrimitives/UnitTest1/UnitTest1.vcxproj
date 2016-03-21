@@ -78,7 +78,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>C:\SDK\OpenSceneGraph-3.4.0\lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\SDK\OpenSceneGraph-3.4.0\include;C:\WorkSpace\FunctionalUtilities\SelectPrimitives\SelectPrimitives;C:\WorkSpace\SelectModelLine\SelectModelLine;$(IncludePath)</IncludePath>
+    <IncludePath>C:\SDK\OpenSceneGraph-3.4.0\include;C:\WorkSpace\FunctionalUtilities\SelectPrimitives\SelectPrimitives;$(ProjectDir)../../CoordinateDevice/CoordinateDevice/;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>

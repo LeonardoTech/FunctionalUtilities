@@ -1,6 +1,8 @@
 
 #include "Axes.h"
 
+
+
 void Axes::drawGeomtry(float radius)
 {
 	LinePrimitives* linex = new LinePrimitives;
@@ -16,18 +18,18 @@ void Axes::drawGeomtry(float radius)
 	liney->drawGeometry();
 	liney->setStartPosition(0.0f, 0.0f, 0.0f);
 	liney->setEndPosition(0.0f, radius, 0.0f);
-	liney->setColor(1.0f, 0.0f, 0.0f);
+	liney->setColor(0.0f, 1.0f, 0.0f);
 	liney->setLineWidth(0.03f*radius);
-	osg::ref_ptr<osg::Geometry> geomy = linex->getGeometry();
+	osg::ref_ptr<osg::Geometry> geomy = liney->getGeometry();
 	osgUtil::SmoothingVisitor::smooth(*geomy);
 
 	LinePrimitives* linez = new LinePrimitives;
 	linez->drawGeometry();
 	linez->setStartPosition(0.0f, 0.0f, 0.0f);
 	linez->setEndPosition(0.0f, 0.0f, radius);
-	linez->setColor(1.0f, 0.0f, 0.0f);
+	linez->setColor(0.0f, 0.0f, 1.0f);
 	linez->setLineWidth(0.03f*radius);
-	osg::ref_ptr<osg::Geometry> geomz = linex->getGeometry();
+	osg::ref_ptr<osg::Geometry> geomz = linez->getGeometry();
 	osgUtil::SmoothingVisitor::smooth(*geomz);
 	auto fontSize = radius * 0.5;
 	TextPrimitives* text_X = new TextPrimitives;
@@ -56,24 +58,47 @@ void Axes::drawGeomtry(float radius)
 	geode->addDrawable(geomy);
 	geode->addDrawable(geomz);
 
-	textGeode = new osg::MatrixTransform;
-	textGeode->addChild(geode.get());
-	textGeode->addChild(textx);
-	textGeode->addChild(texty);
-	textGeode->addChild(textz);
+	_textGeode = new osg::MatrixTransform;
+	_textGeode->addChild(geode.get());
+	_textGeode->addChild(textx);
+	_textGeode->addChild(texty);
+	_textGeode->addChild(textz);
 }
 
-
-
-
-
-void Axes::setCenter(float x, float y, float z)
+osg::MatrixTransform* Axes::getMatrix()
 {
-
+	return _textGeode;
 }
 
-void Axes::getDirection(float &x, float &y, float &z)
+
+void Axes::setCamera(osg::Camera* camera)
 {
-	
+	_camera = camera;
 }
+
+void Axes::setCenter(float x, float y)
+{
+	auto transNode = new osg::MatrixTransform();
+
+	transNode->setMatrix(osg::Matrix::translate(osg::Vec3(x, y, -100)));
+	_camera->addChild(transNode);
+	transNode->addChild(_textGeode.get());
+	_textGeode->setUpdateCallback(_update);
+}
+
+void Axes::getDirection(Coordinate coord, float &x, float &y, float &z)
+{
+	osg::Vec3  result = _update->getResult(coord);
+	x = result._v[0];
+	y = result._v[1];
+	z = result._v[2];
+}
+
+
+void Axes::setMaip(osgGA::MultiTouchTrackballManipulator* manip)
+{
+	m_manip = manip;
+	_update =  new AxesUpdate(manip);
+}
+
 
