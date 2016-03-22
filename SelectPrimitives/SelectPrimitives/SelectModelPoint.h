@@ -11,15 +11,13 @@
 
 #include "Selector.h"
 
-#include "PointPrimitives.h"
-#include "IPointPrimitives.h"
 
 using namespace std;
 
 class SelectModelPoint :public Selector
 {
 public:
-	SelectModelPoint(osg::Camera* camera): _selector(0), _camera(camera) {}
+	SelectModelPoint(osg::Camera* camera) : _selector(0), _camera(camera){}
 	// <创建一个点>
 	osg::Geode* createSelector();
 

@@ -2,28 +2,34 @@
 //
 
 #include "SelectModelLine.h"
+#include "LinePrimitives.h"
+
 
 // <创建线>
 osg::Geode* SelectModelLine::createSelector()
 {
-	osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array(1);
-	(*colors)[0] = selectedColor;
+	LinePrimitives *line = new LinePrimitives;
+	line->setColor(selectedColor._v[0], selectedColor._v[1], selectedColor._v[2]);
+	_selector =  line->getGeometry();
 
-	_selector = new osg::Geometry;
-	_selector->setDataVariance(osg::Object::DYNAMIC);
-	_selector->setUseDisplayList(false);
-	_selector->setUseVertexBufferObjects(true);
-	_selector->setVertexArray(new osg::Vec3Array(2));
-	_selector->setColorArray(colors.get());
-	_selector->setColorBinding(osg::Geometry::BIND_OVERALL);
-	_selector->addPrimitiveSet(new osg::DrawArrays(GL_LINES, 0, 2));
+	//osg::ref_ptr<osg::Vec4Array> colors = new osg::Vec4Array(1);
+	//(*colors)[0] = selectedColor;
+	//_selector = new osg::Geometry;
+	//_selector->setDataVariance(osg::Object::DYNAMIC);
+	//_selector->setUseDisplayList(false);
+	//_selector->setUseVertexBufferObjects(true);
+	//_selector->setVertexArray(new osg::Vec3Array(2));
+	//_selector->setColorArray(colors.get());
+	//_selector->setColorBinding(osg::Geometry::BIND_OVERALL);
+	//_selector->addPrimitiveSet(new osg::DrawArrays(GL_LINES, 0, 2));
 
 	osg::ref_ptr<osg::Geode> geode = new osg::Geode;
 	geode->addDrawable(_selector.get());
-	geode->getOrCreateStateSet()->setAttributeAndModes(new osg::Point(10.0f));
-	geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
-	geode->getOrCreateStateSet()->setMode(GL_BLEND, osg::StateAttribute::ON);
-	geode->getOrCreateStateSet()->setRenderingHint(osg::StateSet::TRANSPARENT_BIN);
+
+	//geode->getOrCreateStateSet()->setAttributeAndModes(new osg::Point(10.0f));
+	//geode->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
+	//geode->getOrCreateStateSet()->setMode(GL_BLEND, osg::StateAttribute::ON);
+	//geode->getOrCreateStateSet()->setRenderingHint(osg::StateSet::TRANSPARENT_BIN);
 	return geode.release();
 }
 
@@ -101,7 +107,26 @@ void SelectModelLine::doUserOperations(osgUtil::LineSegmentIntersector::Intersec
 	{
 		//assert(false);
 	}
+	_startPosition = (*selVertices)[0];
+	_endPosition = (*selVertices)[1];
 	selVertices->dirty();
 	_selector->dirtyBound();
 }
+
+void SelectModelLine::getPosition(float &x1, float &y1, float &z1, float &x2, float &y2, float &z2)
+{
+	x1 = _startPosition._v[0];
+	y1 = _startPosition._v[1];
+	z1 = _startPosition._v[2];
+	x2 = _endPosition._v[0];
+	y2 = _endPosition._v[1];
+	z2 = _endPosition._v[2];
+}
+
+
+
+
+
+
+
 

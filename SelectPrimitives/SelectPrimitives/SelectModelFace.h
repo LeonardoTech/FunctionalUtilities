@@ -15,8 +15,7 @@ class SelectModelFace :public Selector
 {
 public:
 	// <析构函数，初始化私有成员变量>
-	SelectModelFace(osg::Camera* camera)
-		: _selector(0), _camera(camera) {}
+	SelectModelFace(osg::Camera* camera): _selector(0), _camera(camera) {}
 	// <创建一个面
 	osg::Geode* createSelector();
 	// <根据二维的坐标来确定面的位置>

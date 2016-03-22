@@ -74,7 +74,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)../../CoordinateDevice/CoordinateDevice/;$(OSG_3_4)\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\BasicFunctionality\inc;$(ProjectDir)..\..\BasicFunctionality\source\inc;$(OSG_3_4)\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(OSG_3_4)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -152,18 +152,29 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ISelectPrimitives.h" />
+    <ClInclude Include="SelectFace.h" />
+    <ClInclude Include="SelectLine.h" />
     <ClInclude Include="SelectModelFace.h" />
     <ClInclude Include="SelectModelLine.h" />
     <ClInclude Include="SelectModelPoint.h" />
     <ClInclude Include="Selector.h" />
+    <ClInclude Include="SelectPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SelectLine.cpp" />
     <ClCompile Include="SelectModelFace.cpp" />
     <ClCompile Include="SelectModelLine.cpp" />
     <ClCompile Include="SelectModelPoint.cpp" />
+    <ClCompile Include="SelectPoint.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\UnitTest1\UnitTest1.vcxproj.filters" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BasicFunctionality\prj\BasicFunctionality.vcxproj">
+      <Project>{dfd5e79b-7a1f-4d45-967d-b817b39f0c37}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

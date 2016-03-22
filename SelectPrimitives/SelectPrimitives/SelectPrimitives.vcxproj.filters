@@ -26,6 +26,18 @@
     <ClInclude Include="Selector.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ISelectPrimitives.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectFace.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectLine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectPoint.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SelectModelLine.cpp">
@@ -35,6 +47,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SelectModelPoint.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectLine.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectPoint.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
