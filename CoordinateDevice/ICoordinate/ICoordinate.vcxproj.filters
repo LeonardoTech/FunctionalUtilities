@@ -18,13 +18,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ICoordinate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Coordinate.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\CoordinateDevice\CoordinateUpdater.h">
+    <ClInclude Include="ICoordinateAxis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinateUpdater.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClCompile Include="Coordinate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\CoordinateDevice\CoordinateUpdate.cpp">
+    <ClCompile Include="CoordinateUpdate.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

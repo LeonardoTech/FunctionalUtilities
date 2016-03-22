@@ -2,10 +2,10 @@
 #define MY_H
 
 #include <osg/NodeCallback>
-
 #include <osg/MatrixTransform>
 #include "osgGA/MultiTouchTrackballManipulator"
-#include "../CoordinateDevice/ICoordinateAxis.h"
+#include "ICoordinateAxis.h"
+
 #include <osgText/Font>
 #include <osgText/Text>
 
