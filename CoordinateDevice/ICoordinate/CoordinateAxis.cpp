@@ -1,9 +1,9 @@
-#include "Coordinate.h"
+#include "CoordinateAxis.h"
 #include "LinePrimitives.h"
 #include "TextPrimitives.h"
 
 
-Coordinate::Coordinate(osgGA::MultiTouchTrackballManipulator* manip) :
+CoordinateAxis::CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip) :
 _lineX(new LinePrimitives()),
 _lineY(new LinePrimitives()),
 _lineZ(new LinePrimitives()),
@@ -58,12 +58,12 @@ _labelZ(new TextPrimitives())
 }
 
 
-Coordinate::~Coordinate()
+CoordinateAxis::~CoordinateAxis()
 {
 }
 
 //================================================================
-void Coordinate::setLabel(COORDINATE_NAME axis, string label)
+void CoordinateAxis::setLabel(COORDINATE_NAME axis, string label)
 {
 	if (axis == X_AXIS)
 		_labelX->setText(label);
@@ -73,7 +73,7 @@ void Coordinate::setLabel(COORDINATE_NAME axis, string label)
 		_labelZ->setText(label);
 }
 
-void Coordinate::setLabelPosition(COORDINATE_NAME axis, float x, float y, float z)
+void CoordinateAxis::setLabelPosition(COORDINATE_NAME axis, float x, float y, float z)
 {
 	if (axis == X_AXIS)
 		_labelX->setPosition(x, y, z);
@@ -84,7 +84,7 @@ void Coordinate::setLabelPosition(COORDINATE_NAME axis, float x, float y, float 
 }
 
 //设置轴的颜色  //设置标注的颜色
-void Coordinate::setColor(COORDINATE_NAME axis, float x, float y, float z)
+void CoordinateAxis::setColor(COORDINATE_NAME axis, float x, float y, float z)
 {
 	if (axis == X_AXIS)
 	{
@@ -103,14 +103,14 @@ void Coordinate::setColor(COORDINATE_NAME axis, float x, float y, float z)
 
 }
 
-void Coordinate::setOriginPoint(float x, float y)
+void CoordinateAxis::setOriginPoint(float x, float y)
 {
 	m_originx = x;
 	m_originy = y;
 	m_transNode->setMatrix(osg::Matrix::translate(osg::Vec3(m_originx, m_originy, -m_radius*1.5)));
 }
 
-void Coordinate::setRadius(float radius)
+void CoordinateAxis::setRadius(float radius)
 {
 	m_radius = radius;
 
@@ -127,7 +127,7 @@ void Coordinate::setRadius(float radius)
 
 }
 
-void Coordinate::getAxisDirection3D(COORDINATE_NAME axis, float& x, float& y, float& z)
+void CoordinateAxis::getAxisDirection3D(COORDINATE_NAME axis, float& x, float& y, float& z)
 {
 	osg::Vec3  result;
 	if (axis == X_AXIS)
@@ -154,12 +154,12 @@ void Coordinate::getAxisDirection3D(COORDINATE_NAME axis, float& x, float& y, fl
 }
 
 // <可以先不做>
-void Coordinate::setDarkColor(COORDINATE_NAME axis, string color)
+void CoordinateAxis::setDarkColor(COORDINATE_NAME axis, string color)
 {
 
 }
 
-void Coordinate::setLabelVisibility(COORDINATE_NAME axis, bool bvisible)
+void CoordinateAxis::setLabelVisibility(COORDINATE_NAME axis, bool bvisible)
 {
 	//if (axis == X_AXIS)
 	//	m_bvisibleX = bvisible;
@@ -169,7 +169,7 @@ void Coordinate::setLabelVisibility(COORDINATE_NAME axis, bool bvisible)
 	//	m_bvisibleZ = bvisible;
 }
 
-void Coordinate::setAxisWidth(float width)
+void CoordinateAxis::setAxisWidth(float width)
 {
 	//if (axis == X_AXIS)
 	_lineX->setLineWidth(width);
@@ -179,7 +179,7 @@ void Coordinate::setAxisWidth(float width)
 	_lineZ->setLineWidth(width);
 }
 
-osg::MatrixTransform* Coordinate::getNode()
+osg::MatrixTransform* CoordinateAxis::getNode()
 {
 	return m_transNode;
 }

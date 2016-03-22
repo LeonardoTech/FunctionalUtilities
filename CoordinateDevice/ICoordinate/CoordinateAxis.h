@@ -1,6 +1,6 @@
-#ifndef __COORDINATE_H__
-#define __COORDINATE_H__
-#include "ICoordinate.h"
+#ifndef __COORDINATE_AXIS_H__
+#define __COORDINATE_AXIS_H__
+#include "ICoordinateAxis.h"
 #include "osgViewer/Viewer"
 #include "osg/Geometry"
 #include "osg/MatrixTransform"
@@ -13,18 +13,18 @@
 #include <memory>
 
 
-class Coordinate :public ICoordinate
+class CoordinateAxis :public ICoordinateAxis
 {
 public:
-	Coordinate(osgGA::MultiTouchTrackballManipulator* manip);
+	CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip);
 	~Coordinate();
-	virtual void setLabel(COORDINATE_NAME axis, string label) override;
+	virtual void setLabel(COORDINATE_NAME axis, std::string label) override;
 	virtual void setLabelPosition(COORDINATE_NAME axis, float x, float y, float z) override;
 	virtual void setColor(COORDINATE_NAME axis, float x, float y, float z)  override;
 	virtual void setOriginPoint(float x, float y) override;
 	virtual void setRadius(float radius) override;
 	virtual void getAxisDirection3D(COORDINATE_NAME axis, float& x, float& y, float& z) override;
-	virtual void setDarkColor(COORDINATE_NAME axis, string color) override;
+	virtual void setDarkColor(COORDINATE_NAME axis, std::string color) override;
 	virtual void setLabelVisibility(COORDINATE_NAME axis, bool bvisible) override;
 	virtual void setAxisWidth(float width) override;
 
@@ -82,4 +82,4 @@ protected:
 	//string m_showLabelZ;
 };
 
-#endif
+#endif // __COORDINATE_AXIS_H__
