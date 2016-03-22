@@ -4,13 +4,14 @@ PointPrimitives::PointPrimitives()
 {
 	_size = 1;
 	_geometry = new osg::Geometry;
+	_vertices = new osg::Vec3Array(1);
 	_color = new osg::Vec4Array(1);
 	_vertex = { 0.0f, 0.0f, 0.0f };
 
 	_geometry->setDataVariance(osg::Object::DYNAMIC);
 	_geometry->setUseDisplayList(false);
 	_geometry->setUseVertexBufferObjects(true);
-	_geometry->setVertexArray(new osg::Vec3Array(1));
+	_geometry->setVertexArray(_vertices);
 	_geometry->setColorArray(_color);
 	_geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
 	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_POINTS, 0, 1));
@@ -53,9 +54,23 @@ void PointPrimitives::getPosition(float& x, float& y, float& z) const
 void PointPrimitives::setPosition(float x, float y, float z)
 {
 	_vertex = { x, y, z };
-	osg::ref_ptr<osg::Vec3Array>verties = new osg::Vec3Array(1);
-	(*verties)[0] = _vertex;
-	_geometry->setVertexArray(verties);
+	(*_vertices)[0] = _vertex;
+	_vertices->dirty();
+	_geometry->dirtyBound();
+}
+
+
+osg::Vec3 PointPrimitives::getPosition() const
+{
+	return _vertex;
+}
+
+
+void PointPrimitives::setPosition(osg::Vec3 pos)
+{
+	_vertex = pos;
+	(*_vertices)[0] = _vertex;
+	_vertices->dirty();
 	_geometry->dirtyBound();
 }
 

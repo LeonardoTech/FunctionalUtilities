@@ -3,12 +3,15 @@
 #define __IPOINT_PRIMITIVES_H__
 #include "IDrawElement.h"
 
-class IPointPrimitives :IDrawElement
+class IPointPrimitives :public IDrawElement
 {
 public:
 	virtual void getPosition(float& x, float& y, float& z) const = 0;
+
 	virtual void setPosition(float x, float y, float z) = 0;
+
 	virtual float getSize() const = 0;
+
 	virtual void setSize(float size) = 0;
 };
 

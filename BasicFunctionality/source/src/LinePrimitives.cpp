@@ -47,11 +47,21 @@ void LinePrimitives::getStartPosition(float& x, float& y, float& z)
 	z = _startPosition.z();
 }
 
+osg::Vec3 LinePrimitives::getStartPosition() const
+{
+	return _startPosition;
+}
+
 void LinePrimitives::getEndPosition(float& x, float& y, float& z)
 {
 	x = _endPosition.x();
 	y = _endPosition.y();
 	z = _endPosition.z();
+}
+
+osg::Vec3 LinePrimitives::getEndPosition() const
+{
+	return _endPosition;
 }
 
 void LinePrimitives::setStartPosition(float x, float y, float z)
@@ -62,9 +72,25 @@ void LinePrimitives::setStartPosition(float x, float y, float z)
 	_geometry->dirtyBound();
 }
 
+void LinePrimitives::setStartPosition(osg::Vec3 pos)
+{
+	_startPosition = pos;
+	(*_vertices)[0] = _startPosition;
+	_vertices->dirty();
+	_geometry->dirtyBound();
+}
+
 void LinePrimitives::setEndPosition(float x, float y, float z)
 {
 	_endPosition = { x, y, z };
+	(*_vertices)[1] = _endPosition;
+	_vertices->dirty();
+	_geometry->dirtyBound();
+}
+
+void LinePrimitives::setEndPosition(osg::Vec3 pos)
+{
+	_endPosition = pos;
 	(*_vertices)[1] = _endPosition;
 	_vertices->dirty();
 	_geometry->dirtyBound();

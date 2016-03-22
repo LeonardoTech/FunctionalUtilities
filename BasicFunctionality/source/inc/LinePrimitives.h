@@ -32,6 +32,14 @@ public:
 // internal:
 	osg::Geometry*	getGeometry();
 
+	virtual osg::Vec3 getStartPosition() const;
+
+	virtual osg::Vec3 getEndPosition() const;
+
+	virtual void setStartPosition(osg::Vec3 pos);
+
+	virtual void setEndPosition(osg::Vec3 pos);
+
 protected:
 	osg::Vec3 _startPosition;
 	osg::Vec3 _endPosition;

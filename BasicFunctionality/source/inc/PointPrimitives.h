@@ -17,12 +17,19 @@ public:
 	virtual void setColor(float red, float green, float blue) override;
 	virtual VertexArray getVertices() const override;
 	virtual void setVertices(const VertexArray& arr) override;
+
 // internal:
 	osg::Geometry *getGeometry();
+
+	virtual osg::Vec3 getPosition() const;
+
+	virtual void setPosition(osg::Vec3 pos);
+
 private:
 	osg::ref_ptr<osg::Geometry> _geometry;
 	osg::Vec3 _vertex;
 	osg::ref_ptr<osg::Vec4Array> _color;
+	osg::ref_ptr<osg::Vec3Array>_vertices;
 	float _size;
 };
 
