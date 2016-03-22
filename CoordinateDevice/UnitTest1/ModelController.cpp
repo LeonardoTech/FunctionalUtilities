@@ -34,40 +34,49 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 		switch (ea.getKey())
 		{
 		case 'x': case 'X':
-			_axis->getAxisDirection(X_Coordinate, x, y, z);
-			info.empty();
-			info.clear();
-			ss.str("");
-			ss << "the Axis of  X_Axis is : " << x << "  " << y << "  " << z;
-			info = ss.str();
-			mutex.lock();
-			_text->setText(info);
-			_text->setPosition(osg::Vec3(250.0f, 500.0f, 0.0f));
-			mutex.unlock();
+			_axis1->setColor(X_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(Y_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(Z_AXIS, 0.0f, 0.0f, 0.0f);
+			//_axis->getAxisDirection(X_Axis, x, y, z);
+// 			info.empty();
+// 			info.clear();
+// 			ss.str("");
+// 			ss << "the Axis of  X_Axis is : " << x << "  " << y << "  " << z;
+// 			info = ss.str();
+// 			mutex.lock();
+// 			_text->setText(info);
+// 			_text->setPosition(osg::Vec3(750.0f, 700.0f, 0.0f));
+// 			mutex.unlock();
 			break;
 		case 'y': case 'Y':
-			_axis->getAxisDirection(Y_Coordinate, x, y, z);
-			info.empty();
-			info.clear();
-			ss.str("");
-			ss << "the Axis of  Y_Axis is : " << x << "  " << y << "  " << z;
-			info = ss.str();
-			mutex.lock();
-			_text->setText(info);
-			_text->setPosition(osg::Vec3(250.0f, 500.0f, 0.0f));
-			mutex.unlock();
+			//_axis->getAxisDirection(Y_Axis, x, y, z);
+			_axis1->setColor(X_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(Y_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(Z_AXIS, 0.0f, 0.0f, 0.0f);
+// 			info.empty();
+// 			info.clear();
+// 			ss.str("");
+// 			ss << "the Axis of  Y_Axis is : " << x << "  " << y << "  " << z;
+// 			info = ss.str();
+// 			mutex.lock();
+// 			_text->setText(info);
+// 			_text->setPosition(osg::Vec3(750.0f, 600.0f, 0.0f));
+// 			mutex.unlock();
 			break;
 		case 'z': case 'Z':
-			_axis->getAxisDirection(Z_Coordinate, x, y, z);
-			info.clear();
-			info.empty();
-			ss.str("");
-			ss << "the Axis of  Z_Axis is :  " << x << "  " << y << "  " << z;
-			info = ss.str();
-			mutex.lock();
-			_text->setText(info);
-			_text->setPosition(osg::Vec3(250.0f, 500.0f, 0.0f));
-			mutex.unlock();
+			//_axis->getAxisDirection(Z_Axis, x, y, z);
+			_axis1->setColor(X_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(Y_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(Z_AXIS, 0.0f, 0.0f, 0.0f);
+// 			info.clear();
+// 			info.empty();
+// 			ss.str("");
+// 			ss << "the Axis of  Z_Axis is :  " << x << "  " << y << "  " << z;
+// 			info = ss.str();
+// 			mutex.lock();
+// 			_text->setText(info);
+// 			_text->setPosition(osg::Vec3(750.0f, 500.0f, 0.0f));
+// 			mutex.unlock();
 			break;
 		default:
 			break;
@@ -79,6 +88,8 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 	}
 	return false;
 }
+
+
 
 
 osg::Camera* createHUDCamera(double left, double right, double bottom, double top)
