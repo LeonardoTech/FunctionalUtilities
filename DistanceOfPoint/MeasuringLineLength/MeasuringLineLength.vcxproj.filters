@@ -18,15 +18,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IDistance.h">
+    <ClInclude Include="IMeasuringLineLength.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Distance.h">
+    <ClInclude Include="MeasuringLineLength.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Distance.cpp">
+    <ClCompile Include="MeasuringLineLength.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

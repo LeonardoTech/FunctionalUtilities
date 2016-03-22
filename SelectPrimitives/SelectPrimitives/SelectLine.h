@@ -14,14 +14,20 @@ public:
 
 	virtual IDrawElement* getSelection() const override;
 
+	// internal:
 	virtual LinePrimitives* selectLine(float x, float y);
 
 	virtual LinePrimitives* getSelectedLine() const;
+
+	osg::Node* getRoot() const;
+
+
 protected:
 	void doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result);
 
 	LinePrimitives* m_line;
 	osg::Camera* m_camera;
+	bool m_selected;
 };
 
 #endif // __SELECT_LINE_H__

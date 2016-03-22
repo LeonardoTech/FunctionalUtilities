@@ -14,14 +14,20 @@ public:
 
 	virtual IDrawElement* getSelection() const override;
 
+// internal:
 	virtual PointPrimitives* selectPoint(float x, float y);
 
 	virtual PointPrimitives* getSelectedPoint() const;
+
+	osg::Node* getRoot() const;
+
+	void setPointPosition(const osg::Vec3& pos);
+
 protected:
 	void doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result);
-
 	PointPrimitives* m_point;
 	osg::Camera* m_camera;
+	bool m_selected;
 };
 
 #endif // __SELECT_POINT_H__

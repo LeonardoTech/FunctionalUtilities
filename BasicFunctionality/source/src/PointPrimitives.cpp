@@ -66,7 +66,7 @@ osg::Vec3 PointPrimitives::getPosition() const
 }
 
 
-void PointPrimitives::setPosition(osg::Vec3 pos)
+void PointPrimitives::setPosition(const osg::Vec3& pos)
 {
 	_vertex = pos;
 	(*_vertices)[0] = _vertex;

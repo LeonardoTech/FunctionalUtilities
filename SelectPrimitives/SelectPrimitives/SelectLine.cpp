@@ -6,6 +6,7 @@ SelectLine::SelectLine(osg::Camera* camera)
 	m_line->setColor(1, 0, 0);
 	m_line->setLineWidth(2);
 	m_camera = camera;
+	m_selected = false;
 }
 
 IDrawElement* SelectLine::select(float x, float y)
@@ -86,15 +87,25 @@ LinePrimitives* SelectLine::selectLine(float x, float y)
 		osgUtil::LineSegmentIntersector::Intersection result = *(intersector->getIntersections().begin());
 		doUserOperations(result);
 	}
+	m_selected = true;
 	return m_line;
 }
 
 LinePrimitives* SelectLine::getSelectedLine() const
 {
+	if (!m_selected)
+	{
+		return NULL;
+	}
 	return m_line;
 }
 
 IDrawElement* SelectLine::getSelection() const
 {
 	return getSelectedLine();
+}
+
+osg::Node* SelectLine::getRoot() const
+{
+	return m_line->getGeometry();
 }

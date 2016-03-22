@@ -7,7 +7,7 @@
 //brief <对构造函数进行初始化.>
 //param [in]	selector 	<创建一个Select类对象.>
 //param [in]	selector1	<创建一个Select类对象.>
-PickHandler::PickHandler(Distance* selector)
+PickHandler::PickHandler(MeasuringLineLength* selector)
 {
 	_select = selector;
 	_isSelect1Down = false;
@@ -20,6 +20,10 @@ PickHandler::PickHandler(Distance* selector)
 //param	ea	 <鼠标事件.>
 bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa)
 {
+	if (_isSelect2Down)
+	{
+		return false;
+	}
 	// <筛选出当鼠标在移动时发生的事件>
 	// <鼠标在移动时，不会发生点的落下，点也会随着鼠标移动，可以通过获取当前鼠标的位置，画出点，这样就会出现点跟随鼠标>
 	if (ea.getEventType() == osgGA::GUIEventAdapter::MOVE)
@@ -27,11 +31,11 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 		osgViewer::View* viewer = dynamic_cast<osgViewer::View*>(&aa);
 		if (!_isSelect1Down)
 		{
-			_select->drawLine(ea.getX(), ea.getY(), Start);
+			_select->setStartPoint(ea.getX(), ea.getY());
 		}
-		if (!_isSelect2Down)
+		else
 		{
-			_select->drawLine(ea.getX(), ea.getY(), End);
+			_select->setEndPoint(ea.getX(), ea.getY());
 		}
 	}
 
@@ -39,22 +43,38 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 	if (ea.getEventType() == osgGA::GUIEventAdapter::PUSH && ea.getEventType() == osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON)
 	{
 		osgViewer::View* viewer = dynamic_cast<osgViewer::View*>(&aa);
-		bool isExeced = false;
-		if (!_isSelect1Down&& !isExeced)
+
+		if (!_isSelect1Down)
 		{
+			_select->setStartPoint(ea.getX(), ea.getY());
 			_isSelect1Down = true;
-			_isSelect2Down = false;
-			isExeced = true;
-			_select->drawLine(ea.getX(), ea.getY(), Start);
 		}
-		if (!_isSelect2Down&&!isExeced)
+		else
 		{
-			isExeced = true;
+			_select->setEndPoint(ea.getX(), ea.getY());
 			_isSelect2Down = true;
-			_isSelect1Down = false;
-			_select->drawLine(ea.getX(), ea.getY(), End);
 		}
+		//bool isExeced = false;
+		//if (!_isSelect1Down&& !isExeced)
+		//{
+		//	_isSelect1Down = true;
+		//	_isSelect2Down = false;
+		//	isExeced = true;
+		//	_select->setStartPoint(ea.getX(), ea.getY());
+		//}
+		//if (!_isSelect2Down&&!isExeced)
+		//{
+		//	isExeced = true;
+		//	_isSelect2Down = true;
+		//	_isSelect1Down = false;
+		//	_select->setEndPoint(ea.getX(), ea.getY());
+		//}
 	}
+	auto dist = _select->getDistance();
+	std::stringstream ss;
+	ss << dist;
+	_select->setLabel(ss.str(), SHOW_METHOD::CENTER);
+
 	return false;
 }
 
