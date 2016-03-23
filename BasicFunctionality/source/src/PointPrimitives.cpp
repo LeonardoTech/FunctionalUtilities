@@ -1,4 +1,9 @@
+﻿#include <osg/Point>
+
 #include "PointPrimitives.h"
+
+// <构造函数>
+#pragma region PointPrimitives
 
 PointPrimitives::PointPrimitives()
 {
@@ -20,10 +25,18 @@ PointPrimitives::PointPrimitives()
 	stateSet->setAttributeAndModes(new osg::Point(_size));
 }
 
+#pragma endregion
+
+#pragma region GetSize
+
 float PointPrimitives::getSize() const
 {
 	return _size;
 }
+
+#pragma endregion
+
+#pragma region SetSize
 
 void PointPrimitives::setSize(float size)
 {
@@ -32,6 +45,10 @@ void PointPrimitives::setSize(float size)
 	stateSet->setAttributeAndModes(new osg::Point(size));
 	_geometry->dirtyBound();
 }
+
+#pragma endregion
+
+#pragma region SetColor
 
 void PointPrimitives::setColor(float red, float green, float blue)
 {
@@ -43,6 +60,10 @@ void PointPrimitives::setColor(float red, float green, float blue)
 	_geometry->dirtyBound();
 }
 
+#pragma endregion
+
+#pragma region getPosition
+
 void PointPrimitives::getPosition(float& x, float& y, float& z) const
 {
 	x = _vertex.x();
@@ -50,36 +71,10 @@ void PointPrimitives::getPosition(float& x, float& y, float& z) const
 	z = _vertex.z();
 }
 
-
-void PointPrimitives::setPosition(float x, float y, float z)
-{
-	_vertex = { x, y, z };
-	(*_vertices)[0] = _vertex;
-	_vertices->dirty();
-	_geometry->dirtyBound();
-}
-
-
 osg::Vec3 PointPrimitives::getPosition() const
 {
 	return _vertex;
 }
-
-
-void PointPrimitives::setPosition(osg::Vec3 pos)
-{
-	_vertex = pos;
-	(*_vertices)[0] = _vertex;
-	_vertices->dirty();
-	_geometry->dirtyBound();
-}
-
-
-osg::Geometry *PointPrimitives::getGeometry()
-{
-	return _geometry;
-}
-
 
 VertexArray PointPrimitives::getVertices() const
 {
@@ -94,7 +89,39 @@ VertexArray PointPrimitives::getVertices() const
 	return arr;
 }
 
+#pragma endregion
+
+#pragma region setPosition
+
+void PointPrimitives::setPosition(float x, float y, float z)
+{
+	_vertex = { x, y, z };
+	(*_vertices)[0] = _vertex;
+	_vertices->dirty();
+	_geometry->dirtyBound();
+}
+
+void PointPrimitives::setPosition(osg::Vec3 pos)
+{
+	_vertex = pos;
+	(*_vertices)[0] = _vertex;
+	_vertices->dirty();
+	_geometry->dirtyBound();
+}
+
 void PointPrimitives::setVertices(const VertexArray& arr)
 {
 	_vertex.set(arr[0].getX(), arr[0].getY(), arr[0].getZ());
 }
+
+#pragma endregion
+
+// <获取接口方便控制>
+#pragma region GetGeometry
+
+osg::Geometry *PointPrimitives::getGeometry()
+{
+	return _geometry;
+}
+
+#pragma endregion

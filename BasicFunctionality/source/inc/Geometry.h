@@ -1,11 +1,11 @@
 #ifndef __GEOMETRY_H__
 #define __GEOMETRY_H__
 
-#include "IGeometry.h"
+#include "IColorable.h"
 #include <osg/Geometry>
 #include <osg/Geode>
 
-class Geometry :public IGeometry
+class Geometry :public IColorable
 {
 public:
 	virtual void setColor(float red, float green, float blue);

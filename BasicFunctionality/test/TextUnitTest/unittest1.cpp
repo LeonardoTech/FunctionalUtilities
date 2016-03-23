@@ -31,8 +31,9 @@ namespace TextUnitTest
 		TEST_METHOD(TestTextSize)
 		{
 			TextPrimitives *text = new TextPrimitives;
-			text->setSize(20.0f);
+			text->setSize(150.0f);
 			text->setText("22221111");
+			text->setFontFile("fonts/Vera.ttf");
 
 			osgText::Text *_text = text->getOsgText();
 			osg::Geode* geode = new osg::Geode;
@@ -44,7 +45,8 @@ namespace TextUnitTest
 		TEST_METHOD(TestTextColor)
 		{
 			TextPrimitives *text = new TextPrimitives;
-			text->setColor(1.0f, 1.0f, 0.0f); text->setText("22221111");
+			text->setColor(1.0f, 1.0f, 0.0f); 
+			text->setText("22221111");
 			osgText::Text *_text = text->getOsgText();
 			osg::Geode* geode = new osg::Geode;
 			geode->addChild(_text);

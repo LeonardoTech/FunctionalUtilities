@@ -1,45 +1,72 @@
-#include "TextPrimitives.h"
+ï»¿#include "TextPrimitives.h"
+
+// <æž„é€ å‡½æ•°>
+#pragma region TextPrimitives
 
 TextPrimitives::TextPrimitives()
 {
 	_text = new osgText::Text;
-
-	osg::ref_ptr<osgText::Font> g_font = osgText::readFontFile("fonts/arial.ttf");
-	_text->setFont(g_font.get());
-	_text->setCharacterSizeMode(osgText::Text::SCREEN_COORDS);	// <ÈÃÎÄ×ÖµÄ´óÐ¡²»Ëæ×ÅÍ¼ÐÎ µÄ·Å´óËõÐ¡¶ø¸Ä±ä£¬ËùÒÔ¾Í°ÑÎÄ×ÖÏÔÊ¾³ÉÆÁÄ»ÏñÊýµÄ¸ñÊ½>
-	_text->setAxisAlignment(osgText::Text::SCREEN);							// <ÎÄ×ÖÊ¼ÖÕ±£³Ö´¹Ö±ÓÚÆÁÄ»£¬²»»áËæ×ÅÍ¼ÐÎµÄÐý×ª¶øÐý×ª>
+	 _font = new osgText::Font;
+	_text->setCharacterSizeMode(osgText::Text::SCREEN_COORDS);	// <è®©æ–‡å­—çš„å¤§å°ä¸éšç€å›¾å½¢ çš„æ”¾å¤§ç¼©å°è€Œæ”¹å˜ï¼Œæ‰€ä»¥å°±æŠŠæ–‡å­—æ˜¾ç¤ºæˆå±å¹•åƒæ•°çš„æ ¼å¼>
+	_text->setAxisAlignment(osgText::Text::SCREEN);							// <æ–‡å­—å§‹ç»ˆä¿æŒåž‚ç›´äºŽå±å¹•ï¼Œä¸ä¼šéšç€å›¾å½¢çš„æ—‹è½¬è€Œæ—‹è½¬>
 	_text->setDataVariance(osg::Object::DYNAMIC);
+	setFontFile();
 }
+
+#pragma endregion
+
+#pragma region SetFontFile
+
+void TextPrimitives::setFontFile(const std::string& fontFile )
+{
+	//_font = osgText::readFontFile("fonts/arial.ttf");
+	_font = osgText::readFontFile(fontFile);
+	_text->setFont(_font.get());
+}
+
+#pragma endregion
+
+#pragma region SetPosition
 
 void TextPrimitives::setPosition(float x, float y, float z)
 {
 	_text->setPosition(osg::Vec3{ x, y, z });
 }
 
+#pragma endregion
+
+#pragma region SetColor
+
 void TextPrimitives::setColor(float red, float green, float blue)
 {
 	_text->setColor(osg::Vec4{ red, green, blue, 1.0f });
 }
+
+#pragma endregion
+
+#pragma region SetSize
 
 void TextPrimitives::setSize(float size)
 {
 	_text->setCharacterSize(size);
 }
 
-void TextPrimitives::setText(const std::string& content)
+#pragma endregion
+
+#pragma region SetContent
+
+void TextPrimitives::setTextContent(const std::string& content)
 {
 	_text->setText(content); 
 }
+
+#pragma endregion
+
+#pragma region GetOsgText
 
 osgText::Text* TextPrimitives::getOsgText()
 {
 	return _text;
 }
 
-
-
-
-
-
-
-
+#pragma endregion

@@ -1,4 +1,10 @@
+﻿#include <osg/LineWidth>
+
 #include "LinePrimitives.h"
+
+
+// <构造函数>
+#pragma region LinePrimitives
 
 LinePrimitives::LinePrimitives()
 {
@@ -19,12 +25,20 @@ LinePrimitives::LinePrimitives()
 	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
 }
 
+#pragma endregion 
+
+#pragma region SetLineWidth
+
 void LinePrimitives::setLineWidth(float width)
 {
 	osg::ref_ptr<osg::LineWidth>linewidth = new osg::LineWidth;
 	linewidth->setWidth(width);
 	_geometry->getOrCreateStateSet()->setAttributeAndModes(linewidth, osg::StateAttribute::ON);
 }
+
+#pragma endregion
+
+#pragma region SetColor
 
 void LinePrimitives::setColor(float red, float green, float blue)
 {
@@ -35,10 +49,17 @@ void LinePrimitives::setColor(float red, float green, float blue)
 	_geometry->dirtyBound();
 }
 
+#pragma endregion
+
+#pragma region getGeometry
+
 osg::Geometry* LinePrimitives::getGeometry()
 {
 	return _geometry;
 }
+#pragma endregion
+
+#pragma region GetStartPosition
 
 void LinePrimitives::getStartPosition(float& x, float& y, float& z)
 {
@@ -52,6 +73,10 @@ osg::Vec3 LinePrimitives::getStartPosition() const
 	return _startPosition;
 }
 
+#pragma endregion
+
+#pragma region GetEndPosition
+
 void LinePrimitives::getEndPosition(float& x, float& y, float& z)
 {
 	x = _endPosition.x();
@@ -63,6 +88,10 @@ osg::Vec3 LinePrimitives::getEndPosition() const
 {
 	return _endPosition;
 }
+
+#pragma endregion
+
+#pragma region SetStartPosition
 
 void LinePrimitives::setStartPosition(float x, float y, float z)
 {
@@ -80,6 +109,10 @@ void LinePrimitives::setStartPosition(osg::Vec3 pos)
 	_geometry->dirtyBound();
 }
 
+#pragma endregion
+
+#pragma region SetEndPosition
+
 void LinePrimitives::setEndPosition(float x, float y, float z)
 {
 	_endPosition = { x, y, z };
@@ -96,6 +129,10 @@ void LinePrimitives::setEndPosition(osg::Vec3 pos)
 	_geometry->dirtyBound();
 }
 
+#pragma endregion
+
+#pragma region SetVertices
+
 void LinePrimitives::setVertices(const VertexArray& arr)
 {
 	_vertices = new osg::Vec3Array(arr.size());
@@ -104,6 +141,10 @@ void LinePrimitives::setVertices(const VertexArray& arr)
 		(*_vertices)[i].set(arr[i].getX(), arr[i].getY(), arr[i].getZ());
 	}
 }
+
+#pragma endregion
+
+#pragma region GetVertices
 
 VertexArray LinePrimitives::getVertices() const
 {
@@ -119,3 +160,5 @@ VertexArray LinePrimitives::getVertices() const
 	}
 	return arr;
 }
+
+#pragma endregion

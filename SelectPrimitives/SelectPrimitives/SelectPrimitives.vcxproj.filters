@@ -14,15 +14,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SelectModelLine.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectModelFace.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectModelPoint.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Selector.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -40,19 +31,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SelectModelLine.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectModelFace.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectModelPoint.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="SelectLine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SelectPoint.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectFace.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
