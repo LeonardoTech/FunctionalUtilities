@@ -2,17 +2,19 @@
 #ifndef MY_HHH
 #define MY_HHH
 
-#include "stdafx.h"
 #include <osg/MatrixTransform>
 #include <osgDB/ReadFile>
 #include <osgGA/GUIEventHandler>
 #include <osgViewer/Viewer>
-#include "stdlib.h"
+#include <mutex>
+
 #include "../CoordinateDevice/CoordinateAxis.h"
 #include "../CoordinateDevice/CoordinateUpdater.h"
 #include "../ICoordinate/Coordinate.h"
 
-#include <mutex>
+
+
+using namespace coordinatedevice_coordinate_coordinate;
 
 class ModelController : public osgGA::GUIEventHandler
 {

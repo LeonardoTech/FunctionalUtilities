@@ -4,7 +4,7 @@
 #include "LinePrimitives.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
+using namespace coordinatedevice_coordinate_coordinate;
 namespace UnitTest1
 {
 	TEST_CLASS(UnitTest1)
@@ -26,6 +26,9 @@ namespace UnitTest1
 			//osg::ref_ptr<osg::MatrixTransform>tran = axis->getAxis(-110.0f, -110.0f, 80.0f);
 			axis->setRadius(380);
 			axis->setOriginPoint(400, 400);
+			//axis->setLabelVisibility(CoordinateNames::X_AXIS,false);
+			//axis->setColor(COORDINATE_NAME::X_AXIS, 0, 0, 0);
+			//axis->setAxisWidth(10);
 			osg::ref_ptr<osg::MatrixTransform>tran = axis->getNode();
 			camera->addChild(tran);
 			//osg::MatrixTransform* tra = new osg::MatrixTransform();

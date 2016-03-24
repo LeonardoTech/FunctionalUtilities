@@ -1,4 +1,4 @@
-﻿
+﻿#include <iostream>
 #include "CoordinateUpdater.h"
 
 
@@ -23,7 +23,6 @@ void CoordinateUpdater::operator()(osg::Node* node, osg::NodeVisitor* nv)
 	traverse(node, nv);
 }
 
-
 //  <根据传进来Axis的枚举值，来确定获取哪个轴的结果.>
 osg::Vec3 CoordinateUpdater::getResult(Axis ax)
 {
@@ -45,7 +44,7 @@ osg::Vec3 CoordinateUpdater::getResult(Axis ax)
 	}
 	else
 	{
-		cout << "print false" << endl;
+		std::cout << "print false" << std::endl;
 	}
 	return result;
 }
