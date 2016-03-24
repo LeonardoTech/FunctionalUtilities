@@ -155,7 +155,6 @@
     <ClInclude Include="ISelectPrimitives.h" />
     <ClInclude Include="SelectFace.h" />
     <ClInclude Include="SelectLine.h" />
-    <ClInclude Include="Selector.h" />
     <ClInclude Include="SelectPoint.h" />
   </ItemGroup>
   <ItemGroup>

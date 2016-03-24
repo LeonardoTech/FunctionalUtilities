@@ -1,4 +1,4 @@
-#include "SelectPoint.h"
+ï»¿#include "SelectPoint.h"
 
 SelectPoint::SelectPoint(osg::Camera* camera)
 {
@@ -13,7 +13,7 @@ IDrawElement* SelectPoint::select(float x, float y)
 	return selectPoint(x, y);
 }
 
-// <Í¨¹ýÏà½»Ëã·¨ÔËËãºó·µ»ØµÄ½á¹û£¬À´È·¶¨µãµÄÎ»ÖÃ£¬²¢Í¨¹ý¾ØÕó°Ñ¶þÎ¬µÄ×ø±ê×ª»»ÎªÈýÎ¬µÄ£¬ÎªÒª»­µÄÍ¼ÐÎÈ·¶¨¶¥µã×ø±ê>
+// <é€šè¿‡ç›¸äº¤ç®—æ³•è¿ç®—åŽè¿”å›žçš„ç»“æžœï¼Œæ¥ç¡®å®šç‚¹çš„ä½ç½®ï¼Œå¹¶é€šè¿‡çŸ©é˜µæŠŠäºŒç»´çš„åæ ‡è½¬æ¢ä¸ºä¸‰ç»´çš„ï¼Œä¸ºè¦ç”»çš„å›¾å½¢ç¡®å®šé¡¶ç‚¹åæ ‡>
 void SelectPoint::doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result)
 {
 	osg::Geometry* geom = dynamic_cast<osg::Geometry*>(result.drawable.get());
@@ -39,7 +39,7 @@ void SelectPoint::doUserOperations(osgUtil::LineSegmentIntersector::Intersection
 	{
 		auto inverseMat = osg::Matrix::inverse(vpMatrix)*osg::Matrix::inverse(matrix);
 		position = point*inverseMat * matrix;
-		//(*selVertices)[0] = _position; // <»ñÈ¡µ±Ç°µÄÈýÎ¬×ø±ê>
+		//(*selVertices)[0] = _position; // <èŽ·å–å½“å‰çš„ä¸‰ç»´åæ ‡>
 	}
 	else
 	{
@@ -52,8 +52,7 @@ void SelectPoint::doUserOperations(osgUtil::LineSegmentIntersector::Intersection
 
 PointPrimitives* SelectPoint::selectPoint(float x, float y)
 {
-	osg::ref_ptr<osgUtil::LineSegmentIntersector> intersector =
-		new osgUtil::LineSegmentIntersector(osgUtil::Intersector::WINDOW, x, y);
+	osg::ref_ptr<osgUtil::LineSegmentIntersector> intersector = new osgUtil::LineSegmentIntersector(osgUtil::Intersector::WINDOW, x, y);
 	osgUtil::IntersectionVisitor iv(intersector.get());
 	m_camera->accept(iv);
 

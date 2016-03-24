@@ -8,11 +8,6 @@
 
 
 
-PickHandler::PickHandler(Selector* selector)
-{
-	//_select = selector;
-}
-
 PickHandler::PickHandler(ISelectPrimitives* selector)
 {
 	_select = selector;

@@ -1,4 +1,4 @@
-#include "SelectLine.h"
+ï»¿#include "SelectLine.h"
 
 SelectLine::SelectLine(osg::Camera* camera)
 {
@@ -13,7 +13,7 @@ IDrawElement* SelectLine::select(float x, float y)
 	return selectLine(x, y);
 }
 
-// <Í¨¹ýÏà½»Ëã·¨ÔËËãºó·µ»ØµÄ½á¹û£¬À´È·¶¨µãµÄÎ»ÖÃ£¬²¢Í¨¹ý¾ØÕó°Ñ¶þÎ¬µÄ×ø±ê×ª»»ÎªÈýÎ¬µÄ£¬ÎªÒª»­µÄÍ¼ÐÎÈ·¶¨¶¥µã×ø±ê>
+
 void SelectLine::doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result)
 {
 	osg::Geometry* geom = dynamic_cast<osg::Geometry*>(result.drawable.get());
@@ -42,9 +42,12 @@ void SelectLine::doUserOperations(osgUtil::LineSegmentIntersector::Intersection&
 		auto c = (*vertices)[selIndices[2]];// * matrix
 		auto inverseMat = osg::Matrix::inverse(vpMatrix)*osg::Matrix::inverse(matrix);
 		//auto inP = point*inverseMat;
-		float d_ab = (a - point*inverseMat).length() + (b - point*inverseMat).length() - (a - b).length();
+		//  <èŽ·å–é€‰æ‹©çš„ç‚¹åˆ°ä»»æ„ä¸¤ä¸ªé¡¶ç‚¹è·ç¦»ï¼Œå†å‡åŽ»ä¸¤ä¸ªé¡¶ç‚¹çš„è·ç¦»>
+		float d_ab = (a - point*inverseMat).length() + (b - point*inverseMat).length() - (a - b).length(); 
 		float d_ac = (a - point*inverseMat).length() + (c - point*inverseMat).length() - (a - c).length();
 		float d_bc = (b - point*inverseMat).length() + (c - point*inverseMat).length() - (b - c).length();
+
+		// <åˆ¤æ–­å·®å€¼çš„å¤§å°,å·®å€¼å°è¯´æ˜Žå·²ç»é€‰æ‹©çš„ç‚¹ç¦»çº¿å¾ˆè¿‘>
 		if (d_ab <= d_ac&&d_ab <= d_bc && d_ab<0.01)
 		{
 			// ab

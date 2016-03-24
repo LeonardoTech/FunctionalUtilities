@@ -1,10 +1,10 @@
-#ifndef __ISELECT_PRIMITIVES_H__
+ï»¿#ifndef __ISELECT_PRIMITIVES_H__
 #define __ISELECT_PRIMITIVES_H__
 #include "IDrawElement.h"
 
 /// @class	ISelectPrimitives
 ///
-/// @brief	 <Ñ¡Ôñµã¡¢Ïß¡¢ÃæµÄ½Ó¿ÚÀà>.
+/// @brief	 <é€‰æ‹©ç‚¹ã€çº¿ã€é¢çš„æŽ¥å£ç±»>.
 ///
 /// @author	Admin
 /// @date	2016/3/23
@@ -14,28 +14,28 @@ public:
 
 	/// @fn	virtual IDrawElement* ISelectPrimitives::select(float x, float y) = 0;
 	///
-	/// @brief	 <¸ù¾ÝÆÁÄ»ÉÏµÄÎ»ÖÃÀ´È·¶¨Ñ¡ÔñµÄÎïÆ·>.
+	/// @brief	 <æ ¹æ®å±å¹•ä¸Šçš„ä½ç½®æ¥ç¡®å®šé€‰æ‹©çš„ç‰©å“>.
 	///
 	/// @author	Admin
 	/// @date	2016/3/23
 	///
-	/// @param	x	<Ñ¡ÔñÎ»ÖÃµÄXÖá×ø±ê>.
-	/// @param	y	<Ñ¡ÔñÎ»ÖÃµÄYÖá×ø±ê>.
+	/// @param	x	<é€‰æ‹©ä½ç½®çš„Xè½´åæ ‡>.
+	/// @param	y	<é€‰æ‹©ä½ç½®çš„Yè½´åæ ‡>.
 	///
 	/// @return	null if it fails, else a pointer to an IDrawElement.
 	virtual IDrawElement* select(float x, float y) = 0;
 
 	/// @fn	virtual IDrawElement* ISelectPrimitives::getSelection() const = 0;
 	///
-	/// @brief <¸ù¾ÝÑ¡ÔñµÄÎ»ÖÃ£¬À´·µ»ØÏàÓ¦µÄ×ø±ê£¬>.
-	///  <Ñ¡Ôñµã·µ»ØµãµÄÈýÎ¬×ø±ê>
-	///  <Ñ¡ÔñÏß·µ»ØÏßµÄÁ½¸ö¶ËµãµÄÈýÎ¬×ø±ê>
-	///  <Ñ¡ÔñÃæ·µ»ØÃæµÄÈý¸ö¶ËµãµÄÈýÎ¬×ø±ê>
+	/// @brief <æ ¹æ®é€‰æ‹©çš„ä½ç½®ï¼Œæ¥è¿”å›žç›¸åº”çš„åæ ‡ï¼Œ>.
+	///  <é€‰æ‹©ç‚¹è¿”å›žç‚¹çš„ä¸‰ç»´åæ ‡>
+	///  <é€‰æ‹©çº¿è¿”å›žçº¿çš„ä¸¤ä¸ªç«¯ç‚¹çš„ä¸‰ç»´åæ ‡>
+	///  <é€‰æ‹©é¢è¿”å›žé¢çš„ä¸‰ä¸ªç«¯ç‚¹çš„ä¸‰ç»´åæ ‡>
 	/// 
 	/// @author	Admin
 	/// @date	2016/3/23
 	///
-	/// @return	<·µ»ØIDrawElementÀàÐÍµÄ¶ËµãµÄ¼¯ºÏ>
+	/// @return	<è¿”å›žIDrawElementç±»åž‹çš„ç«¯ç‚¹çš„é›†åˆ>
 	virtual IDrawElement* getSelection() const = 0;
 };
 
