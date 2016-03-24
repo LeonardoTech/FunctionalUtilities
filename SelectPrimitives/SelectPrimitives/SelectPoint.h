@@ -1,4 +1,4 @@
-ï»¿#ifndef __SELECT_POINT_H__
+#ifndef __SELECT_POINT_H__
 #define __SELECT_POINT_H__
 
 #include <osg/Camera>
@@ -7,32 +7,37 @@
 #include "ISelectPrimitives.h"
 #include "PointPrimitives.h"
 
-// <é€‰æ‹©çº¿å…ƒçš„ç±»ï¼Œç»§æ‰¿äºŽISelectPrimitivesæŽ¥å£ç±»>
+// <Ñ¡ÔñÏßÔªµÄÀà£¬¼Ì³ÐÓÚISelectPrimitives½Ó¿ÚÀà>
 class SelectPoint :public ISelectPrimitives
 {
 public:
-	// <æž„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–ç§æœ‰æˆå‘˜ï¼Œå¹¶æŠŠç›¸æœºä¼ è¿›æ¥>
+	// <¹¹Ôìº¯Êý£¬³õÊ¼»¯Ë½ÓÐ³ÉÔ±£¬²¢°ÑÏà»ú´«½øÀ´>
 	SelectPoint(osg::Camera* camera);
 
-	// <æŽ¥å£ç±»çš„å¤–éƒ¨å‡½æ•°ï¼Œå±å¹•ä¸Šçš„æŸä¸€ç‚¹çš„åæ ‡ä½œä¸ºå‚æ•°ï¼Œç¡®å®šé¢çš„ä½ç½®>
+	// <½Ó¿ÚÀàµÄÍâ²¿º¯Êý£¬ÆÁÄ»ÉÏµÄÄ³Ò»µãµÄ×ø±ê×÷Îª²ÎÊý£¬È·¶¨ÃæµÄÎ»ÖÃ>
 	virtual IDrawElement* select(float x, float y) override;
 
-	//  <æŽ¥å£ç±»çš„å¤–éƒ¨å‡½æ•°ï¼ŒèŽ·å–é€‰æ‹©é¢çš„é¡¶ç‚¹ä½ç½®ï¼ŒèŽ·å–é¢å…ƒçš„æŒ‡é’ˆ>
+	//  <½Ó¿ÚÀàµÄÍâ²¿º¯Êý£¬»ñÈ¡Ñ¡ÔñÃæµÄ¶¥µãÎ»ÖÃ£¬»ñÈ¡ÃæÔªµÄÖ¸Õë>
 	virtual IDrawElement* getSelection() const override;
 
-	// <å±å¹•ä¸Šçš„æŸä¸€ç‚¹çš„åæ ‡ä½œä¸ºå‚æ•°ï¼Œç»˜åˆ¶é¢>
+// internal:
+	// <ÆÁÄ»ÉÏµÄÄ³Ò»µãµÄ×ø±ê×÷Îª²ÎÊý£¬»æÖÆÃæ>
 	virtual PointPrimitives* selectPoint(float x, float y);
 
-	//  <èŽ·å–é€‰æ‹©é¢çš„é¡¶ç‚¹ä½ç½®ï¼ŒèŽ·å–é¢å…ƒæŒ‡é’ˆ>
+	//  <»ñÈ¡Ñ¡ÔñÃæµÄ¶¥µãÎ»ÖÃ£¬»ñÈ¡ÃæÔªÖ¸Õë>
 	virtual PointPrimitives* getSelectedPoint() const;
+
+	osg::Node* getRoot() const;
+
+	void setPointPosition(const osg::Vec3& pos);
 
 protected:
 
-	// <åˆ©ç”¨ç›¸äº¤è¿ç®—çš„ç»“æžœæ¥ç¡®å®šçº¿çš„é¡¶ç‚¹ä½ç½®>
+	// <ÀûÓÃÏà½»ÔËËãµÄ½á¹ûÀ´È·¶¨ÏßµÄ¶¥µãÎ»ÖÃ>
 	void doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result);
-
 	PointPrimitives* m_point;
 	osg::Camera* m_camera;
+	bool m_selected;
 };
 
 #endif // __SELECT_POINT_H__

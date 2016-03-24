@@ -27,39 +27,6 @@
     <ClInclude Include="CoordinateAxis.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="IGeometry.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Geometry.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ITextPrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="TextPrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="IPointPrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="PointPrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ILinePrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="LinePrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Axes.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="IAxes.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="AxesUpdate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CoordinateAxis.cpp">
@@ -67,24 +34,6 @@
     </ClCompile>
     <ClCompile Include="CoordinateUpdate.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Geometry.cpp">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="TextPrimitives.cpp">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="PointPrimitives.cpp">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="LinePrimitives.cpp">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Axes.cpp">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="AxesUpdate.cpp">
-      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

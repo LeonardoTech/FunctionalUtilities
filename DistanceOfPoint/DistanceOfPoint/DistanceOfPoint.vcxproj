@@ -67,7 +67,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>..\..\SelectPrimitives\SelectPrimitives;$(OSG_3_4)/include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\BasicFunctionality\inc;$(ProjectDir)..\..\BasicFunctionality\source\inc;..\..\SelectPrimitives\SelectPrimitives;$(OSG_3_4)/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(OSG_3_4)/lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,22 +139,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Distance.h" />
-    <ClInclude Include="Geometry.h" />
     <ClInclude Include="IDistance.h" />
-    <ClInclude Include="IGeometry.h" />
-    <ClInclude Include="ILinePrimitives.h" />
-    <ClInclude Include="IPointPrimitives.h" />
-    <ClInclude Include="ITextPrimitives.h" />
-    <ClInclude Include="LinePrimitives.h" />
-    <ClInclude Include="PointPrimitives.h" />
-    <ClInclude Include="TextPrimitives.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Distance.cpp" />
-    <ClCompile Include="Geometry.cpp" />
-    <ClCompile Include="LinePrimitives.cpp" />
-    <ClCompile Include="PointPrimitives.cpp" />
-    <ClCompile Include="TextPrimitives.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SelectPrimitives\SelectPrimitives\SelectPrimitives.vcxproj">

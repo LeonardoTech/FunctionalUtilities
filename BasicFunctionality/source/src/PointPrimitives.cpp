@@ -2,7 +2,7 @@
 
 #include "PointPrimitives.h"
 
-// <构造函数>
+// <���캯��>
 #pragma region PointPrimitives
 
 PointPrimitives::PointPrimitives()
@@ -101,7 +101,7 @@ void PointPrimitives::setPosition(float x, float y, float z)
 	_geometry->dirtyBound();
 }
 
-void PointPrimitives::setPosition(osg::Vec3 pos)
+void PointPrimitives::setPosition(const osg::Vec3& pos)
 {
 	_vertex = pos;
 	(*_vertices)[0] = _vertex;
@@ -109,14 +109,16 @@ void PointPrimitives::setPosition(osg::Vec3 pos)
 	_geometry->dirtyBound();
 }
 
+
 void PointPrimitives::setVertices(const VertexArray& arr)
 {
+
 	_vertex.set(arr[0].getX(), arr[0].getY(), arr[0].getZ());
 }
 
 #pragma endregion
 
-// <获取接口方便控制>
+// <��ȡ�ӿڷ������>
 #pragma region GetGeometry
 
 osg::Geometry *PointPrimitives::getGeometry()

@@ -18,9 +18,6 @@
 #include "ICoordinateAxis.h"
 #include <osg/NodeCallback>
 #include "CoordinateUpdater.h"
-#include "LinePrimitives.h"
-#include "TextPrimitives.h"
-#include "Axes.h"
 
 //class	CoordinateAxis
 //
@@ -36,13 +33,11 @@ public:
 	CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip);
 	~CoordinateAxis();
 	//<获取坐标轴方向>
-	 void getAxisDirection(Coordinate ax, float &x, float &y, float &z);
+	virtual void getAxisDirection(Axis ax, float &x, float &y, float &z);
 	//<通过指定的二维屏幕坐标画出坐标系，可以指定坐标系的半径长度，需要把屏幕相机作为参数传进去>
 	virtual osg::MatrixTransform* setAxis( float x, float y, float radius, osg::Camera *camera);
 private:
 	osgGA::MultiTouchTrackballManipulator* m_manip;
 	CoordinateUpdater* update;
-	Axes* _axes;
-	
 };
 

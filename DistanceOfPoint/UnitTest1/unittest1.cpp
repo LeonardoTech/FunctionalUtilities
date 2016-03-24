@@ -1,6 +1,5 @@
 #include "CppUnitTest.h"
-#include "../DistanceOfPoint/PickHandler.h"
-#include "SelectModelPoint.h"
+#include "MeasuringLineLength.h"
 #include "PickHandle.h"
 
 
@@ -24,11 +23,10 @@ namespace UnitTest1
 
 			osgViewer::Viewer viewer;
 			osg::ref_ptr<osg::Camera> camera = viewer.getCamera();
-			Distance* dis = new Distance(new SelectModelPoint(camera), new SelectModelPoint(camera));
-
+			MeasuringLineLength* dis = new MeasuringLineLength(camera);
 			osg::ref_ptr<osg::Group> root = new osg::Group;
 			root->addChild(trans.get());
-			dis->setRoot(root);
+			root->addChild(dis->getRoot());
 			viewer.setSceneData(root.get());
 			osg::ref_ptr<PickHandler>picker = new PickHandler(dis);
 			viewer.addEventHandler(picker.get());

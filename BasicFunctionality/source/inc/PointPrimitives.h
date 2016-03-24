@@ -39,7 +39,7 @@ public:
 
 	virtual osg::Vec3 getPosition() const;
 
-	virtual void setPosition(osg::Vec3 pos);
+	virtual void setPosition(const osg::Vec3& pos);
 
 private:
 	osg::ref_ptr<osg::Geometry> _geometry;

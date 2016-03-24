@@ -14,6 +14,7 @@ enum Axis
 	Z_Axis
 };
 
+
 /// @class	ICoordinateAxis
 ///
 /// @brief	 <一个叫ICoordinateAxis的接口类 成员函数分别是根据属性制作一个坐标系和获取X,Y或Z轴的方向.>
@@ -37,7 +38,7 @@ public:
 	/// @param [out]	x	<指向的X向量>
 	/// @param [out]	y	<指向的Y向量>
 	/// @param [out]	z	<指向的Z向量>
-	//virtual void getAxisDirection(Axis ax, float &x, float &y, float &z) = 0;
+	virtual void getAxisDirection(Axis ax, float &x, float &y, float &z) = 0;
 
 	/// @fn	virtual osg::MatrixTransform* ICoordinateAxis::setAxis(float x, float y, float radius, osg::Camera *camera) = 0;
 	///
