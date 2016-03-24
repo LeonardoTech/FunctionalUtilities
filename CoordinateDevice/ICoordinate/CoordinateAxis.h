@@ -11,35 +11,35 @@
 #include "PointPrimitives.h"
 #include "LinePrimitives.h"
 #include "TextPrimitives.h"
-#include "ICoordinate.h"
+#include "ICoordinateAxis.h"
 
 using namespace coordinatedevice_coordinate_icoordinate;
 
 namespace coordinatedevice_coordinate_coordinate
 {
-	class Coordinate :public ICoordinate
+	class CoordinateAxis :public ICoordinateAxis
 	{
 	public:
-		Coordinate(osgGA::MultiTouchTrackballManipulator* manip);
-		~Coordinate();
+		CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip);
+		~CoordinateAxis();
 
-		virtual void setLabelText(CoordinateNames axis, std::string label) override;
+		virtual void setLabelText(AxisDirection axis, std::string label) override;
 
-		virtual void setLabelPosition(CoordinateNames axis, float x, float y, float z) override;
+		virtual void setLabelPosition(AxisDirection axis, float x, float y, float z) override;
 
-		virtual void setColor(CoordinateNames axis, float x, float y, float z)  override;
+		virtual void setColor(AxisDirection axis, float x, float y, float z)  override;
 
 		virtual void setOriginPoint(float x, float y) override;
 
 		virtual void setRadius(float radius) override;
 
-		virtual void getAxisDirection3D(CoordinateNames axis, float& x, float& y, float& z) override;
+		virtual void getAxisDirection3D(AxisDirection axis, float& x, float& y, float& z) override;
 
-		virtual void getAxisDirection2D(CoordinateNames axis, float& x, float& y) override;
+		virtual void getAxisDirection2D(AxisDirection axis, float& x, float& y) override;
 
-		virtual void setDarkColor(CoordinateNames axis, float x, float y, float z) override;
+		virtual void setDarkColor(AxisDirection axis, float x, float y, float z) override;
 
-		virtual void setLabelVisibility(CoordinateNames axis, bool isVisibility) override;
+		virtual void setLabelVisibility(AxisDirection axis, bool isVisibility) override;
 
 		virtual void setAxisWidth(float width) override;
 

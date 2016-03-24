@@ -1,7 +1,7 @@
-#include "Coordinate.h"
+#include "CoordinateAxis.h"
 using namespace  coordinatedevice_coordinate_coordinate;
 
-Coordinate::Coordinate(osgGA::MultiTouchTrackballManipulator* manip) :
+CoordinateAxis::CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip) :
 m_lineX(new LinePrimitives()),
 m_lineY(new LinePrimitives()),
 m_lineZ(new LinePrimitives()),
@@ -59,71 +59,71 @@ m_showLabelZ("Z")
 }
 
 
-Coordinate::~Coordinate()
+CoordinateAxis::~CoordinateAxis()
 {
 }
 
 #pragma region interface implement
 
-void Coordinate::setLabelText(CoordinateNames axis, std::string label)
+void CoordinateAxis::setLabelText(AxisDirection axis, std::string label)
 {
-	if (axis == CoordinateNames::X_AXIS)
+	if (axis == AxisDirection::X_AXIS)
 	{
 		m_labelX->setText(label);
 		m_showLabelX = label;
 	}
 		
-	if (axis == CoordinateNames::Y_AXIS)
+	if (axis == AxisDirection::Y_AXIS)
 	{
 		m_labelY->setText(label);
 		m_showLabelY = label;
 	}
-	if (axis == CoordinateNames::Z_AXIS)
+	if (axis == AxisDirection::Z_AXIS)
 	{
 		m_labelZ->setText(label);
 		m_showLabelZ = label;
 	}
 }
 
-void Coordinate::setLabelPosition(CoordinateNames axis, float x, float y, float z)
+void CoordinateAxis::setLabelPosition(AxisDirection axis, float x, float y, float z)
 {
-	if (axis == CoordinateNames::X_AXIS)
+	if (axis == AxisDirection::X_AXIS)
 		m_labelX->setPosition(x, y, z);
-	if (axis == CoordinateNames::Y_AXIS)
+	if (axis == AxisDirection::Y_AXIS)
 		m_labelY->setPosition(x, y, z);
-	if (axis == CoordinateNames::Z_AXIS)
+	if (axis == AxisDirection::Z_AXIS)
 		m_labelZ->setPosition(x, y, z);
 }
 
 // <设置轴的颜色>  // <设置标注的颜色>
-void Coordinate::setColor(CoordinateNames axis, float x, float y, float z)
+void CoordinateAxis::setColor(AxisDirection axis, float x, float y, float z)
 {
-	if (axis == CoordinateNames::X_AXIS)
+	if (axis == AxisDirection::X_AXIS)
 	{
 		m_labelX->setColor(x, y, z);
 		m_lineX->setColor(x, y, z);
 	} 
-	if (axis == CoordinateNames::Y_AXIS)
+	if (axis == AxisDirection::Y_AXIS)
 	{
 		m_labelY->setColor(x, y, z);
 		m_lineY->setColor(x, y, z);
 	}
 
-	if (axis == CoordinateNames::Z_AXIS)
+	if (axis == AxisDirection::Z_AXIS)
 	{
 		m_labelZ->setColor(x, y, z);
 		m_lineZ->setColor(x, y, z);
 	}
 }
 
-void Coordinate::setOriginPoint(float x, float y)
+void CoordinateAxis::setOriginPoint(float x, float y)
 {
 	m_originX = x;
 	m_originY = y;
 	m_transNode->setMatrix(osg::Matrix::translate(osg::Vec3(m_originX, m_originY, -m_radius*1.5)));
 }
 
-void Coordinate::setRadius(float radius)
+void CoordinateAxis::setRadius(float radius)
 {
 	m_radius = radius;
 
@@ -140,84 +140,84 @@ void Coordinate::setRadius(float radius)
 
 }
 
-void Coordinate::getAxisDirection3D(CoordinateNames axis, float& x, float& y, float& z)
+void CoordinateAxis::getAxisDirection3D(AxisDirection axis, float& x, float& y, float& z)
 {
 	osg::Vec3  result;
-	if (axis == CoordinateNames::X_AXIS)
+	if (axis == AxisDirection::X_AXIS)
 	{
-		result = m_update->getResult(Axis(0));
+		result = m_update->getResult(AxisDirection::X_AXIS);
 		x = result._v[0];
 		y = result._v[1];
 		z = result._v[2];
 	}
-	if (axis == CoordinateNames::Y_AXIS)
+	if (axis == AxisDirection::Y_AXIS)
 	{
-		result = m_update->getResult(Axis(1));
+		result = m_update->getResult(AxisDirection::Y_AXIS);
 		x = result._v[0];
 		y = result._v[1];
 		z = result._v[2];
 	}
-	if (axis == CoordinateNames::Z_AXIS)
+	if (axis == AxisDirection::Z_AXIS)
 	{
-		result = m_update->getResult(Axis(2));
+		result = m_update->getResult(AxisDirection::Z_AXIS);
 		x = result._v[0];
 		y = result._v[1];
 		z = result._v[2];
 	}
 }
 
-void Coordinate::getAxisDirection2D(CoordinateNames axis, float& x, float& y)
-{
+
+void CoordinateAxis::getAxisDirection2D(AxisDirection axis, float& x, float& y){
 	osg::Vec3  result;
-	if (axis == CoordinateNames::X_AXIS)
+	if (axis == AxisDirection::X_AXIS)
 	{
-		result = m_update->getResult(Axis(0));
+		result = m_update->getResult(AxisDirection::X_AXIS);
 		x = result._v[0];
 		y = result._v[1];
 	}
-	if (axis == CoordinateNames::Y_AXIS)
+	if (axis == AxisDirection::Y_AXIS)
 	{
-		result = m_update->getResult(Axis(1));
+		result = m_update->getResult(AxisDirection::Y_AXIS);
 		x = result._v[0];
 		y = result._v[1];
 	}
-	if (axis == CoordinateNames::Z_AXIS)
+	if (axis == AxisDirection::Z_AXIS)
 	{
-		result = m_update->getResult(Axis(2));
+		result = m_update->getResult(AxisDirection::Z_AXIS);
 		x = result._v[0];
 		y = result._v[1];
 	}
 }
 
 //TODO <可以先不做>
-void Coordinate::setDarkColor(CoordinateNames axis, float x, float y, float z)
+void CoordinateAxis::setDarkColor(AxisDirection axis, float x, float y, float z)
 {
 
 }
 
-void Coordinate::setLabelVisibility(CoordinateNames axis, bool isVisibility)
+void CoordinateAxis::setLabelVisibility(AxisDirection axis, bool isVisibility)
 {
 	if (!isVisibility)
 	{
-		if (axis == CoordinateNames::X_AXIS)
+		if (axis == AxisDirection::X_AXIS)
 			m_labelX->setText("");
-		if (axis == CoordinateNames::Y_AXIS)
+		if (axis == AxisDirection::Y_AXIS)
 			m_labelY->setText("");
-		if (axis == CoordinateNames::Z_AXIS)
+		if (axis == AxisDirection::Z_AXIS)
 			m_labelZ->setText("");
 	}
 	else
 	{
-		if (axis == CoordinateNames::X_AXIS)
+		if (axis == AxisDirection::X_AXIS)
 			m_labelX->setText(m_showLabelX);
-		if (axis == CoordinateNames::Y_AXIS)
+		if (axis == AxisDirection::Y_AXIS)
 			m_labelY->setText(m_showLabelY);
-		if (axis == CoordinateNames::Z_AXIS)
+		if (axis == AxisDirection::Z_AXIS)
 			m_labelZ->setText(m_showLabelZ);
 	}
 }
 
-void Coordinate::setAxisWidth(float width)
+void CoordinateAxis::setAxisWidth(float width)
 {
 	m_lineX->setLineWidth(width);
 	m_lineY->setLineWidth(width);
@@ -226,7 +226,7 @@ void Coordinate::setAxisWidth(float width)
 
 #pragma endregion
 
-osg::MatrixTransform* Coordinate::getNode()
+osg::MatrixTransform* CoordinateAxis::getNode()
 {
 	return m_transNode;
 }

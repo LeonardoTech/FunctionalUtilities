@@ -1,6 +1,6 @@
 #include "CppUnitTest.h"
 #include "ModelController.h"
-#include "Coordinate.h"
+#include "../ICoordinate/CoordinateAxis.h"
 #include "LinePrimitives.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -22,7 +22,7 @@ namespace UnitTest1
 			//osg::ref_ptr<osg::Geode> textGeode = new osg::Geode;
 			osg::ref_ptr<osg::Camera> camera = createHUDCamera(0, 1920, 0, 1080);
 			//CoordinateAxis *axis = new CoordinateAxis(manip);
-			Coordinate *axis = new Coordinate(manip);
+			CoordinateAxis *axis = new CoordinateAxis(manip);
 			//osg::ref_ptr<osg::MatrixTransform>tran = axis->getAxis(-110.0f, -110.0f, 80.0f);
 			axis->setRadius(380);
 			axis->setOriginPoint(400, 400);

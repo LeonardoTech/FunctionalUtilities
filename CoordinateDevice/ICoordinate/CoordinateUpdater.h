@@ -2,13 +2,13 @@
 #define MY_H
 
 #include <osg/NodeCallback>
-
 #include <osg/MatrixTransform>
 #include "osgGA/MultiTouchTrackballManipulator"
-#include "../CoordinateDevice/ICoordinateAxis.h"
+#include "ICoordinateAxis.h"
+
 #include <osgText/Font>
 #include <osgText/Text>
-
+using namespace coordinatedevice_coordinate_icoordinate;
 // class	CoordinateUpdater
 //
 // brief	 <一个继承于osg::NodeCallback的类,能够使处于HUD相机下的坐标系能够用鼠标控制旋转，并且能够计数刷新>
@@ -23,7 +23,7 @@ public:
 	// <对传进来的manip进行操作.>
 	virtual void operator()(osg::Node* node, osg::NodeVisitor* nv) override;
 	// < 根据传进来Axis的枚举值，来确定获取哪个轴的结果.>
-	osg::Vec3 getResult(Axis ax);
+	osg::Vec3 getResult(AxisDirection ax);
 
 private:
 	osgGA::MultiTouchTrackballManipulator* m_manip;
