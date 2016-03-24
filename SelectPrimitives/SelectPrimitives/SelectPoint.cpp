@@ -6,7 +6,6 @@ SelectPoint::SelectPoint(osg::Camera* camera)
 	m_point->setColor(1, 0, 0);
 	m_point->setSize(10);
 	m_camera = camera;
-	m_selected = false;
 }
 
 IDrawElement* SelectPoint::select(float x, float y)
@@ -62,16 +61,12 @@ PointPrimitives* SelectPoint::selectPoint(float x, float y)
 		osgUtil::LineSegmentIntersector::Intersection result = *(intersector->getIntersections().begin());
 		doUserOperations(result);
 	}
-	m_selected = true;
 	return m_point;
 }
 
 PointPrimitives* SelectPoint::getSelectedPoint() const
 {
-	if (!m_selected)
-	{
-		return NULL;
-	}
+	
 	return m_point;
 }
 
