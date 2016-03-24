@@ -155,17 +155,11 @@
     <ClInclude Include="ISelectPrimitives.h" />
     <ClInclude Include="SelectFace.h" />
     <ClInclude Include="SelectLine.h" />
-    <ClInclude Include="SelectModelFace.h" />
-    <ClInclude Include="SelectModelLine.h" />
-    <ClInclude Include="SelectModelPoint.h" />
-    <ClInclude Include="Selector.h" />
     <ClInclude Include="SelectPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SelectFace.cpp" />
     <ClCompile Include="SelectLine.cpp" />
-    <ClCompile Include="SelectModelFace.cpp" />
-    <ClCompile Include="SelectModelLine.cpp" />
-    <ClCompile Include="SelectModelPoint.cpp" />
     <ClCompile Include="SelectPoint.cpp" />
   </ItemGroup>
   <ItemGroup>

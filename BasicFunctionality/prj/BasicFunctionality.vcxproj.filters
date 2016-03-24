@@ -24,9 +24,6 @@
     <ClInclude Include="..\inc\IDrawElement.h">
       <Filter>interface</Filter>
     </ClInclude>
-    <ClInclude Include="..\inc\IGeometry.h">
-      <Filter>interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\VertexArray.h">
       <Filter>interface</Filter>
     </ClInclude>
@@ -48,6 +45,15 @@
     <ClInclude Include="..\inc\ILinePrimitives.h">
       <Filter>interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\source\inc\FacePrimitives.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\IFacePrimitives.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\IColorable.h">
+      <Filter>interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\src\PointPrimitives.cpp">
@@ -57,6 +63,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\source\src\LinePrimitives.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\src\FacePrimitives.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

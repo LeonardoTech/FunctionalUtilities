@@ -2,7 +2,15 @@
 #include "PickHandler.h"
 #include "SelectPoint.h"
 #include "SelectLine.h"
-#include "SelectModelFace.h"
+#include "SelectFace.h"
+#include <osg/Geometry>
+#include <osg/Geode>
+#include <osg/MatrixTransform>
+#include <osg/Point>
+#include <osg/PolygonOffset>
+#include <osgUtil/SmoothingVisitor>
+#include <osgViewer/Viewer>
+#include <osgDB/readFile>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -66,8 +74,9 @@ namespace UnitTest1
 			trans->addChild(group);
 			trans->setMatrix(osg::Matrix::translate(0.0f, 0.0f, 1.0f));
 
+
 			osgViewer::Viewer viewer;
-			osg::ref_ptr<PickHandler> picker = new PickHandler(new SelectModelFace(viewer.getCamera()));
+			osg::ref_ptr<PickHandler> picker = new PickHandler(new SelectFace(viewer.getCamera()));
 
 			osg::ref_ptr<osg::Group> root = new osg::Group;
 			root->addChild(trans.get());

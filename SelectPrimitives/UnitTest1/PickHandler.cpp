@@ -2,12 +2,11 @@
 #include <osgViewer/Viewer>
 #include "LinePrimitives.h"
 #include "PointPrimitives.h"
+#include "FacePrimitives.h"
 //#include "FacePrimitives.h"
 
-PickHandler::PickHandler(Selector* selector)
-{
-	//_select = selector;
-}
+
+
 
 PickHandler::PickHandler(ISelectPrimitives* selector)
 {
@@ -40,4 +39,8 @@ void PickHandler::setRoot(osg::Group* node)
 	auto point = dynamic_cast<PointPrimitives*>(_select->getSelection());
 	if (point)
 		_root->addChild(point->getGeometry());
+	
+	auto face = dynamic_cast<FacePrimitives*>(_select->getSelection());
+	if (face)
+		_root->addChild(face->getGeometry());
 }
