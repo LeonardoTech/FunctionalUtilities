@@ -4,6 +4,7 @@
 #include "ISelectPrimitives.h"
 #include "LinePrimitives.h"
 
+
 #include <osg/Camera>
 #include <osgUtil/LineSegmentIntersector>
 
@@ -27,6 +28,7 @@ public:
 	//  <获取选择面的顶点位置，获取面元指针>
 	virtual LinePrimitives* getSelectedLine() const;
 
+
 	osg::Node* getRoot() const;
 
 
@@ -37,7 +39,6 @@ protected:
 
 	LinePrimitives* m_line;
 	osg::Camera* m_camera;
-	bool m_selected;
 };
 
 #endif // __SELECT_LINE_H__

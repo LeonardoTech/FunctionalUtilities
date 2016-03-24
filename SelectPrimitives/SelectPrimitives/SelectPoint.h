@@ -37,7 +37,6 @@ protected:
 	void doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result);
 	PointPrimitives* m_point;
 	osg::Camera* m_camera;
-	bool m_selected;
 };
 
 #endif // __SELECT_POINT_H__

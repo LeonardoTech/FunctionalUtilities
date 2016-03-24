@@ -1,9 +1,11 @@
 #include "CppUnitTest.h"
 #include "PointPrimitives.h"
 #include "IPointPrimitives.h"
+
 #include <osgViewer/Viewer>
 #include <osg/Billboard>
 #include <osg/ShapeDrawable>
+#include <osg/Point>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
