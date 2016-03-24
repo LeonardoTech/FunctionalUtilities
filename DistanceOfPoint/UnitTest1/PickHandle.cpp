@@ -73,7 +73,7 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 	auto dist = _select->getDistance();
 	std::stringstream ss;
 	ss << dist;
-	_select->setLabel(ss.str(), SHOW_METHOD::CENTER);
+	_select->setLabelText(ss.str(), Alignments::Center);
 
 	return false;
 }
