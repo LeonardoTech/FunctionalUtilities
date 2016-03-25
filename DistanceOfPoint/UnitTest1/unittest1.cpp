@@ -31,6 +31,7 @@ namespace UnitTest1
 			osg::ref_ptr<PickHandler>picker = new PickHandler(dis);
 			viewer.addEventHandler(picker.get());
 
+
 			osg::CullSettings::CullingMode mode = viewer.getCamera()->getCullingMode();
 			viewer.getCamera()->setCullingMode(mode & (~osg::CullSettings::SMALL_FEATURE_CULLING));
 			viewer.run();
