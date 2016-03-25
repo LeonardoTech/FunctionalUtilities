@@ -16,18 +16,6 @@ namespace PointUnitTest1
 	public:
 		TEST_METHOD(TestPointMethod)
 		{
-			// TODO:  在此输入测试代
-			//PointPrimitives *point = new PointPrimitives;
-			//point->drawGeometry();
-			//point->setPosition(0.0f, 0.0f, 0.0f);
-			//point->setSize(500.0f);
-			//point->setColor(1.0f, 1.0f, 1.0f);
-			//osg::Geometry *geom = point->getGeometry();
-			//osg::ref_ptr<osg::Geode> geode = new osg::Geode;
-			//geode->addDrawable(geom);
-			//osgViewer::Viewer viewer;
-			//viewer.setSceneData(geode.get());
-			//viewer.run();
 
 			osg::Vec3 _vertex = { 0.0f, 1.0f, 0.0f };
 			osg::ref_ptr<osg::Vec3Array>verties = new osg::Vec3Array(1);
