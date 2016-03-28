@@ -5,6 +5,7 @@
 #include <osg/PolygonOffset>
 #include <osgViewer/Viewer>
 #include <iostream>
+#include <vector>
 #include "osgGA/GUIEventHandler"
 #include "osg/Group"
 #include "MeasuringLineLength.h"
@@ -16,19 +17,19 @@ class PickHandler : public osgGA::GUIEventHandler
 {
 public:
 	// <构造函数，对私有变量进行初始化（定义两个图形）>
-	PickHandler(MeasuringLineLength* selector);
+	PickHandler(osg::Group* root, MeasuringLineLength* selector);
 
 	// <对鼠标事件的更改，以完成功能上的要求>
 	virtual bool handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa);
 	// <把点，线，文字等都加到一个组里>
-	void setRoot(osg::Group* node);
+	osg::Group* getRoot();
 	// <创建一条线>
 	osg::Geode* createLine();
 
 protected:
 	MeasuringLineLength* _select;
-
-	osg::Group* _root;
+	vector<MeasuringLineLength*>_lineVector;
+	osg::ref_ptr<osg::Group> _root;
 	bool _isSelect1Down;
 	bool _isSelect2Down;
 	osg::Geometry* _geometry;

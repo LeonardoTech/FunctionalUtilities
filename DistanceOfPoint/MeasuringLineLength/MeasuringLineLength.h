@@ -1,8 +1,4 @@
 #pragma once
-#include "IMeasuringLineLength.h"
-#include "SelectPoint.h"
-#include "TextPrimitives.h"
-#include "LinePrimitives.h"
 #include <osg/Geometry>
 #include <osg/Geode>
 #include <osg/MatrixTransform>
@@ -12,13 +8,17 @@
 #include <osgViewer/Viewer>
 #include <osgDB/readFile>
 #include <iostream>
-#include "osgGA/GUIEventHandler"
-#include "SelectModelPoint.h"
+#include <osgGA/GUIEventHandler>
 #include <osgText/Font>
 #include <osgText/Text>
-#include "osg/Group"
+#include <osg/Group>
 #include <memory>
 
+#include "SelectPoint.h"
+#include "IMeasuringLineLength.h"
+#include "SelectPoint.h"
+#include "TextPrimitives.h"
+#include "LinePrimitives.h"
 
 class MeasuringLineLength :
 	public IMeasuringLineLength
@@ -38,17 +38,17 @@ public:
 
 	virtual void getStartPoint(float& x, float& y, float& z) override;
 	virtual void getEndPoint(float& x, float& y, float& z) override;
+	void CreateNewSelector();
 
 	//bool setPoint(float x, float y, Num num);
 	osg::Group* getRoot();
-
 protected:
 	osg::Group* _root;
 	osg::ref_ptr<osg::Camera>_camera;
-	std::unique_ptr<TextPrimitives> _text;
-	std::unique_ptr<LinePrimitives> _line;
-	std::unique_ptr<SelectPoint> _select1;
-	std::unique_ptr<SelectPoint> _select2;
+	std::shared_ptr<TextPrimitives> _text;
+	std::shared_ptr<LinePrimitives> _line;
+	std::shared_ptr<SelectPoint> _select1;
+	std::shared_ptr<SelectPoint> _select2;
 
 	SHOW_METHOD m_showMethod;
 };

@@ -18,6 +18,21 @@ _line(new LinePrimitives())
 	_camera = camera;
 }
 
+void MeasuringLineLength::CreateNewSelector()
+{
+	MeasuringLineLength s(_camera);
+	//osg::ref_ptr<SelectPoint> startPoint;
+	//osg::ref_ptr<SelectPoint> endPoint;
+	//startPoint = new SelectPoint(_camera);
+	//endPoint = new SelectPoint(_camera);
+	//TextPrimitives* text = new TextPrimitives();
+	////osg::ref_ptr<TextPrimitives> text = new TextPrimitives();
+	// LinePrimitives* line = new LinePrimitives();
+	//_select1 = startPoint;
+	//_select2 = endPoint;
+	//_text = text;
+	//_line = line;
+}
 
 MeasuringLineLength::~MeasuringLineLength()
 {
@@ -51,7 +66,7 @@ void MeasuringLineLength::setEndPoint(float x, float y)
 
 void MeasuringLineLength::setLabel(string name, float x, float y, float z)
 {
-	_text->setText(name); // <设置文字的内容>
+	_text->setTextContent(name); // <设置文字的内容>
 	_text->setPosition(x, y, z);
 }
 
@@ -75,6 +90,7 @@ float MeasuringLineLength::getDistance()
 // fn	void PickHandler::setRoot(osg::Group* node)
 // 
 // brief	 <将所有的图形都放进root组里>
+
 osg::Group* MeasuringLineLength::getRoot()
 {
 	return _root;
@@ -83,7 +99,7 @@ osg::Group* MeasuringLineLength::getRoot()
 
 void MeasuringLineLength::setLabel(string name, SHOW_METHOD method)
 {
-	_text->setText(name);
+	_text->setTextContent(name);
 	m_showMethod = method;
 	updateLineAndLabelPos();
 }
