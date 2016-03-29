@@ -1,6 +1,6 @@
 ﻿
-#ifndef __IFACE_PRIMITIVES_H__
-#define __IFACE_PRIMITIVES_H__
+#ifndef __IFACE_PRIMITIVE_H__
+#define __IFACE_PRIMITIVE_H__
 #include "IDrawElement.h"
 
 /// @class	IFacePrimitives
@@ -9,7 +9,7 @@
 ///
 /// @author	Admin
 /// @date	2016/3/23
-class IFacePrimitives :public IDrawElement
+class IFacePrimitive :public IDrawElement
 {
 public:
 
@@ -50,4 +50,4 @@ public:
 	virtual void getPosition(float& x1, float& y1, float& z1, float& x2, float& y2, float& z2, float& x3, float& y3, float& z3) = 0;
 };
 
-#endif // __IFACE_PRIMITIVES_H__
+#endif // __IFACE_PRIMITIVE_H__

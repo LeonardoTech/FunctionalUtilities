@@ -1,18 +1,18 @@
-﻿#ifndef __FACE_PRIMITIVES_H__
-#define __FACE_PRIMITIVES_H__
+﻿#ifndef __FACE_PRIMITIVE_H__
+#define __FACE_PRIMITIVE_H__
 
 #include <osg/Geometry>
 
 #include "VertexArray.h"
-#include  "IFacePrimitives.h"
+#include  "IFacePrimitive.h"
 
 
 // <绘制面元的实现类，继承于IFacePrimitives>.
-class  FacePrimitives :public IFacePrimitives
+class  FacePrimitive :public IFacePrimitive
 {
 public:
 	// <构造函数，用于初始化私有变量>
-	FacePrimitives();
+	FacePrimitive();
 	
 	// <设置三角面的位置，3个顶点需要9个浮点值表示>
 	virtual void setPosition(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3);
@@ -50,4 +50,4 @@ protected:
 };
 
 
-#endif //__FACE_PRIMITIVES_H__
+#endif //__FACE_PRIMITIVE_H__

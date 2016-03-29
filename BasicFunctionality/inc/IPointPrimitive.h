@@ -1,6 +1,6 @@
 ﻿
-#ifndef __IPOINT_PRIMITIVES_H__
-#define __IPOINT_PRIMITIVES_H__
+#ifndef __IPOINT_PRIMITIVE_H__
+#define __IPOINT_PRIMITIVE_H__
 
 #include "IDrawElement.h"
 
@@ -10,7 +10,7 @@
 ///
 /// @author	Admin
 /// @date	2016/3/23
-class IPointPrimitives :public IDrawElement
+class IPointPrimitive :public IDrawElement
 {
 public:
 
@@ -59,4 +59,4 @@ public:
 	virtual void setSize(float size) = 0;
 };
 
-#endif // __IPOINT_PRIMITIVES_H__
+#endif // __IPOINT_PRIMITIVE_H__

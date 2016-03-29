@@ -1,10 +1,10 @@
-﻿#ifndef __ITEXTPRIMITIVES_H__
-#define __ITEXTPRIMITIVES_H__
+﻿#ifndef __ITEXTPRIMITIVE_H__
+#define __ITEXTPRIMITIVE_H__
 #include <string>
 
 #include "IColorable.h"
 
-class ITextPrimitives :public IColorable
+class ITextPrimitive:public IColorable
 {
 public:
 

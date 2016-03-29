@@ -1,18 +1,18 @@
-﻿#ifndef __POINT_PRIMITIVES_H__
-#define __POINT_PRIMITIVES_H__
+﻿#ifndef __POINT_PRIMITIVE_H__
+#define __POINT_PRIMITIVE_H__
 
 #include <osg/Geometry>
 
-#include "IPointPrimitives.h"
+#include "IPointPrimitive.h"
 
 
 // <绘制电元的实现类，继承于IPointPrimitives>
-class PointPrimitives :public IPointPrimitives
+class PointPrimitive :public IPointPrimitive
 {
 public:
 	
 	// <构造函数，用于初始化私有变量>
-	PointPrimitives();
+	PointPrimitive();
 
 	// <获取点的位置>
 	virtual void getPosition(float& x, float& y, float& z) const override;
@@ -51,4 +51,4 @@ private:
 
 
 
-#endif // __POINT_PRIMITIVES_H__
+#endif // __POINT_PRIMITIVE_H__

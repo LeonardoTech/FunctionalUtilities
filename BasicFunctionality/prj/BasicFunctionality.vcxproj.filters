@@ -27,30 +27,6 @@
     <ClInclude Include="..\inc\VertexArray.h">
       <Filter>interface</Filter>
     </ClInclude>
-    <ClInclude Include="..\source\inc\PointPrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\source\inc\TextPrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\source\inc\LinePrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\inc\IPointPrimitives.h">
-      <Filter>interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\inc\ITextPrimitives.h">
-      <Filter>interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\inc\ILinePrimitives.h">
-      <Filter>interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\source\inc\FacePrimitives.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\inc\IFacePrimitives.h">
-      <Filter>interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\inc\IColorable.h">
       <Filter>interface</Filter>
     </ClInclude>
@@ -60,21 +36,45 @@
     <ClInclude Include="..\source\inc\QuadPrimitive.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\source\inc\FacePrimitive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\inc\LinePrimitive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\IFacePrimitive.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\ILinePrimitive.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\IPointPrimitive.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\ITextPrimitive.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\inc\PointPrimitive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\inc\TextPrimitive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\src\PointPrimitives.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\src\TextPrimitives.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\src\LinePrimitives.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\src\FacePrimitives.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\source\src\QuadPrimitive.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\src\FacePrimitive.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\src\LinePrimitive.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\src\PointPrimitive.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\src\TextPrimitive.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
