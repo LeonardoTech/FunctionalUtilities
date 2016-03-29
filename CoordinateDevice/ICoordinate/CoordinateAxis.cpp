@@ -2,12 +2,12 @@
 using namespace  coordinatedevice_coordinate_coordinate;
 
 CoordinateAxis::CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip) :
-m_lineX(new LinePrimitives()),
-m_lineY(new LinePrimitives()),
-m_lineZ(new LinePrimitives()),
-m_labelX(new TextPrimitives()),
-m_labelY(new TextPrimitives()),
-m_labelZ(new TextPrimitives()),
+m_lineX(new LinePrimitive()),
+m_lineY(new LinePrimitive()),
+m_lineZ(new LinePrimitive()),
+m_labelX(new TextPrimitive()),
+m_labelY(new TextPrimitive()),
+m_labelZ(new TextPrimitive()),
 m_showLabelX("X"),
 m_showLabelY("Y"),
 m_showLabelZ("Z")
