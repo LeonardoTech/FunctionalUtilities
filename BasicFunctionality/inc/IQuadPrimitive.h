@@ -1,6 +1,6 @@
 ﻿
-#ifndef __IQUAD_PRIMITIVES_H__
-#define __IQUAD_PRIMITIVES_H__
+#ifndef __IQUAD_PRIMITIVE_H__
+#define __IQUAD_PRIMITIVE_H__
 #include "IDrawElement.h"
 
 /// @class	IQuadPrimitives
@@ -42,4 +42,4 @@ public:
 
 
 
-#endif // __IQUAD_PRIMITIVES_H__
+#endif // __IQUAD_PRIMITIVE_H__

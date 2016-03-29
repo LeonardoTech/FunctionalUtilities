@@ -1,9 +1,9 @@
-﻿#include "TextPrimitives.h"
+﻿#include "TextPrimitive.h"
 
 // <构造函数>
 #pragma region TextPrimitives
 
-TextPrimitives::TextPrimitives()
+TextPrimitive::TextPrimitive()
 {
 	_text = new osgText::Text;
 	 _font = new osgText::Font;
@@ -17,7 +17,7 @@ TextPrimitives::TextPrimitives()
 
 #pragma region SetFontFile
 
-void TextPrimitives::setFontFile(const std::string& fontFile )
+void TextPrimitive::setFontFile(const std::string& fontFile)
 {
 	//_font = osgText::readFontFile("fonts/arial.ttf");
 	_font = osgText::readFontFile(fontFile);
@@ -28,7 +28,7 @@ void TextPrimitives::setFontFile(const std::string& fontFile )
 
 #pragma region SetPosition
 
-void TextPrimitives::setPosition(float x, float y, float z)
+void TextPrimitive::setPosition(float x, float y, float z)
 {
 	_text->setPosition(osg::Vec3{ x, y, z });
 }
@@ -37,7 +37,7 @@ void TextPrimitives::setPosition(float x, float y, float z)
 
 #pragma region SetColor
 
-void TextPrimitives::setColor(float red, float green, float blue)
+void TextPrimitive::setColor(float red, float green, float blue)
 {
 	_text->setColor(osg::Vec4{ red, green, blue, 1.0f });
 }
@@ -46,7 +46,7 @@ void TextPrimitives::setColor(float red, float green, float blue)
 
 #pragma region SetSize
 
-void TextPrimitives::setSize(float size)
+void TextPrimitive::setSize(float size)
 {
 	_text->setCharacterSize(size);
 }
@@ -55,7 +55,7 @@ void TextPrimitives::setSize(float size)
 
 #pragma region SetContent
 
-void TextPrimitives::setTextContent(const std::string& content)
+void TextPrimitive::setTextContent(const std::string& content)
 {
 	_text->setText(content); 
 }
@@ -64,7 +64,7 @@ void TextPrimitives::setTextContent(const std::string& content)
 
 #pragma region GetOsgText
 
-osgText::Text* TextPrimitives::getOsgText()
+osgText::Text* TextPrimitive::getOsgText()
 {
 	return _text;
 }

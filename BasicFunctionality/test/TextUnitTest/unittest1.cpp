@@ -1,5 +1,5 @@
 #include "CppUnitTest.h"
-#include "TextPrimitives.h"
+#include "TextPrimitive.h"
 #include <osgViewer/Viewer>
 #include <osg/Billboard>
 
@@ -15,7 +15,7 @@ namespace TextUnitTest
 		{
 			// TODO:  在此输入测试代码
 			
-			TextPrimitives *text = new TextPrimitives;
+			TextPrimitive *text = new TextPrimitive;
 			text->setSize(20.0f);
 			text->setColor(1.0f, 1.0f, 0.0f);
 			text->setPosition(0.0f, 1.0, 0.0f);
@@ -30,7 +30,7 @@ namespace TextUnitTest
 
 		TEST_METHOD(TestTextSize)
 		{
-			TextPrimitives *text = new TextPrimitives;
+			TextPrimitive *text = new TextPrimitive;
 			text->setSize(150.0f);
 			text->setTextContent("22221111");
 			text->setFontFile("fonts/Vera.ttf");
@@ -44,7 +44,7 @@ namespace TextUnitTest
 		}
 		TEST_METHOD(TestTextColor)
 		{
-			TextPrimitives *text = new TextPrimitives;
+			TextPrimitive *text = new TextPrimitive;
 			text->setColor(1.0f, 1.0f, 0.0f); 
 			text->setTextContent("22221111");
 			osgText::Text *_text = text->getOsgText();

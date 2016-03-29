@@ -1,5 +1,5 @@
-﻿#ifndef __QUAD_PRIMITIVES_H__
-#define __QUAD_PRIMITIVES_H__
+﻿#ifndef __QUAD_PRIMITIVE_H__
+#define __QUAD_PRIMITIVE_H__
 
 #include <osg/Geometry>
 
@@ -42,4 +42,4 @@ protected:
 };
 
 
-#endif // __QUAD_PRIMITIVES_H__
+#endif // __QUAD_PRIMITIVE_H__

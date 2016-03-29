@@ -1,19 +1,19 @@
-﻿#ifndef __LINEPRIMITIVES_H__
-#define __LINEPRIMITIVES_H__
+﻿#ifndef __LINEPRIMITIVE_H__
+#define __LINEPRIMITIVE_H__
 
 #include <osg/Geometry>
 
 #include "VertexArray.h"
-#include "ILinePrimitives.h"
+#include "ILinePrimitive.h"
 
 
 //  <绘制线元的实现类，继承于ILinePrimitives> 
-class  LinePrimitives :public ILinePrimitives
-{
+class  LinePrimitive :public ILinePrimitive
+{ 
 public:
 
 	// <构造函数，用于初始化私有成员>
-	LinePrimitives();
+	LinePrimitive();
 	// <设置线宽>
 	virtual void setLineWidth(float width) override;
 
@@ -58,4 +58,4 @@ protected:
 };
 
 
-#endif // __LINEPRIMITIVES_H__
+#endif // __LINEPRIMITIVE_H__

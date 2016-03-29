@@ -1,6 +1,6 @@
 #include "CppUnitTest.h"
-#include "PointPrimitives.h"
-#include "IPointPrimitives.h"
+#include "PointPrimitive.h"
+#include "IPointPrimitive.h"
 
 #include <osgViewer/Viewer>
 #include <osg/Billboard>
@@ -21,7 +21,7 @@ namespace PointUnitTest1
 			osg::ref_ptr<osg::Vec3Array>verties = new osg::Vec3Array(1);
 			(*verties)[0] = _vertex;
 
-			PointPrimitives *point = new PointPrimitives;
+			PointPrimitive *point = new PointPrimitive;
 			osg::Geometry  *geo = point->getGeometry();
 
 			point->setPosition(0.0f, 1.0f, 0.0f);

@@ -1,5 +1,5 @@
-﻿#ifndef __ILINEPRIMITIVES_H__
-#define __ILINEPRIMITIVES_H__
+﻿#ifndef __ILINEPRIMITIVE_H__
+#define __ILINEPRIMITIVE_H__
 
 #include "IDrawElement.h"
 
@@ -9,7 +9,7 @@
 ///
 /// @author	Admin
 /// @date	2016/3/23
-class  ILinePrimitives :public IDrawElement
+class  ILinePrimitive :public IDrawElement
 {
 public:
 
@@ -73,4 +73,4 @@ public:
 	virtual void setEndPosition(float x, float y, float z) = 0;
 };
 
-#endif	// __ILINEPRIMITIVES_H__
+#endif	// __ILINEPRIMITIVE_H__

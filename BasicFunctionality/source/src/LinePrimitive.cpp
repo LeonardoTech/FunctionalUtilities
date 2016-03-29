@@ -1,12 +1,12 @@
 ﻿#include <osg/LineWidth>
 
-#include "LinePrimitives.h"
+#include "LinePrimitive.h"
 
 
 // <构造函数>
 #pragma region LinePrimitives
 
-LinePrimitives::LinePrimitives()
+LinePrimitive::LinePrimitive()
 {
 	_geometry = new osg::Geometry;
 	_vertices = new osg::Vec3Array(2);
@@ -29,7 +29,7 @@ LinePrimitives::LinePrimitives()
 
 #pragma region SetLineWidth
 
-void LinePrimitives::setLineWidth(float width)
+void LinePrimitive::setLineWidth(float width)
 {
 	osg::ref_ptr<osg::LineWidth>linewidth = new osg::LineWidth;
 	linewidth->setWidth(width);
@@ -40,7 +40,7 @@ void LinePrimitives::setLineWidth(float width)
 
 #pragma region SetColor
 
-void LinePrimitives::setColor(float red, float green, float blue)
+void LinePrimitive::setColor(float red, float green, float blue)
 {
 	osg::Vec4 color = { red, green, blue, 1.0f };
 	(*_color)[0] = color;
@@ -53,7 +53,7 @@ void LinePrimitives::setColor(float red, float green, float blue)
 
 #pragma region getGeometry
 
-osg::Geometry* LinePrimitives::getGeometry()
+osg::Geometry* LinePrimitive::getGeometry()
 {
 	return _geometry;
 }
@@ -61,14 +61,14 @@ osg::Geometry* LinePrimitives::getGeometry()
 
 #pragma region GetStartPosition
 
-void LinePrimitives::getStartPosition(float& x, float& y, float& z)
+void LinePrimitive::getStartPosition(float& x, float& y, float& z)
 {
 	x = _startPosition.x();
 	y = _startPosition.y();
 	z = _startPosition.z();
 }
 
-osg::Vec3 LinePrimitives::getStartPosition() const
+osg::Vec3 LinePrimitive::getStartPosition() const
 {
 	return _startPosition;
 }
@@ -77,14 +77,14 @@ osg::Vec3 LinePrimitives::getStartPosition() const
 
 #pragma region GetEndPosition
 
-void LinePrimitives::getEndPosition(float& x, float& y, float& z)
+void LinePrimitive::getEndPosition(float& x, float& y, float& z)
 {
 	x = _endPosition.x();
 	y = _endPosition.y();
 	z = _endPosition.z();
 }
 
-osg::Vec3 LinePrimitives::getEndPosition() const
+osg::Vec3 LinePrimitive::getEndPosition() const
 {
 	return _endPosition;
 }
@@ -93,7 +93,7 @@ osg::Vec3 LinePrimitives::getEndPosition() const
 
 #pragma region SetStartPosition
 
-void LinePrimitives::setStartPosition(float x, float y, float z)
+void LinePrimitive::setStartPosition(float x, float y, float z)
 {
 	_startPosition = { x, y, z };
 	(*_vertices)[0] = _startPosition;
@@ -101,7 +101,7 @@ void LinePrimitives::setStartPosition(float x, float y, float z)
 	_geometry->dirtyBound();
 }
 
-void LinePrimitives::setStartPosition(osg::Vec3 pos)
+void LinePrimitive::setStartPosition(osg::Vec3 pos)
 {
 	_startPosition = pos;
 	(*_vertices)[0] = _startPosition;
@@ -113,7 +113,7 @@ void LinePrimitives::setStartPosition(osg::Vec3 pos)
 
 #pragma region SetEndPosition
 
-void LinePrimitives::setEndPosition(float x, float y, float z)
+void LinePrimitive::setEndPosition(float x, float y, float z)
 {
 	_endPosition = { x, y, z };
 	(*_vertices)[1] = _endPosition;
@@ -121,7 +121,7 @@ void LinePrimitives::setEndPosition(float x, float y, float z)
 	_geometry->dirtyBound();
 }
 
-void LinePrimitives::setEndPosition(osg::Vec3 pos)
+void LinePrimitive::setEndPosition(osg::Vec3 pos)
 {
 	_endPosition = pos;
 	(*_vertices)[1] = _endPosition;
@@ -133,7 +133,7 @@ void LinePrimitives::setEndPosition(osg::Vec3 pos)
 
 #pragma region SetVertices
 
-void LinePrimitives::setVertices(const VertexArray& arr)
+void LinePrimitive::setVertices(const VertexArray& arr)
 {
 	_vertices = new osg::Vec3Array(arr.size());
 	for (int i = 0; i < arr.size();i++)
@@ -146,7 +146,7 @@ void LinePrimitives::setVertices(const VertexArray& arr)
 
 #pragma region GetVertices
 
-VertexArray LinePrimitives::getVertices() const
+VertexArray LinePrimitive::getVertices() const
 {
 	VertexArray arr(_vertices->size());
 	for (int i = 0; i < _vertices->size(); i++)

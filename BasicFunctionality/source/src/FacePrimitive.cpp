@@ -1,9 +1,9 @@
-﻿#include "FacePrimitives.h"
+﻿#include "FacePrimitive.h"
 
 // <构造函数>
 #pragma region FacePrimitives
 
-FacePrimitives::FacePrimitives()
+FacePrimitive::FacePrimitive()
 {
 	_position = { 0.0f, 0.0f, 0.0f };
 	_vertices = new osg::Vec3Array(3);
@@ -25,7 +25,7 @@ FacePrimitives::FacePrimitives()
 
 #pragma region SetPosition
 
-void FacePrimitives::setPosition(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3)
+void FacePrimitive::setPosition(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3)
 {
 	(*_vertices)[0] = osg::Vec3{ x1, y1, z1 };
 	(*_vertices)[1] = osg::Vec3{ x2, y2, z2 };
@@ -34,7 +34,7 @@ void FacePrimitives::setPosition(float x1, float y1, float z1, float x2, float y
 	_geometry->dirtyBound();									// <_geometry 刷新>
 }
 
-void FacePrimitives::setPosition(osg::Vec3 vertices1, osg::Vec3 vertices2, osg::Vec3 vertices3)
+void FacePrimitive::setPosition(osg::Vec3 vertices1, osg::Vec3 vertices2, osg::Vec3 vertices3)
 {
 	(*_vertices)[0] = vertices1;
 	(*_vertices)[1] = vertices2;
@@ -43,7 +43,7 @@ void FacePrimitives::setPosition(osg::Vec3 vertices1, osg::Vec3 vertices2, osg::
 	_geometry->dirtyBound();
 }
 
-void FacePrimitives::setVertices(const VertexArray& arr)
+void FacePrimitive::setVertices(const VertexArray& arr)
 {
 	_vertices = new osg::Vec3Array(arr.size());
 	for (int i = 0; i < arr.size(); i++)
@@ -56,14 +56,14 @@ void FacePrimitives::setVertices(const VertexArray& arr)
 
 #pragma region GetPosition
 
-void FacePrimitives::getPosition(osg::Vec3 &vertices1, osg::Vec3 &vertices2, osg::Vec3 &vertices3)
+void FacePrimitive::getPosition(osg::Vec3 &vertices1, osg::Vec3 &vertices2, osg::Vec3 &vertices3)
 {
 	vertices1 = (*_vertices)[0];
 	vertices2 = (*_vertices)[1];
 	vertices3 = (*_vertices)[2];
 }
 
-void FacePrimitives::getPosition(float& x1, float& y1, float& z1, float& x2, float& y2, float& z2, float& x3, float& y3, float& z3)
+void FacePrimitive::getPosition(float& x1, float& y1, float& z1, float& x2, float& y2, float& z2, float& x3, float& y3, float& z3)
 {
 	x1 = (*_vertices)[0].x();
 	y1 = (*_vertices)[0].y();
@@ -76,7 +76,7 @@ void FacePrimitives::getPosition(float& x1, float& y1, float& z1, float& x2, flo
 	z3 = (*_vertices)[2].z();
 }
 
-VertexArray FacePrimitives::getVertices() const
+VertexArray FacePrimitive::getVertices() const
 {
 	VertexArray arr(_vertices->size());
 	for (int i = 0; i < _vertices->size(); i++)
@@ -95,7 +95,7 @@ VertexArray FacePrimitives::getVertices() const
 
 #pragma region SetColor
 
-void FacePrimitives::setColor(float red, float green, float blue)
+void FacePrimitive::setColor(float red, float green, float blue)
 {
 	osg::Vec4 color = { red, green, blue, 1.0f };   // <透明度默认为1，否则会被覆盖掉>
 	(*_color)[0] = color;
@@ -107,7 +107,7 @@ void FacePrimitives::setColor(float red, float green, float blue)
 
 #pragma region GetGeometry
 
-osg::Geometry* FacePrimitives::getGeometry()
+osg::Geometry* FacePrimitive::getGeometry()
 {
 	return _geometry;
 }

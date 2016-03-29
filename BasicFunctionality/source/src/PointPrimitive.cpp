@@ -1,11 +1,11 @@
 ﻿#include <osg/Point>
 
-#include "PointPrimitives.h"
+#include "PointPrimitive.h"
 
 // <���캯��>
 #pragma region PointPrimitives
 
-PointPrimitives::PointPrimitives()
+PointPrimitive::PointPrimitive()
 {
 	_size = 1;
 	_geometry = new osg::Geometry;
@@ -29,7 +29,7 @@ PointPrimitives::PointPrimitives()
 
 #pragma region GetSize
 
-float PointPrimitives::getSize() const
+float PointPrimitive::getSize() const
 {
 	return _size;
 }
@@ -38,7 +38,7 @@ float PointPrimitives::getSize() const
 
 #pragma region SetSize
 
-void PointPrimitives::setSize(float size)
+void PointPrimitive::setSize(float size)
 {
 	_size = size;
 	auto stateSet = _geometry->getOrCreateStateSet();
@@ -50,7 +50,7 @@ void PointPrimitives::setSize(float size)
 
 #pragma region SetColor
 
-void PointPrimitives::setColor(float red, float green, float blue)
+void PointPrimitive::setColor(float red, float green, float blue)
 {
 
 	osg::Vec4 color = { red, green, blue, 1.0f };
@@ -64,19 +64,19 @@ void PointPrimitives::setColor(float red, float green, float blue)
 
 #pragma region getPosition
 
-void PointPrimitives::getPosition(float& x, float& y, float& z) const
+void PointPrimitive::getPosition(float& x, float& y, float& z) const
 {
 	x = _vertex.x();
 	y = _vertex.y();
 	z = _vertex.z();
 }
 
-osg::Vec3 PointPrimitives::getPosition() const
+osg::Vec3 PointPrimitive::getPosition() const
 {
 	return _vertex;
 }
 
-VertexArray PointPrimitives::getVertices() const
+VertexArray PointPrimitive::getVertices() const
 {
 	VertexArray arr;
 	Vertex v;
@@ -93,7 +93,7 @@ VertexArray PointPrimitives::getVertices() const
 
 #pragma region setPosition
 
-void PointPrimitives::setPosition(float x, float y, float z)
+void PointPrimitive::setPosition(float x, float y, float z)
 {
 	_vertex = { x, y, z };
 	(*_vertices)[0] = _vertex;
@@ -101,7 +101,7 @@ void PointPrimitives::setPosition(float x, float y, float z)
 	_geometry->dirtyBound();
 }
 
-void PointPrimitives::setPosition(const osg::Vec3& pos)
+void PointPrimitive::setPosition(const osg::Vec3& pos)
 {
 	_vertex = pos;
 	(*_vertices)[0] = _vertex;
@@ -110,7 +110,7 @@ void PointPrimitives::setPosition(const osg::Vec3& pos)
 }
 
 
-void PointPrimitives::setVertices(const VertexArray& arr)
+void PointPrimitive::setVertices(const VertexArray& arr)
 {
 
 	_vertex.set(arr[0].getX(), arr[0].getY(), arr[0].getZ());
@@ -121,7 +121,7 @@ void PointPrimitives::setVertices(const VertexArray& arr)
 // <��ȡ�ӿڷ������>
 #pragma region GetGeometry
 
-osg::Geometry *PointPrimitives::getGeometry()
+osg::Geometry *PointPrimitive::getGeometry()
 {
 	return _geometry;
 }

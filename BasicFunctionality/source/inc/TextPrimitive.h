@@ -1,19 +1,19 @@
-﻿#ifndef __TEXTPRIMITIVES_H__
-#define __TEXTPRIMITIVES_H__
+﻿#ifndef __TEXTPRIMITIVE_H__
+#define __TEXTPRIMITIVE_H__
 
 #include <osgText/Font>
 #include <osgText/Text>
 
-#include "ITextPrimitives.h"
+#include "ITextPrimitive.h"
 
 
 // <绘制文本的实现类，继承于ITextPrimitives接口类>
-class TextPrimitives :public ITextPrimitives
+class TextPrimitive :public ITextPrimitive
 {
 public:
 	
 	// <构造函数，初始化私有成员> 
-	TextPrimitives();
+	TextPrimitive();
 
 	// <设置文字显示的位置>
 	virtual void setPosition(float x, float y, float z) override;
@@ -39,4 +39,4 @@ private:
 	osg::ref_ptr<osgText::Font> _font;
 };
 
-#endif
+#endif // __TEXTPRIMITIVE_H__

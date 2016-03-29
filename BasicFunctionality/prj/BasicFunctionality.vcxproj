@@ -141,24 +141,24 @@
   <ItemGroup>
     <ClInclude Include="..\inc\IColorable.h" />
     <ClInclude Include="..\inc\IDrawElement.h" />
-    <ClInclude Include="..\inc\IFacePrimitives.h" />
-    <ClInclude Include="..\inc\ILinePrimitives.h" />
-    <ClInclude Include="..\inc\IPointPrimitives.h" />
+    <ClInclude Include="..\inc\IFacePrimitive.h" />
+    <ClInclude Include="..\inc\ILinePrimitive.h" />
+    <ClInclude Include="..\inc\IPointPrimitive.h" />
     <ClInclude Include="..\inc\IQuadPrimitive.h" />
-    <ClInclude Include="..\inc\ITextPrimitives.h" />
+    <ClInclude Include="..\inc\ITextPrimitive.h" />
     <ClInclude Include="..\inc\VertexArray.h" />
-    <ClInclude Include="..\source\inc\FacePrimitives.h" />
-    <ClInclude Include="..\source\inc\LinePrimitives.h" />
-    <ClInclude Include="..\source\inc\PointPrimitives.h" />
+    <ClInclude Include="..\source\inc\FacePrimitive.h" />
+    <ClInclude Include="..\source\inc\LinePrimitive.h" />
+    <ClInclude Include="..\source\inc\PointPrimitive.h" />
     <ClInclude Include="..\source\inc\QuadPrimitive.h" />
-    <ClInclude Include="..\source\inc\TextPrimitives.h" />
+    <ClInclude Include="..\source\inc\TextPrimitive.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\src\FacePrimitives.cpp" />
-    <ClCompile Include="..\source\src\LinePrimitives.cpp" />
-    <ClCompile Include="..\source\src\PointPrimitives.cpp" />
+    <ClCompile Include="..\source\src\FacePrimitive.cpp" />
+    <ClCompile Include="..\source\src\LinePrimitive.cpp" />
+    <ClCompile Include="..\source\src\PointPrimitive.cpp" />
     <ClCompile Include="..\source\src\QuadPrimitive.cpp" />
-    <ClCompile Include="..\source\src\TextPrimitives.cpp" />
+    <ClCompile Include="..\source\src\TextPrimitive.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
