@@ -1,3 +1,5 @@
+#include <string>
+
 #include "ModelController.h"
 
 //
@@ -16,8 +18,8 @@ float x = 0.0;
 float y = 0.0;
 float z = 0.0;
 std::stringstream ss;
-string info;
-string a;
+std::string info;
+std::string a;
 
 bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa)
 {
@@ -34,9 +36,9 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 		switch (ea.getKey())
 		{
 		case 'x': case 'X':
-			_axis1->setColor(X_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(Y_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(Z_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(AxisDirection::X_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(AxisDirection::Y_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(AxisDirection::Z_AXIS, 0.0f, 0.0f, 0.0f);
 			//_axis->getAxisDirection(X_Axis, x, y, z);
 // 			info.empty();
 // 			info.clear();
@@ -50,9 +52,9 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 			break;
 		case 'y': case 'Y':
 			//_axis->getAxisDirection(Y_Axis, x, y, z);
-			_axis1->setColor(X_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(Y_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(Z_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(AxisDirection::X_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(AxisDirection::Y_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(AxisDirection::Z_AXIS, 0.0f, 0.0f, 0.0f);
 // 			info.empty();
 // 			info.clear();
 // 			ss.str("");
@@ -65,9 +67,9 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 			break;
 		case 'z': case 'Z':
 			//_axis->getAxisDirection(Z_Axis, x, y, z);
-			_axis1->setColor(X_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(Y_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(Z_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(AxisDirection::X_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(AxisDirection::Y_AXIS, 0.0f, 0.0f, 0.0f);
+			_axis1->setColor(AxisDirection::Z_AXIS, 0.0f, 0.0f, 0.0f);
 // 			info.clear();
 // 			info.empty();
 // 			ss.str("");

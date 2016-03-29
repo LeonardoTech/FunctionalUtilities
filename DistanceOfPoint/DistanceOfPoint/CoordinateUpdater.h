@@ -2,18 +2,19 @@
 #define MY_H
 
 #include <osg/NodeCallback>
+#include "stdafx.h"
 #include <osg/MatrixTransform>
-#include <osgGA/MultiTouchTrackballManipulator>
+#include "osgGA/MultiTouchTrackballManipulator"
+#include "ICoordinateAxis.h"
 #include <osgText/Font>
 #include <osgText/Text>
 
-#include "ICoordinateAxis.h"
 // class	CoordinateUpdater
 //
 // brief	 <一个继承于osg::NodeCallback的类,能够使处于HUD相机下的坐标系能够用鼠标控制旋转，并且能够计数刷新>
 // 		 
 // author	Admin
-// date	2016/3/14 
+// date	2016/3/14
 class CoordinateUpdater:public osg::NodeCallback
 {
 public:

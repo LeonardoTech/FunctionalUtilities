@@ -4,12 +4,11 @@
 #include <osg/MatrixTransform>
 #include <osg/PolygonOffset>
 #include <osgViewer/Viewer>
-#include <iostream>
-#include <vector>
-#include "osgGA/GUIEventHandler"
-#include "osg/Group"
-#include "MeasuringLineLength.h"
+#include <osgGA/GUIEventHandler>
+#include <osg/Group>
 
+#include "MeasuringLineLength.h"
+using namespace distanceofpoint_measuringlinelength_measuringlinelength;
 // class	PickHandler
 // brief	 <继承于osgGA::GUIEventHandler，对数表事件的定义，以及获取鼠标的位置，>
 // date	2016/3/14

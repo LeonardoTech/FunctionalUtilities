@@ -1,85 +1,100 @@
-#ifndef __COORDINATE_AXIS_H__
-#define __COORDINATE_AXIS_H__
-#include "ICoordinateAxis.h"
-#include "osgViewer/Viewer"
-#include "osg/Geometry"
-#include "osg/MatrixTransform"
-#include "osg/PolygonOffset"
-#include "osgGA/MultiTouchTrackballManipulator"
+#ifndef __COORDINATE_H__
+#define __COORDINATE_H__
+#include <osgViewer/Viewer>
+#include <osg/Geometry>
+#include <osg/MatrixTransform>
+#include <osg/PolygonOffset>
+#include <osgGA/MultiTouchTrackballManipulator>
+#include <memory>
+
 #include "CoordinateUpdater.h"
 #include "PointPrimitives.h"
 #include "LinePrimitives.h"
 #include "TextPrimitives.h"
-#include <memory>
+#include "ICoordinateAxis.h"
 
+using namespace coordinatedevice_coordinate_icoordinate;
 
-class CoordinateAxis :public ICoordinateAxis
+namespace coordinatedevice_coordinate_coordinate
 {
-public:
-	CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip);
-	~Coordinate();
-	virtual void setLabel(COORDINATE_NAME axis, std::string label) override;
-	virtual void setLabelPosition(COORDINATE_NAME axis, float x, float y, float z) override;
-	virtual void setColor(COORDINATE_NAME axis, float x, float y, float z)  override;
-	virtual void setOriginPoint(float x, float y) override;
-	virtual void setRadius(float radius) override;
-	virtual void getAxisDirection3D(COORDINATE_NAME axis, float& x, float& y, float& z) override;
-	virtual void setDarkColor(COORDINATE_NAME axis, std::string color) override;
-	virtual void setLabelVisibility(COORDINATE_NAME axis, bool bvisible) override;
-	virtual void setAxisWidth(float width) override;
+	class CoordinateAxis :public ICoordinateAxis
+	{
+	public:
+		CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip);
+		~CoordinateAxis();
 
-	//osg::Geometry* createSimpleGeometry_x();
-	//osg::Geometry* createSimpleGeometry_y();
-	//osg::Geometry* createSimpleGeometry_z();
-	//osgText::Text* createText(const string name, const osg::Vec3 &position, const osg::Vec4 &color);
+		virtual void setLabelText(AxisDirection axis, std::string label) override;
 
-	osg::MatrixTransform* getNode();
+		virtual void setLabelPosition(AxisDirection axis, float x, float y, float z) override;
 
-protected:
-	CoordinateUpdater* m_update;
-	osgGA::MultiTouchTrackballManipulator* m_manip;
-	//osg::ref_ptr<osg::Geode> m_geode;
-	osg::ref_ptr<osg::MatrixTransform> m_transNode;
+		virtual void setColor(AxisDirection axis, float x, float y, float z)  override;
 
-	std::unique_ptr<LinePrimitives> _lineX;
-	std::unique_ptr<LinePrimitives> _lineY;
-	std::unique_ptr<LinePrimitives> _lineZ;
+		virtual void setOriginPoint(float x, float y) override;
 
-	std::unique_ptr<TextPrimitives>_labelX;
-	std::unique_ptr<TextPrimitives>_labelY;
-	std::unique_ptr<TextPrimitives>_labelZ;
+		virtual void setRadius(float radius) override;
 
-	//osg::ref_ptr<osgText::Text> _xText;
-	//osg::ref_ptr<osgText::Text> _yText;
-	//osg::ref_ptr<osgText::Text> _zText;
-	//osg::Vec4 m_colorX;
-	//osg::Vec4 m_colorY;
-	//osg::Vec4 m_colorZ;
+		virtual void getAxisDirection3D(AxisDirection axis, float& x, float& y, float& z) override;
 
-	//osg::Vec4 m_colorXLabel;
-	//osg::Vec4 m_colorYLabel;
-	//osg::Vec4 m_colorZLabel;
+		virtual void getAxisDirection2D(AxisDirection axis, float& x, float& y) override;
 
-	//osg::Vec3 m_labelPositionX;//ok
-	//osg::Vec3 m_labelPositionY;//ok
-	//osg::Vec3 m_labelPositionZ;//ok
-	//
+		virtual void setDarkColor(AxisDirection axis, float x, float y, float z) override;
 
-	float m_radius;
-	float m_originx;
-	float m_originy;
+		virtual void setLabelVisibility(AxisDirection axis, bool isVisibility) override;
 
-	//float m_widthX;
-	//float m_widthY;
-	//float m_widthZ;
+		virtual void setAxisWidth(float width) override;
 
-	bool m_bvisibleX;
-	bool m_bvisibleY;
-	bool m_bvisibleZ;
+		//osg::Geometry* createSimpleGeometry_x();
+		//osg::Geometry* createSimpleGeometry_y();
+		//osg::Geometry* createSimpleGeometry_z();
+		//osgText::Text* createText(const string name, const osg::Vec3 &position, const osg::Vec4 &color);
 
-	//string m_showLabelX;
-	//string m_showLabelY;
-	//string m_showLabelZ;
-};
+		osg::MatrixTransform* getNode();
 
-#endif // __COORDINATE_AXIS_H__
+	protected:
+		CoordinateUpdater* m_update;
+		osgGA::MultiTouchTrackballManipulator* m_manip;
+		//osg::ref_ptr<osg::Geode> m_geode;
+		osg::ref_ptr<osg::MatrixTransform> m_transNode;
+
+		std::unique_ptr<LinePrimitives> m_lineX;
+		std::unique_ptr<LinePrimitives> m_lineY;
+		std::unique_ptr<LinePrimitives> m_lineZ;
+
+		std::unique_ptr<TextPrimitives> m_labelX;
+		std::unique_ptr<TextPrimitives> m_labelY;
+		std::unique_ptr<TextPrimitives> m_labelZ;
+
+		//osg::ref_ptr<osgText::Text> _xText;
+		//osg::ref_ptr<osgText::Text> _yText;
+		//osg::ref_ptr<osgText::Text> _zText;
+		//osg::Vec4 m_colorX;
+		//osg::Vec4 m_colorY;
+		//osg::Vec4 m_colorZ;
+
+		//osg::Vec4 m_colorXLabel;
+		//osg::Vec4 m_colorYLabel;
+		//osg::Vec4 m_colorZLabel;
+
+		//osg::Vec3 m_labelPositionX;//ok
+		//osg::Vec3 m_labelPositionY;//ok
+		//osg::Vec3 m_labelPositionZ;//ok
+		//
+
+		float m_radius;
+		float m_originX;
+		float m_originY;
+
+		//float m_widthX;
+		//float m_widthY;
+		//float m_widthZ;
+
+		bool m_bvisibleX;
+		bool m_bvisibleY;
+		bool m_bvisibleZ;
+
+		std::string m_showLabelX;
+		std::string m_showLabelY;
+		std::string m_showLabelZ;
+	};
+}
+#endif

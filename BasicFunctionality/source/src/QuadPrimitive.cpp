@@ -12,6 +12,8 @@ QuadPrimitive::QuadPrimitive()
 	m_localX = { 0.0f, 0.0f, 0.0f };
 	m_localX = { 0.0f, 0.0f, 0.0f };
 	m_unitLength = { 0.0f, 0.0f };
+	m_height = 0.0f;
+	m_width = 0.0f;
 
 	osg::Vec2Array* texcoords = new osg::Vec2Array(4);
 	(*texcoords)[0].set(0.0f, 0.0f);
@@ -59,17 +61,16 @@ void QuadPrimitive::getVertices(Vertex& vet1, Vertex& vet2, Vertex& vet3, Vertex
 	vet2.set((*m_vertexArray)[1].x(), (*m_vertexArray)[1].y(), (*m_vertexArray)[1].z());
 	vet3.set((*m_vertexArray)[2].x(), (*m_vertexArray)[2].y(), (*m_vertexArray)[2].z());
 	vet4.set((*m_vertexArray)[3].x(), (*m_vertexArray)[3].y(), (*m_vertexArray)[3].z());
-
-	//Vertex vertex1 = { (*m_vertexArray)[0].x(), (*m_vertexArray)[0].y(), (*m_vertexArray)[0].z() };
-	//Vertex vertex2 = { (*m_vertexArray)[1].x(), (*m_vertexArray)[1].y(), (*m_vertexArray)[1].z() };
-	//Vertex vertex3 = { (*m_vertexArray)[2].x(), (*m_vertexArray)[2].y(), (*m_vertexArray)[2].z() };
-	//Vertex vertex4 = { (*m_vertexArray)[3].x(), (*m_vertexArray)[3].y(), (*m_vertexArray)[3].z() };
 }
 
-QuadPrimitive::QuadPrimitive(const osg::Vec3& center, const osg::Vec2& length, const osg::Vec3& localX, const osg::Vec3& localY):
-QuadPrimitive::QuadPrimitive()
+// <length是宽高，先宽后高>
+//QuadPrimitive::QuadPrimitive(const osg::Vec3& center, const osg::Vec2& length, const osg::Vec3& localX, const osg::Vec3& localY):
+//QuadPrimitive::QuadPrimitive()
+void QuadPrimitive::createQuad(const osg::Vec3& center, const osg::Vec2& length, const osg::Vec3& localX, const osg::Vec3& localY)
 {
 	m_center = center;
+	m_width = length.x();
+	m_height = length.y();
 	m_unitLength = length / 2.0f;
 	m_localX = localX;
 	m_localY = localY;
@@ -84,6 +85,19 @@ QuadPrimitive::QuadPrimitive()
 	_geometry->dirtyBound();
 
 }
+
+void QuadPrimitive::setHeight(float height)
+{
+	m_height = height;
+	createQuad(m_center, osg::Vec2{ m_width, m_height }, m_localX, m_localY);
+}
+
+void QuadPrimitive::setWidth(float width)
+{
+	m_width = width;
+	createQuad(m_center, osg::Vec2{ m_width, m_height }, m_localX, m_localY);
+}
+
 
 void QuadPrimitive::setColor(float red, float green, float blue)
 {
@@ -100,15 +114,22 @@ osg::Geometry* QuadPrimitive::getGeometry()
 
 void QuadPrimitive::setVertices(const VertexArray& arr)
 {
+	osg::Vec3 vec = { 0.0f, 0.0f, 0.0f };
 	int i = 0;
 	for ( i = 0; i < arr.size(); i++)
 	{
 		(*m_vertexArray)[i].set(arr[i].getX(),arr[i].getY(),arr[i].getZ());
+		vec += {arr[i].getX(), arr[i].getY(), arr[i].getZ()};
 	}
+	m_center = vec / 4.0;
+	m_height = ((*m_vertexArray)[1] - (*m_vertexArray)[0]).length();
+	m_width = ((*m_vertexArray)[2] - (*m_vertexArray)[1]).length();
 
 	m_vertexArray->dirty();
 	_geometry->dirtyBound();
 }
+
+
 
 VertexArray QuadPrimitive::getVertices() const
 {
