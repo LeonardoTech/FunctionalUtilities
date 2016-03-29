@@ -18,7 +18,11 @@ public:
 		_vertices[1] = 0;
 		_vertices[2] = 0;
 	}
-
+	Vertex(const float x,const float y, const float z):
+		Vertex::Vertex()
+	{
+		set(x,y,z);
+	}
 	/// @fn	Vertex::Vertex(const Vertex& other)
 	///
 	/// @brief	  <获取Vertex的内容>.
@@ -27,9 +31,17 @@ public:
 	/// @date	2016/3/23
 	///
 	/// @param	other	<获取内容>.
+
 	Vertex(const Vertex& other)
 	{
 		_vertices = other.getVector();
+	}
+	
+	void set(const float x, const float y, const float z)
+	{
+		_vertices[0] = x;
+		_vertices[1] = y;
+		_vertices[2] = z;
 	}
 
 	/// @fn	void Vertex::setVertices(const std::vector<float>& vertices)

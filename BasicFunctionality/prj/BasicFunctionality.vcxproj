@@ -144,17 +144,20 @@
     <ClInclude Include="..\inc\IFacePrimitives.h" />
     <ClInclude Include="..\inc\ILinePrimitives.h" />
     <ClInclude Include="..\inc\IPointPrimitives.h" />
+    <ClInclude Include="..\inc\IQuadPrimitive.h" />
     <ClInclude Include="..\inc\ITextPrimitives.h" />
     <ClInclude Include="..\inc\VertexArray.h" />
     <ClInclude Include="..\source\inc\FacePrimitives.h" />
     <ClInclude Include="..\source\inc\LinePrimitives.h" />
     <ClInclude Include="..\source\inc\PointPrimitives.h" />
+    <ClInclude Include="..\source\inc\QuadPrimitive.h" />
     <ClInclude Include="..\source\inc\TextPrimitives.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\src\FacePrimitives.cpp" />
     <ClCompile Include="..\source\src\LinePrimitives.cpp" />
     <ClCompile Include="..\source\src\PointPrimitives.cpp" />
+    <ClCompile Include="..\source\src\QuadPrimitive.cpp" />
     <ClCompile Include="..\source\src\TextPrimitives.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

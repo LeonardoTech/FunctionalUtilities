@@ -38,9 +38,9 @@ namespace distanceofpoint_measuringlinelength_measuringlinelength
 		virtual void setEndPoint(float x, float y) override;
 
 		virtual void setLabel(std::string name, float x, float y, float z) /*override*/;
+	void CreateNewSelector();
 
 		virtual void setLabelText(std::string name, Alignments method) override;;
-
 		virtual float getDistance() override;
 
 		virtual void getStartPoint(float& x, float& y, float& z) override;

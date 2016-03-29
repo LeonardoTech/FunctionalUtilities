@@ -39,9 +39,9 @@ m_showLabelZ("Z")
 	m_labelX->setPosition(m_radius + 5.0f, 0.0f, 0.0f);
 	m_labelY->setPosition(0.0f, m_radius + 5.0f, 0.0f);
 	m_labelZ->setPosition(0.0f, 0.0f, m_radius + 5.0f);
-	m_labelX->setText(m_showLabelX);
-	m_labelY->setText(m_showLabelY);
-	m_labelZ->setText(m_showLabelZ);
+	m_labelX->setTextContent(m_showLabelX);
+	m_labelY->setTextContent(m_showLabelY);
+	m_labelZ->setTextContent(m_showLabelZ);
 
 	m_labelX->setColor(0, 0, 1);
 	m_labelY->setColor(0, 1, 0);
@@ -69,18 +69,18 @@ void CoordinateAxis::setLabelText(AxisDirection axis, std::string label)
 {
 	if (axis == AxisDirection::X_AXIS)
 	{
-		m_labelX->setText(label);
+		m_labelX->setTextContent(label);
 		m_showLabelX = label;
 	}
 		
 	if (axis == AxisDirection::Y_AXIS)
 	{
-		m_labelY->setText(label);
+		m_labelY->setTextContent(label);
 		m_showLabelY = label;
 	}
 	if (axis == AxisDirection::Z_AXIS)
 	{
-		m_labelZ->setText(label);
+		m_labelZ->setTextContent(label);
 		m_showLabelZ = label;
 	}
 }
@@ -200,20 +200,20 @@ void CoordinateAxis::setLabelVisibility(AxisDirection axis, bool isVisibility)
 	if (!isVisibility)
 	{
 		if (axis == AxisDirection::X_AXIS)
-			m_labelX->setText("");
+			m_labelX->setTextContent("");
 		if (axis == AxisDirection::Y_AXIS)
-			m_labelY->setText("");
+			m_labelY->setTextContent("");
 		if (axis == AxisDirection::Z_AXIS)
-			m_labelZ->setText("");
+			m_labelZ->setTextContent("");
 	}
 	else
 	{
 		if (axis == AxisDirection::X_AXIS)
-			m_labelX->setText(m_showLabelX);
+			m_labelX->setTextContent(m_showLabelX);
 		if (axis == AxisDirection::Y_AXIS)
-			m_labelY->setText(m_showLabelY);
+			m_labelY->setTextContent(m_showLabelY);
 		if (axis == AxisDirection::Z_AXIS)
-			m_labelZ->setText(m_showLabelZ);
+			m_labelZ->setTextContent(m_showLabelZ);
 	}
 }
 

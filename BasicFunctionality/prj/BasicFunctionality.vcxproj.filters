@@ -54,6 +54,12 @@
     <ClInclude Include="..\inc\IColorable.h">
       <Filter>interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\IQuadPrimitive.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\inc\QuadPrimitive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\src\PointPrimitives.cpp">
@@ -66,6 +72,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\source\src\FacePrimitives.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\src\QuadPrimitive.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
