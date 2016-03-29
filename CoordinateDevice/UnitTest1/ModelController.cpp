@@ -26,9 +26,6 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 
 	if (!_model) return false;
 	osg::Matrix matrix = _model->getMatrix();
-	//char xchar[20];
-	//char ychar[20];
-	//char zchar[20];
 	int n = 4;
 	switch (ea.getEventType())
 	{
@@ -36,49 +33,42 @@ bool ModelController::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionA
 		switch (ea.getKey())
 		{
 		case 'x': case 'X':
-			_axis1->setColor(AxisDirection::X_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(AxisDirection::Y_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(AxisDirection::Z_AXIS, 0.0f, 0.0f, 0.0f);
-			//_axis->getAxisDirection(X_Axis, x, y, z);
-// 			info.empty();
-// 			info.clear();
-// 			ss.str("");
-// 			ss << "the Axis of  X_Axis is : " << x << "  " << y << "  " << z;
-// 			info = ss.str();
-// 			mutex.lock();
-// 			_text->setText(info);
-// 			_text->setPosition(osg::Vec3(750.0f, 700.0f, 0.0f));
-// 			mutex.unlock();
+			_axis1->getAxisDirection3D(AxisDirection::X_AXIS, x, y, z);
+ 			info.empty();
+ 			info.clear();
+ 			ss.str("");
+ 			ss << "the Axis of  X_Axis is : " << x << "  " << y << "  " << z;
+ 			info = ss.str();
+ 			mutex.lock();
+ 			_text->setText(info);
+ 			_text->setPosition(osg::Vec3(750.0f, 700.0f, 0.0f));
+ 			mutex.unlock();
 			break;
 		case 'y': case 'Y':
-			//_axis->getAxisDirection(Y_Axis, x, y, z);
-			_axis1->setColor(AxisDirection::X_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(AxisDirection::Y_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(AxisDirection::Z_AXIS, 0.0f, 0.0f, 0.0f);
-// 			info.empty();
-// 			info.clear();
-// 			ss.str("");
-// 			ss << "the Axis of  Y_Axis is : " << x << "  " << y << "  " << z;
-// 			info = ss.str();
-// 			mutex.lock();
-// 			_text->setText(info);
-// 			_text->setPosition(osg::Vec3(750.0f, 600.0f, 0.0f));
-// 			mutex.unlock();
+			_axis1->getAxisDirection3D(AxisDirection::Y_AXIS, x, y, z);
+
+ 			info.empty();
+ 			info.clear();
+ 			ss.str("");
+ 			ss << "the Axis of  Y_Axis is : " << x << "  " << y << "  " << z;
+ 			info = ss.str();
+ 			mutex.lock();
+ 			_text->setText(info);
+ 			_text->setPosition(osg::Vec3(750.0f, 600.0f, 0.0f));
+ 			mutex.unlock();
 			break;
 		case 'z': case 'Z':
-			//_axis->getAxisDirection(Z_Axis, x, y, z);
-			_axis1->setColor(AxisDirection::X_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(AxisDirection::Y_AXIS, 0.0f, 0.0f, 0.0f);
-			_axis1->setColor(AxisDirection::Z_AXIS, 0.0f, 0.0f, 0.0f);
-// 			info.clear();
-// 			info.empty();
-// 			ss.str("");
-// 			ss << "the Axis of  Z_Axis is :  " << x << "  " << y << "  " << z;
-// 			info = ss.str();
-// 			mutex.lock();
-// 			_text->setText(info);
-// 			_text->setPosition(osg::Vec3(750.0f, 500.0f, 0.0f));
-// 			mutex.unlock();
+			_axis1->getAxisDirection3D(AxisDirection::Z_AXIS, x, y, z);
+
+ 			info.clear();
+ 			info.empty();
+ 			ss.str("");
+ 			ss << "the Axis of  Z_Axis is :  " << x << "  " << y << "  " << z;
+ 			info = ss.str();
+ 			mutex.lock();
+ 			_text->setText(info);
+ 			_text->setPosition(osg::Vec3(750.0f, 500.0f, 0.0f));
+ 			mutex.unlock();
 			break;
 		default:
 			break;
