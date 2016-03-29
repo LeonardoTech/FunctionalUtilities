@@ -8,9 +8,9 @@
 #include <memory>
 
 #include "CoordinateUpdater.h"
-#include "PointPrimitives.h"
-#include "LinePrimitives.h"
-#include "TextPrimitives.h"
+#include "PointPrimitive.h"
+#include "LinePrimitive.h"
+#include "TextPrimitive.h"
 #include "ICoordinateAxis.h"
 
 using namespace coordinatedevice_coordinate_icoordinate;
@@ -56,13 +56,13 @@ namespace coordinatedevice_coordinate_coordinate
 		//osg::ref_ptr<osg::Geode> m_geode;
 		osg::ref_ptr<osg::MatrixTransform> m_transNode;
 
-		std::unique_ptr<LinePrimitives> m_lineX;
-		std::unique_ptr<LinePrimitives> m_lineY;
-		std::unique_ptr<LinePrimitives> m_lineZ;
+		std::unique_ptr<LinePrimitive> m_lineX;
+		std::unique_ptr<LinePrimitive> m_lineY;
+		std::unique_ptr<LinePrimitive> m_lineZ;
 
-		std::unique_ptr<TextPrimitives> m_labelX;
-		std::unique_ptr<TextPrimitives> m_labelY;
-		std::unique_ptr<TextPrimitives> m_labelZ;
+		std::unique_ptr<TextPrimitive> m_labelX;
+		std::unique_ptr<TextPrimitive> m_labelY;
+		std::unique_ptr<TextPrimitive> m_labelZ;
 
 		//osg::ref_ptr<osgText::Text> _xText;
 		//osg::ref_ptr<osgText::Text> _yText;

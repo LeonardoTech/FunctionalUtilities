@@ -1,7 +1,7 @@
 #include "CppUnitTest.h"
 #include "ModelController.h"
 #include "../ICoordinate/CoordinateAxis.h"
-#include "LinePrimitives.h"
+#include "LinePrimitive.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace coordinatedevice_coordinate_coordinate;
