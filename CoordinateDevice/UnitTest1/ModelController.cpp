@@ -2,17 +2,6 @@
 
 #include "ModelController.h"
 
-//
-//osgText::Text* createText(const osg::Vec3& pos, std::string content, float size)
-//{
-//	osg::ref_ptr<osgText::Text> text = new osgText::Text;
-//	text->setFont(g_font.get());
-//	text->setCharacterSize(size);
-//	text->setAxisAlignment(osgText::TextBase::XY_PLANE);
-//	text->setPosition(pos);
-//	text->setText(content);
-//	return text.release();
-//}
 
 float x = 0.0;
 float y = 0.0;
