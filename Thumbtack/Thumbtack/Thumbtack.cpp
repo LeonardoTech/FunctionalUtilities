@@ -148,7 +148,7 @@ void Thumbtack::triggerClick()
 	}
 }
 
-void Thumbtack::showDiffrentLevelThumbtack()
+void Thumbtack::showDifferentLevelThumbtack()
 {
 	if (m_scale != getScale())
 	{

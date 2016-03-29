@@ -26,8 +26,8 @@ namespace ThumbtackUnitTest
  			Thumbtack* thumbtack = new Thumbtack();
 			osg::ref_ptr<osg::Group> root = new osg::Group;
 
-			string level0Path = "..\\img\\3.jpg";
-			string level1Path = "\\img\\1.jpg";
+			string level0Path = "D:\\yz\\FunctionalUtilities\\Thumbtack\\img\\3.jpg";
+			string level1Path = "D:\\yz\\FunctionalUtilities\\Thumbtack\\img\\1.jpg";
 			string level2Path = "D:\\yz\\FunctionalUtilities\\Thumbtack\\img\\2.jpg";
 			string changgePath = "D:\\yz\\FunctionalUtilities\\Thumbtack\\img\\4.jpg";
 			thumbtack->setLevelWidthAndHeight(10, 10, 20, 20, 30, 30);
@@ -50,7 +50,7 @@ namespace ThumbtackUnitTest
 
 			// <调用设置不同比例尺和重置大小的接口>
 			thumbtack->setLevelScale(1, 0.5, 0.2);
-			thumbtack->showDiffrentLevelThumbtack();
+			thumbtack->showDifferentLevelThumbtack();
 			osg::ref_ptr<osg::Geometry> newGeometry = thumbtack->getGeometry();
 			root->addChild(newGeometry);
 		

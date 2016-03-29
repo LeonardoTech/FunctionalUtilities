@@ -32,16 +32,14 @@ namespace thumbtack_thumbtack_thumbtack
 
 		virtual void setLevelScale(float level0, float level1, float level2) override;
 
-		virtual void triggerClick() override;
-
 		virtual void setLevelWidthAndHeight(float x1, float y1, float x2, float y2, float x3, float y3) override;
 		
 		//internal
 		osg::Geometry* getGeometry();
 		osg::LOD* getLod();
 		float getScale();
-
-		void showDiffrentLevelThumbtack();
+		virtual void triggerClick();
+		void showDifferentLevelThumbtack();
 	protected:
 		osg::ref_ptr<osg::Image> m_level0Image;
 		osg::ref_ptr<osg::Image> m_level1Image;
