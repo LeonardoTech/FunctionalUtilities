@@ -18,7 +18,7 @@
 #include "SelectPoint.h"
 #include "TextPrimitives.h"
 #include "LinePrimitives.h"
-#include "SelectModelPoint.h"
+//#include "SelectModelPoint.h"
 
 using namespace  distanceofpoint_measuringlinelength_imeasuringlinelength;
 
