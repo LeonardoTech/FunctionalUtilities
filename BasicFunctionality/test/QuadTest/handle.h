@@ -18,4 +18,5 @@ protected:
 	QuadPrimitive* _quad;
 	float _height;
 	float _width;
+	osg::Vec3 _center;
 };

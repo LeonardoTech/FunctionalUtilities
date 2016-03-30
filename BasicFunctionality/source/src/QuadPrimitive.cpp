@@ -1,12 +1,19 @@
 ﻿#include "QuadPrimitive.h"
-
+#include <iostream>
 #include <osg/Geometry>
+#include <osg/Geode>
+#include <osg/Node>
+#include <osg/LineWidth>
+
+
 
 QuadPrimitive::QuadPrimitive()
 {
-
+	_outLine = new osg::Geometry();
+	_root = new osg::Geode;
 	m_vertexArray = new osg::Vec3Array(4);
-	_colors = new osg::Vec4Array(1);
+	_quadColors = new osg::Vec4Array(1);
+	_frameColors = new osg::Vec4Array(1);		// <指定颜色，连成一条线的两个点需要用相同的颜色>
 
 	m_center = { 0.0f, 0.0f, 0.0f };
 	m_localX = { 0.0f, 0.0f, 0.0f };
@@ -15,30 +22,34 @@ QuadPrimitive::QuadPrimitive()
 	m_height = 0.0f;
 	m_width = 0.0f;
 
-	osg::Vec2Array* texcoords = new osg::Vec2Array(4);
-	(*texcoords)[0].set(0.0f, 0.0f);
-	(*texcoords)[1].set(1.0f, 0.0f);
-	(*texcoords)[2].set(1.0f, 1.0f);
-	(*texcoords)[3].set(0.0f, 1.0f);
+	_texcoords = new osg::Vec2Array(4);
+	(*_texcoords)[0].set(0.0f, 0.0f);
+	(*_texcoords)[1].set(1.0f, 0.0f);
+	(*_texcoords)[2].set(1.0f, 1.0f);
+	(*_texcoords)[3].set(0.0f, 1.0f);
 
-	osg::Vec3Array * normalArray = new osg::Vec3Array;
-	normalArray->push_back(osg::Vec3(0, 1, 0));
+	_normalsArray = new osg::Vec3Array;
+	_normalsArray->push_back(osg::Vec3(0, 1, 0));
 
 	 _geometry = new osg::Geometry();
 	_geometry->setUseVertexBufferObjects(true);
 	_geometry->setVertexArray(m_vertexArray);
-	_geometry->setColorArray(_colors);
+	_geometry->setColorArray(_quadColors);
 	_geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
-	_geometry->setNormalArray(normalArray, osg::Array::BIND_PER_PRIMITIVE_SET);
-	_geometry->setTexCoordArray(0, texcoords, osg::Array::BIND_PER_VERTEX);
+	_geometry->setNormalArray(_normalsArray, osg::Array::BIND_PER_PRIMITIVE_SET);
+	_geometry->setTexCoordArray(0, _texcoords, osg::Array::BIND_PER_VERTEX);
 	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_QUADS, 0, 4));
 
+	_root->addDrawable(_geometry);
 }
 
 
 
 void QuadPrimitive::setVertices(Vertex vet1, Vertex vet2, Vertex vet3, Vertex vet4)
 {
+	osg::Vec3 vecX = { 0.0f, 0.0f, 0.0f };
+	osg::Vec3 vecY = { 0.0f, 0.0f, 0.0f };
+
 	osg::Vec3 vertex1 = { vet1.getX(), vet1.getY(), vet1.getZ() };
 	(*m_vertexArray)[0] = vertex1;
 
@@ -50,6 +61,17 @@ void QuadPrimitive::setVertices(Vertex vet1, Vertex vet2, Vertex vet3, Vertex ve
 
 	osg::Vec3 vertex4 = { vet4.getX(), vet4.getY(), vet4.getZ() };
 	(*m_vertexArray)[3] = vertex4;
+
+	m_center = (vertex1 + vertex1 + vertex1 + vertex1) / 4.0;
+	
+	vecY = ((*m_vertexArray)[1] - (*m_vertexArray)[0]);
+	m_height = vecY.length();
+	vecY.normalize();
+	m_localY = vecY;
+	vecX = (*m_vertexArray)[2] - (*m_vertexArray)[1];
+	m_width = vecX.length();
+	vecX.normalize();
+	m_localX = vecX;
 
 	m_vertexArray->dirty();
 	_geometry->dirtyBound();
@@ -83,7 +105,30 @@ void QuadPrimitive::createQuad(const osg::Vec3& center, const osg::Vec2& length,
 
 	m_vertexArray->dirty();
 	_geometry->dirtyBound();
+}
 
+osg::Node* QuadPrimitive::getRoot()
+{
+	return _root;
+}
+
+void QuadPrimitive::setNeedDrawOutLine(bool draw)
+{
+	if (draw == true)
+	{
+		this->initOutLine();
+		_root->addDrawable(_outLine);
+	}
+}
+
+void QuadPrimitive::initOutLine()
+{
+	_outLine->setUseVertexBufferObjects(true);
+	_outLine->setVertexArray(m_vertexArray);
+	_outLine->setColorArray(_frameColors.get(), osg::Array::BIND_PER_PRIMITIVE_SET);
+	_outLine->setNormalArray(_normalsArray, osg::Array::BIND_PER_PRIMITIVE_SET);
+	_outLine->setTexCoordArray(0, _texcoords, osg::Array::BIND_PER_VERTEX);
+	_outLine->addPrimitiveSet(new osg::DrawArrays(GL_LINE_LOOP, 0, 4));
 }
 
 void QuadPrimitive::setHeight(float height)
@@ -101,32 +146,48 @@ void QuadPrimitive::setWidth(float width)
 
 void QuadPrimitive::setColor(float red, float green, float blue)
 {
-	osg::Vec4 color = { red, green, blue, 1.0f };
-	(*_colors)[0] = color;
-	_colors->dirty();
+	setFrameColor(red, green, blue);
+	setQuadColor(red, green, blue);
 }
 
 
-osg::Geometry* QuadPrimitive::getGeometry()
+osg::Geometry* QuadPrimitive::getQuadGeometry()
 {
 	return _geometry;
 }
 
+osg::Geometry* QuadPrimitive::getFrameGeometry()
+{
+	return _outLine;
+}
+
 void QuadPrimitive::setVertices(const VertexArray& arr)
 {
-	osg::Vec3 vec = { 0.0f, 0.0f, 0.0f };
+
 	int i = 0;
 	for ( i = 0; i < arr.size(); i++)
 	{
 		(*m_vertexArray)[i].set(arr[i].getX(),arr[i].getY(),arr[i].getZ());
-		vec += {arr[i].getX(), arr[i].getY(), arr[i].getZ()};
 	}
-	m_center = vec / 4.0;
-	m_height = ((*m_vertexArray)[1] - (*m_vertexArray)[0]).length();
-	m_width = ((*m_vertexArray)[2] - (*m_vertexArray)[1]).length();
+	this->setVertices(arr[0], arr[1], arr[2], arr[3]);
 
-	m_vertexArray->dirty();
-	_geometry->dirtyBound();
+
+
+
+
+
+	//m_center = vec / 4.0;
+	//vecY = ((*m_vertexArray)[1] - (*m_vertexArray)[0]);
+	//m_height =  vecY.length();
+	//vecY.normalize(); 
+	//m_localY = vecY;
+	//vecX = (*m_vertexArray)[2] - (*m_vertexArray)[1];
+	//m_width = vecX.length();
+	//vecX.normalize();
+	//m_localX = vecX;
+
+	//m_vertexArray->dirty();
+	//_geometry->dirtyBound();
 }
 
 
@@ -144,6 +205,35 @@ VertexArray QuadPrimitive::getVertices() const
 		(*m_vertexArray)[i].set(arr[i].getX(), arr[i].getY(), arr[i].getZ());
 	}
 	return arr;
+}
+
+
+
+void QuadPrimitive::setQuadColor(float red, float green, float blue)
+{
+	osg::Vec4 color = { red, green, blue, 1.0f };
+	(*_quadColors)[0] = color;
+	_quadColors->dirty();
+}
+void QuadPrimitive::setFrameColor(float red, float green, float blue)
+{
+	osg::Vec4 color = { red, green, blue, 1.0f };
+	(*_frameColors)[0] = color;
+	_frameColors->dirty();
+}
+
+void QuadPrimitive::setFrameWidth(float width)
+{
+	osg::ref_ptr <osg::LineWidth> lineWidth = new osg::LineWidth;
+	lineWidth->setWidth(width);
+	_outLine->getOrCreateStateSet()->setAttributeAndModes(lineWidth.get(), osg::StateAttribute::ON);
+}
+
+
+void  QuadPrimitive::setCenter(const osg::Vec3& center)
+{
+	m_center = center;
+	createQuad(m_center, osg::Vec2{ m_width, m_height }, m_localX, m_localY);
 }
 
 
