@@ -76,7 +76,7 @@
     <ExecutablePath>$(OSG_3_4)\bin;$(ExecutablePath)</ExecutablePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>$(OSG_3_4)\lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(ProjectDir)..\..\BasicFunctionality\inc;$(ProjectDir)..\..\BasicFunctionality\source\inc;..\..\SelectPrimitives\SelectPrimitives;$(OSG_3_4)\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\BasicFunctionality\inc;$(ProjectDir)..\..\BasicFunctionality\source\inc;$(ProjectDir)..\..\SelectPrimitives\SelectPrimitives;$(OSG_3_4)\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -1,6 +1,6 @@
 ﻿#ifndef __ISELECT_PRIMITIVES_H__
 #define __ISELECT_PRIMITIVES_H__
-
+#include "IDrawElement.h"
 
 /// @class	ISelectPrimitives
 ///
