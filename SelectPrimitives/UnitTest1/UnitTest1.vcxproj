@@ -167,6 +167,9 @@
     <ClCompile Include="unittest1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BasicFunctionality\prj\BasicFunctionality.vcxproj">
+      <Project>{dfd5e79b-7a1f-4d45-967d-b817b39f0c37}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\SelectPrimitives\SelectPrimitives.vcxproj">
       <Project>{1dafefce-441b-4554-93c6-5535507de97e}</Project>
     </ProjectReference>

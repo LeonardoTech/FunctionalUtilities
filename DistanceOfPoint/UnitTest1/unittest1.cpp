@@ -5,7 +5,6 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-
 namespace UnitTest1
 {
 	TEST_CLASS(UnitTest1)
@@ -27,12 +26,10 @@ namespace UnitTest1
 			MeasuringLineLength* dis = new MeasuringLineLength(camera);
 			osg::ref_ptr<osg::Group> root = new osg::Group;
 			root->addChild(trans.get());
+			root->addChild(dis->getRoot());
 			viewer.setSceneData(root.get());
-			osg::ref_ptr<PickHandler>picker = new PickHandler(root, dis);
-			//root->addChild(picker->getRoot());
-			
+			osg::ref_ptr<PickHandler>picker = new PickHandler(dis);
 			viewer.addEventHandler(picker.get());
-
 
 			osg::CullSettings::CullingMode mode = viewer.getCamera()->getCullingMode();
 			viewer.getCamera()->setCullingMode(mode & (~osg::CullSettings::SMALL_FEATURE_CULLING));
