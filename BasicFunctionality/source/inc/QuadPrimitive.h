@@ -22,6 +22,8 @@ public:
 
 	void setHeight(float height);
 
+	void setFrame();
+
 	void setWidth(float width);
 
 	virtual VertexArray getVertices() const override;

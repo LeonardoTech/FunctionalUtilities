@@ -1,5 +1,4 @@
-﻿
-#include "CoordinateAxis.h"
+﻿#include "CoordinateAxis.h"
 #include <osg/MatrixTransform>
 #include "CoordinateUpdater.h"
 #include "LinePrimitives.h"
