@@ -67,8 +67,8 @@ void MeasuringLineLength::setEndPoint(float x, float y)
 
 void MeasuringLineLength::setLabel(std::string name, float x, float y, float z)
 {
-	_text->setTextContent(name); // <设置文字的内容>
-	_text->setPosition(x, y, z);
+	m_text->setTextContent(name); // <设置文字的内容>
+	m_text->setPosition(x, y, z);
 }
 
 float MeasuringLineLength::getDistance()
@@ -99,7 +99,7 @@ osg::Group* MeasuringLineLength::getRoot()
 
 void MeasuringLineLength::setLabelText(std::string name, Alignments method)
 {
-	m_text->setText(name);
+	m_text->setTextContent(name);
 	m_showMethod = method;
 	updateLineAndLabelPos();
 }
