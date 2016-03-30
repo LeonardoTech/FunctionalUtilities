@@ -5,7 +5,7 @@
 #include <osgUtil/LineSegmentIntersector>
 
 #include "ISelectPrimitives.h"
-#include "PointPrimitives.h"
+#include "PointPrimitive.h"
 
 // <选择线元的类，继承于ISelectPrimitives接口类>
 class SelectPoint :public ISelectPrimitives
@@ -22,10 +22,10 @@ public:
 
 // internal:
 	// <屏幕上的某一点的坐标作为参数，绘制点>
-	virtual PointPrimitives* selectPoint(float x, float y);
+	virtual PointPrimitive* selectPoint(float x, float y);
 
 	//  <获取选择点的顶点位置，获取点元指针>
-	virtual PointPrimitives* getSelectedPoint() const;
+	virtual PointPrimitive* getSelectedPoint() const;
 
 	osg::Node* getRoot() const;
 
@@ -35,7 +35,7 @@ protected:
 
 	// <利用相交运算的结果来确定线的顶点位置>
 	void doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result);
-	PointPrimitives* m_point;
+	PointPrimitive* m_point;
 	osg::Camera* m_camera;
 };
 

@@ -5,7 +5,7 @@
 #include <osgUtil/LineSegmentIntersector>
 
 #include "ISelectPrimitives.h"
-#include "FacePrimitives.h"
+#include "FacePrimitive.h"
 
 // <选择面元的类，继承于ISelectPrimitives接口类>
 class SelectFace :public ISelectPrimitives
@@ -22,17 +22,17 @@ public:
 	virtual IDrawElement* getSelection() const override;
 
 	// <屏幕上的某一点的坐标作为参数，绘制线，返回线元指针>
-	virtual FacePrimitives* selectFace(float x, float y);
+	virtual FacePrimitive* selectFace(float x, float y);
 
 	//  <获取选择面的顶点位置，获取线元指针>
-	virtual FacePrimitives* getSelectedFace() const;
+	virtual FacePrimitive* getSelectedFace() const;
 
 protected:
 	
 	// <利用相交运算的结果来确定线的顶点位置>
 	void doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result);
 	osg::ref_ptr<osg::Vec3Array>_vertices;
-	FacePrimitives* m_face;
+	FacePrimitive* m_face;
 	osg::Camera* m_camera;
 };
 

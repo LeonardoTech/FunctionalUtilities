@@ -2,7 +2,7 @@
 #define __SELECT_LINE_H__
 
 #include "ISelectPrimitives.h"
-#include "LinePrimitives.h"
+#include "LinePrimitive.h"
 
 
 #include <osg/Camera>
@@ -23,10 +23,10 @@ public:
 	virtual IDrawElement* getSelection() const override;
 
 	// <屏幕上的某一点的坐标作为参数，绘制面>
-	virtual LinePrimitives* selectLine(float x, float y);
+	virtual LinePrimitive* selectLine(float x, float y);
 
 	//  <获取选择面的顶点位置，获取面元指针>
-	virtual LinePrimitives* getSelectedLine() const;
+	virtual LinePrimitive* getSelectedLine() const;
 
 
 	osg::Node* getRoot() const;
@@ -37,7 +37,7 @@ protected:
 	// <通过相交算法运算后返回的结果，来确定点的位置，并通过矩阵把二维的坐标转换为三维的，为要画的图形确定顶点坐标>
 	void doUserOperations(osgUtil::LineSegmentIntersector::Intersection& result);
 
-	LinePrimitives* m_line;
+	LinePrimitive* m_line;
 	osg::Camera* m_camera;
 };
 

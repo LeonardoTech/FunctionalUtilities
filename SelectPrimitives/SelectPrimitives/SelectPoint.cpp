@@ -2,7 +2,7 @@
 
 SelectPoint::SelectPoint(osg::Camera* camera)
 {
-	m_point = new PointPrimitives();
+	m_point = new PointPrimitive();
 	m_point->setColor(1, 0, 0);
 	m_point->setSize(10);
 	m_camera = camera;
@@ -50,7 +50,7 @@ void SelectPoint::doUserOperations(osgUtil::LineSegmentIntersector::Intersection
 	//_selector->dirtyBound();
 }
 
-PointPrimitives* SelectPoint::selectPoint(float x, float y)
+PointPrimitive* SelectPoint::selectPoint(float x, float y)
 {
 	osg::ref_ptr<osgUtil::LineSegmentIntersector> intersector = new osgUtil::LineSegmentIntersector(osgUtil::Intersector::WINDOW, x, y);
 	osgUtil::IntersectionVisitor iv(intersector.get());
@@ -64,7 +64,7 @@ PointPrimitives* SelectPoint::selectPoint(float x, float y)
 	return m_point;
 }
 
-PointPrimitives* SelectPoint::getSelectedPoint() const
+PointPrimitive* SelectPoint::getSelectedPoint() const
 {
 	
 	return m_point;

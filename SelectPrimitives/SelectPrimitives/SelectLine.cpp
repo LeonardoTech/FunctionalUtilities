@@ -2,7 +2,7 @@
 
 SelectLine::SelectLine(osg::Camera* camera)
 {
-	m_line = new LinePrimitives();
+	m_line = new LinePrimitive();
 	m_line->setColor(1, 0, 0);
 	m_line->setLineWidth(2);
 	m_camera = camera;
@@ -77,7 +77,7 @@ void SelectLine::doUserOperations(osgUtil::LineSegmentIntersector::Intersection&
 	//_selector->dirtyBound();
 }
 
-LinePrimitives* SelectLine::selectLine(float x, float y)
+LinePrimitive* SelectLine::selectLine(float x, float y)
 {
 	osg::ref_ptr<osgUtil::LineSegmentIntersector> intersector =
 		new osgUtil::LineSegmentIntersector(osgUtil::Intersector::WINDOW, x, y);
@@ -92,7 +92,7 @@ LinePrimitives* SelectLine::selectLine(float x, float y)
 	return m_line;
 }
 
-LinePrimitives* SelectLine::getSelectedLine() const
+LinePrimitive* SelectLine::getSelectedLine() const
 {
 	return m_line;
 }
