@@ -24,7 +24,7 @@ namespace UnitTest1
 
 			osgViewer::Viewer viewer;
 			osg::ref_ptr<osg::Camera> camera = viewer.getCamera();
-			MeasuringLineLength* dis = new MeasuringLineLength(camera);
+			MeasuringLineLengthImplement* dis = new MeasuringLineLengthImplement(camera);
 			osg::ref_ptr<osg::Group> root = new osg::Group;
 			root->addChild(trans.get());
 			viewer.setSceneData(root.get());

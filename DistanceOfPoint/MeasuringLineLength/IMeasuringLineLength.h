@@ -1,7 +1,7 @@
 #ifndef __IMEASURING_LINE_LENGTH_H__
 #define __IMEASURING_LINE_LENGTH_H__
 #include <string>
-namespace distanceofpoint_measuringlinelength_imeasuringlinelength
+namespace measuringlinelength
 {
 	enum class Alignments
 	{

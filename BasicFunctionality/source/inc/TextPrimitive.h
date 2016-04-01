@@ -6,7 +6,7 @@
 
 #include "ITextPrimitive.h"
 
-
+using namespace geo;
 // <绘制文本的实现类，继承于ITextPrimitives接口类>
 class TextPrimitive :public ITextPrimitive
 {

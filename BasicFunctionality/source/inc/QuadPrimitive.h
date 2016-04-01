@@ -4,7 +4,8 @@
 #include <osg/Geometry>
 
 #include "IQuadPrimitive.h"
-#include <IPrimitiveFactor.h>
+using namespace geo;
+using namespace geo;
 
 class QuadPrimitiveImp;
 

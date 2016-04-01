@@ -9,7 +9,7 @@
 #include <vector>
 #include "MeasuringLineLength.h"
 
-using namespace distanceofpoint_measuringlinelength_measuringlinelength;
+using namespace measuringlinelength;
 // class	PickHandler
 // brief	 <继承于osgGA::GUIEventHandler，对数表事件的定义，以及获取鼠标的位置，>
 // date	2016/3/14
@@ -17,7 +17,7 @@ class PickHandler : public osgGA::GUIEventHandler
 {
 public:
 	// <构造函数，对私有变量进行初始化（定义两个图形）>
-	PickHandler(osg::Group* root, MeasuringLineLength* selector);
+	PickHandler(osg::Group* root, MeasuringLineLengthImplement* selector);
 
 	// <对鼠标事件的更改，以完成功能上的要求>
 	virtual bool handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa);
@@ -27,8 +27,8 @@ public:
 	osg::Geode* createLine();
 
 protected:
-	MeasuringLineLength* _select;
-	std::vector<MeasuringLineLength*>_lineVector;
+	MeasuringLineLengthImplement* _select;
+	std::vector<MeasuringLineLengthImplement*>_lineVector;
 	osg::ref_ptr<osg::Group> _root;
 	bool _isSelect1Down;
 	bool _isSelect2Down;

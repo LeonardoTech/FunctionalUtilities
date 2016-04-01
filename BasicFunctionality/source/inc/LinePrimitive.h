@@ -7,7 +7,7 @@
 #include "VertexArray.h"
 #include "ILinePrimitive.h"
 
-
+using namespace geo;
 //  <绘制线元的实现类，继承于ILinePrimitives> 
 class  LinePrimitive :public ILinePrimitive
 { 

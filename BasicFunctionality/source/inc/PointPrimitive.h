@@ -6,7 +6,7 @@
 #include "IPointPrimitive.h"
 #include <IPrimitiveFactor.h>
 
-
+using namespace geo;
 // <绘制电元的实现类，继承于IPointPrimitives>
 class PointPrimitive :public IPointPrimitive
 {
