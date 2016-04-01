@@ -26,13 +26,14 @@ namespace thumbtack_thumbtack_thumbtack
 
 		virtual void bindClick(long,std::function<void(IThumbtack*)> click) override;
 
+		
 		virtual void setSize(float width, float height) override;
 
 		virtual void changImage(const std::string& imhePath, Layer level) override;
 
 		virtual void setLevelScale(float level0, float level1, float level2) override;
 
-		virtual void setLevelWidthAndHeight(float x1, float y1, float x2, float y2, float x3, float y3) override;
+		virtual void setLevelWidthAndHeight(float w1, float h1, float w2, float h2, float w3, float h3) override;
 		
 		//internal
 		osg::Geometry* getGeometry();

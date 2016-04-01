@@ -4,7 +4,7 @@
 #include "LinePrimitive.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace coordinatedevice_coordinate_coordinate;
+
 namespace UnitTest1
 {
 	TEST_CLASS(UnitTest1)
@@ -22,7 +22,7 @@ namespace UnitTest1
 			osg::ref_ptr<osg::Geode> textGeode = new osg::Geode;
 			osg::ref_ptr<osg::Camera> camera = createHUDCamera(0, 1920, 0, 1080);
 
-			CoordinateAxis *axis = new CoordinateAxis(manip);
+			CoordinateAxisImplement *axis = new CoordinateAxisImplement(manip);
 
 			axis->setRadius(380);
 			axis->setOriginPoint(400, 400);

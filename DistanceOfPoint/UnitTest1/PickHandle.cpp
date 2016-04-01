@@ -5,7 +5,7 @@
 //brief <对构造函数进行初始化.>
 //param [in]	selector 	<创建一个Select类对象.>
 //param [in]	selector1	<创建一个Select类对象.>
-PickHandler::PickHandler(osg::Group* root, MeasuringLineLength* selector)
+PickHandler::PickHandler(osg::Group* root, MeasuringLineLengthImplement* selector)
 {
 	_select = selector;
 	_isSelect1Down = false;
@@ -72,7 +72,7 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 			_select->setEndPoint(ea.getX(), ea.getY());
 			_lineVector.push_back(_select);
 
-			MeasuringLineLength* newSelect = new MeasuringLineLength(camera);
+			MeasuringLineLengthImplement* newSelect = new MeasuringLineLengthImplement(camera);
 			_select = newSelect;
 			_root->addChild(_select->getRoot());
 

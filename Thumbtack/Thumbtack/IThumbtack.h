@@ -27,7 +27,7 @@ namespace thumbtack_thumbtack_ithumbtack
 
 		virtual void setLevelScale(float level0, float level1, float level2)=0;
 
-		virtual void setLevelWidthAndHeight(float x1, float y1, float x2, float y2, float x3, float y3)=0;
+		virtual void setLevelWidthAndHeight(float w1, float h1, float w2, float h2, float w3, float h3) = 0;
 	};
 }
 

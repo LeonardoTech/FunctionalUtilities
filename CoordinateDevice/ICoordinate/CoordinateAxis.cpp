@@ -1,7 +1,7 @@
 #include "CoordinateAxis.h"
-using namespace  coordinatedevice_coordinate_coordinate;
+using namespace  coordinateaxis;
 
-CoordinateAxis::CoordinateAxis(osgGA::MultiTouchTrackballManipulator* manip) :
+CoordinateAxisImplement::CoordinateAxisImplement(osgGA::MultiTouchTrackballManipulator* manip) :
 m_lineX(new LinePrimitive()),
 m_lineY(new LinePrimitive()),
 m_lineZ(new LinePrimitive()),
@@ -59,13 +59,13 @@ m_showLabelZ("Z")
 }
 
 
-CoordinateAxis::~CoordinateAxis()
+CoordinateAxisImplement::~CoordinateAxisImplement()
 {
 }
 
 #pragma region interface implement
 
-void CoordinateAxis::setLabelText(AxisDirection axis, std::string label)
+void CoordinateAxisImplement::setLabelText(AxisDirection axis, std::string label)
 {
 	if (axis == AxisDirection::X_AXIS)
 	{
@@ -85,7 +85,7 @@ void CoordinateAxis::setLabelText(AxisDirection axis, std::string label)
 	}
 }
 
-void CoordinateAxis::setLabelPosition(AxisDirection axis, float x, float y, float z)
+void CoordinateAxisImplement::setLabelPosition(AxisDirection axis, float x, float y, float z)
 {
 	if (axis == AxisDirection::X_AXIS)
 		m_labelX->setPosition(x, y, z);
@@ -96,7 +96,7 @@ void CoordinateAxis::setLabelPosition(AxisDirection axis, float x, float y, floa
 }
 
 // <设置轴的颜色>  // <设置标注的颜色>
-void CoordinateAxis::setColor(AxisDirection axis, float x, float y, float z)
+void CoordinateAxisImplement::setColor(AxisDirection axis, float x, float y, float z)
 {
 	if (axis == AxisDirection::X_AXIS)
 	{
@@ -116,14 +116,14 @@ void CoordinateAxis::setColor(AxisDirection axis, float x, float y, float z)
 	}
 }
 
-void CoordinateAxis::setOriginPoint(float x, float y)
+void CoordinateAxisImplement::setOriginPoint(float x, float y)
 {
 	m_originX = x;
 	m_originY = y;
 	m_transNode->setMatrix(osg::Matrix::translate(osg::Vec3(m_originX, m_originY, -m_radius*1.5)));
 }
 
-void CoordinateAxis::setRadius(float radius)
+void CoordinateAxisImplement::setRadius(float radius)
 {
 	m_radius = radius;
 
@@ -140,7 +140,7 @@ void CoordinateAxis::setRadius(float radius)
 
 }
 
-void CoordinateAxis::getAxisDirection3D(AxisDirection axis, float& x, float& y, float& z)
+void CoordinateAxisImplement::getAxisDirection3D(AxisDirection axis, float& x, float& y, float& z)
 {
 	osg::Vec3  result;
 	if (axis == AxisDirection::X_AXIS)
@@ -167,7 +167,7 @@ void CoordinateAxis::getAxisDirection3D(AxisDirection axis, float& x, float& y, 
 }
 
 
-void CoordinateAxis::getAxisDirection2D(AxisDirection axis, float& x, float& y){
+void CoordinateAxisImplement::getAxisDirection2D(AxisDirection axis, float& x, float& y){
 	osg::Vec3  result;
 	if (axis == AxisDirection::X_AXIS)
 	{
@@ -190,12 +190,12 @@ void CoordinateAxis::getAxisDirection2D(AxisDirection axis, float& x, float& y){
 }
 
 //TODO <可以先不做>
-void CoordinateAxis::setDarkColor(AxisDirection axis, float x, float y, float z)
+void CoordinateAxisImplement::setDarkColor(AxisDirection axis, float x, float y, float z)
 {
 
 }
 
-void CoordinateAxis::setLabelVisibility(AxisDirection axis, bool isVisibility)
+void CoordinateAxisImplement::setLabelVisibility(AxisDirection axis, bool isVisibility)
 {
 	if (!isVisibility)
 	{
@@ -217,7 +217,7 @@ void CoordinateAxis::setLabelVisibility(AxisDirection axis, bool isVisibility)
 	}
 }
 
-void CoordinateAxis::setAxisWidth(float width)
+void CoordinateAxisImplement::setAxisWidth(float width)
 {
 	m_lineX->setLineWidth(width);
 	m_lineY->setLineWidth(width);
@@ -226,7 +226,7 @@ void CoordinateAxis::setAxisWidth(float width)
 
 #pragma endregion
 
-osg::MatrixTransform* CoordinateAxis::getNode()
+osg::MatrixTransform* CoordinateAxisImplement::getNode()
 {
 	return m_transNode;
 }

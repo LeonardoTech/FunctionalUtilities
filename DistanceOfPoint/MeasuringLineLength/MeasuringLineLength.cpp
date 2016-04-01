@@ -2,9 +2,8 @@
 #include <osgText/Text>
 #include "MeasuringLineLength.h"
 
-using namespace  distanceofpoint_measuringlinelength_measuringlinelength;
 
-MeasuringLineLength::MeasuringLineLength(osg::Camera* camera) :
+MeasuringLineLengthImplement::MeasuringLineLengthImplement(osg::Camera* camera) :
 m_select1(new SelectPoint(camera)),
 m_select2(new SelectPoint(camera)),
 m_text(new TextPrimitive()),
@@ -20,19 +19,19 @@ m_line(new LinePrimitive())
 	m_camera = camera;
 }
 
-void MeasuringLineLength::CreateNewSelector()
+void MeasuringLineLengthImplement::CreateNewSelector()
 {
-	MeasuringLineLength s(m_camera);
+	MeasuringLineLengthImplement s(m_camera);
 }
 
-MeasuringLineLength::~MeasuringLineLength()
+MeasuringLineLengthImplement::~MeasuringLineLengthImplement()
 {
 
 }
 
 #pragma region implement interface
 
-void MeasuringLineLength::setStartPoint(float x, float y)
+void MeasuringLineLengthImplement::setStartPoint(float x, float y)
 {
 	auto start = m_select1->selectPoint(x, y);
 	if (!start)
@@ -43,7 +42,7 @@ void MeasuringLineLength::setStartPoint(float x, float y)
 	updateLineAndLabelPos();
 }
 
-void MeasuringLineLength::setEndPoint(float x, float y)
+void MeasuringLineLengthImplement::setEndPoint(float x, float y)
 {
 	auto end = m_select2->selectPoint(x, y);
 	if (!end)
@@ -56,13 +55,13 @@ void MeasuringLineLength::setEndPoint(float x, float y)
 
 }
 
-void MeasuringLineLength::setLabel(std::string name, float x, float y, float z)
+void MeasuringLineLengthImplement::setLabel(std::string name, float x, float y, float z)
 {
 	m_text->setTextContent(name); // <设置文字的内容>
 	m_text->setPosition(x, y, z);
 }
 
-float MeasuringLineLength::getDistance()
+float MeasuringLineLengthImplement::getDistance()
 {
 	auto start = m_select1->getSelectedPoint();
 	if (!start)
@@ -83,25 +82,25 @@ float MeasuringLineLength::getDistance()
 // 
 // brief	 <将所有的图形都放进root组里>
 
-osg::Group* MeasuringLineLength::getRoot()
+osg::Group* MeasuringLineLengthImplement::getRoot()
 {
 	return m_root;
 }
 
-void MeasuringLineLength::setLabelText(std::string name, Alignments method)
+void MeasuringLineLengthImplement::setLabelText(std::string name, Alignments method)
 {
 	m_text->setTextContent(name);
 	m_showMethod = method;
 	updateLineAndLabelPos();
 }
 
-void MeasuringLineLength::getStartPoint(float& x, float& y, float& z)
+void MeasuringLineLengthImplement::getStartPoint(float& x, float& y, float& z)
 {
 	auto point = m_select1->getSelectedPoint();
 	point->getPosition(x, y, z);
 }
 
-void MeasuringLineLength::getEndPoint(float& x, float& y, float& z)
+void MeasuringLineLengthImplement::getEndPoint(float& x, float& y, float& z)
 {
 	auto point = m_select2->getSelectedPoint();
 	point->getPosition(x, y, z);
@@ -111,7 +110,7 @@ void MeasuringLineLength::getEndPoint(float& x, float& y, float& z)
 
 #pragma region internal interface
 
-void MeasuringLineLength::updateLineAndLabelPos()
+void MeasuringLineLengthImplement::updateLineAndLabelPos()
 {
 	auto start = m_select1->getSelectedPoint();
 	if (!start)

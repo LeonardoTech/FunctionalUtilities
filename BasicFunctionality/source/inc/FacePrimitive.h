@@ -6,7 +6,7 @@
 #include "VertexArray.h"
 #include  "IFacePrimitive.h"
 
-
+using namespace  geo;
 // <绘制面元的实现类，继承于IFacePrimitives>.
 class  FacePrimitive :public IFacePrimitive
 {

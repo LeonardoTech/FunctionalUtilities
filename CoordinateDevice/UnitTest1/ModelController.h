@@ -12,7 +12,7 @@
 
 
 
-using namespace coordinatedevice_coordinate_coordinate;
+using namespace coordinateaxis;
 
 class ModelController : public osgGA::GUIEventHandler
 {
@@ -21,7 +21,7 @@ public:
 // 		_text = text;
 // 		_axis = axis;
 // 	}
-	ModelController(osg::MatrixTransform* node, CoordinateAxis *axis, osgText::Text* text) : _model(node){
+	ModelController(osg::MatrixTransform* node, CoordinateAxisImplement *axis, osgText::Text* text) : _model(node){
 		_text = text;
 		_axis1 = axis;
 	}
@@ -29,9 +29,9 @@ public:
 
 protected:
 	osg::ref_ptr<osg::MatrixTransform> _model;
-	CoordinateAxis *_axis;
+	CoordinateAxisImplement *_axis;
 
-	CoordinateAxis* _axis1;
+	CoordinateAxisImplement* _axis1;
 	osgText::Text *_text;
 	std::mutex mutex;
 };

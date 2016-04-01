@@ -8,7 +8,7 @@
 
 #include <osgText/Font>
 #include <osgText/Text>
-using namespace coordinatedevice_coordinate_icoordinate;
+using namespace coordinateaxis;
 // class	CoordinateUpdater
 //
 // brief	 <一个继承于osg::NodeCallback的类,能够使处于HUD相机下的坐标系能够用鼠标控制旋转，并且能够计数刷新>

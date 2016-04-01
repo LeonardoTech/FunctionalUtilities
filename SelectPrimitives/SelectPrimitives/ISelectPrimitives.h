@@ -2,6 +2,7 @@
 #define __ISELECT_PRIMITIVES_H__
 #include "IDrawElement.h"
 
+using namespace geo;
 /// @class	ISelectPrimitives
 ///
 /// @brief	 <选择点、线、面的接口类>.

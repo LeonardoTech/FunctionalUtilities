@@ -1,7 +1,7 @@
 #ifndef __ICOORDINATE_H__
 #define __ICOORDINATE_H__
 #include <string>
-namespace coordinatedevice_coordinate_icoordinate
+namespace coordinateaxis
 {
 	enum class AxisDirection
 	{

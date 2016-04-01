@@ -5,6 +5,7 @@
 #include <osg/Texture2D>
 #include <osg/Material>
 
+
 #include "Thumbtack.h"
 using namespace thumbtack_thumbtack_thumbtack;
 
@@ -121,14 +122,14 @@ void Thumbtack::bindClick(long sequ,std::function<void(IThumbtack*)> click)
 	m_click[sequ] = click; 
 }
 
-void Thumbtack::setLevelWidthAndHeight(float x1, float y1, float x2, float y2, float x3, float y3)
+void Thumbtack::setLevelWidthAndHeight(float w1, float h1, float w2, float h2, float w3, float h3)
 {
-	m_level0Width = x1;
-	m_level0Hight  = y1;
-	m_level1Width = x2;
-	m_level1Hight  = y2;
-	m_level2Width = x3;
-	m_level2Hight  = y3;
+	m_level0Width = w1;
+	m_level0Hight  = h1;
+	m_level1Width = w2;
+	m_level1Hight  = h2;
+	m_level2Width = w3;
+	m_level2Hight  = h3;
 }
 
 

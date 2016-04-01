@@ -4,6 +4,7 @@
 #include <osg/Geometry>
 
 #include "IQuadPrimitive.h"
+using namespace geo;
 
 class QuadPrimitive:public IQuadPrimitive
 {
