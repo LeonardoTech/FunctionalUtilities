@@ -43,6 +43,8 @@ namespace coordinatedevice_coordinate_coordinate
 
 		virtual void setAxisWidth(float width) override;
 
+		virtual void setEnableUpdate(bool enabled) override;
+
 		//osg::Geometry* createSimpleGeometry_x();
 		//osg::Geometry* createSimpleGeometry_y();
 		//osg::Geometry* createSimpleGeometry_z();
@@ -64,7 +66,7 @@ namespace coordinatedevice_coordinate_coordinate
 		std::unique_ptr<TextPrimitive> m_labelY;
 		std::unique_ptr<TextPrimitive> m_labelZ;
 
-
+		osg::ref_ptr<osg::MatrixTransform> _rotNode;
 		float m_radius;
 		float m_originX;
 		float m_originY;

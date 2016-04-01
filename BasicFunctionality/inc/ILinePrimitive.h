@@ -2,6 +2,7 @@
 #define __ILINEPRIMITIVE_H__
 
 #include "IDrawElement.h"
+#include "IMoveable.h"
 
 /// @class	ILinePrimitives
 ///
@@ -9,7 +10,7 @@
 ///
 /// @author	Admin
 /// @date	2016/3/23
-class  ILinePrimitive :public IDrawElement
+class  ILinePrimitive :public IMoveable, public IPrimitiveFactor
 {
 public:
 

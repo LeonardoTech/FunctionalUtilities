@@ -1,5 +1,5 @@
 ﻿#include <osg/Point>
-
+//#include <osg/ValueObject>
 #include "PointPrimitive.h"
 
 // <���캯��>
@@ -23,6 +23,10 @@ PointPrimitive::PointPrimitive()
 	auto stateSet = _geometry->getOrCreateStateSet();
 	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
 	stateSet->setAttributeAndModes(new osg::Point(_size));
+
+	//_geometry->setUserValue("_vertex", _vertex);
+	//_geometry->setUserValue("PointPrimitive", "PointPrimitive");
+
 }
 
 #pragma endregion
@@ -101,6 +105,12 @@ void PointPrimitive::setPosition(float x, float y, float z)
 	_geometry->dirtyBound();
 }
 
+void PointPrimitive::getPosition(float& x, float& y, float& z)
+{
+	x = _vertex.x();
+	y = _vertex.y();
+	z = _vertex.z();
+}
 void PointPrimitive::setPosition(const osg::Vec3& pos)
 {
 	_vertex = pos;
@@ -127,3 +137,30 @@ osg::Geometry *PointPrimitive::getGeometry()
 }
 
 #pragma endregion
+
+
+
+
+IDrawElement* PointPrimitive::create(osg::Geometry *geom)const
+{
+	std::string type;
+	//if (!geom->getUserValue("_primitive_type", type))
+	//{
+	//	return NULL;
+	//}
+	//if (type != "LinePrimitive")
+	//{
+	//	return NULL;
+	//}
+	PointPrimitive *point = new PointPrimitive();
+	point->_geometry = geom;
+	point->_vertices = dynamic_cast<osg::Vec3Array*>(geom->getVertexArray());
+	point->_color = dynamic_cast<osg::Vec4Array*>(geom->getColorArray());
+	//geom->getUserValue("_vertex", point->_vertex);
+
+	return point;
+}
+
+
+
+

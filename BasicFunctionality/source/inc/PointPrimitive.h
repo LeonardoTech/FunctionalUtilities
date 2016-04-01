@@ -4,6 +4,7 @@
 #include <osg/Geometry>
 
 #include "IPointPrimitive.h"
+#include <IPrimitiveFactor.h>
 
 
 // <绘制电元的实现类，继承于IPointPrimitives>
@@ -34,12 +35,16 @@ public:
 	// <设置点的坐标，用VertexArray的类型>
 	virtual void setVertices(const VertexArray& arr) override;
 
+	virtual void getPosition(float& x, float& y, float& z)override;
+
 // internal:
 	osg::Geometry *getGeometry();
 
 	virtual osg::Vec3 getPosition() const;
 
 	virtual void setPosition(const osg::Vec3& pos);
+
+	virtual IDrawElement* create(osg::Geometry *geo)const override;
 
 private:
 	osg::ref_ptr<osg::Geometry> _geometry;

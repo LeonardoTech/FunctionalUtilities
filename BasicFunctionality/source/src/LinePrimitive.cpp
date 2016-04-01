@@ -23,6 +23,11 @@ LinePrimitive::LinePrimitive()
 	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_LINES, 0, 2));
 	auto stateSet = _geometry->getOrCreateStateSet();
 	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
+
+	//_geometry->setUserValue("_startPosition", _startPosition);
+	//_geometry->setUserValue("_endPosition", _endPosition);
+	//_geometry->setUserValue("_primitive_type", "LinePrimitive");
+
 }
 
 #pragma endregion 
@@ -136,7 +141,7 @@ void LinePrimitive::setEndPosition(osg::Vec3 pos)
 void LinePrimitive::setVertices(const VertexArray& arr)
 {
 	_vertices = new osg::Vec3Array(arr.size());
-	for (int i = 0; i < arr.size();i++)
+	for (int i = 0; i < arr.size(); i++)
 	{
 		(*_vertices)[i].set(arr[i].getX(), arr[i].getY(), arr[i].getZ());
 	}
@@ -162,3 +167,51 @@ VertexArray LinePrimitive::getVertices() const
 }
 
 #pragma endregion
+void LinePrimitive::getPosition(float& x, float& y, float& z)
+{
+	auto center = getPosition();
+	x = center.x();
+	y = center.y();
+	z = center.z();
+}
+
+osg::Vec3 LinePrimitive::getPosition()
+{
+	return (_startPosition + _endPosition) / 2.0;
+}
+
+void LinePrimitive::setPosition(float x, float y, float z)
+{
+	auto center = getPosition();
+	osg::Vec3 target(x, y, z);
+	auto dif = target - center;
+	_startPosition += dif;
+	_endPosition += dif;
+	setStartPosition(_startPosition);
+	setEndPosition(_endPosition);
+}
+
+IDrawElement* LinePrimitive::create(osg::Geometry *geom)const
+{
+	std::string type;
+	//if (!geom->getUserValue("_primitive_type", type))
+	//{
+	//	return NULL;
+	//}
+	//if (type != "LinePrimitive")
+	//{
+	//	return NULL;
+	//}
+	LinePrimitive* line = new LinePrimitive;
+	line->_geometry = geom;
+
+	line->_vertices = dynamic_cast<osg::Vec3Array*>(geom->getVertexArray());
+	line->_color = dynamic_cast<osg::Vec4Array*>(geom->getColorArray());
+	//geom->getUserValue("_startPosition", line->_startPosition);
+	//geom->getUserValue("_endPosition", line->_endPosition);
+
+	return line;
+}
+
+
+

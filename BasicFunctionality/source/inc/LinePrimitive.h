@@ -3,6 +3,7 @@
 
 #include <osg/Geometry>
 
+#include <IPrimitiveFactor.h>
 #include "VertexArray.h"
 #include "ILinePrimitive.h"
 
@@ -38,6 +39,10 @@ public:
 	// <获取顶点的位置坐标, 并用VertexArray类型返回>
 	virtual VertexArray getVertices() const override;
 
+	virtual void getPosition(float& x, float& y, float& z) override;
+
+	virtual void setPosition(float x, float y, float z) override;
+
 // internal:
 	osg::Geometry*	getGeometry();
 
@@ -48,6 +53,10 @@ public:
 	virtual void setStartPosition(osg::Vec3 pos);
 
 	virtual void setEndPosition(osg::Vec3 pos);
+
+	virtual osg::Vec3 getPosition();
+	
+	virtual IDrawElement* create(osg::Geometry *geo)const override;
 
 protected:
 	osg::Vec3 _startPosition;

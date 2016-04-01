@@ -7,7 +7,7 @@
 #include <osgGA/MultiTouchTrackballManipulator>
 #include <osgText/Text>
 #include "Distance.h"
-
+#include <memory>
 
 class PlottingScale :public IPlottingScale
 {

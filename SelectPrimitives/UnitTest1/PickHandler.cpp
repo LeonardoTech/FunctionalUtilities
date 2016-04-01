@@ -7,7 +7,6 @@
 
 
 
-
 PickHandler::PickHandler(ISelectPrimitives* selector)
 {
 	_select = selector;

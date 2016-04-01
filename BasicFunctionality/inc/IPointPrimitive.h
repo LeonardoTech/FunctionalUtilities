@@ -3,6 +3,8 @@
 #define __IPOINT_PRIMITIVE_H__
 
 #include "IDrawElement.h"
+#include "IMoveable.h"
+#include "IPrimitiveFactor.h"
 
 /// @class	IPointPrimitives
 ///
@@ -10,7 +12,7 @@
 ///
 /// @author	Admin
 /// @date	2016/3/23
-class IPointPrimitive :public IDrawElement
+class IPointPrimitive :public IMoveable, public IPrimitiveFactor
 {
 public:
 

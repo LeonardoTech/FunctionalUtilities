@@ -2,6 +2,8 @@
 #ifndef __IQUAD_PRIMITIVE_H__
 #define __IQUAD_PRIMITIVE_H__
 #include "IDrawElement.h"
+#include "IMoveable.h"
+#include "IPrimitiveFactor.h"
 
 /// @class	IQuadPrimitives
 ///
@@ -9,7 +11,7 @@
 ///
 /// @author	Admin
 /// @date	2016/3/23
-class IQuadPrimitive :public IDrawElement
+class IQuadPrimitive :public IMoveable, public IPrimitiveFactor
 {
 public:
 

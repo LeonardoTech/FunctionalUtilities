@@ -4,8 +4,11 @@
 #include <osg/Geometry>
 
 #include "IQuadPrimitive.h"
+#include <IPrimitiveFactor.h>
 
-class QuadPrimitive:public IQuadPrimitive
+class QuadPrimitiveImp;
+
+class QuadPrimitive :public IQuadPrimitive
 {
 public:
 	QuadPrimitive();
@@ -37,12 +40,18 @@ public:
 	void setNeedDrawOutLine(bool draw) override;
 
 	virtual VertexArray getVertices() const override;
+
+	virtual void getPosition(float& x, float& y, float& z) override;
+
+	virtual void setPosition(float x, float y, float z) override;
 		
 	// internal:
 	
 	virtual osg::Geometry* getQuadGeometry();
 
 	virtual osg::Geometry* getFrameGeometry();
+
+	virtual IDrawElement* create(osg::Geometry *geo)const override;
 
 protected:
 	void initOutLine();
@@ -60,6 +69,8 @@ protected:
 	osg::ref_ptr<osg::Geometry> _geometry;
 	osg::ref_ptr<osg::Vec4Array> _quadColors;
 	osg::ref_ptr<osg::Vec4Array> _frameColors;
+
+	QuadPrimitiveImp* m_impl;
 };
 
 

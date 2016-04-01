@@ -133,6 +133,9 @@ namespace coordinatedevice_coordinate_icoordinate
 		///
 		/// @param width	<ÉèÖÃÖáµÄ¿í¶È>
 		virtual void setAxisWidth(float width) = 0;
+
+
+		virtual void setEnableUpdate(bool enabled) = 0;
 	};
 }
 

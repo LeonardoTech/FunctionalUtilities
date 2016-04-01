@@ -2,7 +2,7 @@
 #define __FACE_PRIMITIVE_H__
 
 #include <osg/Geometry>
-
+#include <IPrimitiveFactor.h>
 #include "VertexArray.h"
 #include  "IFacePrimitive.h"
 

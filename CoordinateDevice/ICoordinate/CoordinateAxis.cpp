@@ -48,14 +48,14 @@ m_showLabelZ("Z")
 	m_labelZ->setColor(1, 0, 0);
 
 	m_transNode = new osg::MatrixTransform();
-	auto rotNode = new osg::MatrixTransform();
-	rotNode->addChild(geode.get());
-	rotNode->addChild(m_labelX->getOsgText());
-	rotNode->addChild(m_labelY->getOsgText());
-	rotNode->addChild(m_labelZ->getOsgText());
+	_rotNode = new osg::MatrixTransform();
+	_rotNode->addChild(geode.get());
+	_rotNode->addChild(m_labelX->getOsgText());
+	_rotNode->addChild(m_labelY->getOsgText());
+	_rotNode->addChild(m_labelZ->getOsgText());
 
-	rotNode->setUpdateCallback(m_update);
-	m_transNode->addChild(rotNode);
+	_rotNode->setUpdateCallback(m_update);
+	m_transNode->addChild(_rotNode);
 }
 
 
@@ -229,4 +229,19 @@ void CoordinateAxis::setAxisWidth(float width)
 osg::MatrixTransform* CoordinateAxis::getNode()
 {
 	return m_transNode;
+}
+
+
+
+
+void CoordinateAxis::setEnableUpdate(bool enabled)
+{
+	if (enabled == true)
+	{
+		_rotNode->setUpdateCallback(m_update);
+	}
+	else
+	{
+		_rotNode->setUpdateCallback(NULL);
+	}
 }

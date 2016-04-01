@@ -143,7 +143,9 @@
     <ClInclude Include="..\inc\IDrawElement.h" />
     <ClInclude Include="..\inc\IFacePrimitive.h" />
     <ClInclude Include="..\inc\ILinePrimitive.h" />
+    <ClInclude Include="..\inc\IMoveable.h" />
     <ClInclude Include="..\inc\IPointPrimitive.h" />
+    <ClInclude Include="..\inc\IPrimitiveFactor.h" />
     <ClInclude Include="..\inc\IQuadPrimitive.h" />
     <ClInclude Include="..\inc\ITextPrimitive.h" />
     <ClInclude Include="..\inc\VertexArray.h" />
@@ -151,12 +153,16 @@
     <ClInclude Include="..\source\inc\LinePrimitive.h" />
     <ClInclude Include="..\source\inc\PointPrimitive.h" />
     <ClInclude Include="..\source\inc\QuadPrimitive.h" />
+    <ClInclude Include="..\source\inc\QuadPrimitiveImp.h" />
     <ClInclude Include="..\source\inc\TextPrimitive.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\src\FacePrimitive.cpp" />
     <ClCompile Include="..\source\src\LinePrimitive.cpp" />
-    <ClCompile Include="..\source\src\PointPrimitive.cpp" />
+    <ClCompile Include="..\source\src\PointPrimitive.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\source\src\QuadPrimitive.cpp" />
     <ClCompile Include="..\source\src\TextPrimitive.cpp" />
   </ItemGroup>

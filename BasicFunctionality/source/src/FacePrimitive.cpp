@@ -113,3 +113,12 @@ osg::Geometry* FacePrimitive::getGeometry()
 }
 
 #pragma endregion
+
+
+
+
+
+
+
+
+

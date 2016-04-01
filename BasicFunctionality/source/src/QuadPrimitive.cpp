@@ -4,8 +4,9 @@
 #include <osg/Geode>
 #include <osg/Node>
 #include <osg/LineWidth>
+#include "QuadPrimitiveImp.h"
 
-
+	
 
 QuadPrimitive::QuadPrimitive()
 {
@@ -41,6 +42,15 @@ QuadPrimitive::QuadPrimitive()
 	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_QUADS, 0, 4));
 
 	_root->addDrawable(_geometry);
+
+
+	//_geometry->setUserValue("m_center", m_center);
+	//_geometry->setUserValue("m_width", m_width);
+	//_geometry->setUserValue("m_height", m_height);
+	//_geometry->setUserValue("m_localX", m_localX);
+	//_geometry->setUserValue("m_localY", m_localY);
+	//_geometry->setUserValue("_primitive_type", "QuadPrimitive");
+	//_geometry->setUserValue("id", "QuadPrimitive");
 }
 
 
@@ -237,4 +247,42 @@ void  QuadPrimitive::setCenter(const osg::Vec3& center)
 }
 
 
+void QuadPrimitive::getPosition(float& x, float& y, float& z)
+{
+	x = m_center.x();
+	y = m_center.y();
+	z = m_center.z();
+}
 
+
+void QuadPrimitive::setPosition(float x, float y, float z)
+{
+	osg::Vec3 vet{x,y,z};
+	setCenter(vet);
+}
+
+
+
+IDrawElement* QuadPrimitive::create(osg::Geometry *geom)const
+{
+	std::string type;
+	//if (!geom->getUserValue("_primitive_type", type))
+	//{
+	//	return NULL;
+	//}
+	//if (type != "QuadPrimitive")
+	//{
+	//	return NULL;
+	//}
+	QuadPrimitive* quad = new QuadPrimitive();
+	quad->_geometry = geom;
+	quad->m_vertexArray = dynamic_cast<osg::Vec3Array*>(geom->getVertexArray());
+	quad->_quadColors = dynamic_cast<osg::Vec4Array*>(geom->getColorArray());
+
+	//geom->getUserValue("m_center", quad->m_center);
+	//geom->getUserValue("m_width", quad->m_width);
+	//geom->getUserValue("m_height", quad->m_height);
+	//geom->getUserValue("m_localX", quad->m_localX);
+	//geom->getUserValue("m_localY", quad->m_localY);
+	return quad;
+}

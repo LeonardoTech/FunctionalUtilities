@@ -60,6 +60,15 @@
     <ClInclude Include="..\source\inc\TextPrimitive.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\IMoveable.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\inc\QuadPrimitiveImp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\inc\IPrimitiveFactor.h">
+      <Filter>interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\src\QuadPrimitive.cpp">

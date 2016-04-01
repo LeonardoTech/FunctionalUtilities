@@ -27,18 +27,19 @@ namespace UnitTest1
 			axis->setRadius(380);
 			axis->setOriginPoint(400, 400);
 
+			//axis->setEnableUpdate(false);
 			osg::ref_ptr<osg::MatrixTransform>tran = axis->getNode();
 			camera->addChild(tran);
 
 
 			osg::ref_ptr<osgText::Text>text = new osgText::Text;
 			osg::ref_ptr<osgText::Font> g_font = osgText::readFontFile("fonts/arial.ttf");
-			//text->setFont(g_font.get());
-			//text->setCharacterSize(20.0f);
-			//text->setAxisAlignment(osgText::TextBase::XY_PLANE);
-			//text->setDataVariance(osg::Object::DYNAMIC);
-			//text->setPosition(osg::Vec3(750.0f, 700.0f, 0.0f));
-			//textGeode->addDrawable(text);
+			text->setFont(g_font.get());
+			text->setCharacterSize(20.0f);
+			text->setAxisAlignment(osgText::TextBase::XY_PLANE);
+			text->setDataVariance(osg::Object::DYNAMIC);
+			text->setPosition(osg::Vec3(750.0f, 700.0f, 0.0f));
+			textGeode->addDrawable(text);
 			camera->getOrCreateStateSet()->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
 			osg::ref_ptr<ModelController> ctrler = new ModelController(tran.get(), axis, text);
 			camera->addChild(textGeode);
