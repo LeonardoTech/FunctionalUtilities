@@ -4,8 +4,7 @@
 #include "IDrawElement.h"
 #include "IMoveable.h"
 namespace geo
-
-
+{ 
 /// @class	ILinePrimitives
 ///
 /// @brief	 <绘制线元的接口，绘制线元，继承于IDrawElement间接继承IColorable>.
@@ -14,15 +13,6 @@ namespace geo
 /// @date	2016/3/23
 class  ILinePrimitive :public IMoveable, public IPrimitiveFactor
 {
-
-	/// @class	ILinePrimitives
-	///
-	/// @brief	 <绘制线元的接口，绘制线元，继承于IDrawElement间接继承IColorable>.
-	///
-	/// @author	Admin
-	/// @date	2016/3/23
-	class  ILinePrimitive :public IDrawElement
-	{
 	public:
 
 		/// @fn	virtual void ILinePrimitives::setLineWidth(float width) = 0;

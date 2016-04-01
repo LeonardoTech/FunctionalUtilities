@@ -5,7 +5,6 @@
 
 #include "IQuadPrimitive.h"
 using namespace geo;
-using namespace geo;
 
 class QuadPrimitiveImp;
 

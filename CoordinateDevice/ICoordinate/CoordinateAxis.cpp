@@ -234,7 +234,7 @@ osg::MatrixTransform* CoordinateAxisImplement::getNode()
 
 
 
-void CoordinateAxis::setEnableUpdate(bool enabled)
+void CoordinateAxisImplement::setEnableUpdate(bool enabled)
 {
 	if (enabled == true)
 	{

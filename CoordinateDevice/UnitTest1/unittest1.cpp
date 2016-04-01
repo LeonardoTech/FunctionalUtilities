@@ -27,7 +27,7 @@ namespace UnitTest1
 			axis->setRadius(380);
 			axis->setOriginPoint(400, 400);
 
-			//axis->setEnableUpdate(false);
+			axis->setEnableUpdate(false);
 			osg::ref_ptr<osg::MatrixTransform>tran = axis->getNode();
 			camera->addChild(tran);
 
