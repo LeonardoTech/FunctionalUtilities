@@ -138,12 +138,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Distance.h" />
+    <ClInclude Include="GetDistanceCallback.h" />
     <ClInclude Include="IPlottingScale.h" />
     <ClInclude Include="PlottingScale.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Distance.cpp" />
+    <ClCompile Include="GetDistanceCallback.cpp" />
     <ClCompile Include="PlottingScale.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
