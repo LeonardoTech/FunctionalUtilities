@@ -5,7 +5,7 @@
 #include <osg/Node>
 #include <osg/LineWidth>
 #include "QuadPrimitiveImp.h"
-
+#include <osg/ValueObject >
 	
 
 QuadPrimitive::QuadPrimitive()
@@ -265,7 +265,7 @@ void QuadPrimitive::setPosition(float x, float y, float z)
 
 IDrawElement* QuadPrimitive::create(osg::Geometry *geom)const
 {
-	std::string type;
+	//std::string type;
 	//if (!geom->getUserValue("_primitive_type", type))
 	//{
 	//	return NULL;

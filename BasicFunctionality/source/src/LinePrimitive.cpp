@@ -1,7 +1,7 @@
 ﻿#include <osg/LineWidth>
 
 #include "LinePrimitive.h"
-
+#include <osg/ValueObject >
 
 // <构造函数>
 #pragma region LinePrimitives
@@ -194,6 +194,7 @@ void LinePrimitive::setPosition(float x, float y, float z)
 IDrawElement* LinePrimitive::create(osg::Geometry *geom)const
 {
 	std::string type;
+	
 	//if (!geom->getUserValue("_primitive_type", type))
 	//{
 	//	return NULL;
@@ -202,16 +203,34 @@ IDrawElement* LinePrimitive::create(osg::Geometry *geom)const
 	//{
 	//	return NULL;
 	//}
+	
 	LinePrimitive* line = new LinePrimitive;
 	line->_geometry = geom;
 
 	line->_vertices = dynamic_cast<osg::Vec3Array*>(geom->getVertexArray());
 	line->_color = dynamic_cast<osg::Vec4Array*>(geom->getColorArray());
+
 	//geom->getUserValue("_startPosition", line->_startPosition);
 	//geom->getUserValue("_endPosition", line->_endPosition);
-
 	return line;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
