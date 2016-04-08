@@ -1,6 +1,7 @@
 ﻿#include <osg/Point>
 //#include <osg/ValueObject>
 #include "PointPrimitive.h"
+#include <osg/ValueObject >
 
 // <���캯��>
 #pragma region PointPrimitives
@@ -143,7 +144,7 @@ osg::Geometry *PointPrimitive::getGeometry()
 
 IDrawElement* PointPrimitive::create(osg::Geometry *geom)const
 {
-	std::string type;
+	//std::string type;
 	//if (!geom->getUserValue("_primitive_type", type))
 	//{
 	//	return NULL;
