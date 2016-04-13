@@ -1,20 +1,20 @@
-#include "Distance.h"
+#include "GetDistanceCallBack.h"
 #include<sstream>
 
-Distance::Distance(osgGA::MultiTouchTrackballManipulator* manip)
+GetDistanceCallBack::GetDistanceCallBack(osgGA::MultiTouchTrackballManipulator* manip)
 {
 	m_manip = manip;
 	_distance = 0.0f;
 	_lastDistance = 0.0f;
 }
 
-void Distance::setChangedCallback(std::function<void(float)> changed)
+void GetDistanceCallBack::setChangedCallback(std::function<void(float)> changed)
 {
 	_changed = changed;
 }
 
 
-void Distance::operator()(osg::Node* node, osg::NodeVisitor* nv)
+void GetDistanceCallBack::operator()(osg::Node* node, osg::NodeVisitor* nv)
 {
 	auto trans = dynamic_cast<osg::MatrixTransform*>(node);
 	_distance = m_manip->getDistance();
@@ -29,7 +29,7 @@ void Distance::operator()(osg::Node* node, osg::NodeVisitor* nv)
 
 
 
-double Distance::getDistance()
+double GetDistanceCallBack::getDistance()
 {
 	return _distance;
 }

@@ -8,10 +8,8 @@ PlottingScale::PlottingScale(osgGA::MultiTouchTrackballManipulator *mult,osg::Ge
 	_mutiTouch = mult;
 	_scale = 0.0;
 
-	_distance = new Distance(_mutiTouch);
-	//_distance->setChangedCallback(triggerScaleChanged);
-	// void Distance::setChangedCallback(std::function<void(float)> changed)
-	// void fun(float a){}
+	_distance = new GetDistanceCallBack(_mutiTouch);
+
 	_distance->setChangedCallback(std::bind(&PlottingScale::triggerScaleChanged, this, std::placeholders::_1));
 	
 	_geode->setUpdateCallback(_distance);

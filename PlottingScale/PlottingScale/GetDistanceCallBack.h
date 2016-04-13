@@ -7,10 +7,10 @@
 #include <osgText/Text>
 #include <functional>
 
-class Distance :public osg::NodeCallback
+class GetDistanceCallBack :public osg::NodeCallback
 {
 public:
-	Distance(osgGA::MultiTouchTrackballManipulator* manip);
+	GetDistanceCallBack(osgGA::MultiTouchTrackballManipulator* manip);
 	// <对传进来的manip进行操作.>
 	virtual void operator()(osg::Node* node, osg::NodeVisitor* nv) override;
 	double getDistance();
