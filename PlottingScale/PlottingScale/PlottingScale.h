@@ -6,7 +6,7 @@
 #include <osg/MatrixTransform>
 #include <osgGA/MultiTouchTrackballManipulator>
 #include <osgText/Text>
-//#include "GetDistanceCallback.h"
+#include "GetDistanceCallBack.h"
 #include <memory>
 
 class PlottingScale :public IPlottingScale
@@ -21,7 +21,7 @@ protected:
 	osg::ref_ptr<osgGA::MultiTouchTrackballManipulator> _mutiTouch;
 	osg::ref_ptr<osg::Geode> _geode;
 	double _scale; 
-	//GetDistanceCallback *_distance;
+	GetDistanceCallBack *_distance;
 	std::map<long,std::function<void(IPlottingScale*)>> m_click;
 };
 

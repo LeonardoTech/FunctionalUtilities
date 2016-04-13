@@ -24,9 +24,15 @@
     <ClInclude Include="PlottingScale.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GetDistanceCallBack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PlottingScale.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GetDistanceCallBack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
