@@ -2,7 +2,7 @@
 #include "osg/Geode"
 #include "TextPrimitive.h"
 #include<sstream>
-
+#include "GetDistanceCallBack.h"
 
 
 PlottingScale::PlottingScale(osgGA::MultiTouchTrackballManipulator *mult,osg::Geode* geode)
@@ -10,13 +10,13 @@ PlottingScale::PlottingScale(osgGA::MultiTouchTrackballManipulator *mult,osg::Ge
 	_geode = geode;
 	_mutiTouch = mult;
 	_scale = 0.0;
-	_distance = new GetDistanceCallback(_mutiTouch);
+	_distance = new GetDistanceCallBack(_mutiTouch);
 	//_distance->setChangedCallback(triggerScaleChanged);
 	// void Distance::setChangedCallback(std::function<void(float)> changed)
 	// void fun(float a){}
-	//_distance->setChangedCallback(std::bind(&PlottingScale::triggerScaleChanged, this, std::placeholders::_1));
+	_distance->setChangedCallback(std::bind(&PlottingScale::triggerScaleChanged, this, std::placeholders::_1));
 	
-	//_geode->setUpdateCallback(_distance);
+	_geode->setUpdateCallback(_distance);
 
 }
 
@@ -29,7 +29,11 @@ void PlottingScale::triggerScaleChanged(float scale)
 {
 	for (auto it: m_click)
 	{
+		// it.second代表着函数指针
+		// this代表类的对象
+
 		(it.second)(this);
+
 	}
 }
 
