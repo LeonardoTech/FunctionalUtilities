@@ -21,6 +21,7 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 	osgViewer::View* viewer = dynamic_cast<osgViewer::View*>(&aa);
 
 	//_select->drawbyCoordinate(ea.getX(), ea.getY(), viewer->getCamera());
+	
 	_select->select(ea.getX(), ea.getY());
 
 	return false;

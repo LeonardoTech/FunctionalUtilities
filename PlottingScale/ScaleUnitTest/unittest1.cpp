@@ -5,7 +5,8 @@
 #include  "IplottingScale.h"
 #include "PlottingScale.h"
 #include "TextPrimitive.h"
-
+#include "HandleCallBack.h"
+#include <osgText/Text>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -98,7 +99,6 @@ namespace ScaleUnitTest
 	TEST_CLASS(UnitTest1)
 	{
 	public:
-
 		TEST_METHOD(TestMethod1)
 		{
 			// TODO:  在此输入测试代码
@@ -109,20 +109,28 @@ namespace ScaleUnitTest
 
 			osg::ref_ptr<osg::Geode> geode = new osg::Geode;
 			geode->addDrawable(geom);
-
 			osgViewer::Viewer viewer;
-
 			auto manip = new osgGA::MultiTouchTrackballManipulator();
 			viewer.setCameraManipulator(manip);
 			osg::ref_ptr<osg::MatrixTransform>trans = new osg::MatrixTransform();
-			PlottingScale *scale = new PlottingScale(manip, geode);
-			scale->bindScaleChanged(1, funName);
-			scale->triggerScaleChanged(0);
+			PlottingScale *scale = new PlottingScale(manip, geode);// <这个是在堆栈里面，手动释放>
+			//scale->bindScaleChanged(1, funName);
+			//scale->triggerScaleChanged(0);
+			TextPrimitive *primitive = new TextPrimitive;
+			primitive->setPosition(40, 155,0);
+			primitive->setColor(0.0, 1.0, 1.0);
+			osg::ref_ptr<osgText::Text>text = primitive->getOsgText();
+			HandleCallBcak *callBack = new HandleCallBcak(text,scale);
 			trans->addChild(geode);
-			configerShader(geode->getOrCreateStateSet());
-			viewer.setSceneData(geode.get());
+			osg::ref_ptr<osg::Camera>camera = callBack->createHUDCamera(0, 1024, 0, 768);
+			camera->addChild(text);
+			osg::ref_ptr<osg::Group>root = new osg::Group;
+			root->addChild(geode);
+			root->setUpdateCallback(callBack);
+			root->addChild(camera);
+			//configerShader(geode->getOrCreateStateSet());
+			viewer.setSceneData(root.get());
 			viewer.run();
-
 		}
 
 	};

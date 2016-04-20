@@ -13,6 +13,7 @@ class PlottingScale :public IPlottingScale
 {
 public:
 	PlottingScale(osgGA::MultiTouchTrackballManipulator *mult,osg::Geode* geode);
+	PlottingScale();
 	void triggerScaleChanged(float scale = 0.0f);
 	void bindScaleChanged(long sque, std::function<void(IPlottingScale*)> changed);
 	virtual double getScale() override;
