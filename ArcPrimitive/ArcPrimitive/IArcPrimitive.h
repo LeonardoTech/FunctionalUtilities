@@ -21,7 +21,6 @@ namespace geo
 
 		virtual Vertex& getStart() = 0;
 		virtual Vertex& getEnd() = 0;
-	private:
 
 	};
 

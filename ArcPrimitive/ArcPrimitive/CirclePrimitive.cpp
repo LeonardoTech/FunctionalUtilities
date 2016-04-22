@@ -107,12 +107,12 @@ void CirclePrimitive::setNormal(osg::Vec3 normal)
 	getVertex();
 }
 
-osg::Vec3& CirclePrimitive::getCenter()
+const osg::Vec3& CirclePrimitive::getCenter() const
 {
 	return m_center;
 }
 
-osg::Vec3& CirclePrimitive::getNormal()
+const osg::Vec3& CirclePrimitive::getNormal() const
 {
 	return m_normal;
 }

@@ -141,6 +141,7 @@
     <ClInclude Include="ArcPrimitive.h" />
     <ClInclude Include="CirclePrimitive.h" />
     <ClInclude Include="IArcPrimitive.h" />
+    <ClInclude Include="ICirclePrimitive.h" />
     <ClInclude Include="VertexArray.h" />
   </ItemGroup>
   <ItemGroup>

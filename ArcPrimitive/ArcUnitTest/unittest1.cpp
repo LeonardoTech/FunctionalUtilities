@@ -19,7 +19,7 @@ namespace ArcUnitTest
 	{
 	public:
 		
-		
+
 		TEST_METHOD(ArcTestMethod)
 		{
 			// TODO:  在此输入测试代码
@@ -27,19 +27,57 @@ namespace ArcUnitTest
 			//Vertex _normal = { 0.0, 0.374606593415913, 0.927183854566787 };
 			//Vertex _start = { -29.7922411387276, 35.6185110076384, 14.6321265496653 };
 			//Vertex _end = { -25.561884432643, 44.8589141768177, 10.8987613320266 };
-			//osg::Vec3 noma = { 5.0, 4.0, 3.0 };
-			//noma.normalize();
+			//Vertex _center = { -25.2, 39.8, 13.7 };
+			Vertex _center = { 0.0, 0.0, 0.0 };
+			_center.set(-25.5176325819944, 39.388833860873, 13.1088172370929);
+			Vertex _normal = { 0.0, 0.0, 0.0 };
+			_normal.set(0.0, 0.374606593415913, 0.927183854566787);
+			Vertex _start = { 0.0, 0.0, 0.0 };
+			_start.set(-29.7922411387276, 35.6185110076384, 14.6321265496653);
+			Vertex _end = { 0.0, 0.0, 0.0 };
+			_end.set(-25.561884432643, 44.8589141768177, 10.8987613320266);
+			osg::Vec3 noma = { 5.0, 4.0, 3.0 };
+			noma.normalize();
 			//osg::Vec3 mm = noma;
 			osgViewer::Viewer viewer;
 			viewer.getCamera()->setClearColor(osg::Vec4f(1.0f, 1.0f, 1.0f, 1.0f));
 			osg::ref_ptr<osg::Geode> root = new osg::Geode;
-			//ArcPrimitive* arc = new ArcPrimitive(_center,_start,_end,_normal);
-			ArcPrimitive* arc = new ArcPrimitive;
-			arc->setCenter(osg::Vec3{0.0,0.0,0.0});
-			arc->setNormal(osg::Vec3{ 0.0, -1.0, 0.0 });
-			arc->setStart(osg::Vec3{ 1.0, 0.0, 0.0 });
-			arc->setEnd(osg::Vec3{ -1.0, 0.0, 0.0 });
+			ArcPrimitive* arc = new ArcPrimitive(_center, _start, _end, _normal);
+			//ArcPrimitive* arc = new ArcPrimitive;
+			//arc->setCenter(osg::Vec3{0.0,0.0,0.0});
+			//arc->setNormal(osg::Vec3{ 0.0, -1.0, 0.0 });
+			//arc->setStart(osg::Vec3{ 1.0, 0.0, 0.0 });
+			//arc->setEnd(osg::Vec3{ -1.0, 0.0, 0.0 });
 			//arc->set_center(0.0,0.0,0.0);
+			root->addDrawable(arc);
+			viewer.setSceneData(root.get());
+			viewer.run();
+		}
+
+		TEST_METHOD(Circle_ArcTestMethod)
+		{
+			// TODO:  在此输入测试代码
+			//Vertex _center = { -25.5176325819944, 39.388833860873, 13.1088172370929 };
+			//Vertex _normal = { 0.0, 0.374606593415913, 0.927183854566787 };
+			//Vertex _start = { -29.7922411387276, 35.6185110076384, 14.6321265496653 };
+			//Vertex _end = { -25.561884432643, 44.8589141768177, 10.8987613320266 };
+			//Vertex _center = { -25.2, 39.8, 13.7 };
+			Vertex _center = { 0.0, 0.0,0.0 };
+			_center.set(-25.5176325819944, 39.388833860873, 13.1088172370929);
+			Vertex _normal = { 0.0, 0.0, 0.0 };
+			_normal.set(0.0, 0.374606593415913, 0.927183854566787);
+			Vertex _start = { 0.0, 0.0,0.0 };
+			_start.set(-29.7922411387276, 35.6185110076384, 14.6321265496653);
+			Vertex _end = { 0.0,0.0,0.0 };
+			_end.set(-29.7922411387276, 35.6185110076384, 14.6321265496653);
+			osg::Vec3 noma = { 5.0, 4.0, 3.0 };
+			noma.normalize();
+			//osg::Vec3 mm = noma;
+			osgViewer::Viewer viewer;
+			viewer.getCamera()->setClearColor(osg::Vec4f(1.0f, 1.0f, 1.0f, 1.0f));
+			osg::ref_ptr<osg::Geode> root = new osg::Geode;
+			ArcPrimitive* arc = new ArcPrimitive(_center,_start,_end,_normal);
+
 			root->addDrawable(arc);
 			viewer.setSceneData(root.get());
 			viewer.run();
