@@ -1,7 +1,7 @@
 #include "CirclePrimitive.h"
 #include <osg/Drawable>
 
-using namespace YZ;
+using namespace geo;
 
 CirclePrimitive::CirclePrimitive()
 {

@@ -9,7 +9,7 @@
 #pragma comment(lib,"opengl32.lib") 
 #pragma comment(lib,"glu32.lib") 
 
-using namespace YZ;
+using namespace geo;
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

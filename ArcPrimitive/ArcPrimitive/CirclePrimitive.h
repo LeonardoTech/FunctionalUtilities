@@ -3,7 +3,7 @@
 
 #include "VertexArray.h"
 #include <osg/Drawable>
-namespace YZ
+namespace geo
 {
 
 	class CirclePrimitive:public osg::Drawable

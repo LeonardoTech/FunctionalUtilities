@@ -9,7 +9,7 @@
 
 #define VESRION_ARC 1
 
-namespace YZ
+namespace geo
 {
 	class ArcPrimitive:public osg::Drawable , public IArcPrimitive
 	{
@@ -43,10 +43,6 @@ namespace YZ
 		osg::Vec3 m_end;
 	 	Vertex v_center;
 		Vertex v_normal;
-		osg::ref_ptr<osg::Vec3Array> m_centerArray;
-		osg::ref_ptr<osg::Vec3Array> m_normalArray;
-		osg::ref_ptr<osg::Vec3Array> m_startArray;
-		osg::ref_ptr<osg::Vec3Array> m_endArray;
 		const double PI = 3.1415926;
 	};
 }

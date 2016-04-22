@@ -3,7 +3,7 @@
 
 #include "VertexArray.h"
 
-namespace YZ
+namespace geo
 {
 	class IArcPrimitive:public Vertex
 	{

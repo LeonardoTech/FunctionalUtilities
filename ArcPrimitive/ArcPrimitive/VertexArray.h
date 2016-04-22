@@ -9,7 +9,7 @@
 /// @author	Admin
 /// @date	2016/3/23
 
-namespace YZ
+namespace geo
 {
 	class Vertex
 	{
