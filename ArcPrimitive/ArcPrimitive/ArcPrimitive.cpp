@@ -11,6 +11,8 @@ ArcPrimitive::ArcPrimitive()
 	m_normal = { 0.0, 0.0,1.0 };
 	v_center.set(0.0, 0.0, 0.0);
 	v_normal.set(0.0, 0.0, 1.0);
+	v_start.set(0.0, 0.0, 0.0);
+	v_end.set(0.0, 0.0, 0.0);
 
  }
 
@@ -172,14 +174,12 @@ void ArcPrimitive::setEnd(const Vertex& end)
 
 Vertex& ArcPrimitive::getStart()
 {
-	Vertex start = { 0.0, 0.0, 0.0 };
-	start.set(m_start.x(), m_start.y(), m_start.z());
-	return start;
+	v_start.set(m_start.x(), m_start.y(), m_start.z());
+	return v_start;
 }
 
 Vertex& ArcPrimitive::getEnd()
 {
-	Vertex end = { 0.0, 0.0, 0.0 };
-	end.set(m_end.x(), m_end.y(), m_end.z());
-	return end;
+	v_end.set(m_end.x(), m_end.y(), m_end.z());
+	return v_end;
 }

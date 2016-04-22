@@ -40,6 +40,7 @@ namespace geo
 		const osg::Vec3& getNormal() const;
 
 
+
 	protected:
 		osg::Vec3 m_center;//圆心
 		osg::Vec3 m_normal;//法向量
@@ -47,6 +48,8 @@ namespace geo
 		osg::Vec3 m_end;
 	 	Vertex v_center;
 		Vertex v_normal;
+		Vertex v_start;
+		Vertex v_end;
 		const double PI = 3.1415926;
 	};
 }
