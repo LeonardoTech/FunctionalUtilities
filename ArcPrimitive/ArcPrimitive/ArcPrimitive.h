@@ -22,11 +22,15 @@ namespace geo
 		virtual void setCenter(const Vertex& center) override;
 		virtual void setNormal(float dx, float dy, float dz) override;
 		virtual void setNormal(const Vertex& normal) override;
-		void setStart(float dx,float dy,float dz);
-		void setEnd(float dx, float dy, float dz);
+		virtual void setStart(float dx, float dy, float dz) override;
+		virtual void setStart(const Vertex& start) override;
+		virtual void setEnd(float dx, float dy, float dz) override;
+		virtual void setEnd(const Vertex& end) override;
 		virtual const Vertex& getCenter(void)  override;
 		virtual const Vertex& getNormal(void)  override;
 
+		virtual Vertex& getStart() override;
+		virtual Vertex& getEnd() override;
 	//internal:
 		void setCenter(osg::Vec3 center);
 		void setNormal(osg::Vec3 normal);

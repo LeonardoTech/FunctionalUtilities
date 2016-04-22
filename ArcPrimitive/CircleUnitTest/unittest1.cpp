@@ -30,7 +30,7 @@ namespace CircleUnitTest
 			circle->setRadius(1);
 			//circle->setCenter(center);
 			//circle->setCenter(0.0,0.0,0.0);
-			circle->setNormal(osg::Vec3{0.0,-1.0,1.0});
+			circle->setNormal(osg::Vec3{0.0,-1.0,0.0});
 			root->addDrawable(circle);
 			viewer.setSceneData(root.get());
 			viewer.run();

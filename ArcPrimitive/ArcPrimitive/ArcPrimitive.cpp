@@ -151,9 +151,35 @@ void ArcPrimitive::setStart(float dx, float dy, float dz)
 	this->dirtyBound();
 }
 
+void ArcPrimitive::setStart(const Vertex& start)
+{
+	m_start = { start.getX(), start.getY(), start.getZ() };
+	getVector();
+}
+
 void ArcPrimitive::setEnd(float dx, float dy, float dz)
 {
 	m_end.set(dx, dy, dz);
 	this->dirtyBound();
 }
 
+void ArcPrimitive::setEnd(const Vertex& end)
+{
+	m_end = { end.getX(), end.getY(), end.getZ() };
+	getVector();
+}
+
+
+Vertex& ArcPrimitive::getStart()
+{
+	Vertex start = { 0.0, 0.0, 0.0 };
+	start.set(m_start.x(), m_start.y(), m_start.z());
+	return start;
+}
+
+Vertex& ArcPrimitive::getEnd()
+{
+	Vertex end = { 0.0, 0.0, 0.0 };
+	end.set(m_end.x(), m_end.y(), m_end.z());
+	return end;
+}

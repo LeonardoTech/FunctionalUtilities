@@ -31,8 +31,6 @@ namespace geo
 		osg::Vec3 m_normal;
 		osg::Vec3 m_vertex;
 		osg::Vec3 m_face;
-		osg::ref_ptr<osg::Vec3Array> m_centerArray;
-		osg::ref_ptr<osg::Vec3Array> m_normalArray;
 		Vertex  v_center;
 		Vertex v_normal;
 		float m_radius;
