@@ -1,5 +1,5 @@
-﻿#ifndef __GEO_ARC_H__
-#define __GEO_ARC_H__
+﻿#ifndef __GEO_ARC_PRIMITIVE_H__
+#define __GEO_ARC_PRIMITIVE_H__
 /*
 园弧线，按照右手定则，通过圆心，起点，终点，法向量来确定
 */
@@ -53,4 +53,4 @@ namespace geo
 		const double PI = 3.1415926;
 	};
 }
-#endif // __GEO_ARC_H__
+#endif // __GEO_ARC_PRIMITIVE_H__
