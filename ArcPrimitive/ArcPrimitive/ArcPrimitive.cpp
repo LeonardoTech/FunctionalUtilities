@@ -17,18 +17,10 @@ ArcPrimitive::ArcPrimitive()
 ArcPrimitive::ArcPrimitive(const Vertex& center, const Vertex& start, const Vertex& end, const Vertex& normal)
 	:ArcPrimitive::ArcPrimitive()
 {
-	m_center.x() = center.x();
-	m_center.y() = center.y();
-	m_center.z() = center.z();
-	m_start.x() = start.x();
-	m_start.y() = start.y();
-	m_start.z() = start.z();
-	m_end.x() = end.x();
-	m_end.y() = end.y();
-	m_end.z() = end.z();
-	m_normal.x() = normal.x();
-	m_normal.y() = normal.y();
-	m_normal.z() = normal.z();
+	m_center = { center.getX(), center.getY(), (float)center.getZ() };
+	m_start = { start.getX(), start.getY(), start.getZ() };
+	m_end = { end.getX(), end.getY(), end.getZ() };
+	m_normal = { normal.getX(), normal.getY(), normal.getZ() };
 	
 	v_center = center;
 	v_normal = normal;
@@ -45,9 +37,7 @@ void ArcPrimitive::setCenter(float dx, float dy, float dz)
 
 void ArcPrimitive::setCenter(const Vertex& center)
 {
-	m_center.x() = center.x();
-	m_center.y() = center.y();
-	m_center.z() = center.z();
+	m_center = { center.getX(), center.getY(), (float)center.getZ() };
 	v_center = center;
 	this->dirtyBound();
 }
@@ -84,17 +74,13 @@ const osg::Vec3& ArcPrimitive::getNormal() const
 
 void ArcPrimitive::setNormal(float dx, float dy, float dz)
 {
-	v_normal.set(dx, dy, dz);
 	m_normal.set(dx, dy, dz);
 	this->dirtyBound();
 }
 
 void ArcPrimitive::setNormal(const Vertex& normal)
 {
-	v_normal = normal;
-	m_normal.x() = normal.x();
-	m_normal.y() = normal.y();
-	m_normal.z() = normal.z();
+	m_normal = { normal.getX(), normal.getY(), normal.getZ() };
 	this->dirtyBound();
 }
 
@@ -153,14 +139,11 @@ void ArcPrimitive::drawImplementation(osg::RenderInfo& renderInfo)const
 	}
 	Plist[0] = m_start;
 	Plist[Ra] = m_end;
-
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, Plist);
 	glDrawArrays(GL_LINE_STRIP, 0, Ra+1);
 	glEnableClientState(GL_VERTEX_ARRAY);
 }
-
-
 
 void ArcPrimitive::setStart(float dx, float dy, float dz)
 {

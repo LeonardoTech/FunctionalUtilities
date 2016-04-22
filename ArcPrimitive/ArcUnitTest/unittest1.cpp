@@ -23,13 +23,13 @@ namespace ArcUnitTest
 		TEST_METHOD(ArcTestMethod)
 		{
 			// TODO:  在此输入测试代码
-			Vertex _center = { -25.5176325819944, 39.388833860873, 13.1088172370929 };
-			Vertex _normal = { 0.0, 0.374606593415913, 0.927183854566787 };
-			Vertex _start = { -29.7922411387276, 35.6185110076384, 14.6321265496653 };
-			Vertex _end = { -25.561884432643, 44.8589141768177, 10.8987613320266 };
-			osg::Vec3 noma = { 5.0, 4.0, 3.0 };
-			noma.normalize();
-			osg::Vec3 mm = noma;
+			//Vertex _center = { -25.5176325819944, 39.388833860873, 13.1088172370929 };
+			//Vertex _normal = { 0.0, 0.374606593415913, 0.927183854566787 };
+			//Vertex _start = { -29.7922411387276, 35.6185110076384, 14.6321265496653 };
+			//Vertex _end = { -25.561884432643, 44.8589141768177, 10.8987613320266 };
+			//osg::Vec3 noma = { 5.0, 4.0, 3.0 };
+			//noma.normalize();
+			//osg::Vec3 mm = noma;
 			osgViewer::Viewer viewer;
 			viewer.getCamera()->setClearColor(osg::Vec4f(1.0f, 1.0f, 1.0f, 1.0f));
 			osg::ref_ptr<osg::Geode> root = new osg::Geode;
@@ -43,8 +43,6 @@ namespace ArcUnitTest
 			root->addDrawable(arc);
 			viewer.setSceneData(root.get());
 			viewer.run();
-
-
 		}
 
 	};

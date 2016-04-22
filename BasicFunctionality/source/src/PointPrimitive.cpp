@@ -3,9 +3,9 @@
 #include "PointPrimitive.h"
 #include <osg/ValueObject >
 
-// <���캯��>
 #pragma region PointPrimitives
 
+// <初始化>
 PointPrimitive::PointPrimitive()
 {
 	_size = 1;
@@ -24,10 +24,6 @@ PointPrimitive::PointPrimitive()
 	auto stateSet = _geometry->getOrCreateStateSet();
 	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
 	stateSet->setAttributeAndModes(new osg::Point(_size));
-
-	//_geometry->setUserValue("_vertex", _vertex);
-	//_geometry->setUserValue("PointPrimitive", "PointPrimitive");
-
 }
 
 #pragma endregion
@@ -54,7 +50,6 @@ void PointPrimitive::setSize(float size)
 #pragma endregion
 
 #pragma region SetColor
-
 void PointPrimitive::setColor(float red, float green, float blue)
 {
 
@@ -68,7 +63,6 @@ void PointPrimitive::setColor(float red, float green, float blue)
 #pragma endregion
 
 #pragma region getPosition
-
 void PointPrimitive::getPosition(float& x, float& y, float& z) const
 {
 	x = _vertex.x();
@@ -93,11 +87,9 @@ VertexArray PointPrimitive::getVertices() const
 	arr.push_back(v);
 	return arr;
 }
-
 #pragma endregion
 
 #pragma region setPosition
-
 void PointPrimitive::setPosition(float x, float y, float z)
 {
 	_vertex = { x, y, z };
@@ -112,6 +104,7 @@ void PointPrimitive::getPosition(float& x, float& y, float& z)
 	y = _vertex.y();
 	z = _vertex.z();
 }
+
 void PointPrimitive::setPosition(const osg::Vec3& pos)
 {
 	_vertex = pos;
@@ -120,18 +113,16 @@ void PointPrimitive::setPosition(const osg::Vec3& pos)
 	_geometry->dirtyBound();
 }
 
-
 void PointPrimitive::setVertices(const VertexArray& arr)
 {
-
 	_vertex.set(arr[0].getX(), arr[0].getY(), arr[0].getZ());
 }
 
 #pragma endregion
 
-// <��ȡ�ӿڷ������>
-#pragma region GetGeometry
 
+#pragma region GetGeometry
+// <获取osg::Geometry节点>
 osg::Geometry *PointPrimitive::getGeometry()
 {
 	return _geometry;
@@ -139,20 +130,8 @@ osg::Geometry *PointPrimitive::getGeometry()
 
 #pragma endregion
 
-
-
-
 IDrawElement* PointPrimitive::create(osg::Geometry *geom)const
 {
-	//std::string type;
-	//if (!geom->getUserValue("_primitive_type", type))
-	//{
-	//	return NULL;
-	//}
-	//if (type != "LinePrimitive")
-	//{
-	//	return NULL;
-	//}
 	PointPrimitive *point = new PointPrimitive();
 	point->_geometry = geom;
 	point->_vertices = dynamic_cast<osg::Vec3Array*>(geom->getVertexArray());

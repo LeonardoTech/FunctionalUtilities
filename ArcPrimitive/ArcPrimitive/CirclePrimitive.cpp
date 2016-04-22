@@ -22,8 +22,8 @@ CirclePrimitive::CirclePrimitive()
 CirclePrimitive::CirclePrimitive(Vertex& center, Vertex normal, float radius)
 	:CirclePrimitive::CirclePrimitive()
 {
-	m_center.set(center.x(), center.y(), center.z());
-	m_normal.set(normal.x(), normal.y(), normal.z());
+	m_center.set(center.getX(), center.getY(), center.getZ());
+	m_normal.set(normal.getX(), normal.getY(), normal.getZ());
 	m_radius = radius;
 	v_normal.set(m_normal.x(), m_normal.y(), m_normal.z());
 	v_center.set(m_center.x(), m_center.y(), m_center.z());
@@ -132,8 +132,8 @@ osg::Vec3& CirclePrimitive::getNormal()
 
 void CirclePrimitive::setCenter(Vertex center)
 {
-	m_center.set(center.x(), center.y(), center.z());
-	v_center = center;
+	m_center.set(center.getX(), center.getY(), center.getZ());
+	v_center = center;	
 
 	(*m_centerArray)[0] = m_center;
 	m_centerArray->dirty();
@@ -152,7 +152,7 @@ void CirclePrimitive::setNormal(float dx, float dy, float dz)
 
 void CirclePrimitive::setNormal(Vertex normal)
 {
-	m_normal.set(normal.x(), normal.y(), normal.z());	
+	m_normal.set(normal.getX(), normal.getY(), normal.getZ());	
 	v_normal = normal;
 
 	(*m_normalArray)[0] = m_normal;

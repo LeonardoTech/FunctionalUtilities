@@ -1,10 +1,10 @@
-#ifndef __VERTEX_ARRAY_H__
+ï»¿#ifndef __VERTEX_ARRAY_H__
 #define __VERTEX_ARRAY_H__
 #include <vector>
 
 /// @class	Vertex
 ///
-/// @brief	 <ÉèÖÃÒ»¸ö¶¥µã×ø±êÀàÐÍµÄÀà£¬ÓÃÓÚ´æ·ÅµãµÄ×ø±ê£¬¹©½Ó¿ÚÊ¹ÓÃ>.
+/// @brief	 <è®¾ç½®ä¸€ä¸ªé¡¶ç‚¹åæ ‡ç±»åž‹çš„ç±»ï¼Œç”¨äºŽå­˜æ”¾ç‚¹çš„åæ ‡ï¼Œä¾›æŽ¥å£ä½¿ç”¨>.
 ///
 /// @author	Admin
 /// @date	2016/3/23
@@ -21,116 +21,110 @@ namespace geo
 			_vertices[1] = 0;
 			_vertices[2] = 0;
 		}
-		Vertex(const double x, const double y, const double z) :
+		Vertex(const float x, const float y, const float z) :
 			Vertex::Vertex()
 		{
 			set(x, y, z);
 		}
 		/// @fn	Vertex::Vertex(const Vertex& other)
 		///
-		/// @brief	  <»ñÈ¡VertexµÄÄÚÈÝ>.
+		/// @brief	  <èŽ·å–Vertexçš„å†…å®¹>.
 		///
 		/// @author	Admin
 		/// @date	2016/3/23
 		///
-		/// @param	other	<»ñÈ¡ÄÚÈÝ>.
+		/// @param	other	<èŽ·å–å†…å®¹>.
 
 		Vertex(const Vertex& other)
 		{
 			_vertices = other.getVector();
 		}
 
-		void set(const double x, const double y, const double z)
+		void set(const float x, const float y, const float z)
 		{
 			_vertices[0] = x;
 			_vertices[1] = y;
 			_vertices[2] = z;
 		}
 
-		void setX(double x)
+		Vertex(const float vertices[]) :
+			_vertices(vertices, vertices + sizeof(vertices) / sizeof(float))
 		{
-			_vertices[0] = x;
 		}
-		void setY(double y)
-		{
-			_vertices[1] = y;
-		}
-		void setZ(double z)
-		{
-			_vertices[2] = z;
-		}
+
+
 		/// @fn	void Vertex::setVertices(const std::vector<float>& vertices)
 		///
-		/// @brief	  <½«¸¡µãÖµÈÝÆ÷ÀàÐÍÉèÖÃ³ÉVertexÀàÐÍ>.
+		/// @brief	  <å°†æµ®ç‚¹å€¼å®¹å™¨ç±»åž‹è®¾ç½®æˆVertexç±»åž‹>.
 		///
 		/// @author	Admin
 		/// @date	2016/3/23
 		///
 		/// @param	vertices	The vertices.
-		void setVertices(const std::vector<double>& vertices)
+		void setVertices(const std::vector<float>& vertices)
 		{
 			_vertices = vertices;
 		}
 
 		/// @fn	virtual float Vertex::getX() const
 		///
-		/// @brief	Get <»ñÈ¡µÚÒ»ÊýÖµ>.
+		/// @brief	Get <èŽ·å–ç¬¬ä¸€æ•°å€¼>.
 		///
 		/// @author	Admin
 		/// @date	2016/3/23
 		///
 		/// @return	The x coordinate.
-		virtual double x() const
+		virtual float getX() const
 		{
 			return _vertices[0];
 		}
 
 		/// @fn	virtual float Vertex::getY() const
 		///
-		/// @brief <»ñÈ¡µÚ¶þÊýÖµ>.
+		/// @brief <èŽ·å–ç¬¬äºŒæ•°å€¼>.
 		///
 		/// @author	Admin
 		/// @date	2016/3/23
 		///
 		/// @return	The y coordinate.
-		virtual double y() const
+		virtual float getY() const
 		{
 			return _vertices[1];
 		}
 
 		/// @fn	virtual float Vertex::getZ() const
 		///
-		/// @brief	  <»ñÈ¡µÚÈýÊýÖµ>.
+		/// @brief	  <èŽ·å–ç¬¬ä¸‰æ•°å€¼>.
 		///
 		/// @author	Admin
 		/// @date	2016/3/23
 		///
 		/// @return	The z coordinate.
-		virtual double z() const
+		virtual float getZ() const
 		{
 			return _vertices[2];
 		}
 
 		/// @fn	std::vector<float> Vertex::getVector() const
 		///
-		/// @brief	  <»ñÈ¡VertexÖÐµÄÄÚÈÝ>.
+		/// @brief	  <èŽ·å–Vertexä¸­çš„å†…å®¹>.
 		///
 		/// @author	Admin
 		/// @date	2016/3/23
 		///
 		/// @return	The vector.
-		std::vector<double> getVector() const
+		std::vector<float> getVector() const
 		{
 			return _vertices;
 		}
 
 	protected:
-		std::vector<double> _vertices;
+		std::vector<float> _vertices;
 	};
 
 	/// @typedef	std::vector < Vertex > VertexArray
 	///
-	/// @brief	 <ÀàÐÍ×ª»»£¬½«Vertex×ª»¯³ÉVertexArrayÀàÐÍ>.
+	/// @brief	 <ç±»åž‹è½¬æ¢ï¼Œå°†Vertexè½¬åŒ–æˆVertexArrayç±»åž‹>.
 	typedef std::vector < Vertex > VertexArray;
 }
 #endif // __VERTEX_ARRAY_H__

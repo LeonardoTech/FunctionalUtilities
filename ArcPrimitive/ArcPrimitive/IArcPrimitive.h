@@ -1,4 +1,4 @@
-#ifndef __IARCPRIMITIVE_H__
+﻿#ifndef __IARCPRIMITIVE_H__
 #define __IARCPRIMITIVE_H__
 
 #include "VertexArray.h"
