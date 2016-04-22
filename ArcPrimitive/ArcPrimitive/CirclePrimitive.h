@@ -1,5 +1,5 @@
-﻿#ifndef __CIRCLE_H__
-#define  __CIRCLE_H__
+﻿#ifndef __GEO_CIRCLE_H__
+#define  __GEO_CIRCLE_H__
 
 #include "VertexArray.h"
 #include <osg/Drawable>
@@ -38,4 +38,4 @@ namespace geo
 
 }
 
-#endif // __CIRCLE_H__
+#endif // __GEO_CIRCLE_H__

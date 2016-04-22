@@ -1,5 +1,5 @@
-﻿#ifndef __IARCPRIMITIVE_H__
-#define __IARCPRIMITIVE_H__
+﻿#ifndef __GEO_IARC_H__
+#define __GEO_IARC_H__
 
 #include "VertexArray.h"
 
@@ -27,4 +27,4 @@ namespace geo
 
 }
 
-#endif // __IARCPRIMITIVE_H__
+#endif // __GEO_IARC_H__
