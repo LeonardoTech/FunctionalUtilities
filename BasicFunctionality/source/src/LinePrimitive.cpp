@@ -8,20 +8,20 @@
 
 LinePrimitive::LinePrimitive()
 {
-	_geometry = new osg::Geometry;
+	//_geometry = new osg::Geometry;
 	_vertices = new osg::Vec3Array(2);
 	_color = new osg::Vec4Array(1);
 	_startPosition = { 0.0f, 0.0f, 0.0f };
 	_endPosition = { 0.0f, 0.0f, 0.0f };
 
-	_geometry->setDataVariance(osg::Object::DYNAMIC);
-	_geometry->setUseDisplayList(false);
-	_geometry->setUseVertexBufferObjects(true);
-	_geometry->setVertexArray(_vertices);
-	_geometry->setColorArray(_color);
-	_geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
-	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_LINES, 0, 2));
-	auto stateSet = _geometry->getOrCreateStateSet();
+	setDataVariance(osg::Object::DYNAMIC);
+	setUseDisplayList(false);
+	setUseVertexBufferObjects(true);
+	setVertexArray(_vertices);
+	setColorArray(_color);
+	setColorBinding(osg::Geometry::BIND_OVERALL);
+	addPrimitiveSet(new osg::DrawArrays(GL_LINES, 0, 2));
+	auto stateSet = getOrCreateStateSet();
 	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
 
 	//_geometry->setUserValue("_startPosition", _startPosition);
@@ -38,7 +38,7 @@ void LinePrimitive::setLineWidth(float width)
 {
 	osg::ref_ptr<osg::LineWidth>linewidth = new osg::LineWidth;
 	linewidth->setWidth(width);
-	_geometry->getOrCreateStateSet()->setAttributeAndModes(linewidth, osg::StateAttribute::ON);
+	getOrCreateStateSet()->setAttributeAndModes(linewidth, osg::StateAttribute::ON);
 }
 
 #pragma endregion
@@ -51,7 +51,7 @@ void LinePrimitive::setColor(float red, float green, float blue)
 	(*_color)[0] = color;
 	_color->dirty();
 	//_geometry->setColorArray(_color);
-	_geometry->dirtyBound();
+	dirtyBound();
 }
 
 #pragma endregion
@@ -60,7 +60,7 @@ void LinePrimitive::setColor(float red, float green, float blue)
 
 osg::Geometry* LinePrimitive::getGeometry()
 {
-	return _geometry;
+	return this;
 }
 #pragma endregion
 
@@ -103,7 +103,7 @@ void LinePrimitive::setStartPosition(float x, float y, float z)
 	_startPosition = { x, y, z };
 	(*_vertices)[0] = _startPosition;
 	_vertices->dirty();
-	_geometry->dirtyBound();
+	dirtyBound();
 }
 
 void LinePrimitive::setStartPosition(osg::Vec3 pos)
@@ -111,7 +111,7 @@ void LinePrimitive::setStartPosition(osg::Vec3 pos)
 	_startPosition = pos;
 	(*_vertices)[0] = _startPosition;
 	_vertices->dirty();
-	_geometry->dirtyBound();
+	dirtyBound();
 }
 
 #pragma endregion
@@ -123,7 +123,7 @@ void LinePrimitive::setEndPosition(float x, float y, float z)
 	_endPosition = { x, y, z };
 	(*_vertices)[1] = _endPosition;
 	_vertices->dirty();
-	_geometry->dirtyBound();
+	dirtyBound();
 }
 
 void LinePrimitive::setEndPosition(osg::Vec3 pos)
@@ -131,7 +131,7 @@ void LinePrimitive::setEndPosition(osg::Vec3 pos)
 	_endPosition = pos;
 	(*_vertices)[1] = _endPosition;
 	_vertices->dirty();
-	_geometry->dirtyBound();
+	dirtyBound();
 }
 
 #pragma endregion
@@ -204,8 +204,8 @@ IDrawElement* LinePrimitive::create(osg::Geometry *geom)const
 	//	return NULL;
 	//}
 	
-	LinePrimitive* line = new LinePrimitive;
-	line->_geometry = geom;
+	LinePrimitive* line = new LinePrimitive;//子类
+	line = dynamic_cast<LinePrimitive*>(geom);
 
 	line->_vertices = dynamic_cast<osg::Vec3Array*>(geom->getVertexArray());
 	line->_color = dynamic_cast<osg::Vec4Array*>(geom->getColorArray());

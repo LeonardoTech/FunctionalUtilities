@@ -44,7 +44,7 @@ protected:
 	osg::Vec3 _vertices1;
 	osg::Vec3 _vertices2;
 	osg::Vec3 _vertices3;
-	osg::ref_ptr<osg::Geometry> _geometry;
+	//osg::ref_ptr<osg::Geometry> _geometry;
 	osg::ref_ptr<osg::Vec4Array> _color;
 	osg::ref_ptr<osg::Vec3Array>_vertices;
 };

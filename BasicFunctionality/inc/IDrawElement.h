@@ -1,5 +1,7 @@
 ﻿#ifndef __IDRAW_ELEMENT_H__
 #define __IDRAW_ELEMENT_H__
+#include <osg/Geometry>
+
 #include "VertexArray.h"
 #include "IColorable.h"
 
@@ -12,7 +14,7 @@ namespace geo
 	/// @author	Admin
 	/// @date	2016/3/23
 
-	class IDrawElement : public IColorable
+	class IDrawElement : public IColorable,public osg::Geometry
 	{
 	public:
 

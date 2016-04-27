@@ -9,19 +9,19 @@
 PointPrimitive::PointPrimitive()
 {
 	_size = 1;
-	_geometry = new osg::Geometry;
+	//_geometry = new osg::Geometry;
 	_vertices = new osg::Vec3Array(1);
 	_color = new osg::Vec4Array(1);
 	_vertex = { 0.0f, 0.0f, 0.0f };
 
-	_geometry->setDataVariance(osg::Object::DYNAMIC);
-	_geometry->setUseDisplayList(false);
-	_geometry->setUseVertexBufferObjects(true);
-	_geometry->setVertexArray(_vertices);
-	_geometry->setColorArray(_color);
-	_geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
-	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_POINTS, 0, 1));
-	auto stateSet = _geometry->getOrCreateStateSet();
+	this->setDataVariance(osg::Object::DYNAMIC);
+	this->setUseDisplayList(false);
+	this->setUseVertexBufferObjects(true);
+	this->setVertexArray(_vertices);
+	this->setColorArray(_color);
+	this->setColorBinding(osg::Geometry::BIND_OVERALL);
+	this->addPrimitiveSet(new osg::DrawArrays(GL_POINTS, 0, 1));
+	auto stateSet = this->getOrCreateStateSet();
 	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);
 	stateSet->setAttributeAndModes(new osg::Point(_size));
 
@@ -46,9 +46,9 @@ float PointPrimitive::getSize() const
 void PointPrimitive::setSize(float size)
 {
 	_size = size;
-	auto stateSet = _geometry->getOrCreateStateSet();
+	auto stateSet = getOrCreateStateSet();
 	stateSet->setAttributeAndModes(new osg::Point(size));
-	_geometry->dirtyBound();
+	dirtyBound();
 }
 
 #pragma endregion
@@ -61,8 +61,8 @@ void PointPrimitive::setColor(float red, float green, float blue)
 	osg::Vec4 color = { red, green, blue, 1.0f };
 	(*_color)[0] = color;
 	_color->dirty();
-	_geometry->setColorArray(_color);
-	_geometry->dirtyBound();
+	setColorArray(_color);
+	dirtyBound();
 }
 
 #pragma endregion
@@ -103,7 +103,7 @@ void PointPrimitive::setPosition(float x, float y, float z)
 	_vertex = { x, y, z };
 	(*_vertices)[0] = _vertex;
 	_vertices->dirty();
-	_geometry->dirtyBound();
+	dirtyBound();
 }
 
 void PointPrimitive::getPosition(float& x, float& y, float& z)
@@ -117,7 +117,7 @@ void PointPrimitive::setPosition(const osg::Vec3& pos)
 	_vertex = pos;
 	(*_vertices)[0] = _vertex;
 	_vertices->dirty();
-	_geometry->dirtyBound();
+	dirtyBound();
 }
 
 
@@ -134,7 +134,7 @@ void PointPrimitive::setVertices(const VertexArray& arr)
 
 osg::Geometry *PointPrimitive::getGeometry()
 {
-	return _geometry;
+	return this;
 }
 
 #pragma endregion
@@ -154,7 +154,7 @@ IDrawElement* PointPrimitive::create(osg::Geometry *geom)const
 	//	return NULL;
 	//}
 	PointPrimitive *point = new PointPrimitive();
-	point->_geometry = geom;
+	point = dynamic_cast<PointPrimitive *>(geom);
 	point->_vertices = dynamic_cast<osg::Vec3Array*>(geom->getVertexArray());
 	point->_color = dynamic_cast<osg::Vec4Array*>(geom->getColorArray());
 	//geom->getUserValue("_vertex", point->_vertex);

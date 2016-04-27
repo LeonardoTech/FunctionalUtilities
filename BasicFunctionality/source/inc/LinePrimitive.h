@@ -61,7 +61,7 @@ public:
 protected:
 	osg::Vec3 _startPosition;
 	osg::Vec3 _endPosition;
-	osg::ref_ptr<osg::Geometry> _geometry;
+	//osg::ref_ptr<osg::Geometry> _geometry;
 	osg::ref_ptr<osg::Vec4Array> _color;
 	osg::ref_ptr<osg::Vec3Array>_vertices;
 };
