@@ -9,7 +9,7 @@
 
 using namespace geo;
 //  <绘制线元的实现类，继承于ILinePrimitives> 
-class  LinePrimitive :public ILinePrimitive
+class  LinePrimitive :public ILinePrimitive, public osg::Geometry
 { 
 public:
 

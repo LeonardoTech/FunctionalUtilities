@@ -8,7 +8,7 @@
 
 using namespace  geo;
 // <绘制面元的实现类，继承于IFacePrimitives>.
-class  FacePrimitive :public IFacePrimitive
+class  FacePrimitive :public IFacePrimitive, public osg::Geometry
 {
 public:
 	// <构造函数，用于初始化私有变量>

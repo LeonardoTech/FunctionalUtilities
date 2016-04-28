@@ -154,7 +154,6 @@
     <ClInclude Include="..\inc\IQuadPrimitive.h" />
     <ClInclude Include="..\inc\ITextPrimitive.h" />
     <ClInclude Include="..\inc\VertexArray.h" />
-    <ClInclude Include="..\source\inc\ArcPrimitive.h" />
     <ClInclude Include="..\source\inc\FacePrimitive.h" />
     <ClInclude Include="..\source\inc\LinePrimitive.h" />
     <ClInclude Include="..\source\inc\PointPrimitive.h" />
@@ -163,7 +162,6 @@
     <ClInclude Include="..\source\inc\TextPrimitive.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\src\ArcPrimitive.cpp" />
     <ClCompile Include="..\source\src\FacePrimitive.cpp" />
     <ClCompile Include="..\source\src\LinePrimitive.cpp" />
     <ClCompile Include="..\source\src\PointPrimitive.cpp">

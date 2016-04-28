@@ -8,7 +8,7 @@ using namespace geo;
 
 class QuadPrimitiveImp;
 
-class QuadPrimitive :public IQuadPrimitive
+class QuadPrimitive :public IQuadPrimitive, public osg::Geometry
 {
 public:
 	QuadPrimitive();

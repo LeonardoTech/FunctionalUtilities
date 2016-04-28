@@ -14,7 +14,7 @@ namespace geo
 	/// @author	Admin
 	/// @date	2016/3/23
 
-	class IDrawElement : public IColorable,public osg::Geometry
+	class IDrawElement : public IColorable
 	{
 	public:
 
