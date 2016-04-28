@@ -1,5 +1,5 @@
-﻿#ifndef __YZArc_H__
-#define __YZArc_H__
+﻿#ifndef __GEO_ARC_PRIMITIVE_H__
+#define __GEO_ARC_PRIMITIVE_H__
 /*
 园弧线，按照右手定则，通过圆心，起点，终点，法向量来确定
 */
@@ -9,7 +9,7 @@
 
 #define VESRION_ARC 1
 
-namespace YZ
+namespace geo
 {
 	class ArcPrimitive:public osg::Drawable , public IArcPrimitive
 	{
@@ -22,11 +22,15 @@ namespace YZ
 		virtual void setCenter(const Vertex& center) override;
 		virtual void setNormal(float dx, float dy, float dz) override;
 		virtual void setNormal(const Vertex& normal) override;
-		void setStart(float dx,float dy,float dz);
-		void setEnd(float dx, float dy, float dz);
+		virtual void setStart(float dx, float dy, float dz) override;
+		virtual void setStart(const Vertex& start) override;
+		virtual void setEnd(float dx, float dy, float dz) override;
+		virtual void setEnd(const Vertex& end) override;
 		virtual const Vertex& getCenter(void)  override;
 		virtual const Vertex& getNormal(void)  override;
 
+		virtual Vertex& getStart() override;
+		virtual Vertex& getEnd() override;
 	//internal:
 		void setCenter(osg::Vec3 center);
 		void setNormal(osg::Vec3 normal);
@@ -36,6 +40,7 @@ namespace YZ
 		const osg::Vec3& getNormal() const;
 
 
+
 	protected:
 		osg::Vec3 m_center;//圆心
 		osg::Vec3 m_normal;//法向量
@@ -43,11 +48,9 @@ namespace YZ
 		osg::Vec3 m_end;
 	 	Vertex v_center;
 		Vertex v_normal;
-		osg::ref_ptr<osg::Vec3Array> m_centerArray;
-		osg::ref_ptr<osg::Vec3Array> m_normalArray;
-		osg::ref_ptr<osg::Vec3Array> m_startArray;
-		osg::ref_ptr<osg::Vec3Array> m_endArray;
+		Vertex v_start;
+		Vertex v_end;
 		const double PI = 3.1415926;
 	};
 }
-#endif // __YZArc_H__
+#endif // __GEO_ARC_PRIMITIVE_H__

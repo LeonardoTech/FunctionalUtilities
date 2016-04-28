@@ -1,7 +1,7 @@
 ﻿#ifndef __ILINEPRIMITIVE_H__
 #define __ILINEPRIMITIVE_H__
 
-#include "IDrawElement.h"
+#include "IPrimitiveFactor.h"
 #include "IMoveable.h"
 namespace geo
 { 

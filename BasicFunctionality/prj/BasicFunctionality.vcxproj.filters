@@ -69,6 +69,12 @@
     <ClInclude Include="..\inc\IPrimitiveFactor.h">
       <Filter>interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\inc\IArcPrimitive.h">
+      <Filter>interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\inc\ArcPrimitive.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\src\QuadPrimitive.cpp">
@@ -84,6 +90,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\source\src\TextPrimitive.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\src\ArcPrimitive.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

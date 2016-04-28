@@ -9,7 +9,7 @@
 #pragma comment(lib,"opengl32.lib") 
 #pragma comment(lib,"glu32.lib") 
 
-using namespace YZ;
+using namespace geo;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace CircleUnitTest
@@ -30,7 +30,7 @@ namespace CircleUnitTest
 			circle->setRadius(1);
 			//circle->setCenter(center);
 			//circle->setCenter(0.0,0.0,0.0);
-			circle->setNormal(osg::Vec3{0.0,-1.0,1.0});
+			circle->setNormal(osg::Vec3{0.0,-1.0,0.0});
 			root->addDrawable(circle);
 			viewer.setSceneData(root.get());
 			viewer.run();
