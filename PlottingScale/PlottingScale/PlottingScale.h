@@ -12,7 +12,7 @@
 class PlottingScale :public IPlottingScale
 {
 public:
-	PlottingScale(osgGA::MultiTouchTrackballManipulator *mult,osg::Geode* geode);
+	PlottingScale(osgGA::MultiTouchTrackballManipulator *mult,osg::Node* geode);
 	PlottingScale();
 	void triggerScaleChanged(float scale = 0.0f);
 	void bindScaleChanged(long sque, std::function<void(IPlottingScale*)> changed);
@@ -20,7 +20,7 @@ public:
 
 protected:
 	osg::ref_ptr<osgGA::MultiTouchTrackballManipulator> _mutiTouch;
-	osg::ref_ptr<osg::Geode> _geode;
+	osg::ref_ptr<osg::Node> _geode;
 	double _scale; 
 	GetDistanceCallBack *_distance;
 	std::map<long,std::function<void(IPlottingScale*)>> m_click;

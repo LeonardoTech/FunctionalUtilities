@@ -5,7 +5,7 @@
 #include "GetDistanceCallBack.h"
 
 
-PlottingScale::PlottingScale(osgGA::MultiTouchTrackballManipulator *mult,osg::Geode* geode)
+PlottingScale::PlottingScale(osgGA::MultiTouchTrackballManipulator *mult, osg::Node* geode)
 {
 	_geode = geode;
 	_mutiTouch = mult;
