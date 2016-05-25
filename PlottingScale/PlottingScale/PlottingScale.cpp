@@ -14,15 +14,13 @@ PlottingScale::PlottingScale(osgGA::MultiTouchTrackballManipulator *mult,osg::Ge
 	//_distance->setChangedCallback(triggerScaleChanged);
 	// void Distance::setChangedCallback(std::function<void(float)> changed)
 	// void fun(float a){}
-	_distance->setChangedCallback(std::bind(&PlottingScale::triggerScaleChanged, this, std::placeholders::_1));
-	
+	_distance->setChangedCallback(bind(&PlottingScale::triggerScaleChanged, this, std::placeholders::_1));
 	_geode->setUpdateCallback(_distance);
-
 }
 
 void PlottingScale::bindScaleChanged(long sque,std::function<void(IPlottingScale*)> changed)
 {
-	m_click[sque] = changed;
+	m_click[sque] = changed;	
 }
 
 void PlottingScale::triggerScaleChanged(float scale)
@@ -31,9 +29,7 @@ void PlottingScale::triggerScaleChanged(float scale)
 	{
 		// it.second代表着函数指针
 		// this代表类的对象
-
 		(it.second)(this);
-
 	}
 }
 

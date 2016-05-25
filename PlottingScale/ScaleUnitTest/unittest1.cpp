@@ -2,6 +2,7 @@
 #include "FacePrimitive.h"
 #include <osgViewer/Viewer>
 #include<iostream>
+#include <gl/GL.h>
 #include  "IplottingScale.h"
 #include "PlottingScale.h"
 #include "TextPrimitive.h"
@@ -114,21 +115,17 @@ namespace ScaleUnitTest
 			viewer.setCameraManipulator(manip);
 			osg::ref_ptr<osg::MatrixTransform>trans = new osg::MatrixTransform();
 			PlottingScale *scale = new PlottingScale(manip, geode);// <这个是在堆栈里面，手动释放>
-			//scale->bindScaleChanged(1, funName);
-			//scale->triggerScaleChanged(0);
+
 			TextPrimitive *primitive = new TextPrimitive;
 			primitive->setPosition(40, 155,0);
 			primitive->setColor(0.0, 1.0, 1.0);
 			osg::ref_ptr<osgText::Text>text = primitive->getOsgText();
-			HandleCallBcak *callBack = new HandleCallBcak(text,scale);
+
 			trans->addChild(geode);
-			osg::ref_ptr<osg::Camera>camera = callBack->createHUDCamera(0, 1024, 0, 768);
-			camera->addChild(text);
+
 			osg::ref_ptr<osg::Group>root = new osg::Group;
 			root->addChild(geode);
-			root->setUpdateCallback(callBack);
-			root->addChild(camera);
-			//configerShader(geode->getOrCreateStateSet());
+
 			viewer.setSceneData(root.get());
 			viewer.run();
 		}

@@ -11,6 +11,7 @@ GetDistanceCallBack::GetDistanceCallBack(osgGA::MultiTouchTrackballManipulator* 
 void GetDistanceCallBack::setChangedCallback(std::function<void(float)> changed)
 {
 	_changed = changed;
+	
 }
 
 
@@ -25,8 +26,6 @@ void GetDistanceCallBack::operator()(osg::Node* node, osg::NodeVisitor* nv)
 	}
 	_lastDistance = _distance;
 }
-
-
 
 
 double GetDistanceCallBack::getDistance()
