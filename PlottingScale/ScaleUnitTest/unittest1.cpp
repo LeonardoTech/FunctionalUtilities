@@ -123,6 +123,7 @@ namespace ScaleUnitTest
 
 			trans->addChild(geode);
 
+
 			osg::ref_ptr<osg::Group>root = new osg::Group;
 			root->addChild(geode);
 

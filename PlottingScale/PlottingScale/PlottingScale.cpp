@@ -36,5 +36,5 @@ void PlottingScale::triggerScaleChanged(float scale)
 double PlottingScale::getScale()
 {
 	_scale = _distance->getDistance();
-	return _scale;
+	return 1000.0/_scale;
 }
