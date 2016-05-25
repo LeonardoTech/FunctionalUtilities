@@ -1,6 +1,5 @@
 #include "PlottingScale.h"
 #include "osg/Geode"
-#include "TextPrimitive.h"
 #include<sstream>
 #include "GetDistanceCallBack.h"
 
