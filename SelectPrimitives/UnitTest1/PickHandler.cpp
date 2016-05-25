@@ -6,7 +6,7 @@
 
 
 
-PickHandler::PickHandler(ISelectPrimitives* selector)
+PickHandler::PickHandler(ISelectPrimitives* selector )
 {
 	_select = selector;
 }
@@ -26,7 +26,6 @@ bool PickHandler::handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapt
 
 	return false;
 }
-
 
 void PickHandler::setRoot(osg::Group* node)
 {

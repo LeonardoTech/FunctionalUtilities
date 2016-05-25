@@ -140,12 +140,12 @@ void CirclePrimitive::setNormal(Vertex normal)
 }
 
   
-const Vertex& CirclePrimitive::getCenter() const
+const Vertex& CirclePrimitive::getCenter() 
 {
 	return v_center;
 }
 
-const Vertex& CirclePrimitive::getNormal() const
+const Vertex& CirclePrimitive::getNormal() 
 {
 	return v_normal;
 }

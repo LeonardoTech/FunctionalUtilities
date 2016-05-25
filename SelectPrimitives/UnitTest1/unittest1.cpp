@@ -29,7 +29,7 @@ namespace UnitTest1
 			trans->setMatrix(osg::Matrix::translate(0.0f, 0.0f, 1.0f));
 
 			osgViewer::Viewer viewer;
-			osg::ref_ptr<PickHandler> picker = new PickHandler(new SelectPoint(viewer.getCamera()));
+			osg::ref_ptr<PickHandler> picker = new PickHandler(new SelectPoint(viewer.getCamera())/*new B*/);//RTTI
 
 			osg::ref_ptr<osg::Group> root = new osg::Group;
 			root->addChild(trans.get());

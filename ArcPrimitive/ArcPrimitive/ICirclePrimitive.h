@@ -11,7 +11,7 @@ namespace geo
 		virtual void setCenter(Vertex center) = 0;
 		virtual void setNormal(float dx, float dy, float dz) = 0;
 		virtual void setNormal(Vertex _normal) = 0;
-		virtual void setRadius(float radius);
+		virtual void setRadius(float radius) = 0;
 		virtual  const Vertex& getCenter()  = 0;
 		virtual  const Vertex& getNormal() = 0;
 	private:
