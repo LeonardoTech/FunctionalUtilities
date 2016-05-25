@@ -1,11 +1,12 @@
-﻿#ifndef __GEO_IARC_PRIMITIVE_H__
-#define __GEO_IARC_PRIMITIVE_H__
+﻿#ifndef __GEO_IARC_H__
+#define __GEO_IARC_H__
 
 #include "VertexArray.h"
+#include "IDrawElement.h"
 
 namespace geo
 {
-	class IArcPrimitive:public Vertex
+	class IArcPrimitive :public IDrawElement
 	{
 	public:
 		virtual void setCenter(float dx, float dy, float dz) = 0;
@@ -26,4 +27,4 @@ namespace geo
 
 }
 
-#endif // __GEO_IARC_PRIMITIVE_H__
+#endif // __GEO_IARC_H__

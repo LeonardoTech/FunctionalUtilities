@@ -8,7 +8,7 @@ using namespace geo;
 
 class QuadPrimitiveImp;
 
-class QuadPrimitive :public IQuadPrimitive
+class QuadPrimitive :public IQuadPrimitive, public osg::Geometry
 {
 public:
 	QuadPrimitive();
@@ -66,7 +66,7 @@ protected:
 	osg::ref_ptr<osg::Vec3Array> _normalsArray;
 	osg::ref_ptr<osg::Vec2Array> _texcoords;
 	osg::ref_ptr<osg::Vec3Array> m_vertexArray;
-	osg::ref_ptr<osg::Geometry> _geometry;
+	//osg::ref_ptr<osg::Geometry> _geometry;
 	osg::ref_ptr<osg::Vec4Array> _quadColors;
 	osg::ref_ptr<osg::Vec4Array> _frameColors;
 

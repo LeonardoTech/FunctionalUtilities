@@ -32,16 +32,16 @@ QuadPrimitive::QuadPrimitive()
 	_normalsArray = new osg::Vec3Array;
 	_normalsArray->push_back(osg::Vec3(0, 1, 0));
 
-	 _geometry = new osg::Geometry();
-	_geometry->setUseVertexBufferObjects(true);
-	_geometry->setVertexArray(m_vertexArray);
-	_geometry->setColorArray(_quadColors);
-	_geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
-	_geometry->setNormalArray(_normalsArray, osg::Array::BIND_PER_PRIMITIVE_SET);
-	_geometry->setTexCoordArray(0, _texcoords, osg::Array::BIND_PER_VERTEX);
-	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_QUADS, 0, 4));
+	 //_geometry = new osg::Geometry();
+	this->setUseVertexBufferObjects(true);
+	this->setVertexArray(m_vertexArray);
+	this->setColorArray(_quadColors);
+	this->setColorBinding(osg::Geometry::BIND_OVERALL);
+	this->setNormalArray(_normalsArray, osg::Array::BIND_PER_PRIMITIVE_SET);
+	this->setTexCoordArray(0, _texcoords, osg::Array::BIND_PER_VERTEX);
+	this->addPrimitiveSet(new osg::DrawArrays(GL_QUADS, 0, 4));
 
-	_root->addDrawable(_geometry);
+	_root->addDrawable(this);
 
 
 	//_geometry->setUserValue("m_center", m_center);
@@ -84,7 +84,7 @@ void QuadPrimitive::setVertices(Vertex vet1, Vertex vet2, Vertex vet3, Vertex ve
 	m_localX = vecX;
 
 	m_vertexArray->dirty();
-	_geometry->dirtyBound();
+	this->dirtyBound();
 }
 
 void QuadPrimitive::getVertices(Vertex& vet1, Vertex& vet2, Vertex& vet3, Vertex& vet4)
@@ -114,7 +114,7 @@ void QuadPrimitive::createQuad(const osg::Vec3& center, const osg::Vec2& length,
 	(*m_vertexArray)[3].set(center - localX * m_unitLength.x() + localY * m_unitLength.y());
 
 	m_vertexArray->dirty();
-	_geometry->dirtyBound();
+	this->dirtyBound();
 }
 
 osg::Node* QuadPrimitive::getRoot()
@@ -163,7 +163,7 @@ void QuadPrimitive::setColor(float red, float green, float blue)
 
 osg::Geometry* QuadPrimitive::getQuadGeometry()
 {
-	return _geometry;
+	return this;
 }
 
 osg::Geometry* QuadPrimitive::getFrameGeometry()
@@ -275,7 +275,7 @@ IDrawElement* QuadPrimitive::create(osg::Geometry *geom)const
 	//	return NULL;
 	//}
 	QuadPrimitive* quad = new QuadPrimitive();
-	quad->_geometry = geom;
+	quad = dynamic_cast<QuadPrimitive*>(geom);
 	quad->m_vertexArray = dynamic_cast<osg::Vec3Array*>(geom->getVertexArray());
 	quad->_quadColors = dynamic_cast<osg::Vec4Array*>(geom->getColorArray());
 

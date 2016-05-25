@@ -1,5 +1,7 @@
 ﻿#ifndef __IDRAW_ELEMENT_H__
 #define __IDRAW_ELEMENT_H__
+#include <osg/Geometry>
+
 #include "VertexArray.h"
 #include "IColorable.h"
 

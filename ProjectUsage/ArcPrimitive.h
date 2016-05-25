@@ -1,17 +1,18 @@
-﻿#ifndef __GEO_ARC_PRIMITIVE_H__
-#define __GEO_ARC_PRIMITIVE_H__
+﻿#ifndef __GEO_ARC_H__
+#define __GEO_ARC_H__
 /*
 园弧线，按照右手定则，通过圆心，起点，终点，法向量来确定
 */
 #include <osg/Geometry>
 #include "IArcPrimitive.h"
 #include <osg/Drawable>
+#include "ComponentDrawable.h"
 
 #define VESRION_ARC 1
 
 namespace geo
 {
-	class ArcPrimitive:public osg::Drawable , public IArcPrimitive
+	class ArcPrimitive:public bimWorld::ComponentDrawable , public IArcPrimitive
 	{
 	public:
 		ArcPrimitive(void);
@@ -39,6 +40,12 @@ namespace geo
 		const osg::Vec3& getCenter() const;
 		const osg::Vec3& getNormal() const;
 
+		virtual VertexArray getVertices() const override;
+
+		virtual void setVertices(const VertexArray& arr) override;
+
+		virtual void setColor(float red, float green, float blue) override;
+
 
 
 	protected:
@@ -50,7 +57,7 @@ namespace geo
 		Vertex v_normal;
 		Vertex v_start;
 		Vertex v_end;
-		const double PI = 3.1415926;
+		//const double PI = 3.1415926;
 	};
 }
-#endif // __GEO_ARC_PRIMITIVE_H__
+#endif // __GEO_ARC_H__

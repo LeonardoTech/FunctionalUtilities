@@ -4,11 +4,11 @@
 #include <osg/Geometry>
 
 #include "IPointPrimitive.h"
-#include <IPrimitiveFactor.h>
+#include "ComponentDrawable.h"
 
-using namespace geo;
+
 // <绘制电元的实现类，继承于IPointPrimitives>
-class PointPrimitive :public IPointPrimitive,public osg::Geometry
+class PointPrimitive :public bimWorld::ComponentDrawable, public IPointPrimitive
 {
 public:
 	
@@ -35,8 +35,6 @@ public:
 	// <设置点的坐标，用VertexArray的类型>
 	virtual void setVertices(const VertexArray& arr) override;
 
-	virtual void getPosition(float& x, float& y, float& z)override;
-
 // internal:
 	osg::Geometry *getGeometry();
 
@@ -44,10 +42,8 @@ public:
 
 	virtual void setPosition(const osg::Vec3& pos);
 
-	virtual IDrawElement* create(osg::Geometry *geo)const override;
-
 private:
-	//osg::ref_ptr<osg::Geometry> _geometry;
+	osg::ref_ptr<osg::Geometry> _geometry;
 	osg::Vec3 _vertex;
 	osg::ref_ptr<osg::Vec4Array> _color;
 	osg::ref_ptr<osg::Vec3Array>_vertices;

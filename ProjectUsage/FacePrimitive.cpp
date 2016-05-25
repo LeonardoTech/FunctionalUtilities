@@ -8,16 +8,16 @@ FacePrimitive::FacePrimitive()
 	_position = { 0.0f, 0.0f, 0.0f };
 	_vertices = new osg::Vec3Array(3);
 	_color = new osg::Vec4Array(1);
-	//_geometry = new osg::Geometry;
-	setDataVariance(osg::Object::DYNAMIC);
-	setUseDisplayList(false);
-	setUseVertexBufferObjects(true);
-	setVertexArray(_vertices);
-	setColorArray(_color);
-	setColorBinding(osg::Geometry::BIND_OVERALL);
-	addPrimitiveSet(new osg::DrawArrays(GL_TRIANGLES, 0, 3));    //  <由于画的是三角面，所以参数是三角形，三个顶点>
+	_geometry = new osg::Geometry;
+	_geometry->setDataVariance(osg::Object::DYNAMIC);
+	_geometry->setUseDisplayList(false);
+	_geometry->setUseVertexBufferObjects(true);
+	_geometry->setVertexArray(_vertices);
+	_geometry->setColorArray(_color);
+	_geometry->setColorBinding(osg::Geometry::BIND_OVERALL);
+	_geometry->addPrimitiveSet(new osg::DrawArrays(GL_TRIANGLES, 0, 3));    //  <由于画的是三角面，所以参数是三角形，三个顶点>
 
-	auto stateSet = this->getOrCreateStateSet();
+	auto stateSet = _geometry->getOrCreateStateSet();
 	stateSet->setMode(GL_LIGHTING, osg::StateAttribute::OFF);   //  <设置高亮>
 }
 
@@ -31,7 +31,7 @@ void FacePrimitive::setPosition(float x1, float y1, float z1, float x2, float y2
 	(*_vertices)[1] = osg::Vec3{ x2, y2, z2 };
 	(*_vertices)[2] = osg::Vec3{ x3, y3, z3 };
 	_vertices->dirty();													// <刷新功能，刷新顶点位置>
-	this->dirtyBound();									// <_geometry 刷新>
+	_geometry->dirtyBound();									// <_geometry 刷新>
 }
 
 void FacePrimitive::setPosition(osg::Vec3 vertices1, osg::Vec3 vertices2, osg::Vec3 vertices3)
@@ -40,7 +40,7 @@ void FacePrimitive::setPosition(osg::Vec3 vertices1, osg::Vec3 vertices2, osg::V
 	(*_vertices)[1] = vertices2;
 	(*_vertices)[2] = vertices3;
 	_vertices->dirty();
-	this->dirtyBound();
+	_geometry->dirtyBound();
 }
 
 void FacePrimitive::setVertices(const VertexArray& arr)
@@ -100,7 +100,7 @@ void FacePrimitive::setColor(float red, float green, float blue)
 	osg::Vec4 color = { red, green, blue, 1.0f };   // <透明度默认为1，否则会被覆盖掉>
 	(*_color)[0] = color;
 	_color->dirty();
-	this->dirtyBound();
+	_geometry->dirtyBound();
 }
 
 #pragma endregion
@@ -109,16 +109,7 @@ void FacePrimitive::setColor(float red, float green, float blue)
 
 osg::Geometry* FacePrimitive::getGeometry()
 {
-	return this;
+	return _geometry;
 }
 
 #pragma endregion
-
-
-
-
-
-
-
-
-

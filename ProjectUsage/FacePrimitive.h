@@ -2,13 +2,14 @@
 #define __FACE_PRIMITIVE_H__
 
 #include <osg/Geometry>
-#include <IPrimitiveFactor.h>
+
 #include "VertexArray.h"
 #include  "IFacePrimitive.h"
+#include "ComponentDrawable.h"
 
-using namespace  geo;
+
 // <绘制面元的实现类，继承于IFacePrimitives>.
-class  FacePrimitive :public IFacePrimitive, public osg::Geometry
+class  FacePrimitive :public bimWorld::ComponentDrawable, public IFacePrimitive
 {
 public:
 	// <构造函数，用于初始化私有变量>
@@ -44,7 +45,7 @@ protected:
 	osg::Vec3 _vertices1;
 	osg::Vec3 _vertices2;
 	osg::Vec3 _vertices3;
-	//osg::ref_ptr<osg::Geometry> _geometry;
+	osg::ref_ptr<osg::Geometry> _geometry;
 	osg::ref_ptr<osg::Vec4Array> _color;
 	osg::ref_ptr<osg::Vec3Array>_vertices;
 };

@@ -1,4 +1,5 @@
 #include "ArcPrimitive.h"
+#include <osg/Math>
 using namespace geo;
 
 
@@ -11,8 +12,6 @@ ArcPrimitive::ArcPrimitive()
 	m_normal = { 0.0, 0.0,1.0 };
 	v_center.set(0.0, 0.0, 0.0);
 	v_normal.set(0.0, 0.0, 1.0);
-	v_start.set(0.0, 0.0, 0.0);
-	v_end.set(0.0, 0.0, 0.0);
 
  }
 
@@ -113,15 +112,15 @@ void ArcPrimitive::drawImplementation(osg::RenderInfo& renderInfo)const
 {
 	const int Num = 360;
 	int Ra;
-	//<圆弧点集>
+	// <圆弧点集>
 	osg::Vec3 Plist[Num];
 	float  Dis = 999999;
 	osg::Vec3 NowP = m_start;
 	for (int i = 1; i < Num; i++)
 	{
 		float Cos, Sin;
-		Cos = cos(2 * PI / Num);
-		Sin = sin(2 * PI / Num);
+		Cos = cos(2 * osg::PI / Num);
+		Sin = sin(2 * osg::PI / Num);
 		Plist[i].x() = (NowP.x() - m_center.x())*(m_normal.x()*m_normal.x() + (1 - m_normal.x()*m_normal.x())*Cos)
 			+ (NowP.y() - m_center.y())*(m_normal.x()*m_normal.y()*(1 - Cos) + m_normal.z()*Sin)
 			+ (NowP.z() - m_center.z())*(m_normal.x()*m_normal.z()*(1 - Cos) - m_normal.y()*Sin) + m_center.x();
@@ -156,7 +155,7 @@ void ArcPrimitive::setStart(float dx, float dy, float dz)
 void ArcPrimitive::setStart(const Vertex& start)
 {
 	m_start = { start.getX(), start.getY(), start.getZ() };
-	getVector();
+	this->dirtyBound();
 }
 
 void ArcPrimitive::setEnd(float dx, float dy, float dz)
@@ -168,18 +167,35 @@ void ArcPrimitive::setEnd(float dx, float dy, float dz)
 void ArcPrimitive::setEnd(const Vertex& end)
 {
 	m_end = { end.getX(), end.getY(), end.getZ() };
-	getVector();
+	this->dirtyBound();
 }
 
 
 Vertex& ArcPrimitive::getStart()
 {
-	v_start.set(m_start.x(), m_start.y(), m_start.z());
-	return v_start;
+	Vertex start = { 0.0, 0.0, 0.0 };
+	start.set(m_start.x(), m_start.y(), m_start.z());
+	return start;
 }
 
 Vertex& ArcPrimitive::getEnd()
 {
-	v_end.set(m_end.x(), m_end.y(), m_end.z());
-	return v_end;
+	Vertex end = { 0.0, 0.0, 0.0 };
+	end.set(m_end.x(), m_end.y(), m_end.z());
+	return end;
+}
+
+VertexArray geo::ArcPrimitive::getVertices() const
+{
+	throw std::exception("The method or operation is not implemented.");
+}
+
+void geo::ArcPrimitive::setVertices(const VertexArray& arr)
+{
+	throw std::exception("The method or operation is not implemented.");
+}
+
+void geo::ArcPrimitive::setColor(float red, float green, float blue)
+{
+	throw std::exception("The method or operation is not implemented.");
 }
