@@ -1,0 +1,96 @@
+\hypertarget{class_coordinate_updater}{}\section{Coordinate\+Updater Class Reference}
+\label{class_coordinate_updater}\index{Coordinate\+Updater@{Coordinate\+Updater}}
+
+
+{\ttfamily \#include $<$Coordinate\+Updater.\+h$>$}
+
+Inheritance diagram for Coordinate\+Updater\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_coordinate_updater}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_coordinate_updater_afb57ab6d123b7c37fb22b98d212c6be9}{Coordinate\+Updater} (osg\+G\+A\+::\+Multi\+Touch\+Trackball\+Manipulator $\ast$manip)
+\begin{DoxyCompactList}\small\item\em brief $<$ 构造私有成员进行初始化，利用传进来的manip来表示当前的环境$>$=\char`\"{}\char`\"{}$>$ \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_coordinate_updater_af67e8d382ffd471a058102d35cbd988c}{operator()} (osg\+::\+Node $\ast$node, osg\+::\+Node\+Visitor $\ast$nv) override
+\begin{DoxyCompactList}\small\item\em $<$对传进来的manip进行操作.$>$ \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \hyperlink{class_coordinate_updater_ae9125c8a126d0e98b0dd6711b37f6876}{get\+Result} (Axis ax)
+\begin{DoxyCompactList}\small\item\em $<$ 根据传进来\+Axis的枚举值，来确定获取哪个轴的结果.$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class \hyperlink{class_coordinate_updater}{Coordinate\+Updater}
+
+brief $<$一个继承于osg\+::\+Node\+Callback的类,能够使处于\+H\+U\+D相机下的坐标系能够用鼠标控制旋转，并且能够计数刷新$>$
+
+author Admin date 2016/3/14 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Coordinate\+Updater@{Coordinate\+Updater}!Coordinate\+Updater@{Coordinate\+Updater}}
+\index{Coordinate\+Updater@{Coordinate\+Updater}!Coordinate\+Updater@{Coordinate\+Updater}}
+\subsubsection[{\texorpdfstring{Coordinate\+Updater(osg\+G\+A\+::\+Multi\+Touch\+Trackball\+Manipulator $\ast$manip)}{CoordinateUpdater(osgGA::MultiTouchTrackballManipulator *manip)}}]{\setlength{\rightskip}{0pt plus 5cm}Coordinate\+Updater\+::\+Coordinate\+Updater (
+\begin{DoxyParamCaption}
+\item[{osg\+G\+A\+::\+Multi\+Touch\+Trackball\+Manipulator $\ast$}]{manip}
+\end{DoxyParamCaption}
+)}\hypertarget{class_coordinate_updater_afb57ab6d123b7c37fb22b98d212c6be9}{}\label{class_coordinate_updater_afb57ab6d123b7c37fb22b98d212c6be9}
+
+
+brief $<$ 构造私有成员进行初始化，利用传进来的manip来表示当前的环境$>$=\char`\"{}\char`\"{}$>$ 
+
+brief $<$ 构造私有成员进行初始化，利用传进来的manip来表示当前的环境$>$=\char`\"{}\char`\"{}$>$
+
+author Admin date 2016/3/14
+
+param \mbox{[}in\mbox{]} manip If non-\/null, the manip. 
+
+\subsection{Member Function Documentation}
+\index{Coordinate\+Updater@{Coordinate\+Updater}!get\+Result@{get\+Result}}
+\index{get\+Result@{get\+Result}!Coordinate\+Updater@{Coordinate\+Updater}}
+\subsubsection[{\texorpdfstring{get\+Result(\+Axis ax)}{getResult(Axis ax)}}]{\setlength{\rightskip}{0pt plus 5cm}osg\+::\+Vec3 Coordinate\+Updater\+::get\+Result (
+\begin{DoxyParamCaption}
+\item[{Axis}]{ax}
+\end{DoxyParamCaption}
+)}\hypertarget{class_coordinate_updater_ae9125c8a126d0e98b0dd6711b37f6876}{}\label{class_coordinate_updater_ae9125c8a126d0e98b0dd6711b37f6876}
+
+
+$<$ 根据传进来\+Axis的枚举值，来确定获取哪个轴的结果.$>$ 
+
+fn osg\+::\+Vec3 \hyperlink{class_coordinate_updater_ae9125c8a126d0e98b0dd6711b37f6876}{Coordinate\+Updater\+::get\+Result(\+Axis ax)}
+
+brief $<$根据传进来\+Axis的枚举值，来确定获取哪个轴的结果.$>$
+
+author Admin date 2016/3/14
+
+param ax $<$Axis类型的枚举值，代表着X,Y,Z轴$>$
+
+return The result. $<$x\+Axis(1,0,0)代表着\+X轴$>$
+
+y\+Axis(0,1,0)代表着\+Y轴$>$
+
+$<$z\+Axis(0,0,1)代表着\+Z轴$>$ \index{Coordinate\+Updater@{Coordinate\+Updater}!operator()@{operator()}}
+\index{operator()@{operator()}!Coordinate\+Updater@{Coordinate\+Updater}}
+\subsubsection[{\texorpdfstring{operator()(osg\+::\+Node $\ast$node, osg\+::\+Node\+Visitor $\ast$nv) override}{operator()(osg::Node *node, osg::NodeVisitor *nv) override}}]{\setlength{\rightskip}{0pt plus 5cm}void Coordinate\+Updater\+::operator() (
+\begin{DoxyParamCaption}
+\item[{osg\+::\+Node $\ast$}]{node, }
+\item[{osg\+::\+Node\+Visitor $\ast$}]{nv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_coordinate_updater_af67e8d382ffd471a058102d35cbd988c}{}\label{class_coordinate_updater_af67e8d382ffd471a058102d35cbd988c}
+
+
+$<$对传进来的manip进行操作.$>$ 
+
+fn void \hyperlink{class_coordinate_updater_af67e8d382ffd471a058102d35cbd988c}{Coordinate\+Updater\+::operator()(osg\+::\+Node$\ast$ node, osg\+::\+Node\+Visitor$\ast$ nv)}
+
+brief $<$对传进来的manip进行操作.\+让处于\+H\+U\+D相机的坐标系能够进行操作$>$
+
+author Admin date 2016/3/14
+
+param \mbox{[}in\mbox{]} $<$ 基类函数定义不需要管$>$=\char`\"{}\char`\"{}$>$ param \mbox{[}in\mbox{]} $<$基类函数定义不需要管.$>$ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Coordinate\+Device/Coordinate\+Updater.\+h\item 
+Coordinate\+Device/Coordinate\+Update.\+cpp\end{DoxyCompactItemize}

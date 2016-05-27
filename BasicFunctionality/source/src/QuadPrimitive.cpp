@@ -107,7 +107,6 @@ void QuadPrimitive::createQuad(const osg::Vec3& center, const osg::Vec2& length,
 	m_localX = localX;
 	m_localY = localY;
 
-
 	(*m_vertexArray)[0].set(center - localX * m_unitLength.x() - localY * m_unitLength.y());
 	(*m_vertexArray)[1].set(center + localX * m_unitLength.x() - localY * m_unitLength.y());
 	(*m_vertexArray)[2].set(center + localX * m_unitLength.x() + localY * m_unitLength.y());

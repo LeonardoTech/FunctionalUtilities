@@ -57,7 +57,7 @@ namespace UnitTest1
 			osg::ref_ptr<osg::Group> root = new osg::Group;
 			root->addChild(trans.get());
 			picker->setRoot(root);
-			//root->addChild(picker->getSelector()->createPointSelector());  // Caution: It has bound, too
+			//root->addChild(picker->getSelector()->	());  // Caution: It has bound, too
 			viewer.setSceneData(root.get());
 			viewer.addEventHandler(picker.get());
 

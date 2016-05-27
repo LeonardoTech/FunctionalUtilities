@@ -4,7 +4,6 @@
 
 //brief <对构造函数进行初始化.>
 //param [in]	selector 	<创建一个Select类对象.>
-//param [in]	selector1	<创建一个Select类对象.>
 PickHandler::PickHandler(osg::Group* root, MeasuringLineLengthImplement* selector)
 {
 	_select = selector;
