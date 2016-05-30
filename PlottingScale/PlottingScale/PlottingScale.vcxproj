@@ -69,6 +69,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(ProjectDir)..\..\BasicFunctionality\inc;$(ProjectDir)..\..\BasicFunctionality\source\inc;$(OSG_3_4)\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(OSG_3_4)\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\Result</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

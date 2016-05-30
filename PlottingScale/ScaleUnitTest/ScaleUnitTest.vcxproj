@@ -78,6 +78,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(#ProjectDir)..\PlottingScale;$(ProjectDir)..\..\BasicFunctionality\source\inc;$(OSG_3_4)\include;$(ProjectDir)..\..\BasicFunctionality\inc;$(IncludePath)</IncludePath>
     <LibraryPath>$(OSG_3_4)\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\Result</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
