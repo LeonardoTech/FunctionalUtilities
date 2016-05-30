@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="QtDebug|Win32">
+      <Configuration>QtDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="QtDebug|x64">
+      <Configuration>QtDebug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="QtRelease3.2.1|Win32">
+      <Configuration>QtRelease3.2.1</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="QtRelease3.2.1|x64">
+      <Configuration>QtRelease3.2.1</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="QtRelease|Win32">
+      <Configuration>QtRelease</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="QtRelease|x64">
+      <Configuration>QtRelease</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release64|Win32">
+      <Configuration>Release64</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release64|x64">
+      <Configuration>Release64</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9A27B4E1-F08D-4D12-BA50-2D3ABEFD96E4}</ProjectGuid>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <ProjectName>YZModelEntity</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtDebug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease3.2.1|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release64|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtDebug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease3.2.1|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='QtDebug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease3.2.1|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release64|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='QtDebug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease3.2.1|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtDebug|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtDebug|x64'">
+    <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease3.2.1|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release64|Win32'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|x64'">
+    <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease3.2.1|x64'">
+    <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'">
+    <OutDir>$(SolutionDir)..\..\..\bin\windows\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;YZSQLITE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(SolutionDir)..\..\..\..\OSG\inc\common\YZSqlite;$(SolutionDir)..\..\..\..\OSG\inc\common\3rdParty\sqlite-3081002</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='QtDebug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;YZSQLITE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(SolutionDir)..\..\..\..\OSG\inc\common\YZSqlite;$(SolutionDir)..\..\..\..\OSG\inc\common\3rdParty\sqlite-3081002</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>YIZHU_API_DEFINE;DEBUG_SQLITE;UNICODE;WIN32;WIN64;YZMODELENTITY_LIB;USING_BOUNDING_SPHERE;OSGCORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(YZ_GEO)\inc\dragon;$(YZ_GEO)\inc\common;$(YZ_GEO)\inc\giraffe;$(YZ_GEO)\inc\tiger;$(YZ_GEO)\inc\ModelCore;$(OSG_3_4)\include;$(ProjectDir)..\..\..\OSG\inc\YZSqlite;$(ProjectDir)..\..\inc\3rdParty\sqlite-3081002;$(ProjectDir)..\..\..\OSG\inc\YZModelCore;$(ProjectDir)..\..\..\OSG\inc\YZTools;$(ProjectDir)..\..\..\OSG\inc\YZSceneGraph;$(ProjectDir)..\..\..\OSG\inc\YZModelEntity;$(ProjectDir)..\..\..\OSG\inc\public;$(ProjectDir)..\..\..\OSG\inc\YZGraphics;.\..\..\..\OSG\inc\YZMaterial;.\..\..\..\OSG\inc\YZEffect;.\GeneratedFiles\$(ConfigurationName)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\lib\$(Platform)\$(Configuration);$(OSG_3_4)\lib;$(YZ_GEO)\..\Windows\lib\x64_vc12_unicode_debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SqliteWin.lib;opengl32.lib;glu32.lib;OpenThreadsd.lib;osgd.lib;osgDBd.lib;osgManipulatord.lib;osgAnimationd.lib;osgUtild.lib;osgGAd.lib;osgViewerd.lib;osgTextd.lib;$(SolutionDir)..\lib\$(Platform)\$(Configuration)\YZTools.lib;Giraffe.lib;Dragon.lib;Tiger.lib;ModelCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) $(YZ_PC)\bin\x64_vc12_unicode_debug\$(TargetFileName)
+copy $(OutDir)$(TargetName).pdb $(YZ_PC)\bin\x64_vc12_unicode_debug\$(TargetName).pdb
+copy $(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib $(YZ_PC)\lib\x64_vc12_unicode_debug\$(TargetName).lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='QtDebug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>USING_QT;YIZHU_API_DEFINE;DEBUG_SQLITE;UNICODE;WIN32;WIN64;YZMODELENTITY_LIB;USING_BOUNDING_SPHERE;OSGCORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(YZ_GEO)\inc\dragon;$(YZ_GEO)\inc\common;$(YZ_GEO)\inc\giraffe;$(YZ_GEO)\inc\tiger;$(YZ_GEO)\inc\ModelCore;$(OSG_3_4)\include;$(ProjectDir)..\..\..\OSG\inc\YZSqlite;$(ProjectDir)..\..\inc\3rdParty\sqlite-3081002;$(ProjectDir)..\..\..\OSG\inc\YZModelCore;$(ProjectDir)..\..\..\OSG\inc\YZTools;$(ProjectDir)..\..\..\OSG\inc\YZSceneGraph;$(ProjectDir)..\..\..\OSG\inc\YZModelEntity;$(ProjectDir)..\..\..\OSG\inc\public;$(ProjectDir)..\..\..\OSG\inc\YZGraphics;.\..\..\..\OSG\inc\YZMaterial;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);.\..\..\..\OSG\inc\YZEffect</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <BrowseInformation>false</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\lib\$(Platform)\$(Configuration);$(QTDIR)\lib;$(OSG_3_4)\lib;$(YZ_GEO)\..\Windows\lib\x64_vc12_unicode_debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SqliteWin.lib;opengl32.lib;glu32.lib;OpenThreadsd.lib;osgd.lib;osgDBd.lib;osgManipulatord.lib;osgAnimationd.lib;osgUtild.lib;osgGAd.lib;osgViewerd.lib;osgTextd.lib;osgQtd.lib;Qt5Cored.lib;Qt5Widgets.lib;Qt5OpenGL.lib;$(SolutionDir)..\lib\$(Platform)\$(Configuration)\YZTools.lib;Giraffe.lib;Dragon.lib;Tiger.lib;ModelCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) $(YZ_PC)\bin\x64_vc12_unicode_debug\$(TargetFileName)
+copy $(OutDir)$(TargetName).pdb $(YZ_PC)\bin\x64_vc12_unicode_debug\$(TargetName).pdb
+copy $(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib $(YZ_PC)\lib\x64_vc12_unicode_debug\$(TargetName).lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;YZSQLITE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(SolutionDir)..\..\..\..\OSG\inc\common\YZSqlite;$(SolutionDir)..\..\..\..\OSG\inc\common\3rdParty\sqlite-3081002</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;YZSQLITE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(SolutionDir)..\..\..\..\OSG\inc\common\YZSqlite;$(SolutionDir)..\..\..\..\OSG\inc\common\3rdParty\sqlite-3081002</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease3.2.1|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;YZSQLITE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(SolutionDir)..\..\..\..\OSG\inc\common\YZSqlite;$(SolutionDir)..\..\..\..\OSG\inc\common\3rdParty\sqlite-3081002</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release64|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;YZSQLITE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(SolutionDir)..\..\..\..\OSG\inc\common\YZSqlite;$(SolutionDir)..\..\..\..\OSG\inc\common\3rdParty\sqlite-3081002</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>YIZHU_API_DEFINE;UNICODE;USING_BOUNDING_SPHERE;WIN32;WIN64;NDEBUG;YZMODELENTITY_LIB;OSGCORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(YZ_GEO)\inc\dragon;$(YZ_GEO)\inc\common;$(YZ_GEO)\inc\giraffe;$(YZ_GEO)\inc\tiger;$(YZ_GEO)\inc\ModelCore;$(SolutionDir)..\..\OSG\inc\YZSqlite;$(SolutionDir)..\inc\3rdParty\sqlite-3081002;$(OSG_3_4)\include;$(SolutionDir)..\..\OSG\inc\YZTools;$(SolutionDir)..\..\OSG\inc\YZModelCore;$(SolutionDir)..\..\OSG\inc\YZSceneGraph;$(SolutionDir)..\..\OSG\inc\YZModelEntity;$(SolutionDir)..\..\OSG\inc\public;$(ProjectDir)..\..\..\OSG\inc\YZGraphics;.\..\..\..\OSG\inc\YZMaterial;.\..\..\..\OSG\inc\YZEffect;.\GeneratedFiles\$(ConfigurationName)</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\lib\$(Platform)\$(Configuration);$(OSG_3_4)\lib;$(YZ_GEO)\..\Windows\lib\x64_vc12_unicode_release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>SqliteWin.lib;opengl32.lib;glu32.lib;OpenThreads.lib;osg.lib;osgDB.lib;osgManipulator.lib;osgAnimation.lib;osgUtil.lib;osgGA.lib;osgViewer.lib;osgText.lib;$(SolutionDir)..\lib\$(Platform)\$(Configuration)\YZTools.lib;Giraffe.lib;Dragon.lib;Tiger.lib;ModelCore.lib;CreatBirdViewHUD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) $(YZ_PC)\bin\x64_vc12_unicode_release\$(TargetFileName)
+copy $(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib $(YZ_PC)\lib\x64_vc12_unicode_release\$(TargetName).lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>USING_QT;YIZHU_API_DEFINE;DEBUG_SQLITE;UNICODE;USING_BOUNDING_SPHERE;WIN32;WIN64;NDEBUG;YZMODELENTITY_LIB;OSGCORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(YZ_GEO)\inc\dragon;$(YZ_GEO)\inc\common;$(YZ_GEO)\inc\giraffe;$(YZ_GEO)\inc\tiger;$(YZ_GEO)\inc\ModelCore;$(SolutionDir)..\..\OSG\inc\YZSqlite;$(SolutionDir)..\inc\3rdParty\sqlite-3081002;$(OSG_3_4)\include;$(SolutionDir)..\..\OSG\inc\YZTools;$(SolutionDir)..\..\OSG\inc\YZModelCore;$(SolutionDir)..\..\OSG\inc\YZSceneGraph;$(SolutionDir)..\..\OSG\inc\YZModelEntity;$(SolutionDir)..\..\OSG\inc\public;$(ProjectDir)..\..\..\OSG\inc\YZGraphics;.\..\..\..\OSG\inc\YZMaterial;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include;.\..\..\..\OSG\inc\YZEffect</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\lib\$(Platform)\$(Configuration);$(OSG_3_4)\lib;$(YZ_GEO)\..\Windows\lib\x64_vc12_unicode_release;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>SqliteWin.lib;opengl32.lib;glu32.lib;OpenThreads.lib;osg.lib;osgDB.lib;osgManipulator.lib;osgAnimation.lib;osgUtil.lib;osgGA.lib;osgViewer.lib;osgText.lib;osgQt.lib;Qt5Core.lib;Qt5Widgets.lib;Qt5OpenGL.lib;$(SolutionDir)..\lib\$(Platform)\$(Configuration)\YZTools.lib;Giraffe.lib;Dragon.lib;Tiger.lib;ModelCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) $(YZ_PC)\bin\x64_vc12_unicode_release\$(TargetFileName)
+copy $(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib $(YZ_PC)\lib\x64_vc12_unicode_release\$(TargetName).lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease3.2.1|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>USING_QT;YIZHU_API_DEFINE;DEBUG_SQLITE;UNICODE;USING_BOUNDING_SPHERE;WIN32;WIN64;NDEBUG;YZMODELENTITY_LIB;OSGCORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(YZ_GEO)\inc\dragon;$(YZ_GEO)\inc\common;$(YZ_GEO)\inc\giraffe;$(YZ_GEO)\inc\tiger;$(YZ_GEO)\inc\ModelCore;$(SolutionDir)..\..\OSG\inc\YZSqlite;$(SolutionDir)..\inc\3rdParty\sqlite-3081002;$(OSG_ROOT)\x64\include;$(SolutionDir)..\..\OSG\inc\YZTools;$(SolutionDir)..\..\OSG\inc\YZModelCore;$(SolutionDir)..\..\OSG\inc\YZSceneGraph;$(SolutionDir)..\..\OSG\inc\YZModelEntity;$(SolutionDir)..\..\OSG\inc\public;$(ProjectDir)..\..\..\OSG\inc\YZGraphics;.\..\..\..\OSG\inc\YZMaterial;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\lib\$(Platform)\$(Configuration);$(OSG_ROOT)\x64\lib;$(YZ_GEO)\..\Windows\lib\x64_vc12_unicode_release;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>SqliteWin.lib;opengl32.lib;glu32.lib;OpenThreads.lib;osg.lib;osgDB.lib;osgManipulator.lib;osgAnimation.lib;osgUtil.lib;osgGA.lib;osgViewer.lib;osgText.lib;osgQt.lib;Qt5Core.lib;Qt5Widgets.lib;Qt5OpenGL.lib;$(SolutionDir)..\lib\$(Platform)\$(Configuration)\YZTools.lib;Giraffe.lib;Dragon.lib;Tiger.lib;ModelCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) $(YZ_PC)\bin\x64_vc12_unicode_release\$(TargetFileName)
+copy $(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib $(YZ_PC)\lib\x64_vc12_unicode_release\$(TargetName).lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>DEBUG_SQLITE;UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;YZMODELENTITY_LIB;BOOST_ALL_DYN_LINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(SolutionDir)..\..\..\..\OSG\inc\common\YZSqlite;$(SolutionDir)..\..\..\..\OSG\inc\common\3rdParty\sqlite-3081002;$(BOOST_ROOT);$(SolutionDir)..\..\..\..\OSG\inc\common\ModelViewer;$(SolutionDir)..\..\..\..\OSG\inc\common\YZTools</AdditionalIncludeDirectories>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(SolutionDir)..\..\..\bin\windows\$(Configuration)\$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>$(BOOST_ROOT)\bin\vc12_x64DLL\lib;$(QTDIR)\lib;$(SolutionDir)..\..\..\lib\windows\$(Configuration);$(OSG_ROOT)\x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;SqliteWin.lib;boost_locale-vc120-mt-1_58.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)..\..\..\lib\windows\$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(TargetPath) $(SolutionDir)..\TestEnv\pcbim\bin\$(Platform)\$(Configuration)\$(TargetFileName)
+copy $(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib $(SolutionDir)..\TestEnv\pcbim\lib\$(Platform)\$(Configuration)\$(TargetName).lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\ConstructKey.cpp" />
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\EntitySharedData.cpp" />
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\ModelEntityFactory.cpp" />
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\YZModelEntityInternal.cpp" />
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\YZModelEntityModule.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\OSG\inc\public\ModelViewer\ConstructKey.h" />
+    <ClInclude Include="..\..\..\OSG\inc\public\IModelEntity.h" />
+    <ClInclude Include="..\..\..\OSG\inc\common\IModelEntityFactory.h" />
+    <ClInclude Include="..\..\..\OSG\inc\YZModelEntity\EntitySharedData.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\..\..\OSG\inc\YZModelEntity\ModelEntityFactory.h" />
+    <ClInclude Include="..\..\..\OSG\inc\YZModelEntity\YZModelEntityInternal.h" />
+    <ClInclude Include="..\..\..\OSG\inc\YZModelEntity\YZModelEntityModule.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModelEntity\ModelLoader\ModelLoader.vcxproj">
+      <Project>{c3b32fe2-9fa3-4fc5-8876-4e4f00a34970}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelEntity\NodeController\NodeController.vcxproj">
+      <Project>{9e8bbb14-8873-438b-8636-2f68a9c33199}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelEntity\ProgressInfo\ProgressInfo.vcxproj">
+      <Project>{8768d259-bf05-4885-8d3b-9cdee8ba2d7a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelEntity\ZoomEntityModel\ZoomEntityModel.vcxproj">
+      <Project>{7fd76008-e00f-45e8-b649-dcbb1d5c2470}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SceneGraph\SceneGraph\SceneGraph.vcxproj">
+      <Project>{8f7d7ced-5496-47c9-bde8-ad867f7547bf}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\YZEffect\YZEffect.vcxproj">
+      <Project>{7869e437-e337-4275-9e75-77a345194963}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\YZModelCore\YZModelCore.vcxproj">
+      <Project>{b12702ad-abfb-343a-a199-8e24837244a3}</Project>
+      <Private>true</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\YZSqlite\YZSqlite.vcxproj">
+      <Project>{bc1b88ac-b9f9-4181-8ed1-d2de472bc022}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\YZTools\YZTools.vcxproj">
+      <Project>{d0701429-99bf-4fa6-bdb4-5fe2259956a4}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="Qt5.4.1" MocOptions="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

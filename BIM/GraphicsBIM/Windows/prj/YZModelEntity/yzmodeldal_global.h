@@ -1,0 +1,12 @@
+#ifndef YZMODELDAL_GLOBAL_H
+#define YZMODELDAL_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#ifdef YZMODELDAL_LIB
+# define YZMODELDAL_EXPORT Q_DECL_EXPORT
+#else
+# define YZMODELDAL_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // YZMODELDAL_GLOBAL_H
