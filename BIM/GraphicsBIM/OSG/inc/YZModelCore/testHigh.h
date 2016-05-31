@@ -1,7 +1,8 @@
 #ifndef TESTHIGH_H
 #define TESTHIGH_H
 #include <vector>
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\\inc\\YZModelCore\\YZModelCoreModule.h"
+#include "YZModelCoreModule.h"
+//#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\\inc\\YZModelCore\\YZModelCoreModule.h"
 
 namespace bimWorld
 {
