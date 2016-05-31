@@ -136,7 +136,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(ProjectDir)..\release;$(ProjectDir)..\lib\x64\QtRelease;$(OSG_3_4)\lib;D:\WorkSpace\BIM\ModelData\Windows\lib\x64_vc12_unicode_release;D:\WorkSpace\BIM\ModelData\Windows\lib\x64_vc12_unicode_drelease;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\..\ModelData\Windows\lib\x64_vc12_unicode_release;$(QTDIR)\lib;$(ProjectDir)..\release;$(ProjectDir)..\lib\x64\QtRelease;$(OSG_3_4)\lib;D:\WorkSpace\BIM\ModelData\Windows\lib\x64_vc12_unicode_release;D:\WorkSpace\BIM\ModelData\Windows\lib\x64_vc12_unicode_drelease;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>qtmain.lib;osgQt.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5OpenGL.lib;Giraffe.lib;Dragon.lib;Tiger.lib;YZAnimation.lib;YZEffect.lib;YZLogs.lib;YZModelBLL.lib;YZModelCore.lib;YZModelEntity.lib;YZSceneGraph.lib;YZSqlite.lib;YZTools.lib;ModelCore.lib;sqlite.lib;SqliteDB.lib;Swallow.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
