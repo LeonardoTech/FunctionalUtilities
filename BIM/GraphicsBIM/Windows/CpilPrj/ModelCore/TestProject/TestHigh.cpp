@@ -1,5 +1,5 @@
 #include "testHigh.h"
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\\inc\\YZModelCore\\YZModelCoreInternal.h"
+#include "YZModelCoreInternal.h"
 
 bimWorld::TestHigh::TestHigh(bimWorld::YZModelCoreInternal* viewer)
 {
