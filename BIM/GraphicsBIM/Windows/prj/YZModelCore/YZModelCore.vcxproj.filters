@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{53e18b05-8f47-459c-873e-69ea879244f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="YZModelCore">
+      <UniqueIdentifier>{1a1bc7ba-e2ff-46ad-b501-246659705e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="YZModelCoreModule">
+      <UniqueIdentifier>{791bece2-af24-4e32-a6a3-823934da5de7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelCore\IntPtr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelCore\YZModelCoreModule.h">
+      <Filter>YZModelCoreModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelCore\YZModelCoreInternal.h">
+      <Filter>YZModelCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelCore\ModelCoreFactory.h">
+      <Filter>YZModelCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelCore\IModelCoreInternal.h">
+      <Filter>YZModelCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelCore\NodeSearcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\public\config.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\public\DataModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\public\IModelCoreFactory.h">
+      <Filter>YZModelCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\public\IModelCore.h">
+      <Filter>YZModelCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelCore\ModelCoreFactoryIOS.h">
+      <Filter>YZModelCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\public\IModelCoreFactoryIOS.h">
+      <Filter>YZModelCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\public\YZModelPlugin.h">
+      <Filter>YZModelCoreModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\public\InteractionDefine.h">
+      <Filter>YZModelCore</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\public\NodeCallbackUpdater.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\OSG\src\YZModelCore\YZModelCoreModule.cpp">
+      <Filter>YZModelCoreModule</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\OSG\src\YZModelCore\config.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\OSG\src\YZModelCore\DataModel.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\OSG\src\YZModelCore\YZModelCoreInternal.cpp">
+      <Filter>YZModelCore</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\OSG\src\YZModelCore\ModelCoreFactory.cpp">
+      <Filter>YZModelCore</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\OSG\src\YZModelCore\ModelCoreFactoryIOS.mm">
+      <Filter>YZModelCore</Filter>
+    </None>
+  </ItemGroup>
+</Project>
