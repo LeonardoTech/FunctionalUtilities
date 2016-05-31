@@ -38,7 +38,7 @@
 
 #include "InteractionDefine.h"
 #include "EventHandlers.h"
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\\inc\\YZMaterial\\YZEffect.h"
+#include "YZEffect.h"
 #include "PlottingScale\PlottingScale.h"
 
 namespace bimWorld
