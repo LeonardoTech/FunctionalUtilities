@@ -8,7 +8,7 @@
 #include <mutex>
 #include "NodeControllerWrapper.h"
 #include <osg/Group>
-#include "YZComponent.h"
+#include "../../../../ModelData/BIM/inc/dragon/YZComponent.h"
 #include "Event.h"
 
 namespace bimWorld

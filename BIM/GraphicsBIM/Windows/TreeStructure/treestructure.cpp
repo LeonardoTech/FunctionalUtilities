@@ -13,8 +13,8 @@
 #include <QMessageBox>
 #include "treestructure.h"
 #include "../../../ModelData/BIM/inc/modelcore/IYZComponentCore.h"
-#include "IYZProjectCore.h"
-#include "IYZTemplateCore.h"
+#include "../../../ModelData/BIM/inc/modelcore/IYZProjectCore.h"
+#include "../../../ModelData/BIM/inc/modelcore/IYZTemplateCore.h"
 
 TreeStructure::TreeStructure(QWidget *parent)
 : QMainWindow(parent)
