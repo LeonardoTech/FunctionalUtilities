@@ -11,7 +11,7 @@
 #include "DataModel.h"
 #include "osg/Geode"
 #include <memory>
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\inc\\YZGraphics\\LinePrimitive.h"
+#include "LinePrimitive.h"
 
 namespace bimWorld
 {
