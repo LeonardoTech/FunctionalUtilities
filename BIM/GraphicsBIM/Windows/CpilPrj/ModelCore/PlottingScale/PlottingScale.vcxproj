@@ -347,7 +347,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|x64'">
     <ClCompile>
       <PreprocessorDefinitions>YIZHU_API_DEFINE;UNICODE;WIN32;WIN64;NDEBUG;TIXML_USE_STL;YZMODELCORE_LIB;USING_QT;NEED_RAISE_EVENTS;QT_DLL;QT_CORE_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\..\..\..\..\OSG\inc\public;.\..\..\..\..\OSG\inc\YZModelCore;.\..\..\..\..\OSG\inc\YZModelCore\PlottingScale;.\..\..\..\..\OSG\inc\YZAnimation;.\..\..\..\..\OSG\inc\YZTools;.\..\..\..\..\OSG\inc\YZMaterial;.\..\..\..\..\OSG\inc\YZGraphics;.\..\..\..\..\OSG\inc\YZEffect;.\..\..\..\inc\3rdParty\zlib-1.2.8;$(OSG_3_4)\include;$(QTDIR)\include;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtWidgets;.\GeneratedFiles\$(ConfigurationName);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\..\..\..\..\OSG\inc\public;.\..\..\..\..\OSG\inc\YZModelCore;.\..\..\..\..\OSG\inc\YZModelCore\PlottingScale;.\..\..\..\..\OSG\inc\YZAnimation;.\..\..\..\..\OSG\inc\YZTools;.\..\..\..\..\OSG\inc\YZMaterial;.\..\..\..\..\OSG\inc\YZGraphics;.\..\..\..\..\OSG\inc\YZEffect;.\..\..\..\inc\3rdParty\zlib-1.2.8;$(OSG_3_4)\include;$(QTDIR)\include;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtWidgets;.\GeneratedFiles\$(ConfigurationName);$(YZ_GEO)\inc\dragon;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>

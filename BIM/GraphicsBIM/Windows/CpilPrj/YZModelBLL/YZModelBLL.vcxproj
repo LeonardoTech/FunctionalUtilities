@@ -371,7 +371,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|x64'">
     <ClCompile>
       <PreprocessorDefinitions>YIZHU_API_DEFINE;UNICODE;WIN32;WIN64;NDEBUG;USING_QT;NEED_RAISE_EVENTS;YZMODELBLL_LIB;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(QTDIR)\include;$(SolutionDir)..\..\OSG\inc\YZAnimation;$(SolutionDir)..\..\OSG\inc\YZModelCore;$(SolutionDir)..\..\OSG\inc\YZModelEntity;$(SolutionDir)..\..\OSG\inc\YZModelBLL;$(SolutionDir)..\..\OSG\inc\YZTools;$(SolutionDir)..\..\OSG\inc\public;.\GeneratedFiles\$(ConfigurationName);$(OSG_3_4)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;$(SolutionDir)..\..\OSG\inc\YZAnimation;$(SolutionDir)..\..\OSG\inc\YZModelCore;$(SolutionDir)..\..\OSG\inc\YZModelEntity;$(SolutionDir)..\..\OSG\inc\YZModelBLL;$(SolutionDir)..\..\OSG\inc\YZTools;$(SolutionDir)..\..\OSG\inc\public;.\GeneratedFiles\$(ConfigurationName);$(OSG_3_4)\include;$(YZ_GEO)\inc\dragon;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>

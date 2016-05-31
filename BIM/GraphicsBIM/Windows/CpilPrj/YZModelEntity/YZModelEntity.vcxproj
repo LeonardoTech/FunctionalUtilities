@@ -377,7 +377,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|x64'">
     <ClCompile>
       <PreprocessorDefinitions>USING_QT;YIZHU_API_DEFINE;DEBUG_SQLITE;UNICODE;USING_BOUNDING_SPHERE;WIN32;WIN64;NDEBUG;YZMODELENTITY_LIB;OSGCORE;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(YZ_GEO)\inc\dragon;$(YZ_GEO)\inc\common;$(YZ_GEO)\inc\giraffe;$(YZ_GEO)\inc\tiger;$(YZ_GEO)\inc\ModelCore;$(SolutionDir)..\..\OSG\inc\YZSqlite;$(SolutionDir)..\inc\3rdParty\sqlite-3081002;$(OSG_3_4)\include;$(SolutionDir)..\..\OSG\inc\YZTools;$(SolutionDir)..\..\OSG\inc\YZModelCore;$(SolutionDir)..\..\OSG\inc\YZSceneGraph;$(SolutionDir)..\..\OSG\inc\YZModelEntity;$(SolutionDir)..\..\OSG\inc\public;$(ProjectDir)..\..\..\OSG\inc\YZGraphics;.\..\..\..\OSG\inc\YZMaterial;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include;.\..\..\..\OSG\inc\YZEffect</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(YZ_GEO)\inc\common;$(YZ_GEO)\inc\giraffe;$(YZ_GEO)\inc\tiger;$(YZ_GEO)\inc\ModelCore;$(SolutionDir)..\..\OSG\inc\YZSqlite;$(SolutionDir)..\inc\3rdParty\sqlite-3081002;$(OSG_3_4)\include;$(SolutionDir)..\..\OSG\inc\YZTools;$(SolutionDir)..\..\OSG\inc\YZModelCore;$(SolutionDir)..\..\OSG\inc\YZSceneGraph;$(SolutionDir)..\..\OSG\inc\YZModelEntity;$(SolutionDir)..\..\OSG\inc\public;$(ProjectDir)..\..\..\OSG\inc\YZGraphics;.\..\..\..\OSG\inc\YZMaterial;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include;.\..\..\..\OSG\inc\YZEffect;$(YZ_GEO)\inc\dragon</AdditionalIncludeDirectories>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
