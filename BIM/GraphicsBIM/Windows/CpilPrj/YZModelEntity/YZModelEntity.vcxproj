@@ -386,7 +386,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\$(ProjectName).dll</OutputFile>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\lib\$(Platform)\$(Configuration);$(OSG_3_4)\lib;$(YZ_GEO)\..\Windows\lib\x64_vc12_unicode_release;$(QTDIR)\lib;$(YZ_GEO)\..\Windows\lib\x64_vc12_unicode_drelease;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\..\ModelData\Windows\lib\x64_vc12_unicode_release;$(ProjectDir)..\..\lib\$(Platform)\$(Configuration);$(OSG_3_4)\lib;$(YZ_GEO)\..\Windows\lib\x64_vc12_unicode_release;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalDependencies>SqliteWin.lib;opengl32.lib;glu32.lib;OpenThreads.lib;osg.lib;osgDB.lib;osgManipulator.lib;osgAnimation.lib;osgUtil.lib;osgGA.lib;osgViewer.lib;osgText.lib;osgQt.lib;Qt5Core.lib;Qt5Widgets.lib;Qt5OpenGL.lib;$(SolutionDir)..\lib\$(Platform)\$(Configuration)\YZTools.lib;Giraffe.lib;Dragon.lib;Tiger.lib;ModelCore.lib;ModelLoader.lib;NodeController.lib;ProgressInfo.lib;ZoomEntityModel.lib;SceneGraph.lib;YZEffect.lib;YZSqlite.lib;YZTools.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>$(SolutionDir)..\lib\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
