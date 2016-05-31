@@ -3,7 +3,7 @@
 ////////////
 
 #pragma once
-#include "YZComponent.h"
+#include "../../../../ModelData/BIM/inc/dragon/YZComponent.h"
 #include <vector>
 #include <string>
 #include "CategoryNode.h"

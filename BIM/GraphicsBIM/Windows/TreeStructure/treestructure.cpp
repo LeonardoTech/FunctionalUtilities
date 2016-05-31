@@ -12,7 +12,7 @@
 #include <QPalette>
 #include <QMessageBox>
 #include "treestructure.h"
-#include "IYZComponentCore.h"
+#include "../../../ModelData/BIM/inc/modelcore/IYZComponentCore.h"
 #include "IYZProjectCore.h"
 #include "IYZTemplateCore.h"
 
