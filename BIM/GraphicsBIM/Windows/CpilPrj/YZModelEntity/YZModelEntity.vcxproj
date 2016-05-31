@@ -184,7 +184,7 @@
     <IntDir>$(SolutionDir)..\obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|x64'">
-    <OutDir>$(SolutionDir)..\..\..\..\..\Result\BIM\QTRelease</OutDir>
+    <OutDir>$(SolutionDir)..\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease3.2.1|x64'">

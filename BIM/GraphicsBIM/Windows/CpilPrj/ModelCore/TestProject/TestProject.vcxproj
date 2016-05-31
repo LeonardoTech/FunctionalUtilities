@@ -161,7 +161,7 @@
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='QtRelease|x64'">
-    <OutDir>$(SolutionDir)..\..\..\..\..\Result\BIM\QTRelease</OutDir>
+    <OutDir>$(SolutionDir)..\lib\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\obj\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
