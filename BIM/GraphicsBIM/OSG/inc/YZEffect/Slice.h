@@ -9,8 +9,8 @@
 #include "SlicePlaneDirection.h"
 #include "osg/Geode"
 #include "osg/ShapeDrawable"
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\inc\\YZGraphics\\QuadPrimitive.h"
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\\inc\\YZMaterial\\YZEffectModule.h"
+#include "QuadPrimitive.h"
+#include "YZEffectModule.h"
 
 namespace bimWorld
 {

@@ -9,8 +9,8 @@
 #include "IEffects.h"
 #include "InteractionDefine.h"
 #include "MaterialSetting.h"
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\\inc\\YZEffect\\BasicShader.h"
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\\inc\\YZEffect\\Slice.h"
+#include "BasicShader.h"
+#include "Slice.h"
 
 namespace bimWorld
 {
