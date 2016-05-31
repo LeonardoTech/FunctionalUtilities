@@ -7,9 +7,10 @@
 #include "osg/PolygonOffset"
 #include "osgGA/MultiTouchTrackballManipulator"
 #include "CoordinateUpdater.h"
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\inc\\YZGraphics\\PointPrimitive.h"
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\inc\\YZGraphics\\LinePrimitive.h"
-#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\inc\\YZGraphics\\TextPrimitive.h"
+#include "PointPrimitive.h"
+#include "LinePrimitive.h"
+#include "TextPrimitive.h"
+//#include "D:\\WorkSpace\\BIM\\GraphicsBIM\\OSG\inc\\YZGraphics\\TextPrimitive.h"
 #include <memory>
 #include <osg/Geode>
 
