@@ -11,6 +11,6 @@
 #define CORE_API
 #endif
 
-#include "YZPrerequire.h"
+#include "../common/YZPrerequire.h"
 
 #endif
