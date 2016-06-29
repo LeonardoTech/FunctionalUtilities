@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{9cdf805f-8c5c-4086-8a98-b23a767f756a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ModelEntity">
+      <UniqueIdentifier>{4b8d4de1-fb09-40ab-8111-fd85a8b3f3bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\ModelEntityFactory.cpp">
+      <Filter>ModelEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\YZModelEntityInternal.cpp">
+      <Filter>ModelEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\YZModelEntityModule.cpp">
+      <Filter>ModelEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\ConstructKey.cpp" />
+    <ClCompile Include="..\..\..\OSG\src\YZModelEntity\EntitySharedData.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelEntity\YZModelEntityModule.h">
+      <Filter>ModelEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelEntity\YZModelEntityInternal.h">
+      <Filter>ModelEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelEntity\ModelEntityFactory.h">
+      <Filter>ModelEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\YZModelEntity\EntitySharedData.h" />
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\common\IModelEntityFactory.h">
+      <Filter>ModelEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\OSG\inc\public\IModelEntity.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\OSG\inc\public\ModelViewer\ConstructKey.h" />
+  </ItemGroup>
+</Project>

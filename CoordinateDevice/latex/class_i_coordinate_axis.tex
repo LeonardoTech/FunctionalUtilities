@@ -1,0 +1,118 @@
+\hypertarget{class_i_coordinate_axis}{}\section{I\+Coordinate\+Axis Class Reference}
+\label{class_i_coordinate_axis}\index{I\+Coordinate\+Axis@{I\+Coordinate\+Axis}}
+
+
+$<$一个叫\+I\+Coordinate\+Axis的接口类 成员函数分别是根据属性制作一个坐标系和获取X,Y或\+Z轴的方向.$>$  
+
+
+
+
+{\ttfamily \#include $<$I\+Coordinate\+Axis.\+h$>$}
+
+Inheritance diagram for I\+Coordinate\+Axis\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_coordinate_axis}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_i_coordinate_axis_ad22ead68acd66ed2d191017fd12697b7}{get\+Axis\+Direction} (Axis ax, float \&x, float \&y, float \&z)=0
+\begin{DoxyCompactList}\small\item\em $<$获取某一个轴的指向.$>$ \end{DoxyCompactList}\item 
+virtual osg\+::\+Matrix\+Transform $\ast$ \hyperlink{class_i_coordinate_axis_a4e5694296507a4e86e0fdfbd4ba6a4b8}{set\+Axis} (float x, float y, float radius, osg\+::\+Camera $\ast$camera)=0
+\begin{DoxyCompactList}\small\item\em $<$ 通过指定的二维屏幕坐标画出坐标系，可以指定坐标系的半径长度，需要把屏幕相机作为参数传进去$>$=\char`\"{}\char`\"{}$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+$<$一个叫\+I\+Coordinate\+Axis的接口类 成员函数分别是根据属性制作一个坐标系和获取X,Y或\+Z轴的方向.$>$ 
+
+\begin{DoxyAuthor}{Author}
+Admin 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016/3/14 
+\end{DoxyDate}
+
+
+\subsection{Member Function Documentation}
+\index{I\+Coordinate\+Axis@{I\+Coordinate\+Axis}!get\+Axis\+Direction@{get\+Axis\+Direction}}
+\index{get\+Axis\+Direction@{get\+Axis\+Direction}!I\+Coordinate\+Axis@{I\+Coordinate\+Axis}}
+\subsubsection[{\texorpdfstring{get\+Axis\+Direction(\+Axis ax, float \&x, float \&y, float \&z)=0}{getAxisDirection(Axis ax, float &x, float &y, float &z)=0}}]{\setlength{\rightskip}{0pt plus 5cm}void I\+Coordinate\+Axis\+::get\+Axis\+Direction (
+\begin{DoxyParamCaption}
+\item[{Axis}]{ax, }
+\item[{float \&}]{x, }
+\item[{float \&}]{y, }
+\item[{float \&}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_i_coordinate_axis_ad22ead68acd66ed2d191017fd12697b7}{}\label{class_i_coordinate_axis_ad22ead68acd66ed2d191017fd12697b7}
+
+
+$<$获取某一个轴的指向.$>$ 
+
+$<$其中参数\+Axis代表着X,Y,Z这三个轴.$>$ $<$用了三个引用\&X,\&Y,\&Z，代表指向的向量.$>$
+
+\begin{DoxyAuthor}{Author}
+Admin 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016/3/14
+\end{DoxyDate}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em ax} & The ax. \\
+\hline
+\mbox{\tt out}  & {\em x} & $<$ 指向的x向量$>$=\char`\"{}\char`\"{}$>$ \\
+\hline
+\mbox{\tt out}  & {\em y} & $<$ 指向的y向量$>$=\char`\"{}\char`\"{}$>$ \\
+\hline
+\mbox{\tt out}  & {\em z} & $<$ 指向的z向量$>$=\char`\"{}\char`\"{}$>$ \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_coordinate_axis_a97f2838c4ade40588c8e680f4ff51629}{Coordinate\+Axis}.
+
+\index{I\+Coordinate\+Axis@{I\+Coordinate\+Axis}!set\+Axis@{set\+Axis}}
+\index{set\+Axis@{set\+Axis}!I\+Coordinate\+Axis@{I\+Coordinate\+Axis}}
+\subsubsection[{\texorpdfstring{set\+Axis(float x, float y, float radius, osg\+::\+Camera $\ast$camera)=0}{setAxis(float x, float y, float radius, osg::Camera *camera)=0}}]{\setlength{\rightskip}{0pt plus 5cm}osg\+::\+Matrix\+Transform $\ast$ I\+Coordinate\+Axis\+::set\+Axis (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{radius, }
+\item[{osg\+::\+Camera $\ast$}]{camera}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_i_coordinate_axis_a4e5694296507a4e86e0fdfbd4ba6a4b8}{}\label{class_i_coordinate_axis_a4e5694296507a4e86e0fdfbd4ba6a4b8}
+
+
+$<$ 通过指定的二维屏幕坐标画出坐标系，可以指定坐标系的半径长度，需要把屏幕相机作为参数传进去$>$=\char`\"{}\char`\"{}$>$ 
+
+\begin{DoxyAuthor}{Author}
+Admin 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2016/3/14
+\end{DoxyDate}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em x} & $<$ 二维横坐标$>$=\char`\"{}\char`\"{}$>$ \\
+\hline
+ & {\em y} & $<$ 二维纵坐标$>$=\char`\"{}\char`\"{}$>$ \\
+\hline
+ & {\em radius} & $<$ 坐标轴边半径$>$=\char`\"{}\char`\"{}$>$ \\
+\hline
+\mbox{\tt in}  & {\em camera} & $<$ 把屏幕相机作为参数传进来$>$=\char`\"{}\char`\"{}$>$\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null if it fails, else a pointer to an osg\+::\+Matrix\+Transform. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_coordinate_axis_acbd3e387e7cf1dd0d8ae83ed4073b5c2}{Coordinate\+Axis}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Coordinate\+Device/I\+Coordinate\+Axis.\+h\end{DoxyCompactItemize}

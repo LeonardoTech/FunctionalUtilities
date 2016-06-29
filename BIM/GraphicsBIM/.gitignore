@@ -1,0 +1,17 @@
+*.tlog
+*.ilk
+*.exp
+*.bsc
+*.sbr
+*.obj
+*.log
+*.cache
+*.pch
+*.xdc
+*.idb
+*.user
+*.suo
+vc120.pdb
+/Windows/bin/x64/Debug/YZModelCore.exe
+/Windows/prj/WindowsFormsApplication1/obj
+obj

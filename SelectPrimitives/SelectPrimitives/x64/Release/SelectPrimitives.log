@@ -1,0 +1,12 @@
+﻿生成启动时间为 2016/3/16 15:42:42。
+     1>项目“C:\WorkSpace\FunctionalUtilities\SelectPrimitives\SelectPrimitives\SelectPrimitives.vcxproj”在节点 2 上(Build 个目标)。
+     1>Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe /OUT:"C:\WorkSpace\FunctionalUtilities\DistanceOfPoint\x64\Release\SelectPrimitives.lib" /NOLOGO /MACHINE:X64 /LTCG x64\Release\SelectModelFace.obj
+         x64\Release\SelectModelLine.obj
+         x64\Release\SelectModelPoint.obj
+         SelectPrimitives.vcxproj -> C:\WorkSpace\FunctionalUtilities\DistanceOfPoint\x64\Release\SelectPrimitives.lib
+     1>已完成生成项目“C:\WorkSpace\FunctionalUtilities\SelectPrimitives\SelectPrimitives\SelectPrimitives.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:16.08
