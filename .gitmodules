@@ -1,0 +1,3 @@
+[submodule "NodeControl"]
+	path = NodeControl
+	url = http://192.168.1.108:8088/BIMGraphics.ApplicationLayer/NodeControl.git
